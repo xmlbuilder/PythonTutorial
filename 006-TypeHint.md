@@ -127,8 +127,9 @@ strict_optional = True
 
 
 ### 📁 4. 디렉토리 전체 검사
+```
 mypy src/ tests/
-
+```
 
 - 여러 디렉토리나 파일을 한 번에 검사 가능
 - 설정 파일을 기반으로 검사 범위와 규칙을 자동 적용
@@ -148,7 +149,7 @@ mypy test.py
 
 ```
 # test.py:4: error: Argument 1 to "greet" has incompatible type "int"; expected "str"
-``
+```
 ---
 
 
