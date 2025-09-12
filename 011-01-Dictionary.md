@@ -92,7 +92,7 @@ a['address'] = 'seoul'
 a['name'] = 'jhjeong'
 '''{'name': 'jhjeong', 'phone': '010-7339-9286', 'birth': '690712', 'address': 'seoul'}'''
 
-print(len(a))
+len(a)
 '''4'''
 ```
 
@@ -107,15 +107,15 @@ print(len(a))
 
 ## 조회 관련 코드
 ```python
-print(a.keys())
-'''dict_keys(['name', 'phone', 'birth', 'address', 'rank'])'''
+a.keys()
+'''dict_keys(['name', 'phone', 'birth', 'address'])'''
 
-print(a.values())
-'''dict_values(['jhjeong', '010-7339-9286', '690712', 'seoul', [1, 2, 3]])'''
+a.values()
+'''dict_values(['jhjeong', '010-7339-9286', '690712', 'seoul')'''
 
-print(list(a.items()))
+list(a.items())
 '''
- [('name', 'jhjeong'), ('phone', '010-7339-9286'), ('birth', '690712'), ('address', 'seoul'), ('rank', [1, 2, 3])]
+ [('name', 'jhjeong'), ('phone', '010-7339-9286'), ('birth', '690712'), ('address', 'seoul')]
  '''
 ```
 
@@ -127,18 +127,30 @@ print(list(a.items()))
 | `a.items()`  | 키-값 쌍 반환     | `list(a.items())`    | `[('name', 'jhjeong'), ('phone', '010-...')]` |
 
 
-🧹 삭제 관련 메서드
+## 삭제 관련 코드
+```python
+'a.pop('name')
+'''
+jhjeong
+{'phone': '010-7339-9286', 'birth': '690712', 'address': 'seoul'}
+'''
+```
+
+## 🧹 삭제 관련 메서드
 | 메서드         | 설명                  | 예제 코드           | 결과 예시           |
 |----------------|-----------------------|----------------------|----------------------|
 | `pop(key)`     | 지정한 키 제거 및 값 반환 | `a.pop('name')`      | `'jhjeong'`          |
 | `popitem()`    | 마지막 키-값 쌍 제거 및 반환 | `f.popitem()`        | `('Status', True)`   |
 | `del dict[key]`| 지정한 키 삭제         | `del a['test']`      | —                    |
 
-
 ## 수정 관련 코드
 ```python
+a['address'] = 'kyeongki'
+''{'phone': '010-7339-9286', 'birth': '690712', 'address': 'kyeongki'}'''
 
-
+temp2 = {'data': 'Sample'}
+a.update(temp2)
+'''{'phone': '010-7339-9286', 'birth': '123456', 'address': 'kyeongki'} '''
 ```
 
 ## 🔄 수정 관련 메서드
@@ -148,7 +160,7 @@ print(list(a.items()))
 | `update()`    | 여러 키-값 쌍을 한 번에 병합     | `a.update({'data': 'Sample'})`   | 병합됨     |
 
 
-🧠 추가 유용한 메서드
+## 🧠 추가 유용한 메서드
 | 메서드         | 설명                         | 예제 코드                          | 결과 예시               |
 |----------------|------------------------------|-------------------------------------|--------------------------|
 | `get(key)`     | 키가 없을 경우 `None` 반환     | `a.get('model')`                   | `None`                   |
@@ -158,15 +170,14 @@ print(list(a.items()))
 | `fromkeys()`   | 키 리스트로 새 딕셔너리 생성    | `dict.fromkeys(['a', 'b'], 0)`      | `{'a': 0, 'b': 0}`        |
 
 
-🔁 반복문 활용 예시
+## 🔁 반복문 활용 예시
+```python
 for key in a:
     print(key, a[key])
-
+```
 
 또는
+```python
 for k, v in a.items():
     print(f"{k}: {v}")
-
-
-
-
+```
