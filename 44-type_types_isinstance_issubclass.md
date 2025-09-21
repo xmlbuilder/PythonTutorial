@@ -1,6 +1,6 @@
-# type / types / isinstance / issubclass의
+# type / types / isinstance / issubclass
 
-이 코드는 Python에서 모듈 객체의 타입 확인과 비교를 통해 type, types, isinstance, issubclass의 개념을 익히는 데 아주 유용. 
+이 코드는 Python에서 모듈 객체의 타입 확인과 비교를 통해 type, types, isinstance, issubclass의 개념을 익히는 데 아주 유용.   
 아래에 전체 코드의 취지와 학습 가능한 내용을 정리.
 
 ## 🎯 코드의 취지
