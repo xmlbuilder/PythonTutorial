@@ -65,13 +65,13 @@ sys.path.append()를 통해 Python이 모듈을 찾을 수 있는 경로를 추�
 ```mermaid
 graph TD
     A[module_test.py] --> B[mymodule.py]
-    B --> C[add(x, y)]
-    B --> D[subtract(x, y)]
-    B --> E[multiply(x, y)]
-    B --> F[divide(x, y)]
-    B --> G[power(x, y)]
-    A --> H[sys 모듈]
-    A --> I[time 모듈]
+    B --> C[add]
+    B --> D[subtract]
+    B --> E[multiply]
+    B --> F[divide]
+    B --> G[power]
+    A --> H[sys module]
+    A --> I[time module]
 ```
 
 
@@ -82,5 +82,6 @@ graph TD
 - __name__ == "__main__": 모듈의 직접 실행 여부 판단
 
 ---
+
 
 
