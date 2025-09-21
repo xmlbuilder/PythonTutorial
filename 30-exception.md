@@ -18,9 +18,9 @@ Python에서 예외(Exception)는 프로그램 실행 중 발생하는 오류 �
 ```python
 print('error)
 ```
-
+```
 SyntaxError: unterminated string literal
-
+```
 코드가 실행되기 전에 파싱 단계에서 발생
 
 
@@ -30,17 +30,17 @@ a = 10
 b = 15
 print(c)
 ```
-
+```
 NameError: name 'c' is not defined
-
+```
 
 ### 3. ZeroDivisionError – 0으로 나누기
 ```python
 print(100 / 0)
 ```
-
+```
 ZeroDivisionError: division by zero
-
+```
 
 
 ### 4. IndexError – 리스트 인덱스 초과
@@ -48,9 +48,9 @@ ZeroDivisionError: division by zero
 x = [50, 70, 90]
 print(x[4])
 ```
-
+```
 IndexError: list index out of range
-
+```
 
 
 ### 5. KeyError – 딕셔너리 키 없음
@@ -58,18 +58,18 @@ IndexError: list index out of range
 dic = {'name': "jhjeong", 'age': 56, 'city': 'Seoul'}
 print(dic['phone'])
 ```
-
+```
 KeyError: 'phone'
-
+```
 
 ### 6. AttributeError – 존재하지 않는 속성 호출
 ```python
 import time
 print(time.time2())
 ```
-
+```
 AttributeError: module 'time' has no attribute 'time2'
-
+```
 
 
 ### 7. ValueError – 잘못된 값
@@ -77,18 +77,18 @@ AttributeError: module 'time' has no attribute 'time2'
 x = [50, 10, 90]
 x.remove(200)
 ```
-
+```
 ValueError: list.remove(x): x not in list
-
+```
 
 
 ### 8. FileNotFoundError – 파일 없음
 ```rust
 f = open('test.xlsx', 'r')
 ```
-
+```
 FileNotFoundError: No such file or directory: 'test.xlsx'
-
+```
 
 
 ### 9. TypeError – 자료형 불일치
@@ -97,9 +97,9 @@ x = [1, 2]
 y = (1, 2)
 print(x + y)
 ```
-
+```
 TypeError: can only concatenate list (not "tuple") to list
-
+```
 ## ✅ 예외 처리 기본 구조
 ```python
 try:
@@ -119,5 +119,6 @@ finally:
 - 예외 무시는 except: pass로 가능하지만, 디버깅이 어려워질 수 있음
 
 ---
+
 
 
