@@ -30,7 +30,7 @@ print(dir(f))
 '''['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
 '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', 
 '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', 
-'__subclasshook__', '__weakref__', `'func'`, `'func2'`] 
+'__subclasshook__', '__weakref__', 'func', 'func2'] 
 '''
 ```
 
@@ -89,6 +89,7 @@ print(Warehouse.__dict__)   # 클래스 변수 및 메서드 포함
 | 메서드 호출 방식  | 클래스에서 호출 시 self 직접 전달, 인스턴스에서 자동 전달 |
 
 ---
+
 
 
 
