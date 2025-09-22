@@ -89,6 +89,148 @@ Car.detail_info()          # ❌ TypeError: missing 'self'
 | 클래스 변수 탐색 | 인스턴스에 없으면 클래스에서 탐색      | `car1.car_count`            |
 | 인스턴스 메서드  | `self`를 명시적으로 넘겨 호출 가능     | `Car.detail_info(car1)`     |
 
+
+## 참고 소스
+```python
+class Car:
+    """
+    Car class
+    Author: THJ
+    Date: 2024/12/04
+    """
+
+    def __init__(self, company, detail):
+        self._company = company
+        self._detail = detail
+
+    def __str__(self):
+        return 'str : {} - {}'.format(self._company, self._detail)
+
+    def __repr__(self):
+        return 'repr : {} - {}'.format(self._company, self._detail)
+
+    def detail_info(self):
+        print('Current ID : {}'.format(id(self)))
+
+car1 = Car('Ferrari', {'color': 'Black', 'horsepower': '270', 'price': 5000})
+car2 = Car('Bmw', {'color': 'Black', 'horsepower': '270', 'price': 6000})
+car3 = Car('Audi', {'color': 'Silver', 'horsepower': '300', 'price': 6000})
+car4 = Car('Ferrari', {'color': 'Black', 'horsepower': '270', 'price': 5000})
+
+# ID 확인
+print(id(car1))
+print(id(car2))
+print(id(car3))
+print(id(car4))
+
+'''
+4368969472
+4368969568
+4368969520
+4368969616
+'''
+
+print(car1._company == car2._company )
+'''False'''
+
+print(car1 is car2 ) # 인스턴스 자체를 비교
+'''False'''
+
+# dir & __dict__ 확인
+print(dir(car1))
+print(car1.__dict__)
+'''
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_company', '_detail']
+
+{'_company': 'Ferrari', '_detail': {'color': 'Black', 'horsepower': '270', 'price': 5000}}
+'''
+
+# Doctoring
+print(Car.__doc__)
+'''
+    Car class
+    Author: THJ
+    Date: 2024/12/04
+'''
+
+car1.detail_info()
+'''
+4368969472
+'''
+
+print(car1.__class__)
+'''<class '__main__.Car'>'''
+
+print(car1.__class__ == car2.__class__)
+'''True'''
+
+print(id(car1.__class__), id(car2.__class__), id(car3.__class__), id(car4.__class__))
+'''5016974896 5016974896 5016974896 5016974896'''
+
+
+class Car:
+    """
+    Car class
+    Author: THJ
+    Date: 2024/12/04
+    """
+    # 클래스 변수
+    car_count = 0
+
+    def __init__(self, company, detail):
+        self._company = company
+        self._detail = detail
+        Car.car_count += 1
+
+    def __str__(self):
+        return 'str : {} - {}'.format(self._company, self._detail)
+
+    def __repr__(self):
+        return 'repr : {} - {}'.format(self._company, self._detail)
+
+    def detail_info(self):
+        print('Current ID : {}'.format(id(self)))
+
+    def __del__(self):
+        Car.car_count -= 1
+
+
+car1 = Car('Ferrari', {'color': 'Black', 'horsepower': '270', 'price': 5000})
+car2 = Car('Bmw', {'color': 'Black', 'horsepower': '270', 'price': 6000})
+car3 = Car('Audi', {'color': 'Silver', 'horsepower': '300', 'price': 6000})
+car4 = Car('Ferrari', {'color': 'Black', 'horsepower': '270', 'price': 5000})
+
+# Car.detail_info()
+'''
+Traceback (most recent call last):
+  File "/Users/jeongjunghwan/PycharmProjects/Tutorial2/module_test.py", line 28, in <module>
+    print(Car.detail_info())
+          ^^^^^^^^^^^^^^^^^
+TypeError: Car.detail_info() missing 1 required positional argument: 'self'
+'''
+
+Car.detail_info(car1)
+'''Current ID : 4340658448'''
+
+print(dir(car1))
+'''
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
+'__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', 
+'__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', 
+'__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_company', 
+'_detail', 'car_count', 'detail_info']
+'''
+
+print(car1.car_count)
+'''4'''
+
+print(car1.__dict__)
+'''
+{'_company': 'Ferrari', '_detail': {'color': 'Black', 'horsepower': '270', 'price': 5000}}
+'''<img width="987" height="2374" alt="image" src="https://github.com/user-attachments/assets/01d864e2-ff8a-4878-af1d-9bbb599f80ec" />
+
+```
+
 ----
 
 ## 🧠 1. __slots__: 메모리 최적화
