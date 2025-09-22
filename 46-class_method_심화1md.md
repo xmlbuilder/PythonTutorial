@@ -38,7 +38,8 @@ car_detail_3 = [
     {'horsepower' : '300'},
     {'price': 6000}
 ]
-
+```
+```python
 # 리스트 구조
 car_company_list = ['Ferrari', 'Bmw', 'Audi']
 car_detail_list = [
@@ -57,7 +58,9 @@ print(car_detail_list)
 ['Bmw', 'Audi']
 [{'color': 'Black', 'horsepower': '270', 'price': 5000}, {'color': 'Silver', 'horsepower': '300', 'price': 6000}]
 '''
+```
 
+```python
 # 딕셔너리 구조
 # 코드 반복 지속, 중첩 문제, 키 조회 예외 처리 등
 car_dicts = [
@@ -79,7 +82,8 @@ print(car_dicts)
 [{'car_company': 'Bmw', 'car_detail': {'color': 'Black', 'horsepower': '270', 'price': 6000}}, 
 {'car_company': 'Audi', 'car_detail': {'color': 'Silver', 'horsepower': '300', 'price': 6000}}]
 '''
-
+```
+```python
 # 클래스 구조
 # 구조 설계 후 재 사용성 중가, 코드 반복 최소화, 메소드 활용
 class Car:
@@ -118,7 +122,9 @@ print(car3.__dict__)
 {'_company': 'Bmw', '_detail': {'color': 'Black', 'horsepower': '270', 'price': 6000}}
 {'_company': 'Audi', '_detail': {'color': 'Silver', 'horsepower': '300', 'price': 6000}}
 '''
+```
 
+```python
 # 리스트 선언
 
 car_list = []
