@@ -190,6 +190,7 @@ println!("{:?}", chained); // [1, 2, 3, 4]
 
 ## 🔧 Function Chaining 구현 방식
 ### 1. 함수 객체(Functor) + operator() 오버로드
+```cpp
 struct Add {
     int x;
     Add(int v) : x(v) {}
@@ -204,10 +205,11 @@ struct Mul {
 
 // 체이닝
 int result = Mul(4)(Add(5)(100)); // (100 + 5) * 4 = 420
-
+```
 
 - 함수 객체를 중첩 호출 → 체이닝처럼 동작
 ### 2. 커링 스타일 람다
+```cpp
 auto add = [](int x) {
     return [x](int y) { return x + y; };
 };
@@ -217,10 +219,11 @@ auto mul = [](int x) {
 };
 
 int result = mul(4)(add(5)(100)); // 420
-
+```
 
 - 람다로 커링 구조 구현 → 체이닝 가능
 ### 3. 파이프 스타일 with operator overloading
+```cpp
 template<typename F, typename G>
 auto compose(F f, G g) {
     return [=](auto x) { return g(f(x)); };
@@ -230,7 +233,7 @@ auto f = compose([](int x){ return x + 5; },
                  [](int x){ return x * 4; });
 
 int result = f(100); // (100 + 5) * 4 = 420
-
+```
 
 - compose()로 함수 체이닝 구성
 
