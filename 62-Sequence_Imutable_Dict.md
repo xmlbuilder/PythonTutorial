@@ -9,8 +9,8 @@ MappingProxyType을 활용한 불변 딕셔너리와 관련된 동작까지 깔�
 - 순서 보존 ✅ (Python 3.7+)
 
 - set: 중복 없는 키 집합
-- 값 자체가 키 역할
-- 순서 없음, 중복 ❌
+  - 값 자체가 키 역할
+  - 순서 없음, 중복 ❌
 
 ## 🔐 Immutable dict: MappingProxyType
 ```python
@@ -88,5 +88,6 @@ Traceback (most recent call last):
     ~~~~~~~~^^^^^^^^
 TypeError: 'mappingproxy' object does not support item assignment
 '''
+
 
 ```
