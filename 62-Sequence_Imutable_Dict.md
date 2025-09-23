@@ -4,13 +4,13 @@ MappingProxyType을 활용한 불변 딕셔너리와 관련된 동작까지 깔�
 
 ## 🧠 해시테이블 구조 이해
 - 해시테이블: 키를 해싱하여 메모리 주소에 직접 접근하는 자료구조
-- dict: Python의 대표적인 해시테이블 구현체
-- 키 중복 ❌
-- 순서 보존 ✅ (Python 3.7+)
-
-- set: 중복 없는 키 집합
-  - 값 자체가 키 역할
-  - 순서 없음, 중복 ❌
+  - dict: Python의 대표적인 해시테이블 구현체
+    - 키 중복 ❌
+    - 순서 보존 ✅ (Python 3.7+)
+  
+  - set: 중복 없는 키 집합
+    - 값 자체가 키 역할
+    - 순서 없음, 중복 ❌
 
 ## 🔐 Immutable dict: MappingProxyType
 ```python
@@ -91,3 +91,4 @@ TypeError: 'mappingproxy' object does not support item assignment
 
 
 ```
+
