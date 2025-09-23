@@ -56,8 +56,10 @@ print(s1, type(s1))
 # 출력: {'Kiwi', 'Melon', 'Mango', 'Pineapple', 'Orange', 'Apple'} <class 'set'>
 ```
 
+---
 
-## 🔍 선언 최적화: 바이트코드 비교
+
+### 🔍 선언 최적화: 바이트코드 비교
 ```python
 from dis import dis
 
