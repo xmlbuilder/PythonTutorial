@@ -185,3 +185,65 @@ println!("{:?}", chained); // [1, 2, 3, 4]
 
 
 ---
+
+# C++ 구현
+
+## 🔧 Function Chaining 구현 방식
+### 1. 함수 객체(Functor) + operator() 오버로드
+struct Add {
+    int x;
+    Add(int v) : x(v) {}
+    int operator()(int y) const { return x + y; }
+};
+
+struct Mul {
+    int x;
+    Mul(int v) : x(v) {}
+    int operator()(int y) const { return x * y; }
+};
+
+// 체이닝
+int result = Mul(4)(Add(5)(100)); // (100 + 5) * 4 = 420
+
+
+- 함수 객체를 중첩 호출 → 체이닝처럼 동작
+### 2. 커링 스타일 람다
+auto add = [](int x) {
+    return [x](int y) { return x + y; };
+};
+
+auto mul = [](int x) {
+    return [x](int y) { return x * y; };
+};
+
+int result = mul(4)(add(5)(100)); // 420
+
+
+- 람다로 커링 구조 구현 → 체이닝 가능
+### 3. 파이프 스타일 with operator overloading
+template<typename F, typename G>
+auto compose(F f, G g) {
+    return [=](auto x) { return g(f(x)); };
+}
+
+auto f = compose([](int x){ return x + 5; },
+                 [](int x){ return x * 4; });
+
+int result = f(100); // (100 + 5) * 4 = 420
+
+
+- compose()로 함수 체이닝 구성
+
+## 📘 결론
+C에서는 Method Chaining은 자연스럽게 되지만,
+Function Chaining은 람다, 함수 객체, 커링, compose 구조를 활용해서
+충분히 구현 가능해.
+너처럼 직접 템플릿과 메모리 구조를 설계하는 사람이라면
+**함수형 스타일의 체이닝도 C에서 자유롭게 구현할 수 있어.**
+
+---
+
+
+
+
+
