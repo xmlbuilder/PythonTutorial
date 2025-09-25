@@ -132,12 +132,17 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [Immutable Dict](./62-Sequence_Imutable_Dict.md)
 
 ## H. 예외 & 어서션
-- [예외 개요](./30-exception.md), [try/except](./31-try_except.md)
-- [assert](./37-assert.md), [warnings](./38-waring.md)
+- 예외 개요
+  -[Exception](./H.%20예외%20%26%20어서션/01-exception.md)
+  -[try/except](./H.%20예외%20%26%20어서션/02-try_except.md)
+- assert
+  - [assert](./H.%20예외%20%26%20어서션/03-assert.md),
+  - [warnings](./H.%20예외%20%26%20어서션/04-waring.md)
 
 ## I. 표준 라이브러리/모듈/내장함수
 - [모듈](./029-module.md)
-- [내장 함수](./32-내장함수.md), [외장 함수(표준 라이브러리)](./33-외장함수.md)
+- [내장 함수](./32-내장함수.md)
+- [외장 함수(표준 라이브러리)](./33-외장함수.md)
 
 ## J. 파일 I/O & 입력
 - [입력 input()](./025-Input.md)
