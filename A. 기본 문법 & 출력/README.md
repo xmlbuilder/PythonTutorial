@@ -8,4 +8,5 @@
   - [format 함수](./07-Format.md), 
   - [기타 포맷](./08-Format.md)
 - 식별자/불리언: 
-  - [ID](./09-ID.md), [None/Bool](./10-None_Bool.md)
+  - [ID](./09-ID.md)
+  - [None/Bool](./10-None_Bool.md)
