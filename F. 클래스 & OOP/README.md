@@ -15,7 +15,7 @@
   - [Mixin](./11-Mixin.md)
   - [매직 메서드](./12-MagicMethod.md)
   - [오버로딩](./13-MagicMethodOverloading.md)
-  - [Isinstanace/IsSubclass Type check](./17-type_types_isinstance_issubclass.md)
+  - [isinstance/issubclass Type check](./17-type_types_isinstance_issubclass.md)
 - 실습:
   - [Vector 클래스 만들어보기](./14-Vector클래스_만들어보기.md)
 - 이터러블/이터레이터:
