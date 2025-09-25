@@ -133,8 +133,8 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 
 ## H. 예외 & 어서션
 - 예외 개요
-  -[Exception](./H.%20예외%20%26%20어서션/01-exception.md)
-  -[try/except](./H.%20예외%20%26%20어서션/02-try_except.md)
+  - [Exception](./H.%20예외%20%26%20어서션/01-exception.md)
+  - [try/except](./H.%20예외%20%26%20어서션/02-try_except.md)
 - assert
   - [assert](./H.%20예외%20%26%20어서션/03-assert.md),
   - [warnings](./H.%20예외%20%26%20어서션/04-waring.md)
