@@ -152,8 +152,8 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [CSV/JSON 쓰기](./J.%20파일%20IO%20%26%20입력/04-File_With_Write_CSV_JSON.md)
 
 ## K. 반복자 이터러블 itertools
-- [즉시 실행 vs 단계별 실행](./01-즉시실행_단계별_실행.md)
-- [itertools 요약](./02-itertools.md)
+- [즉시 실행 vs 단계별 실행](./K.%20반복자%20이터러블%20itertools/01-즉시실행_단계별_실행.md)
+- [itertools 요약](./K.%20반복자%20이터러블%20itertools/02-itertools.md)
 
 ## L. 미니 프로젝트
 - [특정 인덱스 찾기 구현](./41-특정인덱스_찾기_구현.md)
