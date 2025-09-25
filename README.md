@@ -95,17 +95,26 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [클래스 데코레이터](./70-Class_Decorator.md)
 
 ## F. 클래스 & OOP
-- 기초: [클래스 기본](./026-class_basic.md), [self](./027-class_self.md), [메서드](./028-class_method.md)
+- 기초:
+  - [클래스 기본](./01-class_basic.md)
+  - [self](./02-class_self.md)
+  - [메서드](./03-class_method.md)
 - 심화:
-  - [bound/unbound 메서드](./45-class_method_bound_method.md)
-  - [클래스 메서드 심화](./46-class_method_심화1md.md)
-  - [id/dict](./47-class_id_dict_.md)
-  - [type과 클래스 메서드](./48-class_method_type.md)
-  - [클래스 속성](./49-class_attr.md)
-  - [다중 상속](./50-다중_상속.md), [super](./51-super_class.md), [Mixin](./52-Mixin.md)
-  - [매직 메서드](./53-MagicMethod.md), [오버로딩](./54-MagicMethodOverloading.md)
-- 실습: [Vector 클래스 만들어보기](./55-Vector클래스_만들어보기.md)
-- 이터러블/이터레이터: [Iterable](./71-Iterable.md), [Iterator/Generator](./72-Iterator_Generator.md)
+  - [bound/unbound 메서드](./04-class_method_bound_method.md)
+  - [클래스 메서드 심화](./05-class_method_심화1md.md)
+  - [id/dict](./06-class_id_dict_.md)
+  - [type과 클래스 메서드](./07-class_method_type.md)
+  - [클래스 속성](./08-class_attr.md)
+  - [다중 상속](./09-다중_상속.md),
+  - [super](./10-super_class.md),
+  - [Mixin](./11-Mixin.md)
+  - [매직 메서드](./12-MagicMethod.md),
+  - [오버로딩](./13-MagicMethodOverloading.md)
+- 실습:
+  - [Vector 클래스 만들어보기](./14-Vector클래스_만들어보기.md)
+- 이터러블/이터레이터:
+  - [Iterable](./15-Iterable.md)
+  - [Iterator/Generator](./16-Iterator_Generator.md)
 
 ## G. 시퀀스 심화 & 자료구조
 - [지능형 시퀀스](./57-Sequence_지능형.md)
