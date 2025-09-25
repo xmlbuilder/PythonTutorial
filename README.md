@@ -70,17 +70,17 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 
 ## D. 제어문
 - if:
-  - [기본](./016-01-if기본.md),
-  - [논리연산자](./016-02-if논리연산자.md),
-  - [다중 조건](./016-03-if다중_조건문.md)
+  - [기본](./D.%20제어문/01-if기본.md),
+  - [논리연산자](./D.%20제어문/02-if논리연산자.md),
+  - [다중 조건](./D.%20제어문/03-if다중_조건문.md)
 - for:
-  - [기본](./017-01-for기본.md),
-  - [break/continue](./017-02-for_break_continue.md),
-  - [for-else](./017-03-for_else.md)
-- while: [while](./018-while.md)
+  - [기본](./D.%20제어문/04-for기본.md),
+  - [break/continue](./D.%20제어문/05-for_break_continue.md),
+  - [for-else](./D.%20제어문/06-for_else.md)
+- while: [while](./D.%20제어문/07.md)
 - 표현식:
-  - [조건부 표현식](./39-Conditional_Expression.md)
-  - [switch 스타일](./40-switch.md)
+  - [조건부 표현식](./D.%20제어문/08-Conditional_Expression.md)
+  - [switch 스타일](./D.%20제어문/09-switch.md)
 
 ## E. 함수 & 함수형 패턴
 - 기초: [함수 정의](./019-함수정의.md), [인자](./020-함수Arugment.md), [lambda](./021-lambda.md)
