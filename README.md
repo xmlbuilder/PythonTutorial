@@ -144,16 +144,16 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [내장 함수](./I.%20표준%20라이브러리%20모듈%20내장함수/02-내장함수.md)
 - [외장 함수(표준 라이브러리)](./I.%20표준%20라이브러리%20모듈%20내장함수/03-외장함수.md)
 
-## J. 파일 I/O & 입력
-- [입력 input()](./025-Input.md)
+## J. 파일 IO & 입력
+- [입력 input()](./J.%20파일%20IO%20%26%20입력/01-Input.md)
 - 파일 다루기:
-  - [읽기 기본](./34-File_Read.md)
-  - [with open 패턴](./35-File_With_Open.md)
-  - [CSV/JSON 쓰기](./36-File_With_Write_CSV_JSON.md)
+  - [읽기 기본](./J.%20파일%20IO%20%26%20입력/02-File_Read.md)
+  - [with open 패턴](./J.%20파일%20IO%20%26%20입력/03-File_With_Open.md)
+  - [CSV/JSON 쓰기](./J.%20파일%20IO%20%26%20입력/04-File_With_Write_CSV_JSON.md)
 
-## K. 반복자/이터러블/itertools
-- [즉시 실행 vs 단계별 실행](./94-즉시실행_단계별_실행.md)
-- [itertools 요약](./95-itertools.md)
+## K. 반복자 이터러블 itertools
+- [즉시 실행 vs 단계별 실행](./01-즉시실행_단계별_실행.md)
+- [itertools 요약](./02-itertools.md)
 
 ## L. 미니 프로젝트
 - [특정 인덱스 찾기 구현](./41-특정인덱스_찾기_구현.md)
