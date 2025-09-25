@@ -1,0 +1,11 @@
+- [여러 문장 한 줄에 코딩](./01-여러문장_한줄에코딩.md)
+- 타입 힌트: [Type Hint](./02-TypeHint.md)
+- 출력과 포맷
+  - [print 기본](./03-Print.md)
+  - [포맷 기본 1](./04-PrintFormat.md) 
+  - [포맷 기본 2](./05-PrintFormat.md)
+  - [포맷 최신 정리(2023)](./06-Print2023.md)
+  - [format 함수](./07-Format.md), 
+  - [기타 포맷](./08-Format.md)
+- 식별자/불리언: 
+  - [ID](./09-ID.md), [None/Bool](./10-None_Bool.md)
