@@ -119,7 +119,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [Mixin](./F.%20클래스%20%26%20OOP/11-Mixin.md)
   - [매직 메서드](./12-MagicMethod.md),
   - [오버로딩](./F.%20클래스%20%26%20OOP/13-MagicMethodOverloading.md)
-  - [Isinstanace/IsSubclass Type check](./F.%20클래스%20%26%20OOP/17-type_types_isinstance_issubclass.md)
+  - [isinstance/issubclass Type check](./F.%20클래스%20%26%20OOP/17-type_types_isinstance_issubclass.md)
 - 실습:
   - [Vector 클래스 만들어보기](./F.%20클래스%20%26%20OOP/14-Vector클래스_만들어보기.md)
 - 이터러블/이터레이터:
