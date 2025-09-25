@@ -41,7 +41,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [기타 포맷](./A.%20기본%20문법%20%26%20출력/08-01-Format.md)
     
 - 식별자/불리언:
-  - [ID](./A.%20기본%20문법%20%26%20출력/09-ID.md),
+  - [ID](./A.%20기본%20문법%20%26%20출력/09-ID.md)
   - [None/Bool](../A.%20기본%20문법%20%26%20출력/10-None_Bool.md)
 
 ## B. 데이터 타입 & 기본 연산
@@ -59,20 +59,28 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [리스트 기본](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/01-list.md),
   - [리스트 값 비교](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/02-list_값비교.md)
 - 튜플:
-  - [Tuple](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/03-Tuple.md),
+  - [Tuple](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/03-Tuple.md)
   - [NamedTuple](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/04-Named_Tuple.md)
 - 딕셔너리: [Dictionary](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/05-Dictionary.md)
 - 셋:
-  - [Set](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/06-Set.md),
+  - [Set](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/06-Set.md)
   - [frozenset](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/07-set_frozenset.md)
 - 맵(개념): [Map](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/08-Map.md)
 - 변경 가능성: [Mutable/Immutable 구분](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/09-변경가능여부확인.md)
 
 ## D. 제어문
-- if: [기본](./016-01-if기본.md), [논리연산자](./016-02-if논리연산자.md), [다중 조건](./016-03-if다중_조건문.md)
-- for: [기본](./017-01-for기본.md), [break/continue](./017-02-for_break_continue.md), [for-else](./017-03-for_else.md)
+- if:
+  - [기본](./016-01-if기본.md),
+  - [논리연산자](./016-02-if논리연산자.md),
+  - [다중 조건](./016-03-if다중_조건문.md)
+- for:
+  - [기본](./017-01-for기본.md),
+  - [break/continue](./017-02-for_break_continue.md),
+  - [for-else](./017-03-for_else.md)
 - while: [while](./018-while.md)
-- 표현식: [조건부 표현식](./39-Conditional_Expression.md), [switch 스타일](./40-switch.md)
+- 표현식:
+  - [조건부 표현식](./39-Conditional_Expression.md)
+  - [switch 스타일](./40-switch.md)
 
 ## E. 함수 & 함수형 패턴
 - 기초: [함수 정의](./019-함수정의.md), [인자](./020-함수Arugment.md), [lambda](./021-lambda.md)
