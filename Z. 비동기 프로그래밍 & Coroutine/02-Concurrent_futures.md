@@ -52,7 +52,7 @@ if __name__ == '__main__':
 ---
 
 # concurrent.futures의 원리
-좋아, JungHwan! concurrent.futures의 원리를 좀 더 깊이 다룸. 
+concurrent.futures의 원리를 좀 더 깊이 다룸. 
 이 모듈은 Python에서 **동시성(concurrency)**을 쉽게 구현할 수 있도록 도와주는 고수준 API. 
 핵심 개념은 Executor, Future, 그리고 비동기 실행 흐름.
 
@@ -150,6 +150,7 @@ with ThreadPoolExecutor(max_workers=3) as executor:
 반면, CPU를 많이 사용하는 대규모 작업에서는 ProcessPoolExecutor가 더 나은 성능을 보입니다.
 
 ---
+
 
 
 
