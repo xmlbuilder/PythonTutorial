@@ -26,6 +26,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [L. 미니 프로젝트](#l-미니-프로젝트)
 - [M. 메모리 참조](#m-메모리-참조)
 - [N. Design Pattern](#n-Design-Pattern)
+- [O. 실행 모델 & 변수 스코프](#o-실행-모델--변수-스코프)
 - [Z. 비동기 프로그래밍 & Coroutine](#z-비동기-프로그래밍--Coroutine)
 - [검색 팁](#검색-팁)
 - [기여 가이드](#기여-가이드)
@@ -201,6 +202,19 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 ## N. Design Pattern
 - [Factory Pattern](./N.%20Design%20Pattern/01-Factory_Pattern.md)
 - [Observer Pattern](./N.%20Design%20Pattern/02-Observer_Pattern.md)
+- 🔼 [맨 위로](#-목차바로가기)
+
+## O. 실행 모델 & 변수 스코프
+- 변수 스코프:
+  - [변수 스코프 (global)](./01-변수스코프_global.md)
+  - [변수 스코프 (nonlocal과 Closure)](./02-nonloca_Closure.md)
+  - [locals](./03-locals.md)
+  - [globals](./04-globals.md)
+- Shallow Copy & Deep Copy:  
+  - [Shallow Copy & Deep Copy](./05-Shallow_Copy%26Deep_Copy.md)
+- Context Manger:
+  - [Context Manaer](./06-ContextManger.md)
+  - [Context Manaer Contextlib](./07-Context_Manager_Contextlib.md)
 - 🔼 [맨 위로](#-목차바로가기)
  
 ## Z. 비동기 프로그래밍 & Coroutine
