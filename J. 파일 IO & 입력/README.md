@@ -8,5 +8,5 @@
   - [CSV/JSON 쓰기](./04-File_With_Write_CSV_JSON.md)
 - 메모리 파일 다루기:
   - [Ascii Memory 파일](./05-StringIO.md)
-
+  - [Binary Memory 파일](./06-BytesIO.md)
 ---
