@@ -1,8 +1,11 @@
 ## O. 실행 모델 & 변수 스코프
-- [변수 스코프 (global)](./01-변수스코프_global.md)
-- [변수 스코프 (nonlocal과 Closure)](./02-nonloca_Closure.md)
-- [locals](./03-locals.md)
-- [globals](./04-globals.md)
-- [Shallow Copy & Deep Copy](./05-Shallow_Copy%26Deep_Copy.md)
-- [Context Manaer](./06-ContextManger.md)
-- [Context Manaer Contextlib](./07-Context_Manager_Contextlib.md)
+- 변수 스코프:
+  - [변수 스코프 (global)](./01-변수스코프_global.md)
+  - [변수 스코프 (nonlocal과 Closure)](./02-nonloca_Closure.md)
+  - [locals](./03-locals.md)
+  - [globals](./04-globals.md)
+- Shallow Copy & Deep Copy:  
+  - [Shallow Copy & Deep Copy](./05-Shallow_Copy%26Deep_Copy.md)
+-  Context Manger:
+  - [Context Manaer](./06-ContextManger.md)
+  - [Context Manaer Contextlib](./07-Context_Manager_Contextlib.md)
