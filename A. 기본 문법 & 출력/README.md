@@ -10,7 +10,7 @@
   - [format 함수](./07-Format.md), 
   - [기타 포맷](./08-Format.md)
 - 식별자/불리언: 
-  - [ID](./09-ID.md)
+  - [id & is Reference 참조](./09-id_is.md)
   - [None/Bool](./10-None_Bool.md)
 
 
