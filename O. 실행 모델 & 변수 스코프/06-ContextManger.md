@@ -109,4 +109,6 @@ try (BufferedWriter file = new BufferedWriter(new FileWriter("file.txt"))) {
 
 결론적으로, 세 언어 모두 자원 해제를 자동화하여 안정성을 높이는 구조를 갖고 있고,  
 Python의 with 구문은 그 중에서도 가장 유연하고 확장성 있는 방식.
+
 ---
+
