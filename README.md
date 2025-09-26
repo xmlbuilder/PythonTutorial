@@ -24,7 +24,8 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [J. 파일 IO & 입력](#j-파일-io--입력)
 - [K. 반복자/이터러블/itertools](#k-반복자이터러블itertools)
 - [L. 미니 프로젝트](#l-미니-프로젝트)
-- [L. 메모리 참조](#m-메모리-참조)
+- [M. 메모리 참조](#m-메모리-참조)
+- [N.Design Pattern](#n-Design-Pattern)
 - [Z. 비동기 프로그래밍 & Coroutine](#z-비동기-프로그래밍--Coroutine)
 - [검색 팁](#검색-팁)
 - [기여 가이드](#기여-가이드)
@@ -183,6 +184,11 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 
 ## M. 메모리 참조
 - [강한 참조, 약한 참조 등](./M.%20메모리%20%26%20참조%20관리/01-Python의_참조_시스템.md)
+- 🔼 [맨 위로](#-목차바로가기)
+
+## N. Design Pattern
+- [Factory Pattern](./01-Factory_Pattern.md)
+- [Observer Pattern](./02-Oberver_Pattern.md)
 - 🔼 [맨 위로](#-목차바로가기)
  
 ## Z. 비동기 프로그래밍 & Coroutine
