@@ -33,4 +33,6 @@
   - [Metaclass Custom Class](./23-Metaclass_CustomClass.md)
 - dataclass 설명:
   - [DataClass](./24-dataclass.md)
+- Descriptor 설명:
+  - [Descriptor](./24-Descriptor.md)
 ---
