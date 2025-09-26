@@ -44,6 +44,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - 식별자/불리언:
   - [ID](./A.%20기본%20문법%20%26%20출력/09-ID.md)
   - [None/Bool](../A.%20기본%20문법%20%26%20출력/10-None_Bool.md)
+- 🔼 [맨 위로](#-목차바로가기)
 
 ## B. 데이터 타입 & 기본 연산
 - 개요: [자료형 훑어보기](./B.%20데이터%20타입%20%26%20기본%20연산/01-자료형.md)
@@ -56,6 +57,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [인코딩/디코딩](./B.%20데이터%20타입%20%26%20기본%20연산/07-문자형인코딩디코딩.md)
 - 열거형:
   - [Enum](./B.%20데이터%20타입%20%26%20기본%20연산/08-Enum.md)  
+- 🔼 [맨 위로](#-목차바로가기)
 
 ## C. 컬렉션(리스트/튜플/딕셔너리/셋)
 - 리스트:
@@ -70,6 +72,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [frozenset](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/07-set_frozenset.md)
 - 맵(개념): [Map](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/08-Map.md)
 - 변경 가능성: [Mutable/Immutable 구분](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/09-변경가능여부확인.md)
+- 🔼 [맨 위로](#-목차바로가기)
 
 ## D. 제어문
 - if:
@@ -84,6 +87,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - 표현식:
   - [조건부 표현식](./D.%20제어문/08-Conditional_Expression.md)
   - [switch 스타일](./D.%20제어문/09-switch.md)
+- 🔼 [맨 위로](#-목차바로가기)
 
 ## E. 함수 & 함수형 패턴
 - 기초:
@@ -103,6 +107,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [데코레이터 기본](./E.%20함수%20%26%20함수형%20패턴/11-Decorator.md)
   - [가변 인자 데코레이터](./E.%20함수%20%26%20함수형%20패턴/12-Decorator_Variable.md)
   - [클래스 데코레이터](./E.%20함수%20%26%20함수형%20패턴/13-Class_Decorator.md)
+- 🔼 [맨 위로](#-목차바로가기)
 
 ## F. 클래스 & OOP
 - 기초:
@@ -126,6 +131,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - 이터러블/이터레이터:
   - [Iterable](./F.%20클래스%20%26%20OOP/15-Iterable.md)
   - [Iterator/Generator](./F.%20클래스%20%26%20OOP/16-Iterator_Generator.md)
+- 🔼 [맨 위로](#-목차바로가기)
 
 ## G. 시퀀스 심화 & 자료구조
 - [지능형 시퀀스](./57-Sequence_지능형.md)
@@ -134,6 +140,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [Mutable 개념](./60-Sequence_Concept(Mutable).md)
 - [해시테이블](./61-Sequence_HashTable.md)
 - [Immutable Dict](./62-Sequence_Imutable_Dict.md)
+- 🔼 [맨 위로](#-목차바로가기)
 
 ## H. 예외 & 어서션
 - 예외 개요
@@ -142,6 +149,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - assert
   - [assert](./H.%20예외%20%26%20어서션/03-assert.md),
   - [warnings](./H.%20예외%20%26%20어서션/04-waring.md)
+- 🔼 [맨 위로](#-목차바로가기)
 
 ## I. 표준 라이브러리/모듈/내장함수
 - [모듈](./I.%20표준%20라이브러리%20모듈%20내장함수/01-module.md)
@@ -149,17 +157,17 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [외장 함수(표준 라이브러리)](./I.%20표준%20라이브러리%20모듈%20내장함수/03-외장함수.md)
 - 🔼 [맨 위로](#-목차바로가기)
 
-- 
-
 ## J. 파일 IO & 입력
-- [입력 input()](./J.%20파일%20IO%20%26%20입력/01-Input.md)
+- [입력]
+- [Input](./J.%20파일%20IO%20%26%20입력/01-Input.md)
 - 파일 다루기:
   - [읽기 기본](./J.%20파일%20IO%20%26%20입력/02-File_Read.md)
   - [with open 패턴](./J.%20파일%20IO%20%26%20입력/03-File_With_Open.md)
   - [CSV/JSON 쓰기](./J.%20파일%20IO%20%26%20입력/04-File_With_Write_CSV_JSON.md)
+- 메모리 파일 다루기:
+  - [Ascii Memory 파일](./05-StringIO.md)
 - 🔼 [맨 위로](#-목차바로가기)
   
-
 ## K. 반복자 이터러블 itertools
 - [즉시 실행 vs 단계별 실행](./K.%20반복자%20이터러블%20itertools/01-즉시실행_단계별_실행.md)
 - [itertools 요약](./K.%20반복자%20이터러블%20itertools/02-itertools.md)
@@ -170,18 +178,13 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [행맨 만들기](./L.%20미니%20프로젝트/02-Hangman_만들어보기.md)
   - → [개선안](./L.%20미니%20프로젝트/03-Hangman_개선.md)
 - 🔼 [맨 위로](#-목차바로가기)
-
-
+ 
 ## Z. 비동기 프로그래밍 & Coroutine
-
 - [Python Coroutine](./Z.%20비동기%20프로그래밍%20%26%20Coroutine/01-Corouine_개념.md)
 - [Concurrent Future submit](./Z.%20비동기%20프로그래밍%20%26%20Coroutine/02-Concurrent_futures.md)
 - [Future wait as_completed](./Z.%20비동기%20프로그래밍%20%26%20Coroutine/03-Futures_wait_as_completed.md)
 - [AsyncIO Download & HTMLParsing](./Z.%20비동기%20프로그래밍%20%26%20Coroutine/04-AsyncIO_Parsing.md)
-
-
-
-
+- 🔼 [맨 위로](#-목차바로가기)
 ---
 
 
