@@ -135,12 +135,13 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - 🔼 [맨 위로](#-목차바로가기)
 
 ## G. 시퀀스 심화 & 자료구조
-- [지능형 시퀀스](./57-Sequence_지능형.md)
-- [Array](./58-Array.md)
-- [Shallow/Deep Copy](./59-Sequence_Swallow_Deep_Copy.md)
-- [Mutable 개념](./60-Sequence_Concept(Mutable).md)
-- [해시테이블](./61-Sequence_HashTable.md)
-- [Immutable Dict](./62-Sequence_Imutable_Dict.md)
+- [지능형 시퀀스](./G.%20시퀀스%20심화%20%26%20자료구조/01-Sequence_지능형.md)
+- [Array](./G.%20시퀀스%20심화%20%26%20자료구조/02-Array.md)
+- [Shallow/Deep Copy](./G.%20시퀀스%20심화%20%26%20자료구조/03-Sequence_Swallow_Deep_Copy.md)
+- [Mutable 개념](./G.%20시퀀스%20심화%20%26%20자료구조/04-Sequence_Concept(Mutable).md)
+- [해시테이블](./G.%20시퀀스%20심화%20%26%20자료구조/05-Sequence_HashTable.md)
+- [Immutable Dict](./G.%20시퀀스%20심화%20%26%20자료구조/06-Sequence_Imutable_Dict.md)
+- [색인 연산자](./G.%20시퀀스%20심화%20%26%20자료구조/07-색인_연산자.md)
 - 🔼 [맨 위로](#-목차바로가기)
 
 ## H. 예외 & 어서션
