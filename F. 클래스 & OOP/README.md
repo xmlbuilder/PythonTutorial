@@ -29,5 +29,5 @@
   - [Method Overloading](./20-Method_Overloading.md)
 - Metaclass
   - [Metaclass Type](./21-Metaclass_type.md) 
-  - [Metaclass Type](./22-Metaclass_type_생성.md) 
+  - [Metaclass Type 생성](./22-Metaclass_type_생성.md) 
 ---
