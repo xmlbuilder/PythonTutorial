@@ -27,5 +27,7 @@
   - [Method Overring](./19-Method_Overriding.md)
 - Method Overloading
   - [Method Overloading](./20-Method_Overloading.md)
+- Metaclass
+  - [Metaclass Type](./21-Metaclass_type.md) 
 
 ---
