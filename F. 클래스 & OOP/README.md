@@ -21,16 +21,16 @@
 - 이터러블/이터레이터:
   - [Iterable](./15-Iterable.md)
   - [Iterator/Generator](./16-Iterator_Generator.md)
-- Getter/Setter
+- Getter/Setter:
   - [Underscore를 이용한 Getter Setter 만들기](./18-Underscore를%20이용한%20Getter%20Setter.md)
-- Method Overriding
+- Method Overriding 설명:
   - [Method Overring](./19-Method_Overriding.md)
-- Method Overloading
+- Method Overloading 설명:
   - [Method Overloading](./20-Method_Overloading.md)
-- Metaclass
+- Metaclass 설명:
   - [Metaclass Type](./21-Metaclass_type.md) 
   - [Metaclass Type 생성](./22-Metaclass_type_생성.md)
   - [Metaclass Custom Class](./23-Metaclass_CustomClass.md)
-- Dataclass
+- dataclass 설명:
   - [DataClass](./24-dataclass.md)
 ---
