@@ -8,12 +8,13 @@ Python에서 비동기 작업을 효율적으로 처리하기 위해 concurrent.
 - 두 개 이상의 스레드가 하나의 자원을 동시에 접근할 경우 GIL이 전체 리소스를 잠금 → 문맥 교환(Context Switch) 발생
 - 이 경우 multiprocessing을 통해 병렬 처리로 우회 가능
 
-## #✅ concurrent.futures 장점
+## ✅ concurrent.futures 장점
 - 고수준 API 제공으로 사용이 간편함
 - 멀티스레딩과 멀티프로세싱 API 통일
 - 작업 취소, 완료 여부 체크, 타임아웃, 콜백 등 Promise 개념을 쉽게 구현 가능
 
 ## 🧪 실습 코드
+```python
 import time
 from concurrent import futures
 
@@ -21,7 +22,7 @@ from concurrent import futures
 WORK_LIST = [100000000, 1000000, 1000000, 1000000000, 10000000000]
 
 # 누적 합계 계산 함수
-```python
+
 def sum_generator(n):
     return sum(n for n in range(1, n + 1))
 
@@ -30,15 +31,11 @@ def main():
     start = time.time()
     # ''' Result -> [500000500000, ...] Time : 약 0.20s '''
 
-
-
     # 멀티프로세싱 예시
     with futures.ProcessPoolExecutor(max_workers=cntWorker) as executor:
         results = executor.map(sum_generator, WORK_LIST)
     # ''' Result -> [500000500000, ...] Time : 약 0.52s '''
     
-    
-
     end = time.time() - start
     print(f"\nResult -> {list(results)} Time : {end:.2f}s")
 
@@ -77,7 +74,7 @@ executor = ThreadPoolExecutor(max_workers=5)
 ```python
 future = executor.submit(some_function, arg1, arg2)
 result = future.result()  # 블로킹 호출, 작업 완료까지 기다림
-\```
+```
 
 ### 3. `submit()` vs `map()`
 
@@ -90,13 +87,15 @@ result = future.result()  # 블로킹 호출, 작업 완료까지 기다림
 |            | 결과를 순서대로 반환                      |
 |            | 리스트처럼 다룰 수 있음                   |
 
-# submit 예시
+
+
+#### submit 예시
 ```python
 futures = [executor.submit(sum_generator, n) for n in WORK_LIST]
 results = [f.result() for f in futures]
 ```
 
-# map 예시
+#### map 예시
 ```rust
 results = executor.map(sum_generator, WORK_LIST)
 ```
@@ -151,6 +150,7 @@ with ThreadPoolExecutor(max_workers=3) as executor:
 반면, CPU를 많이 사용하는 대규모 작업에서는 ProcessPoolExecutor가 더 나은 성능을 보입니다.
 
 ---
+
 
 
 
