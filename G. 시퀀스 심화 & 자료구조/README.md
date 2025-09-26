@@ -5,5 +5,7 @@
 - [Mutable 개념](./04-Sequence_Concept(Mutable).md)
 - [해시테이블](./05-Sequence_HashTable.md)
 - [Immutable Dict](./06-Sequence_Imutable_Dict.md)
+- [색인 연산자](./07-색인_연산자.md)
+
 
 ---
