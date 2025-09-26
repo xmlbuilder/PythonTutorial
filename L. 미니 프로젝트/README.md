@@ -3,5 +3,5 @@
 - [행맨 만들기](./01-Hangman_만들어보기.md)
   - [개선안](./03-Hangman_개선.md)
 - [GIFConverter](./04-GIFConverter.md)
-- [HTTP 배동기 다운로드](./05-HTTP_비동기_적용.md)
+- [HTTP 비동기 다운로드](./05-HTTP_비동기_적용.md)
 ---
