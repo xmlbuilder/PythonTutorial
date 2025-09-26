@@ -27,6 +27,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [M. 메모리 참조](#m-메모리-참조)
 - [N. Design Pattern](#n-Design-Pattern)
 - [O. 실행 모델 & 변수 스코프](#o-실행-모델--변수-스코프)
+- [Q. 배포 시스템 만들기](#q-배포-시스템-만들기)
 - [Z. 비동기 프로그래밍 & Coroutine](#z-비동기-프로그래밍--Coroutine)
 - [검색 팁](#검색-팁)
 - [기여 가이드](#기여-가이드)
@@ -219,6 +220,12 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [Context Manaer](./06-ContextManger.md)
   - [Context Manaer Contextlib](./07-Context_Manager_Contextlib.md)
 - 🔼 [맨 위로](#-목차바로가기)
+
+## Q. 배포 시스템 만들기
+- 배포 시스테 만들기 설명:
+  - [PyPI & GitHub 배포](./01-PyPI%20%26%20GitHub%20배포.md)
+- 🔼 [맨 위로](#-목차바로가기)
+
  
 ## Z. 비동기 프로그래밍 & Coroutine
 - [Python Coroutine](./Z.%20비동기%20프로그래밍%20%26%20Coroutine/01-Corouine_개념.md)
