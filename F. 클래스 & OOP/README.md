@@ -34,5 +34,5 @@
 - dataclass 설명:
   - [DataClass](./24-dataclass.md)
 - Descriptor 설명:
-  - [Descriptor](./24-Descriptor.md)
+  - [Descriptor](./25-Descriptor.md)
 ---
