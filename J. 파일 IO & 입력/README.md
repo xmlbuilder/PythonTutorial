@@ -1,6 +1,7 @@
 ## J. 파일 I/O & 입력
 
-- [입력 input()](./01-Input.md)
+- [입력]
+  -  [input()](./01-Input.md)
 - 파일 다루기:
   - [읽기 기본](./02-File_Read.md)
   - [with open 패턴](./03-File_With_Open.md)
