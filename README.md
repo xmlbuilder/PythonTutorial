@@ -147,7 +147,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - dataclass 설명:
   - [DataClass](./F.%20클래스%20%26%20OOP/24-dataclass.md)
 - Descriptor 설명:
-  - [Descriptor](./24-Descriptor.md)
+  - [Descriptor](./F.%20클래스%20%26%20OOP/24-Descriptor.md)
 - 🔼 [맨 위로](#-목차바로가기)
 
 ## G. 시퀀스 심화 & 자료구조
