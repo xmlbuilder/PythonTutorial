@@ -188,7 +188,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 
 ## N. Design Pattern
 - [Factory Pattern](./N.%20Design%20Pattern/01-Factory_Pattern.md)
-- [Observer Pattern](./N.%20Design%20Pattern/02-Oberver_Pattern.md)
+- [Observer Pattern](./N.%20Design%20Pattern/02-Observer_Pattern.md)
 - 🔼 [맨 위로](#-목차바로가기)
  
 ## Z. 비동기 프로그래밍 & Coroutine
