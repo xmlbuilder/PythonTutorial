@@ -1,4 +1,6 @@
-# 🧵 Python 동시성 프로그래밍: concurrent.futures 활용 예제
+# 🧵 Python 동시성 프로그래밍 
+concurrent.futures 활용 예제
+
 ## 🚀 개요
 Python에서 비동기 작업을 효율적으로 처리하기 위해 concurrent.futures 모듈을 활용한 동시성 프로그래밍을 소개합니다.  
 특히 파일 I/O, 네트워크 작업처럼 지연 시간이 큰 작업에서 CPU 리소스를 낭비하지 않고 성능을 극대화할 수 있습니다.
@@ -150,6 +152,7 @@ with ThreadPoolExecutor(max_workers=3) as executor:
 반면, CPU를 많이 사용하는 대규모 작업에서는 ProcessPoolExecutor가 더 나은 성능을 보입니다.
 
 ---
+
 
 
 
