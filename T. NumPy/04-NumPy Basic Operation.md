@@ -162,11 +162,12 @@ print(np.add(x, y))  # → [2. 0. 6.]
 ---
 
 ## 🔹 6. 집계 함수 (Aggregation)
+```python
 a = np.random.random((2, 3))
 a.sum()       # 전체 합
 a.min()       # 최소값
 a.max()       # 최대값
-
+```
 ### 🧪 예시 출력
 ```python
 import numpy as np
@@ -307,6 +308,7 @@ NumPy의 기본 연산은 단순한 사칙연산을 넘어서
 이걸 자유자재로 다룰 수 있으면, 데이터 분석과 머신러닝까지 연결 가능.
 
 ---
+
 
 
 
