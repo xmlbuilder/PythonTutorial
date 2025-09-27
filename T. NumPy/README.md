@@ -19,6 +19,6 @@
   - [StringIO Converters](./15-StringIO_Converters.md)
   - [StringIO Filleing Values](./16-StringIO_Filleing_Values.md)
 - Broadcasting Rule
-  - [Broadcasting Rule](./7-Broadcasting Rule.md)
+  - [Broadcasting Rule](./17-Broadcasting Rule.md)
 
   
