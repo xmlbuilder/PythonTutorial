@@ -172,7 +172,7 @@ b1 = np.array([3., 8.])
 g1 = np.hstack((a1[:, np.newaxis], b1[:, np.newaxis]))
 ```
 
-## 결과:
+### 결과:
 ```
 [[4. 3.]
  [2. 8.]]
@@ -206,5 +206,6 @@ np.r_[1:4, 0, 4]
 특히 column_stack과 newaxis는 1D 데이터를 2D로 바꿀 때 정말 유용.
 
 ---
+
 
 
