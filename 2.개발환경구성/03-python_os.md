@@ -185,3 +185,4 @@ $env:PYTHONPATH = "C:\MyPythonModules"
 ## 🧠 요약
 - Windows에서도 PATH, PYTHONPATH는 개발 환경 설정에 핵심적인 역할을 해.
 - GUI와 CLI 모두 설정 가능하며, 실무에서는 영구 설정과 일시 설정을 구분해서 사용하는 게 중요해.
+
