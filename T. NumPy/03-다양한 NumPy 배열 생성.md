@@ -252,11 +252,9 @@ print(np.arange(100))
  72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95
  96 97 98 99]
  '''
-<img width="617" height="1346" alt="image" src="https://github.com/user-attachments/assets/c9406c2b-6faa-46e9-a04a-be8a55b45d76" />
-
-
 ```
 
 ----
+
 
 
