@@ -509,23 +509,26 @@ print(d)
 ```python
 d = np.exp(c * 1j)
 ```
+
 ### ✅ 핵심 수식: 오일러 공식
 Given:
+
 ```
 c = [1.0, 2.57079633, 4.14159265]
 ```
 
 Step:
-``python
+```python
 d = np.exp(c * 1j)
 ```
-Explanation:
-According to Euler's formula:
+Explanation:  
+According to Euler's formula:  
+
 ```
     e^(ix) = cos(x) + i·sin(x)
 ```
 
-So, np.exp(c * 1j) computes
+So, np.exp(c * 1j) computes  
 ```
     [cos(1.0) + i·sin(1.0),
         cos(2.57079633) + i·sin(2.57079633),
@@ -568,5 +571,6 @@ print(d)
 | `np.abs(d)`            | 복소수의 크기(magnitude)      | 복소수의 절댓값 → `sqrt(real² + imag²)`                          |
 
 ---
+
 
 
