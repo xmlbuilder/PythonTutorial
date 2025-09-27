@@ -21,6 +21,12 @@ source myenv/bin/activate
 
 활성화되면 PATH가 변경되어 해당 가상환경의 Python이 우선 사용됨
 
+## ✅ 비활성화 명령어
+```
+deactivate
+```
+- venv 환경을 종료하고 시스템 기본 Python으로 돌아가게 돼.
+- macOS, Linux, Windows 모두 동일하게 deactivate 입력하면 돼.
 
 ## 🧠 2. sys.path vs PYTHONPATH
 | 항목             | PYTHONPATH                                | sys.path                                 |
@@ -69,3 +75,4 @@ export PYTHONPATH="/Users/junghwan/my_modules:$PYTHONPATH"
 - 가상환경은 프로젝트 단위로 Python 환경을 분리하는 도구
 - **PYTHONPATH**는 환경 변수로 모듈 검색 경로를 추가
 - **sys.path**는 실제 import 시 참조되는 경로 리스트로, 코드에서 직접 수정 가능
+
