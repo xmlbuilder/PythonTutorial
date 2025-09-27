@@ -38,6 +38,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [P. 내장함수와 고차함수](#p-내장함수와-고차함수)
 - [Q. 배포 시스템 만들기](#q-배포-시스템-만들기)
 - [S. 테스트 환경 구성](#s-테스트-환경-구성)
+- [T. NumPy](#t-NumPy)
 - [Z. 비동기 프로그래밍 & Coroutine](#z-비동기-프로그래밍--Coroutine)
 - [검색 팁](#검색-팁)
 - [기여 가이드](#기여-가이드)
@@ -253,6 +254,33 @@ Design Pattern:
 - Mocking
   - [Mocking 원리 및 환경 설정](./S.%20테스트%20환경%20구성/02-Mocking.md)
 - 🔼 [맨 위로](#-목차바로가기)
+
+## T. NumPy
+- DataType
+  - [DataType](./T.%20NumPy/01-DataType.md)
+- Array Handling
+  - [Create Array](./T.%20NumPy/02-Create_Array.md)
+  - [다양한 NumPy 배열 생성](./T.%20NumPy/03-다양한_NumPy_배열_생성.md)
+  - [NumPy Basic Operation](./T.%20NumPy/04-NumPy_Basic_Operation.md)
+  - [NumPy Array Index Slicing Iterating](./T.%20NumPy/05-NumPy_Array_Index_Slicing_Iterating.md)
+  - [NumPy Shspe Manipulation](./T.%20NumPy/06-NumPy_Shspe_Manipulation.md)
+  - [NumPy Stacking](./T.%20NumPy/07-NumPy_Stacking.md)
+  - [NumPy Split Concatendate](./T.%20NumPy/08-NumPy_Split_Concatendate.md)
+  - [NumPy Copy View](./T.%20NumPy/09-NumPy_Copy_View.md)
+  - [NumPy Fancy Indexingmd](./T.%20NumPy/10-NumPy_Fancy_Indexingmd.md)
+  - [NumPy Boolean Array](./T.%20NumPy/11-NumPy_BooleanArray.md)
+  - [NumPy LinerAlgebra](./T.%20NumPy/12-NumPy_LinerAlgebra.md)
+- StringIO
+  - [StringIO](./T.%20NumPy/13-StringIO.md)
+  - [StringIO usecols](./T.%20NumPy/14-StringIO_usecols.md)
+  - [StringIO Converters](./T.%20NumPy/15-StringIO_Converters.md)
+  - [StringIO Filleing Values](./T.%20NumPy/16-StringIO_Filleing_Values.md)
+- Broadcasting Rule
+  - [Broadcasting Rule](./T.%20NumPy/17-Broadcasting_Rule.md)
+- 🔼 [맨 위로](#-목차바로가기)
+
+  
+
 
  ## Z. 비동기 프로그래밍 & Coroutine
 - [Python Coroutine](./Z.%20비동기%20프로그래밍%20%26%20Coroutine/01-Corouine_개념.md)
