@@ -11,7 +11,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 
 ## 2.개발환경구성
 - 가상 환경 설정
-  - [Virtual_Environment](./2.개발환경구성/-Virtual_Environment.md)
+  - [Virtual_Environment](./2.개발환경구성/01-Virtual_Environment.md)
   - [Conda 사용](./2.개발환경구성/02-Conda사용.md)
 - 환경 설정 확인
   - [python_os](./2.개발환경구성/03-python_os.md)
