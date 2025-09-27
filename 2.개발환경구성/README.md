@@ -2,4 +2,4 @@
   - [Virtual_Environment](./01-Virtual_Environment.md)
   - [Conda 사용](./02-Conda사용.md)
 - 환경 설정 확인
-  - [python_os(./03-python_os.md)
+  - [python_os](./03-python_os.md)
