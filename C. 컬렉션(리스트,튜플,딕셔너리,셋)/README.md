@@ -13,5 +13,7 @@
 - 맵(개념): [Map](./08-Map.md)
 - 변경 가능성: [Mutable/Immutable 구분](./09-변경가능여부확인.md)
 
+- Deque:
+  - [list 보다 deque를 써야 할 때](./10-list_pop_사용_deque.md)
   ---
   
