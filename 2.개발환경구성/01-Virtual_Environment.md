@@ -28,6 +28,22 @@ deactivate
 - venv 환경을 종료하고 시스템 기본 Python으로 돌아가게 돼.
 - macOS, Linux, Windows 모두 동일하게 deactivate 입력하면 돼.
 
+### 🧠 실무 팁
+
+| 환경 종류   | 비활성화 명령어       | 설명                                      |
+|-------------|------------------------|-------------------------------------------|
+| `venv`      | `deactivate`           | 가상환경 종료 후 시스템 기본 Python으로 복귀 |
+| `conda`     | `conda deactivate`     | Conda 환경 종료 후 이전 셸 또는 기본 환경으로 복귀 |
+
+비활성화 후에는 which python 또는 where python 명령어로 현재 사용 중인 Python 경로를 확인하면 좋아.
+
+✅ 추가 팁
+- 비활성화 후 which python 또는 where python으로 현재 Python 경로를 확인하면 환경이 잘 바뀌었는지 알 수 있음
+- 여러 환경을 중첩해서 활성화한 경우, conda deactivate를 여러 번 입력해야 완전히 빠져나올 수 있음
+
+
+---
+
 ## 🧠 2. sys.path vs PYTHONPATH
 | 항목             | PYTHONPATH                                | sys.path                                 |
 |------------------|--------------------------------------------|-------------------------------------------|
@@ -75,4 +91,5 @@ export PYTHONPATH="/Users/junghwan/my_modules:$PYTHONPATH"
 - 가상환경은 프로젝트 단위로 Python 환경을 분리하는 도구
 - **PYTHONPATH**는 환경 변수로 모듈 검색 경로를 추가
 - **sys.path**는 실제 import 시 참조되는 경로 리스트로, 코드에서 직접 수정 가능
+
 
