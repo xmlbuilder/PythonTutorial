@@ -309,6 +309,198 @@ NumPy의 기본 연산은 단순한 사칙연산을 넘어서
 
 ---
 
+## 실전 샘플
+```python
+import numpy as np
+
+a = np.array([20, 30 ,40, 50])
+b = np.arange(4)
+c = a - b
+
+print(c)
+'''[20 29 38 47]'''
+
+d  = b ** 2
+print(d)
+'''[0 1 4 9]'''
+
+e = 10 * np.sin(a)
+print(e)
+'''[ 9.12945251 -9.88031624  7.4511316  -2.62374854]'''
+
+f = a < 35
+print(f)
+'''[ True  True False False]'''
+
+A = np.array([[1,1],
+              [0, 1]])
+
+B = np.array([[2,0],
+              [3, 4]])
+C = A * B
+print(C)
+'''
+[[2 0]
+ [0 4]]
+ '''
+
+D = A @ B
+print(D)
+'''
+[[5 4]
+ [3 4]]
+ '''
+
+E = A.dot(B)
+print(E)
+'''
+[[5 4]
+ [3 4]]
+ '''
+
+a1 = np.ones((2, 3), dtype=int)
+b1 = np.random.random((2, 3))
+print(b1)
+'''
+[[0.2927232  0.05930611 0.95716545]
+ [0.67861961 0.5103508  0.47676085]]
+'''
+
+a1 *= 3
+print(a1)
+'''
+[[3 3 3]
+ [3 3 3]]
+'''
+
+b1 += a1
+print(b1)
+'''
+[[3.2927232  3.05930611 3.95716545]
+ [3.67861961 3.5103508  3.47676085]]
+'''
+
+#a1 += b1
+#print(a1)
+'''Traceback (most recent call last):
+  File "/Users/jeongjunghwan/PycharmProjects/Tutorial2/numpy_test.py", line 49, in <module>
+    b1 = np.random.rand((2, 3))
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "numpy/random/mtrand.pyx", line 1242, in numpy.random.mtrand.RandomState.rand
+  File "numpy/random/mtrand.pyx", line 441, in numpy.random.mtrand.RandomState.random_sample
+  File "_common.pyx", line 312, in numpy.random._common.double_fill
+TypeError: 'tuple' object cannot be interpreted as an integer
+'''
+```
+
+```python
+
+import numpy as np
+
+a = np.ones(3, dtype=np.int32)
+b = np.linspace(0, np.pi, 3)
+
+print(a.dtype.name)
+'''int32'''
+
+print(b.dtype.name)
+'''float64'''
+
+c = a + b
+print(c)
+'''[1.         2.57079633 4.14159265]'''
+
+print(c.dtype.name)
+'''float64'''
+
+d = np.exp(c*1j)
+print(d)
+'''[ 0.54030231+0.84147098j -0.84147098+0.54030231j -0.54030231-0.84147098j]'''
+
+print(d.dtype.name)
+'''complex128'''
+
+```
+
+```python
+import numpy as np
+
+a = np.random.random((2, 3))
+print(a)
+'''
+[[0.08384666 0.01391259 0.94030646]
+ [0.76205091 0.01548114 0.64392931]]
+ '''
+
+print(a.sum())
+'''2.4595270759161374'''
+
+print(a.min())
+'''0.013912593930435424'''
+
+print(a.max())
+'''0.9403064643053698'''
+```
+
+```python
+
+import numpy as np
+
+b = np.arange(12).reshape(3,4)
+print(b)
+'''
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+ '''
+
+print(b.sum(axis=0))
+'''[12 15 18 21]'''
+
+print(b.sum(axis=1))
+'''[ 6 22 38]'''
+
+print(b.min(axis=0))
+'''[0 1 2 3]'''
+
+print(b.min(axis=1))
+'''[0 4 8]'''
+
+print(b.cumsum(axis=0))
+'''
+[[ 0  1  2  3]
+ [ 4  6  8 10]
+ [12 15 18 21]]
+ '''
+
+print(b.cumsum(axis=1))
+'''
+[[ 0  1  3  6]
+ [ 4  9 15 22]
+ [ 8 17 27 38]]
+'''
+```
+
+```python
+import numpy as np
+
+B = np.arange(3)
+print(B)
+'''[0 1 2]'''
+
+print(np.exp(B))
+'''[1.         2.71828183 7.3890561 ]'''
+
+print(np.sqrt(B))
+'''[0.         1.         1.41421356]'''
+
+C = np.array([2.0, -1, 4.])
+print(np.add(B, C))
+'''[2. 0. 6.]'''
+```
+
+
+
 
 
 
