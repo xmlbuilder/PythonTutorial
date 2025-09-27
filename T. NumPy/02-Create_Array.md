@@ -92,5 +92,76 @@ print(f)
 배열 생성은 NumPy의 시작이자 끝이야.
 다양한 방식으로 배열을 만들 수 있다는 건, 데이터를 자유롭게 다룰 수 있다는 뜻.
 
+---
+
+## 실전 소소들
+
+```python
+import numpy as np
+
+a = np.arange(15).reshape(3, 5)
+print(a)
+'''
+[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11 12 13 14]]
+'''
+
+print(a.shape)
+'''(3, 5)'''
+
+print(a.ndim)
+'''2'''
+
+print(a.dtype.name)
+'''int64'''
+
+print(a.itemsize)
+'''8'''
+
+print(type(a))
+'''<class 'numpy.ndarray'>'''
+
+b = np.array([1, 2, 3, 4, 5])
+print(b)
+'''[1 2 3 4 5]'''
+
+print(type(b))
+'''<class 'numpy.ndarray'>'''
+
+c = np.array([1.2, 3.5, 5.1])
+print(c.dtype)
+'''float64'''
+
+#d = np.array(1.2, 3.5, 5.1)
+'''
+Traceback (most recent call last):
+  File "/Users/jeongjunghwan/PycharmProjects/Tutorial2/numpy_test.py", line 35, in <module>
+    d = np.array(1.2, 3.5, 5.1)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: array() takes from 1 to 2 positional arguments but 3 were given
+'''
+
+e = np.array([(1.5, 2, 3), (4, 5, 6)])
+print(e)
+'''
+[[1.5 2.  3. ]
+ [4.  5.  6. ]]
+ '''
+
+print(e.shape)
+'''(2, 3)'''
+
+f = np.array([[1, 2], [3, 4]],dtype=complex)
+
+print(f)
+'''
+[[1.+0.j 2.+0.j]
+ [3.+0.j 4.+0.j]]
+ '''
+
+```
+
+
 
 
