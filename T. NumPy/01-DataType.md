@@ -32,11 +32,11 @@
 │ np.uint16                  │ uint16_t                   │ Unsigned (0 to 65,535)                                     │
 │ np.uint32                  │ uint32_t                   │ Unsigned (0 to 4.2e9)                                      │
 │ np.uint64                  │ uint64_t                   │ Unsigned (0 to 1.8e19)                                     │
-│ np.intp                    │ intptr_t                   │ Integer for indexing (platform-dependent)                 │
-│ np.uintp                   │ uintptr_t                  │ Unsigned integer for pointer-sized values                 │
-│ np.float64 / np.float_     │ double                     │ Same precision as Python built-in `float`                 │
+│ np.intp                    │ intptr_t                   │ Integer for indexing (platform-dependent)                  │
+│ np.uintp                   │ uintptr_t                  │ Unsigned integer for pointer-sized values                  │
+│ np.float64 / np.float_     │ double                     │ Same precision as Python built-in `float`                  │
 │ np.complex64               │ float complex              │ Complex: 2 × 32-bit floats                                 │
-│ np.complex128 / np.complex_│ double complex             │ Same precision as Python built-in `complex`               │
+│ np.complex128 / np.complex_│ double complex             │ Same precision as Python built-in `complex`                │
 └────────────────────────────┴────────────────────────────┴────────────────────────────────────────────────────────────┘
 ```
 
@@ -332,6 +332,7 @@ rows, cols = np.indices((3, 3))
 mask = (rows + cols) % 2 == 0  # 체스판 패턴처럼 만들기
 
 ---
+
 
 
 
