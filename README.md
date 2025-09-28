@@ -59,7 +59,8 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - 식별자/불리언:
   - [id & is Reference 참조](./A.%20기본%20문법%20%26%20출력/09-id_is.md)
   - [None/Bool](./A.%20기본%20문법%20%26%20출력/10-None_Bool.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## B. 데이터 타입 & 기본 연산
 - 개요: [자료형 훑어보기](./B.%20데이터%20타입%20%26%20기본%20연산/01-자료형.md)
@@ -71,8 +72,9 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [불변/변경](./B.%20데이터%20타입%20%26%20기본%20연산/06-문자형변경.md)
   - [인코딩/디코딩](./B.%20데이터%20타입%20%26%20기본%20연산/07-문자형인코딩디코딩.md)
 - 열거형:
-  - [Enum](./B.%20데이터%20타입%20%26%20기본%20연산/08-Enum.md)  
-- 🔼 [맨 위로](#-목차바로가기)
+  - [Enum](./B.%20데이터%20타입%20%26%20기본%20연산/08-Enum.md)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## C. 컬렉션(리스트/튜플/딕셔너리/셋)
 - 리스트:
@@ -89,7 +91,8 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - 변경 가능성: [Mutable/Immutable 구분](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/09-변경가능여부확인.md)
 - Deque:
   - [list 보다 deque를 써야 할 때](./C.%20컬렉션(리스트%2C튜플%2C딕셔너리%2C셋)/10-list_pop_사용_deque.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## D. 제어문
 - if:
@@ -104,7 +107,8 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - 표현식:
   - [조건부 표현식](./D.%20제어문/08-Conditional_Expression.md)
   - [switch 스타일](./D.%20제어문/09-switch.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## E. 함수 & 함수형 패턴
 - 기초:
@@ -124,7 +128,8 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [데코레이터 기본](./E.%20함수%20%26%20함수형%20패턴/11-Decorator.md)
   - [가변 인자 데코레이터](./E.%20함수%20%26%20함수형%20패턴/12-Decorator_Variable.md)
   - [클래스 데코레이터](./E.%20함수%20%26%20함수형%20패턴/13-Class_Decorator.md)
-- 🔼 [맨 위로](#-목차바로가기)
+    
+🔼 [맨 위로](#-목차바로가기)
 
 ## F. 클래스 & OOP
 - 기초:
@@ -162,7 +167,8 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [DataClass](./F.%20클래스%20%26%20OOP/24-dataclass.md)
 - Descriptor 설명:
   - [Descriptor](./F.%20클래스%20%26%20OOP/25-Descriptor.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## G. 시퀀스 심화 & 자료구조
 - [지능형 시퀀스](./G.%20시퀀스%20심화%20%26%20자료구조/01-Sequence_지능형.md)
@@ -172,7 +178,8 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [해시테이블](./G.%20시퀀스%20심화%20%26%20자료구조/05-Sequence_HashTable.md)
 - [Immutable Dict](./G.%20시퀀스%20심화%20%26%20자료구조/06-Sequence_Imutable_Dict.md)
 - [색인 연산자](./G.%20시퀀스%20심화%20%26%20자료구조/07-색인_연산자.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## H. 예외 & 어서션
 - 예외 개요
@@ -181,13 +188,15 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - assert
   - [assert](./H.%20예외%20%26%20어서션/03-assert.md),
   - [warnings](./H.%20예외%20%26%20어서션/04-waring.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## I. 표준 라이브러리/모듈/내장함수
 - [모듈](./I.%20표준%20라이브러리%20모듈%20내장함수/01-module.md)
 - [내장 함수](./I.%20표준%20라이브러리%20모듈%20내장함수/02-내장함수.md)
 - [외장 함수(표준 라이브러리)](./I.%20표준%20라이브러리%20모듈%20내장함수/03-외장함수.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## J. 파일 IO & 입력
 - [입력]
@@ -212,23 +221,26 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [GIFConverter](./L.%20미니%20프로젝트/04-GIFConverter.md)
 - [HTTP 비동기 다운로드](./L.%20미니%20프로젝트/05-HTTP_비동기_적용.md)
 
-- 🔼 [맨 위로](#-목차바로가기)
+🔼 [맨 위로](#-목차바로가기)
 
 ## M. 메모리 참조
 - [강한 참조, 약한 참조 등](./M.%20메모리%20%26%20참조%20관리/01-Python의_참조_시스템.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## N. Design Pattern
 Design Pattern:
   - [Factory Pattern](./N.%20Design%20Pattern/01-Factory_Pattern.md)
   - [Observer Pattern](./N.%20Design%20Pattern/02-Observer_Pattern.md)
   - [Single Pattern](./N.%20Design%20Pattern/03-Singleton_Pattern.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## P. 내장함수와 고차함수
 - Lambda Map Filter Reduce 활용:
   - [Lambda Map Filter Reduce](./01-Lambda_Map_Filter_Reduce.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## O. 실행 모델 & 변수 스코프
 - 변수 스코프:
@@ -241,19 +253,22 @@ Design Pattern:
 - Context Manger:
   - [Context Manaer](./06-ContextManger.md)
   - [Context Manaer Contextlib](./07-Context_Manager_Contextlib.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## Q. 배포 시스템 만들기
 - 배포 시스테 만들기 설명:
   - [PyPI & GitHub 배포](./01-PyPI%20%26%20GitHub%20배포.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## S. 테스트 환경 구성
 - 테스트 환경 구성
   -[환경 구성 기본](./S.%20테스트%20환경%20구성/01-테스트환경_구성.md)
 - Mocking
   - [Mocking 원리 및 환경 설정](./S.%20테스트%20환경%20구성/02-Mocking.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
 ## T. NumPy
 - DataType
@@ -277,11 +292,10 @@ Design Pattern:
   - [StringIO Filleing Values](./T.%20NumPy/16-StringIO_Filleing_Values.md)
 - Broadcasting Rule
   - [Broadcasting Rule](./T.%20NumPy/17-Broadcasting_Rule.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 
   
-
-
  ## Z. 비동기 프로그래밍 & Coroutine
 - [Python Coroutine](./Z.%20비동기%20프로그래밍%20%26%20Coroutine/01-Corouine_개념.md)
 - [Concurrent Future submit](./Z.%20비동기%20프로그래밍%20%26%20Coroutine/02-Concurrent_futures.md)
@@ -289,8 +303,8 @@ Design Pattern:
 - AsyncIO:
   - [AsyncIO 기본](./Z.%20비동기%20프로그래밍%20%26%20Coroutine/05-AsyncIO.md)
   - [AsyncIO Download & HTMLParsing](./Z.%20비동기%20프로그래밍%20%26%20Coroutine/04-AsyncIO_Parsing.md)
-****
-- 🔼 [맨 위로](#-목차바로가기)
+
+🔼 [맨 위로](#-목차바로가기)
 ---
 
 
