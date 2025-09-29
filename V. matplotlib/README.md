@@ -22,5 +22,5 @@ pip install matplotlib
 ---
 
 ## 목차
-[matplot_lib_사용법](./01-matplot_lib_사용법.ipynb)
-[matplotlib_세부_사항_설명](./02-matplotlib_세부_사항_설명.md)
+- [matplot_lib_사용법](./01-matplot_lib_사용법.ipynb)
+- [matplotlib_세부_사항_설명](./02-matplotlib_세부_사항_설명.md)
