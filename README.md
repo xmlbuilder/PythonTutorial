@@ -121,7 +121,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 ## E. 함수 & 함수형 패턴
 - 기초:
   - [함수 정의](./E.%20함수%20%26%20함수형%20패턴/01-함수정의.md)
-  - [인자](./E.%20함수%20%26%20함수형%20패턴/02-함수Arugment.md)
+  - [인자](./E.%20함수%20%26%20함수형%20패턴/02-함수Argument.md)
   - [lambda](./E.%20함수%20%26%20함수형%20패턴/03-lambda.md)
 - 고급:
   - [Currying](./E.%20함수%20%26%20함수형%20패턴/04-Currying.md)
@@ -195,7 +195,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
   - [try/except](./H.%20예외%20%26%20어서션/02-try_except.md)
 - assert
   - [assert](./H.%20예외%20%26%20어서션/03-assert.md),
-  - [warnings](./H.%20예외%20%26%20어서션/04-waring.md)
+  - [warnings](./H.%20예외%20%26%20어서션/04-warning.md)
 
 🔼 [맨 위로](#-목차바로가기)
 
@@ -259,8 +259,8 @@ Design Pattern:
 - Shallow Copy & Deep Copy:  
   - [Shallow Copy & Deep Copy](./05-Shallow_Copy%26Deep_Copy.md)
 - Context Manger:
-  - [Context Manaer](./06-ContextManger.md)
-  - [Context Manaer Contextlib](./07-Context_Manager_Contextlib.md)
+  - [Context Manager](./06-ContextManager.md)
+  - [Context Manager Contextlib](./07-Context_Manager_Contextlib.md)
 
 🔼 [맨 위로](#-목차바로가기)
 
@@ -288,11 +288,11 @@ Design Pattern:
   - [NumPy Array Index Slicing Iterating](./T.%20NumPy/05-NumPy_Array_Index_Slicing_Iterating.md)
   - [NumPy Shspe Manipulation](./T.%20NumPy/06-NumPy_Shspe_Manipulation.md)
   - [NumPy Stacking](./T.%20NumPy/07-NumPy_Stacking.md)
-  - [NumPy Split Concatendate](./T.%20NumPy/08-NumPy_Split_Concatendate.md)
+  - [NumPy Split Concatenate](./T.%20NumPy/08-NumPy_Split_Concatendate.md)
   - [NumPy Copy View](./T.%20NumPy/09-NumPy_Copy_View.md)
   - [NumPy Fancy Indexingmd](./T.%20NumPy/10-NumPy_Fancy_Indexingmd.md)
   - [NumPy Boolean Array](./T.%20NumPy/11-NumPy_BooleanArray.md)
-  - [NumPy LinerAlgebra](./T.%20NumPy/12-NumPy_LinerAlgebra.md)
+  - [NumPy LinearAlgebra](./T.%20NumPy/12-NumPy_LinearAlgebra.md)
 - StringIO
   - [StringIO](./T.%20NumPy/13-StringIO.md)
   - [StringIO usecols](./T.%20NumPy/14-StringIO_usecols.md)
@@ -309,7 +309,7 @@ Design Pattern:
 🔼 [맨 위로](#-목차바로가기)
 
 ## V. matplotlib
-- [matplot_lib_사용법](./V.%20matplotlib/01-matplot_lib_사용법.ipynb)
+- [matplotlib_사용법](./V.%20matplotlib/01-matplotlib_사용법.ipynb)
 - [matplotlib_세부_사항_설명](./V.%20matplotlib/02-matplotlib_세부_사항_설명.md)
 
 
