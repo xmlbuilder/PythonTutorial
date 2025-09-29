@@ -309,8 +309,8 @@ Design Pattern:
 🔼 [맨 위로](#-목차바로가기)
 
 ## V. matplotlib
-- [matplot_lib_사용법](./01-matplot_lib_사용법.ipynb)
-- [matplotlib_세부_사항_설명](./02-matplotlib_세부_사항_설명.md)
+- [matplot_lib_사용법](./V.%20matplotlib/01-matplot_lib_사용법.ipynb)
+- [matplotlib_세부_사항_설명](./V.%20matplotlib/02-matplotlib_세부_사항_설명.md)
 
 
 🔼 [맨 위로](#-목차바로가기)
