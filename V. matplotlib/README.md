@@ -19,3 +19,8 @@ pip install matplotlib
 각 .py 또는 .ipynb 파일은 독립적으로 실행 가능하며, Jupyter Notebook 환경에서 시각적으로 확인하기 좋습니다.
 
 
+---
+
+## 목차
+[matplot_lib_사용법](./01-matplot_lib_사용법.ipynb)
+[matplotlib_세부_사항_설명](./02-matplotlib_세부_사항_설명.md)
