@@ -28,6 +28,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [T. NumPy](#t-NumPy)
 - [U. Pandas](#u-Pandas)
 - [V. matplotlib](#v-matplotlib)
+- [X.Cplus_연동](#x-Cplus-연동)
 - [Z. 비동기 프로그래밍 & Coroutine](#z-비동기-프로그래밍--Coroutine)
 - [검색 팁](#검색-팁)
 - [기여 가이드](#기여-가이드)
@@ -311,6 +312,9 @@ Design Pattern:
 ## V. matplotlib
 - [matplotlib_사용법](./V.%20matplotlib/01-matplotlib_사용법.ipynb)
 - [matplotlib_세부_사항_설명](./V.%20matplotlib/02-matplotlib_세부_사항_설명.md)
+
+## X.Cplus_연동
+- [pybind을 사용한 cpp 연동](./X.Cplus_연동/README.md)
 
 
 🔼 [맨 위로](#-목차바로가기)
