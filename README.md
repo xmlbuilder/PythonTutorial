@@ -28,7 +28,7 @@ Python 기초부터 함수형, 컬렉션 심화, OOP, 예외/파일 I/O, 미니 
 - [T. NumPy](#t-NumPy)
 - [U. Pandas](#u-Pandas)
 - [V. matplotlib](#v-matplotlib)
-- [X.Cplus_연동](#x-Cplus-연동)
+- [X.Cplus_연동](#x-cplus-연동)
 - [Z. 비동기 프로그래밍 & Coroutine](#z-비동기-프로그래밍--Coroutine)
 - [검색 팁](#검색-팁)
 - [기여 가이드](#기여-가이드)
