@@ -3,6 +3,38 @@
 전략 패턴은 알고리즘(전략)을 인터페이스로 정의하고, 이를 동적으로 교체할 수 있도록 설계하는 패턴입니다.  
 즉, 실행 중에 객체의 행동(전략)을 바꿀 수 있게 해주는 패턴.
 
+## 클래스 다이아그램
+```mermaid
+classDiagram
+    class PaymentStrategy {
+        <<interface>>
+        +pay(amount)
+    }
+
+    class CreditCardPayment {
+        +pay(amount)
+    }
+
+    class PayPalPayment {
+        +pay(amount)
+    }
+
+    class PointPayment {
+        +pay(amount)
+    }
+
+    class PaymentProcessor {
+        -strategy : PaymentStrategy
+        +set_strategy(strategy)
+        +process_payment(amount)
+    }
+
+    PaymentStrategy <|.. CreditCardPayment
+    PaymentStrategy <|.. PayPalPayment
+    PaymentStrategy <|.. PointPayment
+    PaymentProcessor --> PaymentStrategy
+```
+
 
 ## ✅ 언제 쓰나?
 - 알고리즘(로직)이 여러 개 존재하고, 상황에 따라 바꿔 써야 할 때
