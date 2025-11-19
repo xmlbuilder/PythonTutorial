@@ -1,4 +1,4 @@
-# Chart
+# Head Excursion Chart
 
 ## 🎯 목표: Head Excursion Chart 구성 요소
 - 배경 색 영역: x축 기준으로 red/yellow/green 영역 나누기
@@ -30,6 +30,9 @@ ax.grid(True)
 plt.tight_layout()
 plt.show()
 ```
+
+- 참조 이미지
+![Head Exursion](/Image/HeadExursion.png)
 
 ## 🔍 핵심 함수 설명
 
@@ -85,7 +88,8 @@ plt.tight_layout()
 plt.show()
 ```
 
-
+- 참조 이미지
+![Head Exursion 2](/Image/HeadExursion2.png)
 
 ## 🔍 핵심 요소 설명
 
@@ -95,6 +99,8 @@ plt.show()
 | `ax.text()`            | 그래프 내 특정 위치에 텍스트 라벨을 삽입할 때 사용                      |
 | `axvspan()`            | x축 방향으로 배경 색 영역을 설정할 때 사용 (위험 구간 시각화 등)        |
 | `plot()`               | x, y 좌표를 따라 선 그래프를 그리는 기본 함수                          |
+
+---
 
 
 
