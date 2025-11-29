@@ -57,9 +57,11 @@ print('{:.2f}'.format(3.14159))           # 소수점 2자리 → 3.14
 
 
 ## ✨ 추천: f-string 방식 (Python 3.6+)
+```python
 name = "JungHwan"
 score = 95.5
 print(f"{name}님의 점수는 {score:.1f}점입니다.")  # → JungHwan님의 점수는 95.5점입니다.
+```
 
 - 가독성 최고, 성능도 우수
 - 변수 직접 삽입 가능
