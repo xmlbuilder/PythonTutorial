@@ -17,8 +17,8 @@ conda activate myenv
 conda deactivate
 ```
 
-- 현재 활성화된 Conda 환경을 종료하고 이전 환경 또는 기본 셸로 돌아가.
-- 여러 단계로 활성화된 경우, 한 번 더 conda deactivate를 입력해야 완전히 빠져나올 수 있어.
+- 현재 활성화된 Conda 환경을 종료하고 이전 환경 또는 기본 셸로 돌아감.
+- 여러 단계로 활성화된 경우, 한 번 더 conda deactivate를 입력해야 완전히 빠져나올 수 있음.
 
 ## 🧠 실무 팁
 | 환경 종류   | 비활성화 명령어       | 설명                                      |
@@ -26,7 +26,7 @@ conda deactivate
 | `venv`      | `deactivate`           | 가상환경 종료 후 시스템 기본 Python으로 복귀 |
 | `conda`     | `conda deactivate`     | Conda 환경 종료 후 이전 셸 또는 기본 환경으로 복귀 |
 
-비활성화 후에는 which python 또는 where python 명령어로 현재 사용 중인 Python 경로를 확인하면 좋아.
+비활성화 후에는 which python 또는 where python 명령어로 현재 사용 중인 Python 경로를 확인하면 좋음.
 
 ### ✅ 추가 팁
 - 비활성화 후 which python 또는 where python으로 현재 Python 경로를 확인하면 환경이 잘 바뀌었는지 알 수 있음
@@ -34,8 +34,8 @@ conda deactivate
 
 
 ## 📦 2. requirements.txt란?
-requirements.txt는 프로젝트에서 사용하는 패키지 목록과 버전 정보를 기록한 파일이야.
-다른 개발자가 동일한 환경을 재현할 수 있도록 도와줘.
+requirements.txt는 프로젝트에서 사용하는 패키지 목록과 버전 정보를 기록한 파일.
+다른 개발자가 동일한 환경을 재현할 수 있도록 도와줌.
 
 예시 내용:
 ```
@@ -50,7 +50,7 @@ scikit-learn
 ```
 pip install -r requirements.txt
 ```
-Conda 환경 안에서 pip로 설치하면 해당 환경에만 적용돼.
+Conda 환경 안에서 pip로 설치하면 해당 환경에만 적용됨.
 
 
 ## 🧾 4. requirements.txt 생성 방법
@@ -59,7 +59,7 @@ Conda 환경 안에서 pip로 설치하면 해당 환경에만 적용돼.
 pip freeze > requirements.txt
 ```
 
-pip freeze는 현재 환경의 모든 패키지와 버전을 출력해줘.
+pip freeze는 현재 환경의 모든 패키지와 버전을 출력해줌.
 
 
 ## 🧠 실무 팁
@@ -150,9 +150,10 @@ conda env create -f environment.yml
 
 
 ## 🧠 실무 팁
-- pip 패키지가 포함된 경우 pip: 섹션을 꼭 분리해서 명시해야 해
-- environment.yml은 Git에 포함시켜서 프로젝트 환경을 공유하는 데 최적이야
+- pip 패키지가 포함된 경우 pip: 섹션을 꼭 분리해서 명시해야 함
+- environment.yml은 Git에 포함시켜서 프로젝트 환경을 공유하는 데 최적
 - name:은 복원 시 변경 가능 → conda env create -n newname -f environment.yml
+
 
 
 
