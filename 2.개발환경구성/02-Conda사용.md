@@ -34,7 +34,7 @@ conda deactivate
 
 
 ## 📦 2. requirements.txt란?
-requirements.txt는 프로젝트에서 사용하는 패키지 목록과 버전 정보를 기록한 파일.
+requirements.txt는 프로젝트에서 사용하는 패키지 목록과 버전 정보를 기록한 파일.  
 다른 개발자가 동일한 환경을 재현할 수 있도록 도와줌.
 
 예시 내용:
@@ -78,7 +78,7 @@ conda env create -f environment.yml
 
 ### venv 또는 Conda 환경에서 pip 패키지 관리
 ```
-ㅔip freeze > requirements.txt
+pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 
@@ -102,7 +102,7 @@ pip install -r requirements.txt
 
 ---
 # environment.yml
-environment.yml 파일은 Conda 환경을 전체적으로 공유하거나 재현할 때 사용하는 설정 파일. 
+environment.yml 파일은 Conda 환경을 전체적으로 공유하거나 재현할 때 사용하는 설정 파일.  
 이 파일에는 Python 버전, 설치된 패키지, 채널 정보 등이 포함돼서 다른 사람이 동일한 환경을 쉽게 복원 가능.
 
 ## 🧾 environment.yml 기본 구조 예시
@@ -150,9 +150,10 @@ conda env create -f environment.yml
 
 
 ## 🧠 실무 팁
-- pip 패키지가 포함된 경우 pip: 섹션을 꼭 분리해서 명시해야 함
+- pip 패키지가 포함된 경우 pip: 섹션을 꼭 분리해서 명시해야 함 
 - environment.yml은 Git에 포함시켜서 프로젝트 환경을 공유하는 데 최적
 - name:은 복원 시 변경 가능 → conda env create -n newname -f environment.yml
+
 
 
 
