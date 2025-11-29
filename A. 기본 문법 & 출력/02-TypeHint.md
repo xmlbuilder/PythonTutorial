@@ -71,14 +71,12 @@ def get_name_and_age() -> Tuple[str, int]:
 --- 
 
 ## 🧪 타입 검사 도구 사용 예시
-mypy는 Python 코드에 작성된 **타입 힌트(Type Hint)**를 기반으로 정적 타입 검사를 수행하는 도구
+mypy는 Python 코드에 작성된 **타입 힌트(Type Hint)** 를 기반으로 정적 타입 검사를 수행하는 도구
 ```
 pip install mypy
 mypy your_script.py
 ```
 - mypy는 타입 힌트를 기반으로 코드의 타입 오류를 사전 탐지해줍니다
-
-
 
 ### 🛠️ 1. mypy 설치
 ```
@@ -99,7 +97,7 @@ mypy your_script.py
 - 예: x: int = "hello" → 문자열을 정수로 선언했기 때문에 오류 발생
 
 ### ⚙️ 3. 설정 파일 만들기
-mypy는 프로젝트 루트에 설정 파일을 두면 자동으로 인식해요. 
+mypy는 프로젝트 루트에 설정 파일을 두면 자동으로 인식. 
 사용 가능한 파일 이름:
 - mypy.ini
 - .mypy.ini
@@ -123,8 +121,6 @@ strict_optional = True
 | `disallow_untyped_defs` | 타입 힌트가 없는 함수 정의를 허용하지 않음 |
 | `check_untyped_defs`    | 타입 힌트가 없는 함수도 검사 대상으로 포함 |
 | `strict_optional`       | `Optional` 타입을 엄격하게 검사함 (`None` 처리 포함) |
-
-
 
 ### 📁 4. 디렉토리 전체 검사
 ```
