@@ -116,9 +116,10 @@ class Status(Enum):
 
 
 ## 🛡️ @unique: 값 중복 방지 데코레이터
-from enum import Enum, unique
 
 ```python
+from enum import Enum, unique
+
 @unique
 class Color(Enum):
     RED = 1
@@ -139,6 +140,7 @@ class Color(Enum):
 | `@unique`  | 값 중복 방지                               | 중복 시 `ValueError` 발생      |
 
 ---
+
 
 
 
