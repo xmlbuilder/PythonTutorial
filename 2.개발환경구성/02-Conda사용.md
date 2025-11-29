@@ -12,7 +12,7 @@ conda create -n myenv python=3.10
 conda activate myenv
 ```
 
-##✅ 비활성화 명령어
+## ✅ 비활성화 명령어
 ```
 conda deactivate
 ```
@@ -33,7 +33,7 @@ conda deactivate
 - 여러 환경을 중첩해서 활성화한 경우, conda deactivate를 여러 번 입력해야 완전히 빠져나올 수 있음
 
 
-##📦 2. requirements.txt란?
+## 📦 2. requirements.txt란?
 requirements.txt는 프로젝트에서 사용하는 패키지 목록과 버전 정보를 기록한 파일이야.
 다른 개발자가 동일한 환경을 재현할 수 있도록 도와줘.
 
@@ -86,8 +86,8 @@ pip install -r requirements.txt
 ## 🧠 요약
 - environment.yml은 Conda 환경 전체를 공유할 때 사용
 - requirements.txt는 pip 기반 패키지 목록을 공유할 때 사용
-- 둘 다 협업, 배포, 환경 재현에 필수적인 도구야
-혹시 이걸 기반으로 Docker와 연동하거나, .gitignore에 환경 파일을 어떻게 관리하는지도 보고 싶어? 다음 단계로 넘어가도 좋아!
+- 둘 다 협업, 배포, 환경 재현에 필수적인 도구
+
 
 
 ## 🔁 Conda + pip 혼합 관리 팁
@@ -153,5 +153,6 @@ conda env create -f environment.yml
 - pip 패키지가 포함된 경우 pip: 섹션을 꼭 분리해서 명시해야 해
 - environment.yml은 Git에 포함시켜서 프로젝트 환경을 공유하는 데 최적이야
 - name:은 복원 시 변경 가능 → conda env create -n newname -f environment.yml
+
 
 
