@@ -4,8 +4,8 @@
 - 타입 힌트: [Type Hint](./02-TypeHint.md)
 - 출력과 포맷
   - [print 기본](./03-Print.md)
-  - [포맷 기본 1](./04-PrintFormat.md) 
-  - [포맷 기본 2](./05-PrintFormat.md)
+  - [포맷 기본](./04-PrintFormat.md) 
+  - [포맷팅 문법](./05-05-Formating.md.md)
   - [포맷 최신 정리(2023)](./06-Print2023.md)
   - [format 함수](./07-Format.md), 
   - [Type](./08-type.md)
