@@ -21,7 +21,7 @@ print("path", path)
 
 
 ## 📦 PYTHONPATH란?
-- Python이 모듈을 찾을 때 참조하는 사용자 정의 경로 목록이야.
+- Python이 모듈을 찾을 때 참조하는 사용자 정의 경로 목록.
 - 예를 들어, import mymodule을 할 때 PYTHONPATH에 지정된 경로에서 mymodule.py를 찾게 됨.
 - 출력 예시:
 ```
@@ -31,7 +31,7 @@ print("path", path)
 
 
 ## 🛣️ PATH란?
-- OS가 명령어 실행 시 참조하는 실행 파일 경로 목록이야.
+- OS가 명령어 실행 시 참조하는 실행 파일 경로 목록.
 - 예를 들어, 터미널에서 python을 입력하면 PATH에 있는 디렉토리들에서 python 실행 파일을 찾게 됨.
 - 출력 예시:
 ```
@@ -187,5 +187,6 @@ $env:PYTHONPATH = "C:\MyPythonModules"
 ## 🧠 요약
 - Windows에서도 PATH, PYTHONPATH는 개발 환경 설정에 핵심적인 역할을 함.
 - GUI와 CLI 모두 설정 가능하며, 실무에서는 영구 설정과 일시 설정을 구분해서 사용하는 게 중요함.
+
 
 
