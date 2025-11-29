@@ -22,22 +22,24 @@ print("path", path)
 
 ## 📦 PYTHONPATH란?
 - Python이 모듈을 찾을 때 참조하는 사용자 정의 경로 목록이야.
-- 예를 들어, import mymodule을 할 때 PYTHONPATH에 지정된 경로에서 mymodule.py를 찾게 돼.
+- 예를 들어, import mymodule을 할 때 PYTHONPATH에 지정된 경로에서 mymodule.py를 찾게 됨.
 - 출력 예시:
+```
 ['/Users/jeongjunghwan/PycharmProjects/Tutorial2',
 '/Applications/PyCharm.app/...']
-
+```
 
 
 ## 🛣️ PATH란?
 - OS가 명령어 실행 시 참조하는 실행 파일 경로 목록이야.
-- 예를 들어, 터미널에서 python을 입력하면 PATH에 있는 디렉토리들에서 python 실행 파일을 찾게 돼.
+- 예를 들어, 터미널에서 python을 입력하면 PATH에 있는 디렉토리들에서 python 실행 파일을 찾게 됨.
 - 출력 예시:
+```
 ['/opt/anaconda3/envs/ComputerVision/bin',
 '/usr/bin',
 '/bin',
 '/usr/local/bin', ...]
-
+```
 
 
 ## ✅ 실무 팁
@@ -64,7 +66,7 @@ print("PATH:", os.environ.get("PATH"))
 ## 🧠 요약
 - PYTHONPATH: Python 모듈 검색 경로
 - PATH: OS 명령어 실행 경로
-- 둘 다 시스템 설정과 개발 환경에 매우 중요한 변수야
+- 둘 다 시스템 설정과 개발 환경에 매우 중요한 변수
 
 ---
 # 환경 변수 설정
@@ -75,7 +77,7 @@ print("PATH:", os.environ.get("PATH"))
 | `.bashrc`    | Bash 셸에서 사용하는 초기화 스크립트. 환경 변수, alias, 경로 설정 등에 사용됨 |
 | `.zshrc`     | Zsh 셸에서 사용하는 초기화 스크립트. macOS에서 기본 셸로 많이 사용됨         |
 
-이 파일들은 로그인 시 자동 실행되는 셸 초기화 스크립트야. 여기에 환경 변수를 설정하면 매번 수동으로 입력할 필요 없이 자동 적용돼.
+이 파일들은 로그인 시 자동 실행되는 셸 초기화 스크립트야. 여기에 환경 변수를 설정하면 매번 수동으로 입력할 필요 없이 자동 적용됨.
 
 
 ## 🔧 2. 환경 변수 설정 방법
@@ -85,16 +87,16 @@ print("PATH:", os.environ.get("PATH"))
 export PYTHONPATH="/Users/jeongjunghwan/PycharmProjects/Tutorial2:$PYTHONPATH"
 ```
 
-- 기존 PYTHONPATH에 경로를 추가하는 방식이야.
-- 여러 경로를 추가할 땐 :로 구분해.
+- 기존 PYTHONPATH에 경로를 추가하는 방식.
+- 여러 경로를 추가할 땐 :로 구분.
 ### ✅ PATH 설정
 # .bashrc 또는 .zshrc에 추가
 ```
 export PATH="/opt/anaconda3/envs/ComputerVision/bin:$PATH"
 ```
 
-- 새로운 실행 경로를 PATH 앞에 추가하면 우선순위가 높아져.
-- 기존 PATH를 유지하면서 덧붙이는 게 안전해.
+- 새로운 실행 경로를 PATH 앞에 추가하면 우선순위가 높아짐.
+- 기존 PATH를 유지하면서 덧붙이는 게 안전.
 
 ## 🧪 3. 적용 방법
 
@@ -103,7 +105,7 @@ export PATH="/opt/anaconda3/envs/ComputerVision/bin:$PATH"
 source ~/.bashrc   # 또는 source ~/.zshrc
 ```
 
-source 명령어는 설정 파일을 다시 읽어서 변경 사항을 즉시 반영해줘.
+source 명령어는 설정 파일을 다시 읽어서 변경 사항을 즉시 반영.
 
 
 ## 🧠 실무 팁
@@ -125,11 +127,11 @@ source 명령어는 설정 파일을 다시 읽어서 변경 사항을 즉시 �
 | `SystemRoot`   | Windows 설치 경로 → 일반적으로 `C:\Windows`                             |
 
 ## ✅ 실무 팁
-- PATH에 Python, Git, Java 등의 실행 경로가 포함되어 있어야 명령어가 정상 작동해
-- PYTHONPATH는 사용자 정의 모듈을 import할 때 유용하게 쓰여
-- TEMP, TMP는 디스크 정리나 캐시 관리 시 확인하면 좋아
+- PATH에 Python, Git, Java 등의 실행 경로가 포함되어 있어야 명령어가 정상 작동
+- PYTHONPATH는 사용자 정의 모듈을 import할 때 유용하게 쓰임
+- TEMP, TMP는 디스크 정리나 캐시 관리 시 확인하면 좋음
 - USERPROFILE은 사용자 설정 파일, 로그, 다운로드 경로 등과 연결됨
-- SystemRoot는 시스템 파일 경로로, 직접 수정하면 위험할 수 있어
+- SystemRoot는 시스템 파일 경로로, 직접 수정하면 위험할 수 있음
 
 
 ## 🔧 환경 변수 확인 방법
@@ -155,7 +157,7 @@ $env:PYTHONPATH
 set PYTHONPATH=C:\MyPythonModules
 ```
 
-이 설정은 현재 세션에서만 유효해. CMD 창을 닫으면 사라져.
+이 설정은 현재 세션에서만 유효해. CMD 창을 닫으면 사라짐.
 
 ### ✅ PowerShell에서 설정 (일시적)
 ```
@@ -183,6 +185,7 @@ $env:PYTHONPATH = "C:\MyPythonModules"
 
 
 ## 🧠 요약
-- Windows에서도 PATH, PYTHONPATH는 개발 환경 설정에 핵심적인 역할을 해.
-- GUI와 CLI 모두 설정 가능하며, 실무에서는 영구 설정과 일시 설정을 구분해서 사용하는 게 중요해.
+- Windows에서도 PATH, PYTHONPATH는 개발 환경 설정에 핵심적인 역할을 함.
+- GUI와 CLI 모두 설정 가능하며, 실무에서는 영구 설정과 일시 설정을 구분해서 사용하는 게 중요함.
+
 
