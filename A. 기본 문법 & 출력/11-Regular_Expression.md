@@ -67,11 +67,11 @@ if matchobj:
 ## 🛠 자주 쓰는 함수
 | 함수             | 설명                                                                 |
 |------------------|----------------------------------------------------------------------|
-| re.search()      | 문자열 전체에서 **첫 번째 매칭**을 찾아 Match 객체 반환               |
-| re.findall()     | 문자열 전체에서 **모든 매칭 결과**를 리스트로 반환                    |
-| re.match()       | 문자열의 **시작 부분**에서만 매칭 시도 (전체가 아닌 시작만)           |
+| re.search()      | 문자열 전체에서 **첫 번째 매칭** 을 찾아 Match 객체 반환               |
+| re.findall()     | 문자열 전체에서 **모든 매칭 결과** 를 리스트로 반환                    |
+| re.match()       | 문자열의 **시작 부분** 에서만 매칭 시도 (전체가 아닌 시작만)           |
 | re.sub()         | 매칭된 부분을 **다른 문자열로 치환**                                  |
-| re.compile()     | 정규표현식을 **패턴 객체로 컴파일**하여 재사용 가능                   |
+| re.compile()     | 정규표현식을 **패턴 객체로 컴파일** 하여 재사용 가능                   |
 
 ## 💡 팁
 - 정규표현식 앞에는 항상 r'' (raw string) 사용 → 백슬래시를 이스케이프하지 않도록
@@ -93,8 +93,8 @@ if matchobj != None  :
 
 #출력  
 '''032-232-3245'''
-
-
+```
+```python
 text = "에러 1122 : 레퍼런스 오류\n 에러 1033: 아규먼트 오류"
 regex = re.compile(r"에러\s(\d+)")
 mc = regex.findall(text)
@@ -102,9 +102,8 @@ print(mc)
 
 #출력
 '''['1122', '1033']'''
-
-
-
+```
+```python
 text = "문의사항이 있으면 032-232-3245 으로 연락주시기 바랍니다."
 regex = re.compile(r'(?P<area>\d{3})-(?P<num>\d{3}-\d{4})')
 matchobj = regex.search(text)
@@ -112,7 +111,8 @@ print(matchobj)
 
 #출력
 '''<re.Match object; span=(10, 22), match='032-232-3245'>'''
-
+```
+```python
 if matchobj != None:
     areaCode = matchobj.group("area")
     num = matchobj.group("num")
@@ -120,5 +120,4 @@ if matchobj != None:
 
 #출력
 '''032 232-3245'''
-
 ```
