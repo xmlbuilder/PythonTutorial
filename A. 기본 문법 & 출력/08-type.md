@@ -9,14 +9,16 @@ print(type(n))
 700
 <class 'int'>
 '''
-
+```
+```python
 # 동시 선언
 x = y = z = 700
 print(x, y, z)
 '''
 700 700 700
 '''
-
+```
+```python
 # 선언
 var = 75
 # 재 선언
@@ -27,7 +29,8 @@ print(type(var))
 Value
 <class 'str'>
 '''
-
+```
+```python
 # Object Reference
 # 변수 값 할당 상태
 # 1. 타입에 맞는 오브젝트 생성
@@ -43,15 +46,14 @@ print(type(int(300)))
 <class 'int'>
 <class 'int'>
 '''
-
+```
+```python
 n = 777
 m = n
 print(m, type(m))
 '''
 777 <class 'int'>
 '''
-
-
 ```
 
 ## 📌 변수 타입과 객체 참조 요약
@@ -70,3 +72,4 @@ print(m, type(m))
 - 객체 참조란 변수는 실제 값을 저장하는 것이 아니라, 해당 값을 가진 객체를 참조한다는 의미입니다. m = n은 n이 가리키는 객체를 m도 함께 가리키게 됩니다.
 - type() 함수는 변수나 값이 어떤 타입인지 알려줍니다.
 ---
+
