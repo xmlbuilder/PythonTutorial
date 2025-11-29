@@ -2,7 +2,9 @@
 Python의 print() 함수에서 자주 사용하는 end 옵션, file 옵션, 그리고 문자열 포맷팅 방식.
 
 ## 🔚 end 옵션: 출력 끝 문자 지정
-기본적으로 print()는 출력 후 줄바꿈(\n)을 합니다. end 옵션을 사용하면 이를 원하는 문자로 바꿀 수 있어요.
+기본적으로 print()는 출력 후 줄바꿈 `(\n)` 을 합니다.  
+end 옵션을 사용하면 이를 원하는 문자로 바꿀 수 있음.
+
 ```python
 print('Welcome to', end='')      # 줄바꿈 없음
 print('IT News', end='')         # → Welcome toIT News
@@ -29,7 +31,7 @@ print('Learn Python', file=sys.stdout)  # 콘솔 출력
 ```
 
 - 기본 출력은 sys.stdout (콘솔)
-- file=open('output.txt', 'w')로 파일에 출력 가능
+- `file=open('output.txt', 'w')` 로 파일에 출력 가능
 
 ## 🧾 문자열 포맷팅 방식
 ### 1️⃣ % 포맷 방식 (C 스타일)
@@ -62,7 +64,6 @@ name = "JungHwan"
 score = 95.5
 print(f"{name}님의 점수는 {score:.1f}점입니다.")  # → JungHwan님의 점수는 95.5점입니다.
 ```
-
 - 가독성 최고, 성능도 우수
 - 변수 직접 삽입 가능
 ---
