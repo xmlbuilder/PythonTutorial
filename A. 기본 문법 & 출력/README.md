@@ -8,7 +8,7 @@
   - [포맷 기본 2](./05-PrintFormat.md)
   - [포맷 최신 정리(2023)](./06-Print2023.md)
   - [format 함수](./07-Format.md), 
-  - [기타 포맷](./08-Format.md)
+  - [Type](./08-type.md)
 - 식별자/불리언: 
   - [id & is Reference 참조](./09-id_is.md)
   - [None/Bool](./10-None_Bool.md)
