@@ -13,8 +13,8 @@ if None:
 
 ## ✅ bool 타입과 __bases__
 - bool은 Python의 불리언 타입으로, True와 False 두 값만 가질 수 있음.
-- bool.__bases__를 출력하면 (<class 'int'>,)가 나오는데, 이는 bool이 int를 상속받은 클래스라는 뜻.
-즉, True와 False는 사실상 숫자 1과 0처럼 동작합니다:
+- bool.__bases__를 출력하면 (<class 'int'>,)가 나오는데, 이는 bool이 int를 상속받은 클래스라는 뜻.  
+    - 즉, True와 False는 사실상 숫자 1과 0처럼 동작합니다:
 ```python
 print(True + 1)  # 2
 print(False * 10)  # 0
@@ -30,5 +30,6 @@ print(False * 10)  # 0
 | `False`| `bool` (`int` 상속) | `False`    | `0`       |
 
 
+---
 
 
