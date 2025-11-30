@@ -1,9 +1,9 @@
 # Input
-Python의 input() 함수는 사용자로부터 데이터를 입력받는 가장 기본적인 방법. 
+Python의 input() 함수는 사용자로부터 데이터를 입력받는 가장 기본적인 방법.   
 아래에 기본 사용법, 형 변환, 예외 처리, 실무 팁까지 정리.
 
 ## 🧠 input() 함수 기본 개념
-- input(prompt)는 사용자에게 메시지를 보여주고 **문자열(str)**을 입력받습니다.
+- input(prompt)는 사용자에게 메시지를 보여주고 **문자열(str)** 을 입력받습니다.
 - 입력값은 항상 문자열 타입으로 반환되므로, 숫자 계산을 하려면 형 변환이 필요합니다.
 
 ## 📌 기본 사용법
@@ -22,7 +22,6 @@ number = input("Enter number : ")
 print(type(number))  # <class 'str'>
 ```
 
-
 ## 🔢 숫자 입력 처리 (형 변환)
 ### 정수 입력
 ```python
@@ -38,14 +37,11 @@ print("input float:", float_number)
 print("type:", type(float_number))  # <class 'float'>
 ```
 
-
 ### 🧾 포맷 출력
 ```
 print("FirstName - {0}, LastName - {1}".format(input('Enter first name : '), input('Enter second name : ')))
 ```
-
-
-- format()을 사용하면 입력값을 깔끔하게 출력할 수 있어요.
+- format()을 사용하면 입력값을 깔끔하게 출력할 수 있음.
 
 ## ⚠️ 예외 처리
 ### 단일 입력 예외 처리
@@ -69,7 +65,6 @@ while True:
 
 print("Ok. Your number is :", n)
 ```
-
 
 - 사용자가 잘못된 값을 입력했을 때 프로그램이 멈추지 않도록 보호합니다.
 
@@ -97,7 +92,6 @@ else:
     print("Email accepted")
 ```
 
-
 ## 🔚 요약
 
 | 항목         | 기능 설명                         |
@@ -111,7 +105,7 @@ else:
 ## 실전 샘플
 
 아래는 input()을 활용한 기본 메뉴 시스템 예제입니다. 
-사용자가 메뉴를 선택하고, 각 선택에 따라 다른 동작을 수행하는 구조예요.
+사용자가 메뉴를 선택하고, 각 선택에 따라 다른 동작을 수행하는 구조.
 
 ## 🧪 Python 콘솔 메뉴 시스템 예제
 ```python
@@ -168,10 +162,8 @@ Select an option (1-4): 1
 ```
 
 ```
-
 Enter your name: JungHwan
 👋 Hello, JungHwan!
-
 ```
 
 ## 💡 실무 확장 아이디어
@@ -181,3 +173,4 @@ Enter your name: JungHwan
 - 반복 입력 처리 및 예외 방지
 
 ---
+
