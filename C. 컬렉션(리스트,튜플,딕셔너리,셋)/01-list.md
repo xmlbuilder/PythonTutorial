@@ -50,9 +50,9 @@ d --- ()
 
 ## ✂️ 슬라이싱
 ```python
-print('d ---', d[0:3])  # [1, 2, 'Python']
+print(d[0:3])  # [1, 2, 'Python']
 ```
-- d[start:end]: start부터 end-1까지 추출
+- `d[start:end]`: start부터 end-1까지 추출
 
 ➕ 리스트 연산
 ```python
@@ -119,6 +119,7 @@ a.reverse()        # [99, 5, 4, 2, 1]
 - sort()는 리스트 내부 요소가 비교 가능한 타입이어야 함 (예: 숫자 vs 문자열 혼합은 오류)
 
 ---
+
 
 
 
