@@ -97,8 +97,9 @@ l_length1 = sqrt((pt1[0] - pt2[0]) ** 2 + (pt1[1] - pt2[1]) ** 2)
 
 print(l_length1)
 '''3.8078865529319543'''
-
-# 네임드 튜플 사용 (Named tuple)
+```
+### 네임드 튜플 사용 (Named tuple)
+```python
 from collections import namedtuple
 
 
@@ -121,8 +122,10 @@ print(l_length2)
 l_length3 = sqrt((pt3.x - pt4.x) ** 2 + (pt3.y - pt4.y) ** 2)
 print(l_length3)
 '''2.8284271247461903'''
+```
 
-# 네임드 튜플 선언 방법
+### 네임드 튜플 선언 방법
+```python
 Point1 = namedtuple('Point1', 'x y')
 Point2 = namedtuple('Point2', ['x','y'])
 Point3 = namedtuple('Point3', 'x, y')
@@ -157,8 +160,10 @@ x, y = p1.x, p1.y
 x1, y1 = p1
 print(x, y, x1, y1)
 '''1.0 2.0 1.0 2.0'''
+```
 
-# 네임드 튜플 메소드
+### 네임드 튜플 메소드
+```python
 temp = [52, 38]
 # 새로운 객체 생성
 pt4 = Point2._make(temp)
@@ -175,8 +180,10 @@ print(p1._asdict())
 
 print(p4._asdict())
 '''{'x': 10, 'y': 20, 'z': 30, '_3': 40}'''
+```
 
-# 실 사용 실습
+### 실 사용 실습
+```python
 # 반 20명 4개의 반(A, B, C, D)
 Classes = namedtuple('Classes', ('rank', 'number'))
 
@@ -195,7 +202,6 @@ print(students)
 '''
 [Classes(rank='A', number='1'), ..., Classes(rank='D', number='19'), Classes(rank='D', number='20')]
 '''
-
 print(len(students))
 '''80'''
 
@@ -208,10 +214,9 @@ for s in students:
 ...
 Classes(rank='D', number='20')
 '''
-
 ```
-
 ----
+
 
 
 
