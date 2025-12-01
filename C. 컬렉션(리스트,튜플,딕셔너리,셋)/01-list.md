@@ -114,11 +114,12 @@ a.reverse()        # [99, 5, 4, 2, 1]
 
 
 ## 📌 참고:
-- remove()는 값이 없으면 ValueError 발생 → try-except로 감싸는 게 안전
-- pop()은 인덱스가 범위를 벗어나면 IndexError 발생
-- sort()는 리스트 내부 요소가 비교 가능한 타입이어야 함 (예: 숫자 vs 문자열 혼합은 오류)
+- `remove()` 는 값이 없으면 ValueError 발생 → try-except로 감싸는 게 안전
+- `pop()` 은 인덱스가 범위를 벗어나면 IndexError 발생
+- `sort()` 는 리스트 내부 요소가 비교 가능한 타입이어야 함 (예: 숫자 vs 문자열 혼합은 오류)
 
 ---
+
 
 
 
