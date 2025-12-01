@@ -137,15 +137,17 @@ PyCharm을 중심으로 가상환경을 이해하면 훨씬 쉽게 다가갈 수
 
 ## 🧠 PyCharm 관점에서 보는 가상환경
 ## ✅ 1. 프로젝트 생성 시 자동 가상환경 설정
-- PyCharm에서 새 프로젝트를 만들면 아래 옵션이 보여:
+- PyCharm에서 새 프로젝트를 만들면 아래 옵션이 보임:
+```
 [✔] Create a new environment using: [Virtualenv / Conda]
 Location: /Users/junghwan/PycharmProjects/MyProject/venv
 Base interpreter: /usr/bin/python3.10
+```
 - 이걸 체크하면 PyCharm이 알아서 venv나 conda 환경을 생성해줘.
 - 별도로 python -m venv나 conda create 명령어를 몰라도 됨!
 
 ## ✅ 2. 가상환경 자동 활성화
-- PyCharm은 해당 프로젝트를 열 때 자동으로 해당 가상환경을 활성화해.
+- PyCharm은 해당 프로젝트를 열 때 자동으로 해당 가상환경을 활성화함.
 - 터미널에서도 자동으로 venv나 conda 환경이 적용돼서 바로 pip install 가능.
 
 ## ✅ 3. 패키지 관리도 GUI로 가능
@@ -166,9 +168,10 @@ Base interpreter: /usr/bin/python3.10
 | `requirements.txt` 연동  | 파일 감지 시 자동 설치 안내 → 협업 시 환경 복원이 쉬움                     |
 
 ## 한마디
-“PyCharm은 가상환경을 마치 ‘숨은 조력자’처럼 다뤄줘. 복잡한 설정은 뒤에서 처리하고, 너는 코드에만 집중하면 됨.”
+**PyCharm은 가상환경을 마치 ‘숨은 조력자’처럼 다뤄줘. 복잡한 설정은 뒤에서 처리하고, 너는 코드에만 집중하면 됨.**
 
 ---
+
 
 
 
