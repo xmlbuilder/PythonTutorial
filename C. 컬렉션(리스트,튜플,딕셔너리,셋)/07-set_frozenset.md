@@ -1,5 +1,5 @@
 # set / frozenset을
-Python의 set과 frozenset을 아주 잘 보여주는 실전 예제.
+Python의 set과 frozenset 실전 예제.  
 아래에 전체 내용을 개념 + 코드 + 설명으로 정리.
 
 ## 🧮 Python의 집합 자료형: set과 frozenset
@@ -15,6 +15,8 @@ Python의 set과 frozenset을 아주 잘 보여주는 실전 예제.
 ```python
 s1 = {'Apple', 'Orange', 'Mango', 'Pineapple', 'Kiwi', 'Apple'}
 print(s1)
+```
+```
 # 출력: {'Orange', 'Pineapple', 'Kiwi', 'Mango', 'Apple'}
 ```
 - 중복된 'Apple'은 자동 제거됨
@@ -23,6 +25,8 @@ print(s1)
 ```python
 s2 = set(['Apple', 'Orange', 'Mango', 'Pineapple', 'Kiwi', 'Apple'])
 print(s2)
+```
+```
 # 출력: {'Pineapple', 'Kiwi', 'Mango', 'Orange', 'Apple'}
 ```
 
@@ -53,6 +57,8 @@ print(type(s5))   # <class 'frozenset'>
 ```python
 s1.add("Melon")
 print(s1, type(s1))
+```
+```
 # 출력: {'Kiwi', 'Melon', 'Mango', 'Pineapple', 'Orange', 'Apple'} <class 'set'>
 ```
 
@@ -97,7 +103,5 @@ print({ name(chr(i), '') for i in range(0, 256) })
 | 변경 가능        | ✅ (`add`, `remove` 가능) | ❌ (불변, 수정 불가)         |
 | 해시 가능        | ❌                         | ✅ (딕셔너리 키로 사용 가능) |
 | 선언 방식        | `{}` 또는 `set([...])`     | `frozenset([...])`         |
-
-
 
 ---
