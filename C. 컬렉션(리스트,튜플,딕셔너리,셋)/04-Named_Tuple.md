@@ -96,12 +96,14 @@ from math import sqrt
 l_length1 = sqrt((pt1[0] - pt2[0]) ** 2 + (pt1[1] - pt2[1]) ** 2)
 
 print(l_length1)
-'''3.8078865529319543'''
+```
+#### 출력 결과
+```
+3.8078865529319543
 ```
 ### 네임드 튜플 사용 (Named tuple)
 ```python
 from collections import namedtuple
-
 
 #Point = namedtuple('Point', 'x y')
 Point = namedtuple('Point', ('x', 'y'))
@@ -110,18 +112,33 @@ pt3 = Point(1.0, 2.0)
 pt4 = Point(3.0, 4.0)
 
 print(pt3)
-'''Point(x=1.0, y=2.0)'''
-
+```
+#### 출력 결과
+```
+Point(x=1.0, y=2.0)
+```
+```python
 print(pt4)
-'''Point(x=3.0, y=4.0)'''
-
+```
+#### 출력 결과
+```
+Point(x=3.0, y=4.0)
+```
+```python
 l_length2 = sqrt((pt3[0] - pt4[0]) ** 2 + (pt3[1] - pt4[1]) ** 2)
 print(l_length2)
-'''2.8284271247461903'''
-
+```
+#### 출력 결과
+```
+2.8284271247461903
+```
+```python
 l_length3 = sqrt((pt3.x - pt4.x) ** 2 + (pt3.y - pt4.y) ** 2)
 print(l_length3)
-'''2.8284271247461903'''
+```
+#### 출력 결과
+```
+2.8284271247461903
 ```
 
 ### 네임드 튜플 선언 방법
@@ -140,82 +157,143 @@ p3 = Point3(3.0, y=4.0)
 p4 = Point4(10, 20, 30, 40)
 
 print(p4)
-'''Point4(x=10, y=20, z=30, _3=40)'''
+```
+#### 출력 결과
+```
+Point4(x=10, y=20, z=30, _3=40)
+```
 
-# Dict to Unpacking
+#### Dict to Unpacking
+```python
 temp_dict = {'x' : 75, 'y' : 55}
 p5 = Point2(**temp_dict)
 
 print(p5)
-'''Point2(x=75, y=55)'''
+```
+#### 출력 결과
+```
+Point2(x=75, y=55)
+```
 
+```python
 # 사용
 print(p1[0] + p2[0])
-'''4.0'''
-
+```
+#### 출력 결과
+```
+4.0
+```
+```python
 print(p1.x + p2.x)
-'''4.0'''
-
+```
+#### 출력 결과
+```
+4.0
+```
+```python
 x, y = p1.x, p1.y
 x1, y1 = p1
 print(x, y, x1, y1)
-'''1.0 2.0 1.0 2.0'''
+```
+#### 출력 결과
+```
+1.0 2.0 1.0 2.0
 ```
 
 ### 네임드 튜플 메소드
+#### 새로운 객체 생성
 ```python
 temp = [52, 38]
-# 새로운 객체 생성
 pt4 = Point2._make(temp)
 print(pt4)
-'''Point2(x=52, y=38)'''
+```
+#### 출력 결과
+```
+Point2(x=52, y=38)
+```
 
-# _fields : 필드 네임 확인
+#### _fields : 필드 네임 확인
+```python
 print(p1._fields, p2._fields, p3._fields, p4._fields)
-'''('x', 'y') ('x', 'y') ('x', 'y') ('x', 'y', 'z', '_3')'''
+```
+#### 출력 결과
+```
+('x', 'y') ('x', 'y') ('x', 'y') ('x', 'y', 'z', '_3')
+```
 
-# _asdict() : OrderedDict 반환
+#### _asdict() : OrderedDict 반환
+```python
 print(p1._asdict())
-'''{'x': 1.0, 'y': 2.0}'''
-
+```
+#### 출력 결과
+```
+{'x': 1.0, 'y': 2.0}
+```
+```python
 print(p4._asdict())
-'''{'x': 10, 'y': 20, 'z': 30, '_3': 40}'''
+```
+#### 출력 결과
+```
+{'x': 10, 'y': 20, 'z': 30, '_3': 40}
 ```
 
 ### 실 사용 실습
-```python
-# 반 20명 4개의 반(A, B, C, D)
-Classes = namedtuple('Classes', ('rank', 'number'))
 
+#### 반 20명 4개의 반(A, B, C, D)
+```python
+Classes = namedtuple('Classes', ('rank', 'number'))
 numbers = [str(n) for n in range(1, 21)]
 print(numbers)
-'''['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']'''
-
+```
+#### 출력 결과
+```
+['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+```
+```python
 ranks = 'A B C D '.split()
 print(ranks)
-'''['A', 'B', 'C', 'D']'''
+```
+#### 출력 결과
+```
+['A', 'B', 'C', 'D']
+```
 
-# List Comprehension
+#### List Comprehension
+```python
 students = [Classes(rank, number) for rank in ranks for number in numbers]
 
 print(students)
-'''
+```
+#### 출력 결과
+```
 [Classes(rank='A', number='1'), ..., Classes(rank='D', number='19'), Classes(rank='D', number='20')]
-'''
+```
+```python
 print(len(students))
-'''80'''
-
+```
+#### 출력 결과
+```
+80
+```
+```python
 print(students[0].number, students[0].rank)
-'''1 A'''
-
+```
+#### 출력 결과
+```
+1 A
+```
+```python
 for s in students:
     print(s)
-'''
+```
+#### 출력 결과
+```
 ...
 Classes(rank='D', number='20')
 '''
 ```
 ----
+
 
 
 
