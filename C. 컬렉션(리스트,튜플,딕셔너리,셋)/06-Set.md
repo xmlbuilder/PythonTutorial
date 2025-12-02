@@ -131,7 +131,7 @@ print('s1 & s2 : ' , s1.isdisjoint(s2))
 s1 & s2 :  False
 ```
 
-### 부분 잡합 확인
+### 부분 집합 확인
 ```python
 print('subset : ', s1.issubset(s2))
 ```
@@ -139,6 +139,7 @@ print('subset : ', s1.issubset(s2))
 ```
 subset :  False
 ```
+### 전체 집합 확인
 ```python
 print('superset : ', s1.issuperset(s2))
 ```
@@ -216,6 +217,7 @@ s1 --  set()
 | 요소 타입 제한 | 불변 타입만 가능 (int, str, tuple 등) |
 
 ---
+
 
 
 
