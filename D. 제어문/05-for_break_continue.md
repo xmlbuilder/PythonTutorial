@@ -67,9 +67,10 @@ for n in name:
         print(n, end='')
     else:
         print(n.upper(), end='')
+```
+```
 # 출력: FINEAPPLE
 ```
-
 
 - 조건에 따라 출력 형식을 다르게 처리
 
@@ -83,6 +84,3 @@ for n in name:
 | `get()`     | 딕셔너리 값 안전하게 접근     | `dict.get(key)`                 |
 
 ---
-
-
-
