@@ -39,7 +39,7 @@ s4 = set()        # 빈 집합
 print(type(s4))   # <class 'set'>
 ```
 
-- {}는 빈 딕셔너리로 인식되므로 빈 집합은 set()으로 생성해야 함
+- `{}` 는 빈 `딕셔너리로 인식` 되므로 빈 집합은 set()으로 생성해야 함
 
 ### 🔹 frozenset: 불변 집합
 ```python
@@ -72,7 +72,7 @@ from dis import dis
 print(dis('{10}'))
 ```
 
-# 더 간단한 바이트코드 (BUILD_SET)
+### 더 간단한 바이트코드 (BUILD_SET)
 ```python
 print(dis('set([10])'))
 ```
