@@ -10,9 +10,9 @@ else:
 ```
 
 
-- for 루프가 정상적으로 끝났을 때만 else 블록이 실행됨
+- for 루프가 `정상적으로 끝났을 때만` `else 블록` 이 실행됨
 - break로 루프가 중단되면 else는 실행되지 않음
-- 주로 검색 실패 처리에 유용
+- 주로 `검색 실패 처리` 에 유용
 ### ✅ 예시
 ```python
 numbers = [14, 3, 4, 7, 10, 25, 17, 2, 33, 15, 34, 36, 38]
@@ -22,6 +22,8 @@ for num in numbers:
         break
 else:
     print("Not Found : 24")
+```
+```
 # 출력: Not Found : 24
 ```
 
@@ -45,8 +47,6 @@ print(list(reversed(names2)))           # ['n', 'a', 'm', 'e', 'c', 'A']
 print(tuple(reversed(names2)))          # ('n', 'a', 'm', 'e', 'c', 'A')
 print(set(reversed(names2)))            # {'e', 'a', 'A', 'c', 'n', 'm'}
 ```
-
-
 - reversed()는 역순 반복 객체를 반환
 - list(), tuple(), set()으로 변환 가능
 - set()은 중복 제거 + 순서 없음
@@ -60,6 +60,7 @@ print(set(reversed(names2)))            # {'e', 'a', 'A', 'c', 'n', 'm'}
 | `range()`        | 숫자 반복 생성                            | 시작, 끝, 간격 지정 가능      |
 
 ---
+
 
 
 
