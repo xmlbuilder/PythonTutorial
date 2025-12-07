@@ -22,7 +22,7 @@ print(fact(10))  # 3628800
 - 매번 fact(n-1)을 재귀적으로 계산 → 중복 계산 많음
 
 ### 2. 함수 객체 속성 활용한 메모이제이션
-```
+```cpp
 def factorial(k):
     if not hasattr(factorial, '_memo'):
         factorial._memo = {1: 1}
@@ -171,3 +171,4 @@ print(get_user_by_id(3))  # 캐시 사용
 - 캐시 무효화 전략 필요 시 TTL(Time-To-Live) 또는 수동 초기화 추가 가능
 
 ---
+
