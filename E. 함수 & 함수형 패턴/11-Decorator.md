@@ -25,7 +25,7 @@ def my_func():
     pass
 ```
 
-→ my_func = decorator(my_func) 와 동일
+- my_func = decorator(my_func) 와 동일
 
 
 ## 예제
