@@ -48,19 +48,22 @@ def time_func(seconds):
 
 def sum_func(*numbers):
     return sum(numbers)
+```
 
-
-# 데코레이터 미사용
-
+### 데코레이터 미사용
+```python
 func1 = perf_clock(time_func)
 func2 = perf_clock(sum_func)
 print(func1, func1.__code__.co_freevars)
 print(func2, func2.__code__.co_freevars)
-'''
+```
+
+```
 <function perf_clock.<locals>.perf_clocked at 0x103312980> ('func',)
 <function perf_clock.<locals>.perf_clocked at 0x10338fe20> ('func',)
-'''
+```
 
+```python
 func1(3)
 func2(1,2, 3, 4, 5, 6, 7)
 [10.00507s] time_func(10) -> None
@@ -68,13 +71,16 @@ func2(1,2, 3, 4, 5, 6, 7)
 
 print(func1, func1.__code__.co_freevars)
 print(func2, func2.__code__.co_freevars)
+```
 
-'''
+```
 <function perf_clock.<locals>.perf_clocked at 0x100a8e8e0> ('func',)
 <function perf_clock.<locals>.perf_clocked at 0x100a8e980> ('func',)
-'''
+```
 
-#데코레이터 사용 - Clousure 처럼 바로 사용하게 해 준다.
+### 데코레이터 사용
+- Clousure 처럼 바로 사용하게 해 준다.
+```python
 @perf_clock
 def time_func_def(seconds):
     time.sleep(seconds)
@@ -85,11 +91,14 @@ def sum_func_def(*numbers):
 
 time_func_def(3)
 sum_func_def(1, 2, 3, 4, 5, 6, 7)
-'''
+```
+
+```
 [3.00237s] time_func_def(3) -> None
 [0.00001s] sum_func_def(1, 2, 3, 4, 5, 6, 7) -> 28
-'''
+```
 
+```python
 def decorator_func(func):
     def inner(*args, **kwargs):
         return func(*args, **kwargs)
@@ -101,17 +110,27 @@ def func2(data_type, n):
     return data[data_type](n)
 
 print(func2('int', 3))
-'''3'''
-
+```
+```
+3
+```
+```python
 print(func2('str', 3))
-'''3'''
-
+```
+```
+3
+```
+```python
 print(func2('float', 3))
-'''3.0'''
-
+```
+```
+3.0
+```
+```python
 print(func2('bool', 3))
-'''True'''
-
+```
+```
+True
 ```
 
 ## 🔍 예제 분석: perf_clock
@@ -130,7 +149,7 @@ def perf_clock(func):
 - func은 원래 함수 (time_func, sum_func)
 - perf_clocked는 감싼 함수 → 실행 시간 출력 후 결과 반환
 
-✅ 데코레이터 사용 전 vs 후
+## ✅ 데코레이터 사용 전 vs 후
 | 구분             | 코드 표현                         | 설명                                  |
 |------------------|----------------------------------|---------------------------------------|
 | 데코레이터 미사용 | `func1 = perf_clock(time_func)`   | 직접 감싸서 새로운 함수 변수에 할당     |
@@ -159,23 +178,24 @@ def perf_clock(func):
 
 
 ## 🧪 기억에 남는 비유
-데코레이터는 함수에 옷을 입히는 것이야.
-원래 함수는 그대로인데, 겉에 로깅 옷, 타이머 옷, 인증 옷을 입혀서
-실행할 때마다 추가 기능이 자동으로 따라붙는 구조야.
+- 데코레이터는 함수에 옷을 입히는 것.
+- 원래 함수는 그대로인데, 겉에 로깅 옷, 타이머 옷, 인증 옷을 입혀서  
+    실행할 때마다 추가 기능이 자동으로 따라붙는 구조야.
 
 
 ## 🔁 기억 유지 팁
-- 데코레이터는 결국 func = decorator(func)이라는 함수 치환
+- 데코레이터는 결국 func = decorator(func) 이라는 함수 치환
 - @는 단축 문법일 뿐, 함수를 감싸는 구조가 핵심
 - 감싸는 함수는 항상 def wrapper(*args, **kwargs)처럼 인자 그대로 전달하고 결과 반환
 
 ---
 
-# C++ / Rust Decorator
+## 다른 언어와 비교
+
+## C++ / Rust Decorator
 
 ## ✅ C++에서 데코레이터처럼 동작하는 구조
-C++은 메타 언어가 없지만, 함수 포인터, 람다, 템플릿, Functor를 활용해서
-함수를 감싸는 구조를 만들 수 있음.
+- C++은 메타 언어가 없지만, 함수 포인터, 람다, 템플릿, Functor를 활용해서 함수를 감싸는 구조를 만들 수 있음.
 
 ## 🔧 예시: 실행 시간 측정 데코레이터
 ```cpp
@@ -208,9 +228,9 @@ int main() {
 - std::function이나 람다로 더 일반화 가능
 
 ## ✅ Rust에서 데코레이터처럼 동작하는 구조
-Rust는 메타 언어는 없지만 고차 함수와 클로저를 통해
-함수 감싸기, 실행 전후 로직 삽입이 가능해.
-🔧 예시: 실행 시간 측정 데코레이터
+- Rust는 메타 언어는 없지만 고차 함수와 클로저를 통해 함수 감싸기, 실행 전후 로직 삽입이 가능.
+  
+### 🔧 예시: 실행 시간 측정 데코레이터
 
 ```rust
 use std::time::Instant;
@@ -225,25 +245,24 @@ where
     println!("[Time] {:.5}s", duration.as_secs_f64());
     result
 }
-
+``
+```rust
 fn sum_func() -> i32 {
     (1..=7).sum()
 }
-
+```
+```rust
 fn main() {
     let result = perf_clock(|| sum_func());
     println!("Result: {}", result);
 }
 ```
-
 - perf_clock은 데코레이터처럼 클로저를 받아서 감싸는 함수
 - || sum_func()는 람다 표현식으로 전달
 
 ## 📘 결론
-C++과 Rust는 메타 언어는 없지만,
-고차 함수, 람다, 템플릿, 클로저를 활용하면
-데코레이터처럼 함수를 감싸고 기능을 확장하는 구조를 충분히 만들 수 있음.
-
+- C++과 Rust는 메타 언어는 없지만, 고차 함수, 람다, 템플릿, 클로저를 활용하면  
+    데코레이터처럼 함수를 감싸고 기능을 확장하는 구조를 충분히 만들 수 있음.
 
 ---
 
@@ -252,8 +271,8 @@ C++과 Rust는 메타 언어는 없지만,
 FnOnce()는 Rust에서 함수형 프로그래밍을 다룰 때 자주 등장하는 트레잇(trait) 중 하나.
 
 ## 🧠 FnOnce란?
-한 번만 호출 가능한 함수형 트레잇
-즉, 클로저가 **자기 내부의 값을 소비(move)**하기 때문에 다시 호출할 수 없는 함수를 의미.
+- 한 번만 호출 가능한 함수형 트레잇
+- 즉, 클로저가 **자기 내부의 값을 소비(move)** 하기 때문에 다시 호출할 수 없는 함수를 의미.
 
 
 ## 🔍 Fn, FnMut, FnOnce 비교
@@ -284,14 +303,12 @@ fn main() {
     // call_once(say_hi); // ❌ 다시 호출 불가
 }
 ```
-
 - move 클로저는 name을 소유권 이동해서 가져감
 - 그래서 say_hi는 한 번만 호출 가능 → FnOnce
 
 ##  📘 결론
-FnOnce는 소유권을 move해서 내부 값을 소비하는 클로저를 위한 트레잇.
-그래서 한 번만 호출 가능하고,
-Rust의 소유권 시스템과 함수형 스타일이 결합된 대표적인 개념.
+- FnOnce는 소유권을 move해서 내부 값을 소비하는 클로저를 위한 트레잇.
+- 그래서 한 번만 호출 가능하고, Rust의 소유권 시스템과 함수형 스타일이 결합된 대표적인 개념.
 
 ----
 
