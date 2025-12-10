@@ -1,6 +1,6 @@
 # super class
-Python의 super 클래스가 **다중 상속과 MRO(Method Resolution Order)**에서 어떻게 동작하는지를 아주 명확하게 설명.  
-아래에 핵심 개념과 동작 원리, 그리고 실전 요약을 정리.
+- Python의 super 클래스가 **다중 상속과 MRO(Method Resolution Order)** 에서 어떻게 동작하는지를 아주 명확하게 설명.  
+- 아래에 핵심 개념과 동작 원리, 그리고 실전 요약을 정리.
 
 ## 🧠 super 클래스 이해
 ### ✅ 기본 개념
@@ -12,11 +12,17 @@ Python의 super 클래스가 **다중 상속과 MRO(Method Resolution Order)**�
 ## 전체 소스
 ```python
 print(super)
-'''<class 'super'>'''
-
+```
+```
+<class 'super'>
+```
+```python
 print(isinstance(super, type))
-'''True'''
-
+```
+```
+True
+```
+```python
 class Animal:
     def say(self):
         print('Animal')
@@ -42,46 +48,56 @@ class Bird(Species, Animal):
 d = Dog("Bark")
 
 print(d.say())
-'''
+```
+```
 Animal
 Bark
-'''
-
+```
+```python
 s = Bird("sing")
 print(s.say())
-'''
+```
+```
 Species
 sing
-'''
-
+```
+```python
 print(super(Dog, d))
-'''<super: <class 'Dog'>, <Dog object>>'''
-
+```
+```
+<super: <class 'Dog'>, <Dog object>>
+```
+```python
 print(Dog.mro())
-'''
+```
+```
 [<class '__main__.Dog'>, <class '__main__.Animal'>, <class '__main__.Species'>, <class 'object'>]
-'''
-
+```
+```python
 print(super(Bird, s))
-'''<super: <class 'Bird'>, <Bird object>>'''
-
+```
+```
+<super: <class 'Bird'>, <Bird object>>
+```
+```python
 print(Bird.mro())
-'''
+```
+```
 [<class '__main__.Bird'>, <class '__main__.Species'>, <class '__main__.Animal'>, <class 'object'>]
-'''
-
+```
+```python
 print(Animal.say(d))
-'''
+```
+```
 Animal
 Bark
-'''
-
+```
+```python
 print(Species.say(d))
-'''
+```
+```
 Species
 Bark
-'''
-
 ```
 
 ### 🔍 예제 분석
@@ -96,10 +112,15 @@ class Bird(Species, Animal)
 #### 🔸 MRO 확인
 ```python
 Dog.mro()
-# [Dog, Animal, Species, object]
-
+```
+```
+[Dog, Animal, Species, object]
+```
+```python
 Bird.mro()
-# [Bird, Species, Animal, object]
+```
+```
+[Bird, Species, Animal, object]
 ```
 
 - super().say()는 MRO에서 자신 다음 클래스의 say()를 호출
@@ -107,16 +128,19 @@ Bird.mro()
 ```python
 d = Dog("Bark")
 d.say()
-# Animal
-# Bark
-
+```
+```
+Animal
+Bark
+```
+```python
 s = Bird("sing")
 s.say()
-# Species
-# sing
 ```
-
-
+```
+Species
+sing
+```
 - Dog의 super().say() → Animal.say()
 - Bird의 super().say() → Species.say()
 
@@ -128,9 +152,10 @@ s.say()
 | `mro()`            | 메서드 탐색 순서 리스트                         | `Dog.mro()`                   |
 | 다중 상속 순서     | 상속 순서에 따라 `super()` 호출 대상이 달라짐    | `Dog(Animal, Species)` vs `Bird(Species, Animal)` |
 
-
-
 ## 💡 실전 팁
-- super()는 단순히 "부모 클래스"가 아니라 MRO에서 다음 클래스를 의미함
+- super()는 단순히 **부모 클래스** 가 아니라 MRO에서 다음 클래스를 의미함
 - 다중 상속 시 super()를 사용할 때는 반드시 mro()를 확인해서 의도한 클래스가 호출되는지 검증하세요
-- super()는 생성자뿐 아니라 모든 메서드에서 사용할 수 있어요
+- super()는 생성자뿐 아니라 모든 메서드에서 사용할 수 있음
+
+---
+
