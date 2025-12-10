@@ -219,7 +219,9 @@
   - [CSV/JSON 쓰기](./J.%20파일%20IO%20%26%20입력/04-File_With_Write_CSV_JSON.md)
 - 메모리 파일 다루기:
   - [Ascii Memory 파일](./05-StringIO.md)
-- 🔼 [맨 위로](#-목차바로가기)
+
+
+🔼 [맨 위로](#-목차바로가기)
   
 ## K. 반복자 이터러블 itertools
 - [즉시 실행 vs 단계별 실행](./K.%20반복자%20이터러블%20itertools/01-즉시실행_단계별_실행.md)
@@ -304,12 +306,14 @@ Design Pattern:
   - [StringIO Filleing Values](./T.%20NumPy/16-StringIO_Filleing_Values.md)
 - Broadcasting Rule
   - [Broadcasting Rule](./T.%20NumPy/17-Broadcasting_Rule.md)
+
 🔼 [맨 위로](#-목차바로가기)
 
 ## U. Pandas
 - [Pandas_종합](./U.%20Pandas/01-Pandas_종합.md)
 - [팬더스_명령어](./U.%20Pandas/02-팬더스_명령어.ipynb)
 - [Pandas_명령어_세부_분석](./U.%20Pandas/03-Pandas_명령어_세부_분석.md)
+
 🔼 [맨 위로](#-목차바로가기)
 
 ## V. matplotlib
