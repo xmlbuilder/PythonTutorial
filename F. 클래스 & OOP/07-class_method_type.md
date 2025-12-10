@@ -1,17 +1,16 @@
 # class method
-메서드 유형—인스턴스 메서드, 클래스 메서드, 정적 메서드—을 완벽하게 보여주는 실전 코드.  
+메서드 유형 - 인스턴스 메서드, 클래스 메서드, 정적 메서드를  완벽하게 정리.  
 아래에 각 메서드의 핵심 개념과 차이점, 그리고 실전 요약 테이블까지 정리.
 
 ## 🧠 메서드 유형 심화 정리
 ### 1️⃣ Instance Method (인스턴스 메서드)
 - 첫 번째 인자로 self를 받음
-- **객체의 상태(속성)**를 참조하거나 변경할 수 있음
+- **객체의 상태(속성)** 를 참조하거나 변경할 수 있음
 - 객체마다 고유한 동작을 수행
 ```python
 def get_price(self):
     return self._detail.get('price')
 ```
-
 
 ### 2️⃣ Class Method (클래스 메서드)
 - 첫 번째 인자로 cls를 받음
@@ -23,7 +22,6 @@ def raise_price(cls, per):
     cls.price_per_raise = max(per, 1.0)
 ```
 
-
 ### 3️⃣ Static Method (정적 메서드)
 - self나 cls를 받지 않음
 - 객체나 클래스 상태와 무관한 독립적인 기능을 수행
@@ -34,14 +32,12 @@ def is_bmw(instance):
     return instance._company == 'Bmw'
 ```
 
-
 ## 📘 메서드 유형 요약 테이블
 | 메서드 유형       | 첫 인자 | 접근 대상       | 사용 목적                          | 예시 호출 방식           |
 |------------------|--------|----------------|------------------------------------|--------------------------|
 | Instance Method  | `self` | 인스턴스 변수   | 객체 고유 동작                     | `car1.get_price()`       |
 | Class Method     | `cls`  | 클래스 변수     | 클래스 전체 설정 변경              | `Car.raise_price(1.3)`   |
 | Static Method    | 없음   | 없음            | 독립적 기능 (유틸리티)             | `Car.is_bmw(car2)`       |
-
 
 
 ## 🔍 실전 동작 흐름 요약
@@ -107,60 +103,78 @@ car1 = Car('Ferrari', {'color': 'Black', 'horsepower': '270', 'price': 5000})
 car2 = Car('Bmw', {'color': 'Black', 'horsepower': '270', 'price': 6000})
 
 car1.detail_info()
-'''
+```
+```
 Current ID : 4359925120
 Car Detail : Ferrari 5000
-'''
-
+```
+```python
 car2.detail_info()
-'''
+```
+```
 Current ID : 4359925168
 Car Detail : Bmw 6000
-'''
-
+```
+```python
 print(car1.get_price())
 print(car2.get_price())
-'''
+```
+```
 5000
 6000
-'''
-
+```
+```python
 Car.price_per_raise = 1.4
 print(car1.get_price_cur())
 print(car2.get_price_cur())
-'''
+```
+```
 7000.0
 8400.0
-'''
+```
 
+```python
 Car.raise_price(1.3)
 print(car1.get_price_cur())
 print(car2.get_price_cur())
-'''
+```
+```
 6500.0
 7800.0
-'''
-
+```
+```python
 car1.raise_price(1.3)
 print(car1.get_price_cur())
 print(car2.get_price_cur())
-'''
+```
+```
 6500.0
 7800.0
-'''
-
+```
+```python
 print(Car.is_bmw(car1))
-'''False'''
-
-print(Car.is_bmw(car2))
-'''True'''
-
-print(car1.is_bmw(car1))
-'''False'''
-
-print(car1.is_bmw(car2))
-'''True'''
-
+```
+```
+False
 ```
 
+```python
+print(Car.is_bmw(car2))
+```
+```
+True
+```
+```python
+print(car1.is_bmw(car1))
+```
+```
+False
+```
+
+```python
+print(car1.is_bmw(car2))
+```
+```
+True
+```
 ---
