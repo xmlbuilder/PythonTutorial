@@ -1,11 +1,10 @@
 # Method Overriding
 
 ## 🧠 핵심 개념: Method Overriding
-부모 클래스의 메소드를 자식 클래스에서 같은 이름으로 재정의하여 다른 동작을 수행하는 것
-
-- 다형성(polymorphism)의 대표적인 구현 방식
-- 자식 클래스에서 부모 메소드를 확장하거나 변경 가능
-- super()를 통해 부모 메소드 호출 가능
+- 부모 클래스의 메소드를 자식 클래스에서 같은 이름으로 재정의하여 다른 동작을 수행하는 것
+    - 다형성(polymorphism)의 대표적인 구현 방식
+    - 자식 클래스에서 부모 메소드를 확장하거나 변경 가능
+    - super()를 통해 부모 메소드 호출 가능
 
 ## 📌 메소드 오버라이딩 효과
 | 항목               | 설명                                                                 |
@@ -16,10 +15,9 @@
 | 다형성 구현          | 동일한 메소드 이름으로 다양한 클래스가 각기 다른 동작 수행 가능               |
 | 유지보수성 향상      | 부모 클래스 수정 시 자식 클래스에 자동 반영 가능 → 코드 일관성과 효율성 증가     |
 
-
 ## 예제 소스
+### 기본 Overriding
 ```python
-# 기본 Overriding
 class ParentEx1:
     def __init__(self):
         self.value = 5
@@ -38,28 +36,46 @@ print('value child: ', child.get_value())
 print('value parent: ', parent.get_value())
 
 print("Parent", dir(parent))
-# Parent ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__',
-# '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__',
-# '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
-# '__str__', '__subclasshook__', '__weakref__', 'get_value', 'value']
+```
 
+```
+Parent ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__',
+'__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__',
+'__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
+'__str__', '__subclasshook__', '__weakref__', 'get_value', 'value']
+```
+
+```python
 print("Child", dir(child))
-# Child ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__',
-# '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__',
-# '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
-# '__str__', '__subclasshook__', '__weakref__', 'get_value', 'value']
+```
 
+```
+Child ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__',
+'__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__',
+'__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
+'__str__', '__subclasshook__', '__weakref__', 'get_value', 'value']
+```
+
+```python
 print("Parent Dict", ParentEx1.__dict__)
-# Parent Dict {'__module__': '__main__', '__init__': <function ParentEx1.__init__ at 0x100f95bc0>, 'get_vaue':
-# <function ParentEx1.get_value at 0x10104d940>, '__dict__': <attribute '__dict__' of 'ParentEx1' objects>,
-# '__weakref__': <attribute '__weakref__' of 'ParentEx1' objects>, '__doc__': None}
+```
 
+```
+Parent Dict {'__module__': '__main__', '__init__': <function ParentEx1.__init__ at 0x100f95bc0>, 'get_vaue':
+<function ParentEx1.get_value at 0x10104d940>, '__dict__': <attribute '__dict__' of 'ParentEx1' objects>,
+'__weakref__': <attribute '__weakref__' of 'ParentEx1' objects>, '__doc__': None}
+```
+
+```python
 print("Child Dict", ChildEx1.__dict__)
-# Child Dict {'__module__': '__main__', '__doc__': None}
+```
 
+```
+Child Dict {'__module__': '__main__', '__doc__': None}
+```
 
-# 기본 Overriding 메소드 재 정의
-
+#### 기본 Overriding 메소드 재 정의
+```python
 class ParentEx2:
     def __init__(self):
         self.value = 5
@@ -73,9 +89,10 @@ class ChildEx2(ParentEx2):
 child2 = ChildEx2()
 child2.value = 10
 print("child get_value {}".format(child2.get_value()))  # child get_value 100
+```
 
-# Overriding 예제
-
+### Overriding 예제
+```python
 import datetime
 class Logger(object):
     def log(self, msg):
@@ -100,7 +117,6 @@ log2.log("Event")  # Event
 
 log3 = DateLogger()
 log3.log("Event")  # 2024-11-30 Event
-
 ```
 
 ## ✅ 예제 분석
@@ -156,8 +172,6 @@ class DateLogger(Logger):
 | 구조적 설계         | 추상화 기반 설계에 적합. 공통 인터페이스 정의 후 각 클래스에서 구체적 구현 가능   |
 | 유지보수성 향상     | 부모 클래스 수정 시 자식 클래스에 자동 반영 가능 → 코드 일관성과 효율성 증가       |
 
-
-
 ### 📌 실무에서 왜 중요한가?
 
 | 목적               | 설명                                                                 |
@@ -173,17 +187,15 @@ class DateLogger(Logger):
 
 # super(DateLogger, self).log(message) 의미
 
-super(DateLogger, self).log(message)는 Python에서 부모 클래스의 메소드를 호출하는 방식이야.  
-이 문장이 동작하는 방식은 다음과 같아:
+- super(DateLogger, self).log(message)는 Python에서 부모 클래스의 메소드를 호출하는 방식.  
 
 ## 🔍 동작 설명
 ```python
 super(DateLogger, self).log(message)
 ```
-
 - DateLogger는 현재 클래스 이름
 - self는 현재 인스턴스 (DateLogger의 객체)
-- super(DateLogger, self)는 Logger 클래스(부모 클래스)를 기준으로 self 인스턴스에서 **다음 MRO(Method Resolution Order)**를 찾아줌
+- super(DateLogger, self)는 Logger 클래스(부모 클래스)를 기준으로 self 인스턴스에서 **다음 MRO(Method Resolution Order)** 를 찾아줌
 - 즉, Logger.log(message)를 호출하는 것과 같음
 
 ## ✅ 왜 이렇게 쓰는가?
@@ -216,7 +228,6 @@ class DateLogger(Logger):
 | 다형성 구현          | 다양한 객체가 동일한 방식으로 호출 가능 → 유연한 설계와 테스트 용이성 확보         |
 
 
-
 ## 🔍 차이점 요약 – super() 사용 방식
 | 버전        | 문법                                | 설명                                      | 실무 권장 여부 |
 |-------------|-------------------------------------|-------------------------------------------|----------------|
@@ -224,3 +235,4 @@ class DateLogger(Logger):
 | Python 3.x  | `super().method()`                  | 자동으로 클래스와 인스턴스를 추론함          | ✅ (간결하고 안전함) |
 
 ---
+
