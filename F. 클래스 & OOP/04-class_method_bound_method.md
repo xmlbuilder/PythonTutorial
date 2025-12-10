@@ -65,7 +65,7 @@ A.func(a)  # 직접 self 인자를 넘겨 호출
 
 ---
 
-# @classmethod, @staticmethod, __get__, __call__
+## @classmethod, @staticmethod, __get__, __call__
 @classmethod, @staticmethod, __get__, __call__을 활용한 고급 메서드 개념까지 정리.
 
 ## 🧠 고급 메서드 개념 정리
@@ -84,14 +84,14 @@ B.greet()  # Hello from class <class '__main__.B'>
 - 팩토리 메서드, 클래스 설정 초기화 등에 자주 사용
 
 ### 2. @staticmethod
+```python
 class C:
     @staticmethod
     def greet():
         print("Hello without self or cls")
 
 C.greet()  # Hello without self or cls
-
-
+```
 - self, cls 없이 독립적으로 동작
 - 유틸리티 함수처럼 클래스 내부에 정의하고 싶을 때 사용
 
@@ -108,10 +108,10 @@ d = D()
 d.attr  # Accessed from <__main__.D object at ...> of <class '__main__.D'>
 ```            
 
-- __get__은 속성 접근 시 자동 호출됨
+- `__get__` 은 속성 접근 시 자동 호출됨
 - 메서드 바인딩, 속성 제어 등에 사용됨
 
-### 4. __call__ (객체를 함수처럼 호출)
+### 4. `__call__` (객체를 함수처럼 호출)
 ```python
 class E:
     def __call__(self, x):
@@ -136,10 +136,10 @@ e(42)  # Called with 42
 
 
 ---
-# functools.partial / operator.methodcaller / 데코레이터 패턴
+## functools.partial / operator.methodcaller / 데코레이터 패턴
 
-아래는 Python에서 자주 쓰이는 고급 함수형 프로그래밍 도구인 functools.partial, operator.methodcaller, 그리고 데코레이터 패턴에 대한 정리.  
-실전 예제와 함께 핵심 개념을 깔끔하게 정리.
+- 아래는 Python에서 자주 쓰이는 고급 함수형 프로그래밍 도구인 functools.partial, operator.methodcaller, 그리고 데코레이터 패턴에 대한 정리.  
+- 실전 예제와 함께 핵심 개념을 깔끔하게 정리.
 
 ## 🧩 1. functools.partial: 인자 고정 함수 생성
 ### ✅ 개념
@@ -178,7 +178,6 @@ print(to_upper("hello"))  # "HELLO"
 
 strip_and_split = methodcaller("strip")
 print(strip_and_split("  hello  "))  # "hello"
-
 ```
 
 ### ✅ 실전 활용
@@ -202,8 +201,10 @@ def greet(name):
     print(f"Hello, {name}")
 
 greet("JungHwan")
-# Calling greet
-# Hello, JungHwan
+```
+```
+Calling greet
+Hello, JungHwan
 ```
 
 ## ✅ 실전 활용
@@ -227,7 +228,6 @@ greet("JungHwan")
 | `lru_cache`       | 함수 결과 캐싱                | `functools`  | `@lru_cache`로 재귀 함수 최적화, DB 캐싱 등     |
 | `wraps`           | 데코레이터 내부에서 원형 유지 | `functools`  | `@wraps(func)`으로 이름, docstring 보존         |
 | `contextmanager`  | 커스텀 with 블록 생성         | `contextlib` | `@contextmanager`로 자원 관리, 파일/DB 연결 등 |
-
 
 ---
 
