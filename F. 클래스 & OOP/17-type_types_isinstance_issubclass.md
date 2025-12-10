@@ -1,7 +1,7 @@
 # type / types / isinstance / issubclass
 
-이 코드는 Python에서 모듈 객체의 타입 확인과 비교를 통해 type, types, isinstance, issubclass의 개념을 익히는 데 아주 유용.   
-아래에 전체 코드의 취지와 학습 가능한 내용을 정리.
+- 이 코드는 Python에서 모듈 객체의 타입 확인과 비교를 통해 type, types, isinstance, issubclass의 개념을 익히는 데 아주 유용.   
+- 아래에 전체 코드의 취지와 학습 가능한 내용을 정리.
 
 ## 🎯 코드의 취지
 - math와 같은 모듈 객체의 타입 확인
@@ -26,24 +26,22 @@ import math
 
 print(type(math))  # <class 'module'>
 ```
-
 - math는 모듈이므로 타입은 <class 'module'>
+  
 ```python
 print(type(math) == types.ModuleType)  # True
 ```
-- math의 타입은 types.ModuleType과 정확히 일치
+- math의 타입은 `types.ModuleType` 과 정확히 일치
 
 ```python
 print(issubclass(type(math), types.ModuleType))  # True
 ```
-
-- type(math)이 ModuleType의 서브클래스인지 확인 → True
+- type(math)이 ModuleType의 `서브클래스` 인지 확인 → True
 
 ```python
 print(isinstance(math, types.ModuleType))  # True
 ```
-
-- math 객체가 ModuleType의 인스턴스인지 확인 → True
+- math 객체가 ModuleType의 `인스턴스` 인지 확인 → True
 
 ## 📘 실전 활용 예시
 - 동적으로 로딩된 객체가 모듈인지 확인할 때
@@ -62,7 +60,7 @@ print(isinstance(f, types.FunctionType))  # True
 
 
 # 🔍 inspect 모듈을 활용한 객체 분석
-inspect는 Python 객체의 내부 구조를 분석할 수 있는 강력한 도구입니다.
+- inspect는 Python 객체의 내부 구조를 분석할 수 있는 강력한 도구입니다.
 ## ✅ 주요 기능 요약
 
 | 함수                          | 설명                                                                 |
@@ -88,10 +86,8 @@ print(inspect.getmodule(math.sin))  # <module 'math' ...>
 print(inspect.signature(len))  # TypeError: no signature found for built-in function
 ```
 
-
-
 ## 🧩 사용자 정의 타입과의 비교
-사용자 정의 클래스와 객체를 비교하거나 검사할 때는 다음을 활용합니다:
+- 사용자 정의 클래스와 객체를 비교하거나 검사할 때는 다음을 활용합니다:
 ### ✅ 예시: 클래스 정의 및 타입 비교
 ```python
 class MyClass:
@@ -110,7 +106,6 @@ print(issubclass(MyClass, object))  # True
 print(inspect.isclass(MyClass))  # True
 print(inspect.getmembers(obj))  # 모든 속성과 값 출력
 print(inspect.getsource(MyClass))  # 클래스 정의 소스 코드 출력
-
 ```
 
 ## ⚠️ 실전 팁
@@ -120,5 +115,7 @@ print(inspect.getsource(MyClass))  # 클래스 정의 소스 코드 출력
 | 내장 함수 분석 제한       | `inspect.getsource()`는 `len`, `print` 같은 내장 함수에 사용 시 `TypeError` 발생 |
 | 사용자 정의 함수 우선     | `inspect.signature()`는 사용자 정의 함수에 더 잘 작동함               |
 | 디버깅 및 리플렉션 활용    | `inspect`는 객체 구조 분석, 자동 문서화, 테스트 코드 생성 등에 유용함  |
+
+---
 
 
