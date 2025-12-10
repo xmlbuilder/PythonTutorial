@@ -2,12 +2,12 @@
 
 ## 🧠 Python에서 언더스코어(_)의 의미
 ### 🔹 1. 값 무시용 (_)
+```python
 x, _, y = (1, 2, 3)  # 중간 값 무시
 for _ in range(10):  # 반복 횟수만 중요할 때
-
-
+```
 - 불필요한 값 무시할 때 사용
-- 관례적으로 _는 “이 값은 안 쓸 거야”라는 의미
+- 관례적으로 `_` 는 **이 값은 안 쓸 거야** 라는 의미
 
 ### 🔹 2. 네이밍 패턴 (_name, __name)
 | 패턴       | 접근 수준     | 의미 및 용도                                  | 실무 권장 사항                          |
@@ -25,15 +25,15 @@ class Sample:
 ```
 
 - Python은 접근 제한을 강제하지 않음
-- __y는 내부적으로 _ClassName__y로 변경됨 (Name Mangling)
+- `__y` 는 내부적으로 `_ClassName__y` 로 변경됨 (Name Mangling)
 - 외부에서 접근은 가능하지만 하지 않는 것이 원칙
 
 ### 🔹 3. 네이밍 충돌 방지 / 국제화
+```python
 def _(): pass  # 인터프리터 내부용 또는 특별한 의미
-
-
-- _는 REPL에서 마지막 결과를 저장하는 변수로도 사용됨
-- 국제화(i18n) 라이브러리에서 _()는 번역 함수로 쓰이기도 함
+```
+- `_` 는 REPL에서 마지막 결과를 저장하는 변수로도 사용됨
+- 국제화(i18n) 라이브러리에서 `_()` 는 번역 함수로 쓰이기도 함
 
 ### 🔧 실무에서 underscore가 중요한 이유
 
@@ -45,8 +45,6 @@ def _(): pass  # 인터프리터 내부용 또는 특별한 의미
 | `__name`                  | private 변수. 외부 접근 방지 목적, 내부에서만 사용                              |
 | `__name_ClassName__name` | Name Mangling 결과. 외부에서 강제로 접근할 때 사용 가능 (`a._SampleA__y`)         |
 
-
-
 ### ✅ Getter / Setter로 접근 제어
 ```python
 class SampleB:
@@ -56,19 +54,19 @@ class SampleB:
         return self.__y
     def set_x(self, value):
         self.__y = value
-
 ```
 - 직접 접근 대신 메서드를 통해 제어
 - 변수의 유효성 검사, 로깅, 트리거 처리 등을 추가할 수 있음
 
-### 📌 요약 정리 – Python 언더스코어 네이밍 패턴
+### 📌 요약 정리 
+- Python 언더스코어 네이밍 패턴
+  
 | 패턴             | 접근 수준       | 실무 활용 예시                                |
 |------------------|------------------|-----------------------------------------------|
 | `_`              | 무시용 / 내부용   | `x, _, y`, `for _ in range(n)` – 값 무시, 반복 변수 |
 | `_name`          | Protected (비공식) | 내부용 변수/메서드 – 외부 접근은 가능하지만 자제 권장 |
 | `__name`         | Private (Name Mangling) | 클래스 내부 전용 – 외부 접근 방지 목적             |
 | `_Class__name`   | Name Mangling 결과 | 외부에서 강제로 접근할 때 사용 (`obj._Class__name`) |
-
 
 ### ✅ 예제 2: 로깅 및 변경 추적
 ```python
@@ -82,7 +80,6 @@ class Config:
     def set_mode(self, value):
         print(f"Mode changed from {self.__mode} to {value}")
         self.__mode = value
-
 ```
 - 설정 변경 시 로그 출력
 - 실시간 모니터링, 디버깅에 유용
@@ -123,7 +120,6 @@ class Payment:
         if value <= 0:
             raise ValueError("Amount must be positive")
         self.__amount = value
-
 ```
 - 외부에서 들어오는 값에 대해 타입과 범위 검증
 - API 연동 시 데이터 안정성 확보
@@ -165,7 +161,7 @@ class Alarm:
 클래스 내부의 메서드를 속성처럼 사용할 수 있게 해주는 데코레이터
 
 - 외부에서는 obj.value처럼 접근하지만, 내부에서는 get_value()처럼 동작
-- **캡슐화(Encapsulation)**를 유지하면서도 가독성과 사용성을 높여줌
+- **캡슐화(Encapsulation)** 를 유지하면서도 가독성과 사용성을 높여줌
 
 ## ✅ 기본 예제: Getter, Setter, Deleter
 ```python
@@ -256,8 +252,8 @@ print(c.fahrenheit)  # 77.0
 | `@property`       | `obj.value`       | 높음        | 유지됨       | 우수함 | ✅ 매우 권장됨     |
 | Getter/Setter 메서드 | `obj.get_value()` | 낮음        | 유지됨       | 보통   | ❌ Java 스타일     |
 
-
 -  예외 발생
 - 외부에서 직접 __age를 수정하지 못하게 보호
 
 ---
+
