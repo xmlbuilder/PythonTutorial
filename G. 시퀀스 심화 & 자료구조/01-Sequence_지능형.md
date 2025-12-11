@@ -69,43 +69,66 @@ code_list5 = list(filter(lambda c: ord(c) > 40, chars))
 - list comprehension은 대부분의 경우 가독성과 성능에서 우위
 
 ## 전체 코드
-```python
 
-# Case1
+
+### Case1
+```python
 chars = '+_)(*&^%$#@i)'
 code_list = []
 for s in chars:
     code_list.append(ord(s))
 
 print(code_list)
-'''[43, 95, 41, 40, 42, 38, 94, 37, 36, 35, 64, 105, 41]'''
+```
+```
+[43, 95, 41, 40, 42, 38, 94, 37, 36, 35, 64, 105, 41]
+```
 
 
-# Case2
+### Case2:
+```python
 code_list2 = [ord(s) for s in chars]
 print(code_list2)
-'''[43, 95, 41, 40, 42, 38, 94, 37, 36, 35, 64, 105, 41]'''
+```
+```
+[43, 95, 41, 40, 42, 38, 94, 37, 36, 35, 64, 105, 41]
+```
 
-
-# Case 3 : Comprehending Lists + Map, Filter
+### Case 3 : Comprehending Lists + Map, Filter
+```python
 code_list3 = [s for s in chars if ord(s) > 40]
 print(code_list3)
-'''['+', '_', ')', '*', '^', '@', 'i', ')']'''
+```
+```
+['+', '_', ')', '*', '^', '@', 'i', ')']
+```
 
-# Case 4: 
+### Case 4:
+```python
 code_list4 = list(filter(lambda c: c > 40, map(ord, chars)))
 print(code_list4)
-'''[43, 95, 41, 42, 94, 64, 105, 41]'''
+```
+```
+[43, 95, 41, 42, 94, 64, 105, 41]
+```
 
-# Case 5
+### Case 5:
+```python
 print([chr(s) for s in code_list4])
-'''['+', '_', ')', '*', '^', '@', 'i', ')']'''
+```
+```
+['+', '_', ')', '*', '^', '@', 'i', ')']
+```
 
 
-# Case 6
+### Case 6:
+```python
 code_list5 = list(filter(lambda c: ord(c) > 40, chars))
 print(code_list5)
-'''['+', '_', ')', '*', '^', '@', 'i', ')']'''
+```
+```
+['+', '_', ')', '*', '^', '@', 'i', ')']
 
 ```
+
 
