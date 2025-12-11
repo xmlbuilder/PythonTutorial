@@ -1,5 +1,5 @@
 # 🧠 Descriptor란?
-클래스의 속성 접근을 제어할 수 있는 객체. __get__, __set__, __delete__ 메소드를 구현하면 descriptor로 동작함.
+- 클래스의 속성 접근을 제어할 수 있는 객체. `__get__`, `__set__`, `__delete__` 메소드를 구현하면 descriptor로 동작함.
 
 ## ✅ 핵심 특징
 - 속성 접근 시 자동으로 메소드 호출 (get, set, del)
@@ -14,7 +14,7 @@
 | Non-Data Descriptor| `__get__`만 구현됨                   | 인스턴스 속성이 있으면 그 값을 우선 사용 → 읽기 전용 속성 구현 가능 |
 
 
-## 🔧 기본 예제: __get__, __set__, __delete__
+## 🔧 기본 예제: `__get__`, `__set__`, `__delete__`
 ```python
 class DescriptorEx1:
     def __init__(self, name='Default'):
@@ -42,8 +42,6 @@ s1.name = "Descriptor Text1"  # Set method called.
 print(s1.name)                # Get method called → name: Descriptor Text1
 del s1.name                   # Delete method called.
 ```
-
-
 
 ## 🔧 고급 예제: property()로 Descriptor 구현
 ```python
@@ -187,18 +185,24 @@ class DirectoryPath:
 s = DirectoryPath('./')
 
 print(s.size)
-'''
-['random_test.py', 'solution1.py', 'instance.py', 'list_str.py', 'test4.txt', 'list_str1.txt', 'array_test2.py', 'class_test.py', 'test3.txt', 'sort.py', 'string_test.py', '__pycache__', 'character1.py', 'sub', 'reverse_text1.py', 'variable_scope.py', 'self_test.py', 'PersonInfo.py', 'module_test.py', 'print.py', 'numpy_args.py', 'mymodule.py', 'max_test.py', 'str_list.py', 'module.py', 'array_test.py', 'list_str.txt', 'characte2.py', 'algorithm_sum.py', 'main.py', 'resource', 'numpy_tuple.py', 'min_in_list.py', 'sound', 'class_var1.py', 'test.obj', 'class_var.py', 'reverse_text.py', '.idea']
+```
+```
+['random_test.py', 'solution1.py', 'instance.py', 'list_str.py', 'test4.txt', 'list_str1.txt', 'array_test2.py',
+'class_test.py', 'test3.txt', 'sort.py', 'string_test.py', '__pycache__', 'character1.py', 'sub', 'reverse_text1.py',
+'variable_scope.py', 'self_test.py', 'PersonInfo.py', 'module_test.py', 'print.py', 'numpy_args.py', 'mymodule.py',
+'max_test.py', 'str_list.py', 'module.py', 'array_test.py', 'list_str.txt', 'characte2.py', 'algorithm_sum.py', 'main.py',
+'resource', 'numpy_tuple.py', 'min_in_list.py', 'sound', 'class_var1.py', 'test.obj', 'class_var.py', 'reverse_text.py', '.idea']
 39
-'''
-
+```
+```python
 g = DirectoryPath('../')
 print(g.size)
-'''
+```
+```
 ['Sample2', 'Sample3', '.DS_Store', 'Tutorial2', 'pythonProject', 'OpenCVTest', 'CompVis1', '.ipynb_checkpoints', 'Turoial1']
 9
-'''
-
+```
+```python
 import logging
 
 logging.basicConfig(
@@ -238,7 +242,8 @@ s2.score = 100
 print(s1.score)
 print(vars(s1))
 print(vars(s2))
-'''
+```
+```
 50
 20
 100
@@ -249,8 +254,8 @@ print(vars(s2))
 2024-12-06 22:41:08 Access Score Access: 20
 2024-12-06 22:41:08 Update Score Access: 100
 2024-12-06 22:41:08 Access Score Access: 100
-'''
-
+```
+```python
 class PositiveNumber:
     def __init__(self, value):
         self.value = value
@@ -277,12 +282,17 @@ rect2 = Rectangle(100, 200)
 rect1.width = 20
 
 print(rect1.width)
-'''20'''
-
-print(rect2.width)
-'''20'''
-
-
 ```
+```
+20
+```
+```python
+print(rect2.width)
+```
+```
+20
+```
+
 ---
+
 
