@@ -90,19 +90,22 @@ print(arr.tolist())    # [43, 95, 41, ...]
 
 
 ## 전체 코드
-```python
 
-'''
+### 1. List
+
+```python
 import array
 
-# 1. List
 chars = '+_)(*&^%$#@i)'
 list1 = [ord(s) for s in chars]
 print(list1)
-'''[43, 95, 41, 40, 42, 38, 94, 37, 36, 35, 64, 105, 41]'''
+```
+```
+[43, 95, 41, 40, 42, 38, 94, 37, 36, 35, 64, 105, 41]
+```
 
-
-# 2. Tuple
+### 2. Tuple
+```python
 tuple1 = (ord(s) for s in chars)
 print(tuple1)
 '''<generator object <genexpr> at 0x100b3a0c0>'''
@@ -110,32 +113,45 @@ print(tuple1)
 print(next(tuple1))
 print(next(tuple1))
 print(next(tuple1))
-'''
+```
+```
 43
 95
 41
-'''
+```
 
-# 3. Array
+### 3. Array
+```python
 array1 = array.array('i', (ord(s) for s in chars))
 print(array1)
-'''array('i', [43, 95, 41, 40, 42, 38, 94, 37, 36, 35, 64, 105, 41])'''
-
+```
+```
+array('i', [43, 95, 41, 40, 42, 38, 94, 37, 36, 35, 64, 105, 41])
+```
+```python
 print(type(array1))
-'''<class 'array.array'>'''
-
-
+```
+```
+<class 'array.array'>
+```
+```python
 print(array1.tolist())
-'''[43, 95, 41, 40, 42, 38, 94, 37, 36, 35, 64, 105, 41]'''
-
-
+```
+```
+[43, 95, 41, 40, 42, 38, 94, 37, 36, 35, 64, 105, 41]
+```
+```python
 print(('%s' % c + str(n) for c in ['A', 'B', 'C', 'D'] for n in range(1, 21) ))
-'''<generator object <genexpr> at 0x103220e50>'''
+```
+```
+<generator object <genexpr> at 0x103220e50>
+```
 
-
+```python
 for s in ('%s' % c + str(n) for c in ['A', 'B', 'C'] for n in range(1, 4) ):
     print(s)
-'''
+```
+```
 A1
 A2
 A3
@@ -145,6 +161,7 @@ B3
 C1
 C2
 C3
-'''
-
 ```
+---
+
+
