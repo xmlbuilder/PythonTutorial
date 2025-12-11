@@ -14,11 +14,11 @@ class Person:
 ```
 
 ## ✅ 자동 생성되는 메소드들
-- __init__: 생성자
-- __repr__: 객체 출력 형식
-- __eq__: 객체 비교
-- __hash__: 해시 가능 여부 (기본은 None)
-- __lt__, __le__, __gt__, __ge__: order=True일 때 생성됨
+- `__init__`: 생성자
+- `__repr__`: 객체 출력 형식
+- `__eq__`: 객체 비교
+- `__hash__`: 해시 가능 여부 (기본은 None)
+- `__lt__`, `__le__`, `__gt__`, `__ge__`: order=True일 때 생성됨
 
 ## 🔍 출력 확인
 ```python
@@ -39,7 +39,6 @@ p = Person('jhjeong', 22)
 print(p.name)  # jhjeong
 print(p.age)   # 22
 ```
-
 
 ## 🔒 frozen=True → 불변 객체
 ```python
@@ -71,7 +70,7 @@ dataclasses.FrozenInstanceError: cannot assign to field 'sex'
 | `order`    | `<`, `>`, `<=`, `>=` 비교 연산자 생성 (`False`면 생성 안 됨)     |
 | `frozen`   | 속성 변경 불가 → `FrozenInstanceError` 발생 (`False`면 변경 가능) |
 
-이 표는 @dataclass가 단순한 문법 설정보다 훨씬 더 강력한 자동화된 클래스 생성 도구라는 걸 보여줌  
+- 이 표는 @dataclass가 단순한 문법 설정보다 훨씬 더 강력한 자동화된 클래스 생성 도구라는 걸 보여줌  
 
 
 
@@ -161,8 +160,6 @@ print(p.__dataclass_fields__['price'].metadata)  # {'unit': 'KRW'}
 | `init=False`         | 생성자에서 제외할 내부 속성 정의 가능 → 보안성 강화, 내부 상태 관리에 유용         |
 | `compare`, `repr`    | 비교 및 출력 대상 필드 제어 가능 → 민감 정보 제외, 정렬 기준 설정 등 실무 요구 반영     |
 
-
-
 ## 🧪 1. init=False로 생성자에서 제외
 
 ```python
@@ -177,8 +174,6 @@ c = Config('JungHwan')
 print(c.name)    # JungHwan
 print(c.secret)  # hidden
 ```
-
-
 ## 🧪 2. repr=False로 출력에서 제외
 
 ```python
@@ -207,6 +202,8 @@ i1 = Item(1, 100)
 i2 = Item(1, 200)
 print(i1 == i2)  # True → temp는 비교에서 제외됨
 ```
+---
+
 
 
 
