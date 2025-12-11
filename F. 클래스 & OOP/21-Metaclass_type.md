@@ -1,8 +1,8 @@
 # Metaclass Type
 
 ## 🧠 핵심 개념: Metaclass란?
-클래스를 만드는 클래스
-즉, 클래스가 객체라면 그 클래스를 생성하는 "설계자"가 바로 메타 클래스야.
+- 클래스를 만드는 클래스
+    - 즉, 클래스가 객체라면 그 클래스를 생성하는 "설계자"가 바로 메타 클래스 입니다.
 
 - 객체 → 클래스 → 메타 클래스
 - type은 기본 메타 클래스
@@ -93,8 +93,7 @@ class InvalidClass(metaclass=MetaCheck):
 | `isinstance()`     | 객체가 특정 클래스 또는 타입의 인스턴스인지 확인. 예: `isinstance(obj, Sample)` |
 | `issubclass()`     | 클래스가 특정 클래스의 서브클래스인지 확인. 예: `issubclass(Sample, object)`   |
 
-
-메타 클래스는 클래스를 설계하고 제어하는 고급 도구. 프레임워크나 라이브러리 설계, 구조적 검증, 동적 생성 등에서 핵심 역할을 함. 
+- 메타 클래스는 클래스를 설계하고 제어하는 고급 도구. 프레임워크나 라이브러리 설계, 구조적 검증, 동적 생성 등에서 핵심 역할을 함. 
 
 ## Type 사용법 샘플
 ```python
@@ -112,23 +111,27 @@ obj2 = SampleA()
 print(type(obj2))  # <class '__main__.SampleA'>
 
 print("obj class - ", obj1.__class__)  # obj class -  <class '__main__.SampleA'>
+```
 
-# SampleA 클래스는 누가 만들었는가 (Type)
+### SampleA 클래스는 누가 만들었는가 (Type)
+```python
 print("obj class class", obj1.__class__.__class__)  # obj class class <class 'type'>
-
-# Type 을 조작하면 동적으로 함수를 만들어 낼 수 있다.
+```
+### Type 을 조작하면 동적으로 함수를 만들어 낼 수 있다.
+```python
 print("", obj1.__class__ is type(obj1))  # True
 
 print("", obj1.__class__.__class__ is type(obj1).__class__)  # True
 
 print(type.__class__)  # <class 'type'>
-
-# obj1 -> SampleA instance
-# SampleA -> type meta class
-# type -> type meta class
-
-# int, dict
-
+```
+```
+obj1 -> SampleA instance
+SampleA -> type meta class
+type -> type meta class
+```
+### int, dict
+```python
 n = 10
 d = {
     'a': 10,
@@ -141,79 +144,125 @@ obj2 = SampleB()
 
 for o in (n, d, obj2):
     print('type info {} {} {}'.format(type(o), type(o) is o.__class__, o.__class__.__class__))
-# type info <class 'int'> True <class 'type'>
-# type info <class 'dict'> True <class 'type'>
-# type info <class '__main__.SampleB'> True <class 'type'>
-
+```
+```
+type info <class 'int'> True <class 'type'>
+type info <class 'dict'> True <class 'type'>
+type info <class '__main__.SampleB'> True <class 'type'>
+```
+```python
 for t in int, float, list, tuple:
     print('type info {} {} {}'.format(type(t), type(t) is t.__class__, t.__class__.__class__))
-# type info <class 'type'> True <class 'type'>
-# type info <class 'type'> True <class 'type'>
-# type info <class 'type'> True <class 'type'>
-# type info <class 'type'> True <class 'type'>
-
+```
+```
+type info <class 'type'> True <class 'type'>
+type info <class 'type'> True <class 'type'>
+type info <class 'type'> True <class 'type'>
+type info <class 'type'> True <class 'type'>
+```
+```python
 class SampleA(object):
     pass
 
 print(issubclass(SampleA, object))
-'''True'''
-
+```
+```
+True
+```
+```python
 print(issubclass(SampleA, type))
-'''False'''
-
+```
+```
+False
+```
+```python
 print(isinstance(SampleA, object))
-'''True'''
-
+```
+```
+True
+```
+```python
 print(isinstance(SampleA, type))
-'''True'''
-
+```
+```
+True
+```
+```python
 print(issubclass(type, object))
-'''True'''
-
+```
+```
+True
+```
+```python
 #print(dir(SampleA))
 
 print(isinstance(object, type))
-'''True'''
-
+```
+```
+True
+```
+```python
 print(isinstance(int, type))
-'''True'''
-
+```
+```
+True
+```
+```python
 print(isinstance(dict, type))
-'''True'''
-
+```
+```
+True
+```
+```python
 class Sample:
     def __init__(self):
         pass
 
 s = Sample()
 print(s)
-'''<__main__.Sample object at 0x0000025EACB9EE50>'''
-
+```
+```
+<__main__.Sample object at 0x0000025EACB9EE50>
+```
+```python
 print(type(s))
-'''<class '__main__.Sample'>'''
-
-print(id(s))
-'''2605648047696'''
-
-print(hex(id(s)))
-'''0x25eacb9ee50'''
-
-import types
-
-print(type(Sample.__init__) == types.FunctionType)
-'''True'''
-
-print(type(s.__init__) == types.MethodType)
-'''True'''
-
+```
+```
+<class '__main__.Sample'>
 ```
 
+```python
+print(id(s))
+```
+```
+2605648047696
+```
+```python
+print(hex(id(s)))
+```
+```
+0x25eacb9ee50
+```
+
+```python
+import types
+print(type(Sample.__init__) == types.FunctionType)
+```
+```
+True
+```
+```python
+print(type(s.__init__) == types.MethodType)
+```
+```
+True
+```
 ---
 
-# __new__ vs __init__의 차이
-Python에서 클래스 생성의 핵심인 __new__ vs __init__의 차이와, 추상 클래스 설계에 사용되는 ABCMeta 기반 구조를 깔끔하게 정리.
+## `__new__` vs `__init__` 의 차이
+- Python에서 클래스 생성의 핵심인 `__new__` vs `__init__` 의 차이와, 추상 클래스 설계에 사용되는 ABCMeta 기반 구조를 깔끔하게 정리.
 
-## 🔍 __new__ vs __init__ 차이
+## 🔍 차이 설명
 
 | 항목             | `__new__`                         | `__init__`                        |
 |------------------|------------------------------------|-----------------------------------|
@@ -233,14 +282,16 @@ class Sample:
 
     def __init__(self):
         print("Initializing instance")
-```
-s = Sample()
-# 출력:
-# Creating instance
-# Initializing instance
 
+s = Sample()
+```
+### 출력:
+```
+Creating instance
+Initializing instance
+```
 ## 🧠 ABCMeta 기반 추상 클래스
-추상 클래스는 공통 인터페이스를 정의하고, 서브클래스에서 반드시 구현해야 할 메소드를 지정하는 데 사용.
+- 추상 클래스는 공통 인터페이스를 정의하고, 서브클래스에서 반드시 구현해야 할 메소드를 지정하는 데 사용.
 
 ## 🔧 구조
 ```python
@@ -267,7 +318,8 @@ class BaseProcessor(ABC):  # ABCMeta가 메타클래스로 설정됨
 | 코드 일관성 확보      | 클래스 생성 시점에 규칙을 강제함으로써 전체 시스템의 구조적 안정성 확보              |
 | 고급 기능 주입        | 클래스 정의 시 자동으로 속성 추가, 데코레이터 삽입 등 고급 기능 구현 가능             |
 
-### 🔍 관련 개념 요약 – 추상 클래스와 ABCMeta
+### 🔍 관련 개념 요약 
+– 추상 클래스와 ABCMeta
 
 | 개념               | 설명                                                                 |
 |--------------------|----------------------------------------------------------------------|
@@ -276,6 +328,7 @@ class BaseProcessor(ABC):  # ABCMeta가 메타클래스로 설정됨
 | `@abstractmethod`  | 서브클래스에서 반드시 구현해야 하는 메소드 지정. 미구현 시 인스턴스화 불가         |
 | `TypeError`        | 추상 메소드를 구현하지 않은 클래스의 인스턴스를 생성하려고 할 때 발생하는 예외     |
 
-__new__는 객체 생성을 제어하고, __init__은 초기화를 담당하며, ABCMeta는 클래스 구조를 강제하는 설계 도구. 
+- `__new__` 는 객체 생성을 제어하고, `__init__` 은 초기화를 담당하며, `ABCMeta` 는 클래스 구조를 강제하는 설계 도구. 
 
 ---
+
