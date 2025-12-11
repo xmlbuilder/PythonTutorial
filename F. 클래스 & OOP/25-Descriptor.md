@@ -187,11 +187,13 @@ s = DirectoryPath('./')
 print(s.size)
 ```
 ```
-['random_test.py', 'solution1.py', 'instance.py', 'list_str.py', 'test4.txt', 'list_str1.txt', 'array_test2.py',
-'class_test.py', 'test3.txt', 'sort.py', 'string_test.py', '__pycache__', 'character1.py', 'sub', 'reverse_text1.py',
-'variable_scope.py', 'self_test.py', 'PersonInfo.py', 'module_test.py', 'print.py', 'numpy_args.py', 'mymodule.py',
-'max_test.py', 'str_list.py', 'module.py', 'array_test.py', 'list_str.txt', 'characte2.py', 'algorithm_sum.py', 'main.py',
-'resource', 'numpy_tuple.py', 'min_in_list.py', 'sound', 'class_var1.py', 'test.obj', 'class_var.py', 'reverse_text.py', '.idea']
+['random_test.py', 'solution1.py', 'instance.py', 'list_str.py', 'test4.txt', 'list_str1.txt',
+'array_test2.py','class_test.py', 'test3.txt', 'sort.py', 'string_test.py', '__pycache__',
+'character1.py', 'sub', 'reverse_text1.py','variable_scope.py', 'self_test.py', 'PersonInfo.py',
+'module_test.py', 'print.py', 'numpy_args.py', 'mymodule.py','max_test.py', 'str_list.py',
+'module.py', 'array_test.py', 'list_str.txt', 'characte2.py', 'algorithm_sum.py', 'main.py',
+'resource', 'numpy_tuple.py', 'min_in_list.py', 'sound', 'class_var1.py', 'test.obj', 'class_var.py',
+'reverse_text.py', '.idea']
 39
 ```
 ```python
@@ -199,7 +201,8 @@ g = DirectoryPath('../')
 print(g.size)
 ```
 ```
-['Sample2', 'Sample3', '.DS_Store', 'Tutorial2', 'pythonProject', 'OpenCVTest', 'CompVis1', '.ipynb_checkpoints', 'Turoial1']
+['Sample2', 'Sample3', '.DS_Store', 'Tutorial2', 'pythonProject', 'OpenCVTest', 'CompVis1', '.ipynb_checkpoints',
+'Turoial1']
 9
 ```
 ```python
@@ -294,5 +297,6 @@ print(rect2.width)
 ```
 
 ---
+
 
 
