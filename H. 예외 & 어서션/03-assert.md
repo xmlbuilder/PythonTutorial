@@ -1,7 +1,6 @@
-
 # assert
-Python의 assert 문에 대한 문법과 동작 원리, 그리고 실전 예제 중심의 정리입니다.  
-디버깅과 조건 검증에 매우 유용한 기능.
+- Python의 assert 문에 대한 문법과 동작 원리, 그리고 실전 예제 중심의 정리입니다.  
+- 디버깅과 조건 검증에 매우 유용한 기능.
 
 ## ✅ assert 문법과 기능 정리
 ### 🔧 기본 문법
@@ -46,13 +45,15 @@ add(10, 12.0)    # AssertionError: 정수가 아님
 - 실수나 문자열이 들어오면 즉시 예외 발생
 
 ### 📘 고급 팁
-- assert는 디버깅용으로 설계되었으며, -O 옵션으로 Python을 실행하면 무시됨
+- assert는 디버깅용으로 설계되었으며, `-O 옵션` 으로 Python을 실행하면 무시됨
+```
 python -O script.py  # assert 문이 실행되지 않음
+```
 - 실무에서는 assert 대신 if + raise를 사용하는 경우도 많음 (예외 종류 지정 가능)
+```python
 if not isinstance(x, int):
     raise TypeError("x는 정수여야 합니다")
-
-
+```
 
 ## ⚠️ 주의사항
 
@@ -77,12 +78,11 @@ if x <= 0:
     raise ValueError("x는 0보다 커야 합니다")
 ```
 
-assert는 테스트나 내부 검증에 적합하고, if + raise는 사용자 입력 검증 등 실무에 적합합니다.
+- assert는 테스트나 내부 검증에 적합하고, if + raise는 사용자 입력 검증 등 실무에 적합합니다.
 
 ---
-
-# 🧪 pytest에서의 assert 활용법
- Python 테스트 프레임워크인 pytest에서의 assert 활용법을 중심으로 정리한 문서입니다.
+## 🧪 pytest에서의 assert 활용법
+- Python 테스트 프레임워크인 pytest에서의 assert 활용법을 중심으로 정리한 문서입니다.
 
 ## ✅ 1. 기본 문법
 ```python
@@ -101,8 +101,7 @@ def test_values():
     assert [1, 2] == [1, 2]
     assert {"a": 1} == {"a": 1}
 ```
-
-pytest는 리스트, 딕셔너리, 문자열 등 다양한 타입을 비교할 수 있으며, 실패 시 상세한 diff를 보여줍니다.
+- pytest는 리스트, 딕셔너리, 문자열 등 다양한 타입을 비교할 수 있으며, 실패 시 상세한 diff를 보여줍니다.
 
 
 ## 🧠 3. 실패 메시지 커스터마이징
@@ -124,7 +123,6 @@ def test_zero_division():
     with pytest.raises(ZeroDivisionError):
         divide(10, 0)
 ```
-
 
 - 특정 예외가 발생하는지 검증할 때 사용
 - with pytest.raises(...) 블록 안에서 예외가 발생해야 테스트 통과
@@ -153,7 +151,7 @@ def test_add():
     assert add(2, 3) == 5
 ```
 
-pytest는 test_*.py 또는 *_test.py 파일에서 test_로 시작하는 함수들을 자동으로 인식합니다.
+pytest는 `test_*.py` 또는 `*_test.py` 파일에서 test_로 시작하는 함수들을 자동으로 인식합니다.
 
 
 ## 🚀 실행 방법
@@ -189,6 +187,9 @@ def test_add(x, y, expected):
     assert x + y == expected
 ```
 
-하나의 테스트 함수로 여러 케이스를 자동 실행할 수 있어 테스트 코드가 간결해지고 유지보수가 쉬워집니다.
+- 하나의 테스트 함수로 여러 케이스를 자동 실행할 수 있어 테스트 코드가 간결해지고 유지보수가 쉬워집니다.
+
+---
+
 
 
