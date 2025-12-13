@@ -3,7 +3,7 @@ Python에서 예외(Exception)는 프로그램 실행 중 발생할 수 있는 �
 try-except 블록을 사용하면 예외 발생 시 프로그램이 중단되지 않고 원하는 방식으로 대응할 수 있습니다.
 
 ## 🔧 기본 구조
-```
+```python
 try:
     # 에러가 발생할 가능성이 있는 코드
 except 에러타입1:
@@ -36,9 +36,7 @@ else:
 1 Founded it! 1 in name
 Ok! else
 ```
-```
-리스트에서 '1'을 찾는 데 성공했기 때문에 except는 실행되지 않고 else 블록이 실행됩니다.
-```
+- 리스트에서 '1'을 찾는 데 성공했기 때문에 except는 실행되지 않고 else 블록이 실행됩니다.
 
 ## 🧪 예제 2: raise로 예외 직접 발생시키기
 ```python
@@ -58,7 +56,6 @@ else:
 ```
 Occurred Exception: User Not Defined
 ```
-
 - 조건을 만족하지 않으면 raise를 통해 직접 ValueError를 발생시켜 예외 처리 흐름을 제어합니다.
 
 
@@ -78,6 +75,7 @@ Occurred Exception: User Not Defined
 - `raise는` 사용자 정의 예외나 조건 기반 예외 발생에 사용
 
 ---
+
 
 
 
