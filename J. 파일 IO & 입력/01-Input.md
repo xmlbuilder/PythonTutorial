@@ -1,6 +1,6 @@
 # Input
-Python의 input() 함수는 사용자로부터 데이터를 입력받는 가장 기본적인 방법.   
-아래에 기본 사용법, 형 변환, 예외 처리, 실무 팁까지 정리.
+- Python의 input() 함수는 사용자로부터 데이터를 입력받는 가장 기본적인 방법.   
+- 아래에 기본 사용법, 형 변환, 예외 처리, 실무 팁까지 정리.
 
 ## 🧠 input() 함수 기본 개념
 - input(prompt)는 사용자에게 메시지를 보여주고 **문자열(str)** 을 입력받습니다.
@@ -38,7 +38,7 @@ print("type:", type(float_number))  # <class 'float'>
 ```
 
 ### 🧾 포맷 출력
-```
+```python
 print("FirstName - {0}, LastName - {1}".format(input('Enter first name : '), input('Enter second name : ')))
 ```
 - format()을 사용하면 입력값을 깔끔하게 출력할 수 있음.
@@ -52,7 +52,6 @@ try:
 except ValueError:
     print("This is not a number")
 ```
-
 
 ### 반복 입력 예외 처리
 ```python
@@ -173,4 +172,5 @@ Enter your name: JungHwan
 - 반복 입력 처리 및 예외 방지
 
 ---
+
 
