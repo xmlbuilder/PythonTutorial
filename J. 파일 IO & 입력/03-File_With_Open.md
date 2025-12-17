@@ -4,6 +4,7 @@
 - 파일을 열고 자동으로 닫아주는 컨텍스트 매니저 방식
 - f.close()를 직접 호출하지 않아도 안전하게 자원 해제
 - 예외 발생 시에도 파일이 정상적으로 닫힘
+
 ```python
 with open('파일경로', '모드', encoding='인코딩') as f:
     # 파일 작업 수행
@@ -78,8 +79,6 @@ with open('./resource/it_news.txt', 'rt', encoding='utf-8') as f:
 | `'a+'` | 추가 + 읽기 (파일이 없으면 생성, 있으면 끝에 덧붙임)                  |
 | `'x'`  | 배타적 생성 (파일이 있으면 오류 발생, 없으면 새로 생성)               |
 
-
-
 ### 📘 추가 팁
 - 'r', 'w', 'a'는 모두 텍스트 모드가 기본 ('t' 생략 가능)
 - 바이너리 작업 시에는 이미지, 오디오, PDF 등 비텍스트 파일에 사용
@@ -87,64 +86,82 @@ with open('./resource/it_news.txt', 'rt', encoding='utf-8') as f:
 
 
 ### 📘 예시 코드
+
+#### r+ : 기존 파일을 읽고 수정
 ```python
-# r+ : 기존 파일을 읽고 수정
 with open('sample.txt', 'r+') as f:
     content = f.read()
     f.seek(0)
     f.write('Updated!\n' + content)
-
-# w+ : 새로 쓰고 읽기 (기존 내용 삭제됨)
+```
+#### w+ : 새로 쓰고 읽기 (기존 내용 삭제됨)
+```python
 with open('sample.txt', 'w+') as f:
     f.write('Hello World')
     f.seek(0)
     print(f.read())
+```
 
-# a+ : 기존 내용 유지하며 추가
+#### a+ : 기존 내용 유지하며 추가
+```python
 with open('sample.txt', 'a+') as f:
     f.write('\nAppended line')
     f.seek(0)
     print(f.read())
-
-# x : 파일이 존재하면 오류 발생
+```
+#### x : 파일이 존재하면 오류 발생
+```python
 with open('newfile.txt', 'x') as f:
     f.write('Created exclusively')
 ```
 
 
-⚠️ 주의사항
+### ⚠️ 주의사항
 - 'r+'는 파일이 없으면 FileNotFoundError 발생
 - 'x'는 파일이 이미 존재하면 FileExistsError 발생
 - 'w+', 'a+'는 파일이 없으면 자동 생성됨
 
-## 실전 예제
+### 실전 예제
 ```python
 with open('./resource/it_news.txt', 'rt', encoding='utf-8') as  f:
     content = f.read()
     print(content)
     print(iter(content))
     print(list(content))
-# read() : 전체 읽기, read(10) : 10Byte
-
+```
+#### read() : 전체 읽기, read(10) : 10Byte
+```python
 with open('./resource/it_news.txt', 'rt', encoding='utf-8') as  f:
     content = f.read(20)
     print(content)
-    '''Right now gamers can'''
-
+```
+```
+Right now gamers can
+```
+```python
     c = f.read(20)
     print(c)
-    ''' pay just $1 for acc'''
+```
+```
+pay just $1 for acc
+```
 
+```python
     d = f.read(20)
     print(d)
-    '''ess to hundreds of t'''
-
+```
+```
+ess to hundreds of t
+```
+```python
     f.seek(0,0)
     e = f.read(20)
     print(e)
-    '''Right now gamers can'''
-
-
+```
+```
+Right now gamers can
+```
+```python
 with open('./resource/it_news.txt', 'rt', encoding='utf-8') as  f:
     # for line in f:
     #     print(line)
@@ -153,26 +170,28 @@ with open('./resource/it_news.txt', 'rt', encoding='utf-8') as  f:
     print(line)
     line = f.readline()
     print(line)
-'''
+```
+```
 Right now gamers can pay just $1 for access to hundreds of titles across PC 
 and Xbox via Microsoft Xbox Game Pass Ultimate service?but dont 
-'''
-
+```
+```python
 with open('./resource/it_news.txt', 'rt', encoding='utf-8') as  f:
     content = f.readlines()
     print(content)
-'''
+```
+```
 ['Right now gamers can pay just $1 for access to hundreds of titles across PC \n', 
 'and Xbox via Microsoft Xbox Game Pass Ultimate service?but dont \n', 
 ... 
 '\n']
-'''    
-    
+```    
+```python   
 with open('./resource/it_news.txt', 'rt', encoding='utf-8') as  f:
     content = f.readlines()
     for c in content:
         print(c, end='')
-
 ```
 
 ---
+
