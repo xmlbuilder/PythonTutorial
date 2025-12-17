@@ -1,6 +1,6 @@
-# 📝 Python 파일 쓰기 + CSV 연동 정리
+## 📝 Python 파일 쓰기 + CSV 연동 정리
 
-## 🔧 일반 텍스트 파일 쓰기
+### 🔧 일반 텍스트 파일 쓰기
 
 | 함수/모드             | 설명                         | 예시 코드                          |
 |------------------------|------------------------------|-------------------------------------|
@@ -23,8 +23,8 @@
 | `'wt'` | 텍스트 쓰기 모드 (문자 기반, 인코딩 필요) | `open('file.txt', 'wt', encoding='utf-8')` |
 | `'wb'` | 바이너리 쓰기 모드 (바이트 기반)         | `open('file.bin', 'wb')`                   |
 
-## 📂 CSV 파일 읽기
-### 1. 기본 읽기 (csv.reader)
+### 📂 CSV 파일 읽기
+#### 1. 기본 읽기 (csv.reader)
 ```python
 import csv
 
@@ -35,12 +35,12 @@ with open('test.csv', 'r', encoding='utf-8') as f:
         print(row)  # ['Afghanistan', 'AF']
 
 ```
-### 2. 구분자 변경 (delimiter='|')
+#### 2. 구분자 변경 (delimiter='|')
 ```python
 reader = csv.reader(f, delimiter='|')
 ```
 
-### 3. 딕셔너리 방식 (csv.DictReader)
+#### 3. 딕셔너리 방식 (csv.DictReader)
 ```python
 reader = csv.DictReader(f)
 for row in reader:
@@ -49,7 +49,7 @@ for row in reader:
 
 
 ### 📤 CSV 파일 쓰기
-### 1. 리스트 기반 쓰기 (csv.writer)
+#### 1. 리스트 기반 쓰기 (csv.writer)
 ```python
 import csv
 
@@ -67,7 +67,7 @@ with open('write.csv', 'w', encoding='utf-8') as f:
 7,8,9
 ```
 
-### 2. 딕셔너리 기반 쓰기 (csv.DictWriter)
+#### 2. 딕셔너리 기반 쓰기 (csv.DictWriter)
 ```python
 fields = ['One', 'Two', 'Three']
 data = [[1,2,3], [4,5,6]]
@@ -86,16 +86,16 @@ One,Two,Three
 4,5,6
 ```
 
-## 📌 MIME 타입 참고
+### 📌 MIME 타입 참고
 - CSV 파일의 MIME 타입은 text/csv
 - 웹에서 다운로드 시 파일 형식 지정에 사용됨
 
 ---
 
-# CSV / JSON 비교
+## CSV / JSON 비교
 
-## 📊 CSV vs JSON 파일 쓰기 읽기  비교  
-### 🧩 1. 구조 차이
+### 📊 CSV vs JSON 파일 쓰기 읽기  비교  
+#### 🧩 1. 구조 차이
 
 | 항목         | `.csv` 파일                        | `.json` 파일                          |
 |--------------|------------------------------------|----------------------------------------|
@@ -105,7 +105,7 @@ One,Two,Three
 | MIME 타입    | `text/csv`                         | `application/json`                    |
 
 
-## ✅ CSV 쓰기 예시
+### ✅ CSV 쓰기 예시
 ```python
 import csv
 
@@ -115,7 +115,7 @@ with open('data.csv', 'w', encoding='utf-8') as f:
     writer.writerows(data)
 ```
 
-## ✅ JSON 쓰기 예시
+### ✅ JSON 쓰기 예시
 ```python
 import json
 
@@ -125,7 +125,7 @@ with open('data.json', 'w', encoding='utf-8') as f:
 ```
 
 
-## ✅ CSV 딕셔너리 방식
+### ✅ CSV 딕셔너리 방식
 ```python
 with open('data.csv', 'r', encoding='utf-8') as f:
     reader = csv.DictReader(f)
@@ -133,7 +133,7 @@ with open('data.csv', 'r', encoding='utf-8') as f:
         print(row['Name'], row['Age'])  # Alice 30
 ```
 
-## ✅ JSON 파일 읽기
+### ✅ JSON 파일 읽기
 ```python
 import json
 
@@ -142,7 +142,7 @@ with open('data.json', 'r', encoding='utf-8') as f:
     print(data['Name'])  # Alice
 ```
 
-## 📘 예시 파일 비교
+### 📘 예시 파일 비교
 ``
 CSV (data.csv)
 Name,Age
@@ -150,7 +150,7 @@ Alice,30
 Bob,25
 ``
 
-## JSON (data.json)
+### JSON (data.json)
 ```
 {
   "users": [
@@ -159,6 +159,7 @@ Bob,25
   ]
 }
 ```
+
 
 
 
