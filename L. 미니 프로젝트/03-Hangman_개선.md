@@ -1,6 +1,6 @@
 # Hangman 게임 2
-Hangman 게임은 이전 버전보다 훨씬 더 발전된 구조로, 파일 입출력, 랜덤 처리, 사운드 효과, 외부 라이브러리 활용까지 포함.  
-아래에 전체 코드의 취지와 학습 가능한 Python 지식을 정리.
+- Hangman 게임은 이전 버전보다 훨씬 더 발전된 구조로, 파일 입출력, 랜덤 처리, 사운드 효과, 외부 라이브러리 활용까지 포함.  
+- 아래에 전체 코드의 취지와 학습 가능한 Python 지식을 정리.
 
 ## 소스
 ```python
@@ -108,7 +108,6 @@ while turns > 0:
 sound = pygame.mixer.Sound("./sound/good.wav")
 sound.play()
 ```
-
 - pygame.mixer.init()으로 사운드 시스템 초기화
 - 정답/오답에 따라 다른 사운드 재생
 
