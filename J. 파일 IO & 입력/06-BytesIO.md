@@ -63,7 +63,6 @@ with zipfile.ZipFile(buffer, 'w') as zf:
 | `.read()`         | 현재 커서 위치부터 끝까지 `bytes` 데이터를 읽음                       |
 | `.write()`        | 현재 커서 위치에 `bytes` 데이터를 기록함                              |
 | `.seek(n)`        | 커서를 n 위치로 이동시킴 (예: `seek(0)`은 처음으로 이동) <br/> 현재 커서 위치를 반환함  |
-                |
 | `.getvalue()`     | 전체 내용을 `bytes` 객체로 반환함                                    |
 | `.getbuffer()`    | 메모리 뷰 객체 반환 → 직접 바이트 수정 가능 (`view[:] = b'...'`)     |
 | `.close()`        | 스트림 종료. `getbuffer()`가 열린 상태에서는 닫기 실패 (`BufferError`) |
@@ -80,44 +79,64 @@ import io
 b = io.BytesIO(b"abcdef")
 
 print(b)
-'''<_io.BytesIO object at 0x0000022074C929D0>'''
-
+```
+```
+<_io.BytesIO object at 0x0000022074C929D0>
+```
+```python
 view = b.getbuffer()
 print(view)
-'''<memory at 0x0000011F421050C0>'''
-
+```
+```
+<memory at 0x0000011F421050C0>
+```
+```python
 view[2:4] = b"sa"
 print(b.read())
-"""b'absaef'"""
-
+```
+```
+b'absaef'
+```
+```python
 print(b.getvalue())
-"""b'absaef'"""
-
+```
+```
+b'absaef'
+```
+```python
 #b.close()
-'''
+```
+```
 Traceback (most recent call last):
   File "D:\Development\cplus\THJ\PythonProject\Tutorial2\main.py", line 14, in <module>
     b.close()
 BufferError: Existing exports of data: object cannot be re-sized
-'''
-
+```
+```python
 bc = io.BytesIO()
 bc.write(b"Hello world!!!!")
 print(bc.tell())
-'''15'''
-
+```
+```
+15
+```
+```python
 bc.seek(0)
 
 print(bc.read())
-"""b'Hello world!!!!'"""
-
+```
+```
+b'Hello world!!!!'
+```
+```python
 bc.close()
-
 ```
 
-# b.close()를 쓸 수 없는 이유
+---
 
-## 🧠 오류 원인: BufferError: Existing exports of data
+## b.close()를 쓸 수 없는 이유
+
+- 🧠 오류 원인: BufferError: Existing exports of data
 
 ### 🔍 핵심 개념
 - b.getbuffer()는 BytesIO 내부 버퍼에 대한 직접적인 메모리 뷰를 반환.
@@ -148,7 +167,6 @@ del view
 b.close()
 ```
 
-
 ### 🧠 메모리 뷰와 종료 처리 요약
 | 메서드/상황        | 설명                                                                 |
 |--------------------|----------------------------------------------------------------------|
@@ -157,10 +175,9 @@ b.close()
 | `.close()`          | 스트림 종료. 뷰가 살아 있으면 `BufferError` 발생                       |
 | 안전한 종료         | `.getvalue()`는 안전하지만 `.getbuffer()` 사용 후에는 반드시 뷰 정리 필요 |
 
-이건 메모리 안전성과 관련된 Python의 보호 장치.  
-실무에서 getbuffer()를 쓸 땐 항상 닫기 전에 뷰를 정리하는 습관을 들이는 게 좋음. 
+- 이건 메모리 안전성과 관련된 Python의 보호 장치.    
+    실무에서 getbuffer()를 쓸 땐 항상 닫기 전에 뷰를 정리하는 습관을 들이는 게 좋음. 
 
-## ✅ BytesIO의 안전한 사용 패턴
 ### ✅ BytesIO 안전한 사용 패턴
 | 항목                  | 설명                                                                 |
 |-----------------------|----------------------------------------------------------------------|
@@ -178,12 +195,11 @@ b.close()
 - 이미지, PDF, 압축 파일, 오디오 등 바이너리 데이터 처리에 매우 유용
 - 테스트 환경에서 실제 파일 없이 입출력 시뮬레이션 가능
 
-
 ---
 
 ## BytesIO  와전한 사용 패턴
-BytesIO의 안전한 사용 패턴을 반영한 실무 샘플 코드.  
-메모리 뷰를 수정하고 안전하게 닫는 흐름까지 포함:
+- BytesIO의 안전한 사용 패턴을 반영한 실무 샘플 코드.  
+- 메모리 뷰를 수정하고 안전하게 닫는 흐름까지 포함:
 
 ### ✅ BytesIO 안전 사용 샘플
 ```python
@@ -219,7 +235,7 @@ b.close()
 | `.release()`      | 메모리 뷰를 해제하지 않으면 `.close()` 시 `BufferError` 발생 가능       |
 | `.close()`        | 스트림 종료. 뷰가 살아 있으면 닫기 실패 (`BufferError`) 발
 
-
 ---
+
 
 
