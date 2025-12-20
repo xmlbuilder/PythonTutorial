@@ -1,7 +1,7 @@
 # Context Manager Contextlib
-이 예제는 컨텍스트 매니저를 활용해 코드 실행 시간을 측정하고 예외까지 처리하는 구조를 보여주는 사례.   
-특히 __enter__()와 __exit__()를 직접 구현한 클래스 기반 컨텍스트 매니저를 통해 리소스 관리 + 로깅 + 타이밍을 동시에 처리.   
-아래에 개념, 동작 원리, 실무 활용, 그리고 contextlib로 확장하는 방식까지 자세히 정리.
+- 이 예제는 컨텍스트 매니저를 활용해 코드 실행 시간을 측정하고 예외까지 처리하는 구조를 보여주는 사례.   
+- 특히 `__enter__()` 와 `__exit__()` 를 직접 구현한 클래스 기반 컨텍스트 매니저를 통해 리소스 관리 + 로깅 + 타이밍을 동시에 처리.   
+- 아래에 개념, 동작 원리, 실무 활용, 그리고 contextlib로 확장하는 방식까지 자세히 정리.
 
 ## 전체 소스
 ```python
@@ -42,8 +42,8 @@ class ExecuteTimer:
         # 예외가 있으면 로깅, 없으면 실행 시간 출력
 ```
 
-- __enter__()에서 시작 시간 기록
-- __exit__()에서 종료 시간 계산 및 출력
+- `__enter__()` 에서 시작 시간 기록
+- `__exit__()` 에서 종료 시간 계산 및 출력
 - 예외 발생 시 exc_type, exc_val, exc_tb로 로깅 처리
 - return True는 예외를 무시하고 계속 진행하겠다는 의미
 
@@ -84,10 +84,9 @@ def execute_timer(msg):
         print("Logging exception:", e)
     else:
         print(f'{msg} | {time.monotonic() - start:.4f} s')
-
 ```
-- @contextmanager 데코레이터로 함수 기반 컨텍스트 매니저 구현 가능
-- yield 앞은 __enter__(), 뒤는 __exit__() 역할
+- `@contextmanager` 데코레이터로 함수 기반 컨텍스트 매니저 구현 가능
+- yield 앞은 `__enter__()` , 뒤는 `__exit__()` 역할
 - 코드가 간결하고 직관적이어서 간단한 컨텍스트 매니저에 적합
 
 ## ✅ 요약
@@ -95,18 +94,17 @@ def execute_timer(msg):
 - contextlib.contextmanager는 간단한 타이밍, 로깅, 상태 추적에 유용
 - 예외 발생 여부와 관계없이 자원 해제와 로깅을 보장하는 구조는 실무에서 매우 중요
 
-
 ---
 
 #  Context Manager (Annotation)
 
-예제는 Python의 컨텍스트 매니저를 함수형 스타일로 구현하는 방식.  
-특히 contextlib.contextmanager 데코레이터를 활용하면 __enter__()와 __exit__()를 직접 구현하지 않아도 훨씬 간결하고 직관적인 코드를 만들 수 있음.   
-아래에 개념 설명과 함께 다양한 실무 예제를 추가해서 정리.
+- 예제는 Python의 컨텍스트 매니저를 함수형 스타일로 구현하는 방식.  
+- 특히 contextlib.contextmanager 데코레이터를 활용하면 `__enter__()` 와 `__exit__()` 를 직접 구현하지 않아도 훨씬 간결하고 직관적인 코드를 만들 수 있음.   
+- 아래에 개념 설명과 함께 다양한 실무 예제를 추가해서 정리.
 
 ## 🧠 핵심 개념: contextlib.contextmanager
 - @contextmanager 데코레이터는 함수 기반 컨텍스트 매니저를 만들 수 있게 해줌
-- yield 앞은 __enter__() 역할, 뒤는 __exit__() 역할
+- yield 앞은 `__enter__()` 역할, 뒤는 `__exit__()` 역할
 - 예외가 발생하면 try-except 블록에서 처리 가능
 - 코드가 간결하고 직관적이며, 예외 처리도 용이
 
@@ -207,3 +205,4 @@ with open('log.txt', 'w') as f:
 | 유지보수 효율       | `with` + `contextlib` 구조는 로직이 캡슐화되어 협업과 테스트에 유리하며, 오류 발생 가능성 낮음   |
 
 ---
+
