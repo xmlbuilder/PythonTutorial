@@ -4,5 +4,5 @@
   - [개선안](./03-Hangman_개선.md)
 - [GIFConverter](./04-GIFConverter.md)
 - [HTTP 비동기 다운로드](./05-HTTP_비동기_적용.md)
-- [Web Client 만들기](.06-WebClient_Package.md)
+- [Web Client 만들기](./06-WebClient_Package.md)
 ---
