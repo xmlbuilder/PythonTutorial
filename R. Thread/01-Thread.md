@@ -41,7 +41,7 @@ def withdraw(amount):
 ```
 
 ## ✅ 개선 효과
-- with lock:을 통해 한 번에 하나의 스레드만 balance에 접근
+- `with lock`:을 통해 한 번에 하나의 스레드만 balance에 접근
 - Race Condition 방지 → 잔고가 음수가 되는 문제 해결
 
 ## 🔍 Thread 주요 메서드 요약
@@ -84,9 +84,9 @@ with ThreadPoolExecutor(max_workers=3) as executor:
 
 # Thread 정리
 
-실무에서 많이 사용하는 Python의 Thread 기법들을 아래에 정리, 
-각각에 맞는 샘플 코드를 함께 제공. 
-특히 병렬 처리, 백그라운드 작업, 스레드 풀, 동기화 등 실무에서 자주 쓰이는 패턴 중심으로 구성.
+- 실무에서 많이 사용하는 Python의 Thread 기법들을 아래에 정리, 
+- 각각에 맞는 샘플 코드를 함께 제공. 
+- 특히 병렬 처리, 백그라운드 작업, 스레드 풀, 동기화 등 실무에서 자주 쓰이는 패턴 중심으로 구성.
 
 ## 🧵 1. 기본 Thread 실행
 ```python
@@ -120,7 +120,7 @@ time.sleep(3)
 print("메인 종료 → 데몬 스레드도 종료됨")
 ```
 
-### ✅ 특징: 메인 스레드가 종료되면 데몬 스레드도 함께 종료됨
+- ✅ 특징: 메인 스레드가 종료되면 데몬 스레드도 함께 종료됨
 
 ## 🧠 3. ThreadPoolExecutor (스레드 풀)
 ```python
@@ -134,7 +134,7 @@ with ThreadPoolExecutor(max_workers=3) as executor:
     executor.map(download, urls)
 ```
 
-### ✅ 실무 활용: 웹 크롤링, 파일 다운로드 등 병렬 작업에 최적
+- ✅ 실무 활용: 웹 크롤링, 파일 다운로드 등 병렬 작업에 최적
 
 ## 🔒 4. Lock을 활용한 동기화
 ```python
@@ -208,6 +208,7 @@ for i in range(5):
 | is_alive() / join() 활용 | 스레드 상태 확인 및 동기화 → 작업 완료 여부 확인, 안전한 종료 처리 가능         |
 
 ---
+
 
 
 
