@@ -170,28 +170,33 @@ import numpy as np
 a = np.random.random((2, 3))
 print("배열 a:")
 print(a)
-
-print("\na.sum()       # 전체 합")
-print(a.sum())
-
-print("\na.min()       # 최소값")
-print(a.min())
-
-print("\na.max()       # 최대값")
-print(a.max())
 ```
-### 출력 결과
 ```
 배열 a:
 [[0.08384666 0.01391259 0.94030646]
  [0.76205091 0.01548114 0.64392931]]
-
+```
+```python
+print("\na.sum()       # 전체 합")
+print(a.sum())
+```
+```
 a.sum()       # 전체 합
 2.4595270759161374
-
+```
+```python
+print("\na.min()       # 최소값")
+print(a.min())
+```
+```
 a.min()       # 최소값
 0.013912593930435424
-
+```
+```python
+print("\na.max()       # 최대값")
+print(a.max())
+```
+```
 a.max()       # 최대값
 0.9403064643053698
 ```
@@ -225,49 +230,58 @@ import numpy as np
 b = np.arange(12).reshape(3, 4)
 print("배열 b:")
 print(b)
-
-print("\nb.sum(axis=0)       # 열 기준 합")
-print(b.sum(axis=0))
-
-print("\nb.sum(axis=1)       # 행 기준 합")
-print(b.sum(axis=1))
-
-print("\nb.min(axis=0)       # 열 기준 최소값")
-print(b.min(axis=0))
-
-print("\nb.cumsum(axis=0)    # 열 기준 누적합")
-print(b.cumsum(axis=0))
-
-print("\nb.cumsum(axis=1)    # 행 기준 누적합")
-print(b.cumsum(axis=1))
 ```
-
-### 출력 결과
 ```
 배열 b:
 [[ 0  1  2  3]
  [ 4  5  6  7]
  [ 8  9 10 11]]
-
+```
+```python
+print("\nb.sum(axis=0)       # 열 기준 합")
+print(b.sum(axis=0))
+```
+```
 b.sum(axis=0)       # 열 기준 합
 [12 15 18 21]
-
+```
+```python
+print("\nb.sum(axis=1)       # 행 기준 합")
+print(b.sum(axis=1))
+```
+```
 b.sum(axis=1)       # 행 기준 합
 [ 6 22 38]
-
+```
+```python
+print("\nb.min(axis=0)       # 열 기준 최소값")
+print(b.min(axis=0))
+```
+```
 b.min(axis=0)       # 열 기준 최소값
 [0 1 2 3]
-
+```
+```python
+print("\nb.cumsum(axis=0)    # 열 기준 누적합")
+print(b.cumsum(axis=0))
+```
+```
 b.cumsum(axis=0)    # 열 기준 누적합
 [[ 0  1  2  3]
  [ 4  6  8 10]
  [12 15 18 21]]
-
+```
+```python
+print("\nb.cumsum(axis=1)    # 행 기준 누적합")
+print(b.cumsum(axis=1))
+```
+```
 b.cumsum(axis=1)    # 행 기준 누적합
 [[ 0  1  3  6]
  [ 4  9 15 22]
  [ 8 17 27 38]]
 ```
+
 ---
 
 ## 🔹 8. 기타 연산 함수
@@ -309,20 +323,32 @@ b = np.arange(4)
 c = a - b
 
 print(c)
-'''[20 29 38 47]'''
-
+```
+```
+[20 29 38 47]
+```
+```python
 d  = b ** 2
 print(d)
-'''[0 1 4 9]'''
-
+```
+```
+[0 1 4 9]
+```
+```python
 e = 10 * np.sin(a)
 print(e)
-'''[ 9.12945251 -9.88031624  7.4511316  -2.62374854]'''
-
+```
+```
+[ 9.12945251 -9.88031624  7.4511316  -2.62374854]
+```
+```python
 f = a < 35
 print(f)
-'''[ True  True False False]'''
-
+```
+```
+[ True  True False False]
+```
+```python
 A = np.array([[1,1],
               [0, 1]])
 
@@ -330,50 +356,58 @@ B = np.array([[2,0],
               [3, 4]])
 C = A * B
 print(C)
-'''
+```
+```
 [[2 0]
  [0 4]]
- '''
-
+```
+```python
 D = A @ B
 print(D)
-'''
+```
+```
 [[5 4]
  [3 4]]
- '''
-
+```
+```python
 E = A.dot(B)
 print(E)
-'''
+```
+```
 [[5 4]
  [3 4]]
- '''
-
+```
+```python
 a1 = np.ones((2, 3), dtype=int)
 b1 = np.random.random((2, 3))
 print(b1)
-'''
+```
+```
 [[0.2927232  0.05930611 0.95716545]
  [0.67861961 0.5103508  0.47676085]]
-'''
-
+```
+```python
 a1 *= 3
 print(a1)
-'''
+```
+```
 [[3 3 3]
  [3 3 3]]
-'''
-
+```
+```python
 b1 += a1
 print(b1)
-'''
+```
+```
 [[3.2927232  3.05930611 3.95716545]
  [3.67861961 3.5103508  3.47676085]]
-'''
-
-#a1 += b1
-#print(a1)
-'''Traceback (most recent call last):
+```
+```python
+a1 += b1
+print(a1)
+```
+```
+Traceback (most recent call last):
   File "/Users/jeongjunghwan/PycharmProjects/Tutorial2/numpy_test.py", line 49, in <module>
     b1 = np.random.rand((2, 3))
          ^^^^^^^^^^^^^^^^^^^^^^
@@ -381,7 +415,6 @@ print(b1)
   File "numpy/random/mtrand.pyx", line 441, in numpy.random.mtrand.RandomState.random_sample
   File "_common.pyx", line 312, in numpy.random._common.double_fill
 TypeError: 'tuple' object cannot be interpreted as an integer
-'''
 ```
 
 ```python
@@ -392,25 +425,41 @@ a = np.ones(3, dtype=np.int32)
 b = np.linspace(0, np.pi, 3)
 
 print(a.dtype.name)
-'''int32'''
-
+```
+```
+int32
+```
+```python
 print(b.dtype.name)
-'''float64'''
-
+```
+```
+float64
+```
+```python
 c = a + b
 print(c)
-'''[1.         2.57079633 4.14159265]'''
-
+```
+```
+[1.         2.57079633 4.14159265]
+```
+```python
 print(c.dtype.name)
-'''float64'''
-
+```
+```
+float64
+```
+```python
 d = np.exp(c*1j)
 print(d)
-'''[ 0.54030231+0.84147098j -0.84147098+0.54030231j -0.54030231-0.84147098j]'''
-
+```
+```
+[ 0.54030231+0.84147098j -0.84147098+0.54030231j -0.54030231-0.84147098j]
+```
+```python
 print(d.dtype.name)
-'''complex128'''
-
+```
+```
+complex128
 ```
 
 ```python
@@ -418,19 +467,28 @@ import numpy as np
 
 a = np.random.random((2, 3))
 print(a)
-'''
+```
+```python
+
 [[0.08384666 0.01391259 0.94030646]
  [0.76205091 0.01548114 0.64392931]]
- '''
-
+```
+```python
 print(a.sum())
-'''2.4595270759161374'''
-
+```
+```
+2.4595270759161374
+```
+```python
 print(a.min())
-'''0.013912593930435424'''
-
+```
+0.013912593930435424
+```
+```python
 print(a.max())
-'''0.9403064643053698'''
+```
+```
+0.9403064643053698
 ```
 
 ```python
@@ -439,37 +497,51 @@ import numpy as np
 
 b = np.arange(12).reshape(3,4)
 print(b)
-'''
+```
+```
 [[ 0  1  2  3]
  [ 4  5  6  7]
  [ 8  9 10 11]]
- '''
-
+```
+```python
 print(b.sum(axis=0))
-'''[12 15 18 21]'''
-
+```
+```
+[12 15 18 21]
+```
+```python
 print(b.sum(axis=1))
-'''[ 6 22 38]'''
-
+```
+```
+[ 6 22 38]
+```
+```python
 print(b.min(axis=0))
-'''[0 1 2 3]'''
-
+```
+```
+[0 1 2 3]
+```
+```python
 print(b.min(axis=1))
-'''[0 4 8]'''
-
+```
+```
+[0 4 8]
+```
+```python
 print(b.cumsum(axis=0))
-'''
+```
+```
 [[ 0  1  2  3]
  [ 4  6  8 10]
  [12 15 18 21]]
- '''
-
+```
+```python
 print(b.cumsum(axis=1))
-'''
+```
+```
 [[ 0  1  3  6]
  [ 4  9 15 22]
  [ 8 17 27 38]]
-'''
 ```
 
 ```python
@@ -477,30 +549,46 @@ import numpy as np
 
 B = np.arange(3)
 print(B)
-'''[0 1 2]'''
-
+```
+```
+[0 1 2]
+```
+```python
 print(np.exp(B))
-'''[1.         2.71828183 7.3890561 ]'''
-
+```
+```
+[1.         2.71828183 7.3890561 ]
+```
+```python
 print(np.sqrt(B))
-'''[0.         1.         1.41421356]'''
-
+```
+```
+[0.         1.         1.41421356]
+```
+```python
 C = np.array([2.0, -1, 4.])
 print(np.add(B, C))
-'''[2. 0. 6.]'''
 ```
-
+```
+[2. 0. 6.]
+```
 ---
 
-# exp 수식 전행 절차 
+### exp 수식 전행 절차 
 ```python
 c = a + b
 print(c)
-'''[1.         2.57079633 4.14159265]'''
+```
+```
+[1.         2.57079633 4.14159265]
+```
+```python
 d = np.exp(c*1j)
 print(d)
-'''[ 0.54030231+0.84147098j -0.84147098+0.54030231j -0.54030231-0.84147098j]'''
 ```
+[ 0.54030231+0.84147098j -0.84147098+0.54030231j -0.54030231-0.84147098j]
+```
+
 
 ## 🔹 2. 복소수 지수 계산
 ```python
@@ -508,24 +596,25 @@ d = np.exp(c * 1j)
 ```
 
 ### ✅ 핵심 수식: 오일러 공식
-Given:
+- Given:
 
 ```
 c = [1.0, 2.57079633, 4.14159265]
 ```
 
-Step:
+- Step:
 ```python
 d = np.exp(c * 1j)
 ```
-Explanation:  
-According to Euler's formula:  
+
+- Explanation:  
+    - According to Euler's formula:  
 
 ```
     e^(ix) = cos(x) + i·sin(x)
 ```
 
-So, np.exp(c * 1j) computes  
+- So, np.exp(c * 1j) computes  
 ```
     [cos(1.0) + i·sin(1.0),
         cos(2.57079633) + i·sin(2.57079633),
@@ -568,6 +657,7 @@ print(d)
 | `np.abs(d)`            | 복소수의 크기(magnitude)      | 복소수의 절댓값 → `sqrt(real² + imag²)`                          |
 
 ---
+
 
 
 
