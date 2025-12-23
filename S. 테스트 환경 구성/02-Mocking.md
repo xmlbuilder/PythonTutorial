@@ -1,15 +1,15 @@
 # Mocking
-"모킹(Mock)"은 테스트에서 정말 자주 등장하는 개념인데, 특히 외부 의존성을 대체하거나 격리할 때 아주 유용. 
-아래에 개념부터 실무 활용까지 자세히 설명해.
+- **모킹(Mock)** 은 테스트에서 정말 자주 등장하는 개념인데, 특히 외부 의존성을 대체하거나 격리할 때 아주 유용. 
+- 아래에 개념부터 실무 활용까지 자세히 설명해.
 
 ## 🧠 모킹(Mock)이란?
-테스트 대상 코드가 의존하고 있는 외부 객체나 함수의 동작을 흉내내는 것.  
+- 테스트 대상 코드가 의존하고 있는 외부 객체나 함수의 동작을 흉내내는 것.  
 ```python
 assert result["name"] == "JungHwan"
 ```
 
 ## ✅ 여기서 일어난 일
-- requests.get을 **가짜 함수(mock)**로 바꿈
+- requests.get을 **가짜 함수(mock)** 로 바꿈
 - 실제 API 호출 없이, 우리가 원하는 응답을 직접 지정
 - 테스트는 빠르고 안정적으로 수행됨
 
@@ -22,29 +22,31 @@ assert result["name"] == "JungHwan"
 | `responses`         | `requests` 라이브러리의 HTTP 요청을 모킹 → API 테스트에 특화됨   |
 
 ## 🔍 간단 설명
-- unittest.mock: Python 내장 모듈. 가장 기본적인 모킹 도구로, 거의 모든 객체를 가짜로 바꿀 수 있어.
+- unittest.mock: Python 내장 모듈. 가장 기본적인 모킹 도구로, 거의 모든 객체를 가짜로 바꿀 수 있음.
 - pytest-mock: pytest 사용자에게 친화적인 모킹 방식. mocker.patch()로 더 깔끔하게 작성 가능.
-- responses: requests.get() 같은 HTTP 요청을 가로채서 원하는 응답을 반환하게 해줌. 외부 API 테스트에 매우 유용해.
+- responses: requests.get() 같은 HTTP 요청을 가로채서 원하는 응답을 반환하게 해줌. 외부 API 테스트에 매우 유용.
 
 ## 🧪 예시 흐름
+### unittest.mock 사용 예시
 ```python
-# unittest.mock 사용 예시
 from unittest.mock import patch
 
 @patch("requests.get")
 def test_api(mock_get):
     mock_get.return_value.json.return_value = {"status": "ok"}
     assert requests.get("https://example.com").json()["status"] == "ok"
+```
 
-
-# pytest-mock 사용 예시
+### pytest-mock 사용 예시
+```python
 def test_api_with_mocker(mocker):
     mock_get = mocker.patch("requests.get")
     mock_get.return_value.json.return_value = {"status": "ok"}
     assert requests.get("https://example.com").json()["status"] == "ok"
+```
 
-
-# responses 사용 예시
+### responses 사용 예시
+```python
 import responses
 
 @responses.activate
@@ -58,9 +60,6 @@ def test_api_with_responses():
     resp = requests.get("https://example.com")
     assert resp.json()["status"] == "ok"
 ```
-
-이제 어떤 모킹 도구를 어떤 상황에서 써야 할지 확실히 감이 잡혔을 거야.
-
 
 
 ## 📌 실무 적용 팁
@@ -103,8 +102,8 @@ def test_check_file(mock_exists):
     assert check_file("/fake/path") == True
 ```
 
-이처럼 모킹은 실무에서 불확실한 외부 요소를 제어하고, 테스트를 빠르고 안정적으로 수행할 수 있게 해주는 핵심 기술이야.
-모킹은 단순히 "가짜로 만든다"는 개념을 넘어서, 테스트의 품질과 속도, 안정성을 높여주는 핵심 기술이야.
+- 이처럼 모킹은 실무에서 불확실한 외부 요소를 제어하고, 테스트를 빠르고 안정적으로 수행할 수 있게 해주는 핵심 기술.
+- 모킹은 단순히 **가짜로 만든다**는 개념을 넘어서, 테스트의 품질과 속도, 안정성을 높여주는 핵심 기술.
 
 
 
@@ -115,7 +114,7 @@ def test_check_file(mock_exists):
 pip install pytest
 ```
 
-- 역할: Python 테스트를 자동화하고, 간결한 문법으로 다양한 케이스를 검증할 수 있게 해줘.
+- 역할: Python 테스트를 자동화하고, 간결한 문법으로 다양한 케이스를 검증할 수 있게 해줌.
 - 사용 예: assert, @pytest.mark.parametrize, pytest.raises() 등
 
 ### 2. 🧪 pytest-mock (선택 사항)
@@ -134,15 +133,19 @@ pip install responses
 - 역할: requests 기반 HTTP 호출을 모킹할 수 있는 라이브러리
 - 사용 예: 외부 API를 테스트할 때 실제 호출 없이 응답을 시뮬레이션
 
-### 📦 설치 요약
+## 📦 설치 요약
+
+- 사용 예
 ```
 pip install pytest pytest-mock responses
+
 ```
 
 위 명령어를 한 번에 실행하면 테스트 환경이 완성돼.
 설치 후에는 pytest test.py로 테스트를 바로 실행할 수 있음
 
 ----
+
 
 
 
