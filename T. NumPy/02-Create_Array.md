@@ -40,24 +40,24 @@ print(c.dtype)        # float64
 
 ### 3. 잘못된 배열 생성 (오류 예시)
 ```python
-# d = np.array(1.2, 3.5, 5.1)
+d = np.array(1.2, 3.5, 5.1)
 ```
-
+```
 TypeError: array() takes from 1 to 2 positional arguments but 3 were given
-
-#### ✅ 올바른 방식: np.array([1.2, 3.5, 5.1]) 처럼 리스트나 튜플로 감싸야 함
+```
+- ✅ 올바른 방식: `np.array([1.2, 3.5, 5.1])` 처럼 리스트나 튜플로 감싸야 함
 
 
 ### 📌 튜플을 이용한 2차원 배열
 ```python
 e = np.array([(1.5, 2, 3), (4, 5, 6)])
 print(e)
-
-
+```
+```
 [[1.5 2.  3. ]
  [4.  5.  6. ]]
-
-
+```
+```python
 print(e.shape)        # (2, 3)
 
 ```
@@ -66,11 +66,10 @@ print(e.shape)        # (2, 3)
 ```python
 f = np.array([[1, 2], [3, 4]], dtype=complex)
 print(f)
-
-
+```
+```
 [[1.+0.j 2.+0.j]
  [3.+0.j 4.+0.j]]
-
 ```
 
 ## 🧠 보강 포인트
@@ -89,8 +88,8 @@ print(f)
 
 
 ## 💬 한마디
-배열 생성은 NumPy의 시작이자 끝이야.
-다양한 방식으로 배열을 만들 수 있다는 건, 데이터를 자유롭게 다룰 수 있다는 뜻.
+- 배열 생성은 NumPy의 시작이자 끝.
+- 다양한 방식으로 배열을 만들 수 있다는 건, 데이터를 자유롭게 다룰 수 있다는 뜻.
 
 ---
 
@@ -101,67 +100,93 @@ import numpy as np
 
 a = np.arange(15).reshape(3, 5)
 print(a)
-'''
+```
+```
 [[ 0  1  2  3  4]
  [ 5  6  7  8  9]
  [10 11 12 13 14]]
-'''
-
+```
+```python
 print(a.shape)
-'''(3, 5)'''
-
+```
+```
+(3, 5)
+```
+```python
 print(a.ndim)
-'''2'''
-
+```
+```
+2
+```
+```python
 print(a.dtype.name)
-'''int64'''
-
+```
+```
+int64
+```
+```python
 print(a.itemsize)
-'''8'''
-
+```
+```
+8
+```
+```python
 print(type(a))
-'''<class 'numpy.ndarray'>'''
-
+```
+```
+<class 'numpy.ndarray'>
+```
+```python
 b = np.array([1, 2, 3, 4, 5])
 print(b)
-'''[1 2 3 4 5]'''
-
+```
+```
+[1 2 3 4 5]
+```
+```python
 print(type(b))
-'''<class 'numpy.ndarray'>'''
-
+```
+<class 'numpy.ndarray'>
+```
+```python
 c = np.array([1.2, 3.5, 5.1])
 print(c.dtype)
-'''float64'''
-
-#d = np.array(1.2, 3.5, 5.1)
-'''
+```
+```
+float64
+```
+```python
+d = np.array(1.2, 3.5, 5.1)
+```
+```
 Traceback (most recent call last):
   File "/Users/jeongjunghwan/PycharmProjects/Tutorial2/numpy_test.py", line 35, in <module>
     d = np.array(1.2, 3.5, 5.1)
         ^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: array() takes from 1 to 2 positional arguments but 3 were given
-'''
-
+```
+```python
 e = np.array([(1.5, 2, 3), (4, 5, 6)])
 print(e)
-'''
+```
+```
 [[1.5 2.  3. ]
  [4.  5.  6. ]]
- '''
-
+```
+```python
 print(e.shape)
-'''(2, 3)'''
-
+```
+```
+(2, 3)
+```
+```python
 f = np.array([[1, 2], [3, 4]],dtype=complex)
 
 print(f)
-'''
+```
+```
 [[1.+0.j 2.+0.j]
  [3.+0.j 4.+0.j]]
- '''
-
 ```
 
-
-
-
+---
