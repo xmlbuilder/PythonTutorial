@@ -7,7 +7,7 @@
   - [Basic Operation](./04-Basic_Operation.md)
   - [Array Index Slicing Iterating](./05-Array_Index_Slicing_Iterating.md)
   - [Shspe Manipulation](./06-Shspe_Manipulation.md)
-  - [Stacking](./07-NumPy_Stacking.md)
+  - [Stacking](./07-Stacking.md)
   - [Split Concatendate](./08-NumPy_Split_Concatendate.md)
   - [Copy View](./09-NumPy_Copy_View.md)
   - [Fancy Indexingmd](./10-NumPy_Fancy_Indexingmd.md)
