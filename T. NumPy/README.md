@@ -10,7 +10,7 @@
   - [Stacking](./07-Stacking.md)
   - [Split Concatendate](./08-NumPy_Split_Concatendate.md)
   - [Copy View](./09-Copy_View.md)
-  - [Fancy Indexingmd](./10-Fancy_Indexing.md)
+  - [Fancy Indexing](./10-Fancy_Indexing.md)
   - [Boolean Array](./11-NumPy_BooleanArray.md)
   - [LinerAlgebra](./12-NumPy_LinerAlgebra.md)
 - StringIO
