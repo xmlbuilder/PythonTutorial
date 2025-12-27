@@ -9,7 +9,7 @@
   - [Shspe Manipulation](./06-Shspe_Manipulation.md)
   - [Stacking](./07-Stacking.md)
   - [Split Concatendate](./08-NumPy_Split_Concatendate.md)
-  - [Copy View](./09-NumPy_Copy_View.md)
+  - [Copy View](./09-Copy_View.md)
   - [Fancy Indexingmd](./10-NumPy_Fancy_Indexingmd.md)
   - [Boolean Array](./11-NumPy_BooleanArray.md)
   - [LinerAlgebra](./12-NumPy_LinerAlgebra.md)
