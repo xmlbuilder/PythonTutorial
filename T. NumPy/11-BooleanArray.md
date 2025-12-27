@@ -1,6 +1,5 @@
 # 📦 Basic — Indexing with Boolean Arrays
 
-
 ## ✅ 1. 조건 기반 Boolean 인덱싱
 ```python
 import numpy as np
@@ -10,25 +9,33 @@ b = a > 4
 # → 조건을 만족하는 위치만 True
 
 print(b)
-→ [[False False False False]
-   [False  True  True  True]
-   [ True  True  True  True]]
 ```
+```
+[[False False False False]
+ [False  True  True  True]
+ [ True  True  True  True]]
+```
+
+### → True 위치의 값만 추출
 
 ```python
 c = a[b]
-# → True 위치의 값만 추출
-→ [ 5  6  7  8  9 10 11]
 ```
+```
+[ 5  6  7  8  9 10 11]
+```
+
+### → 조건을 만족하는 위치에 0 대입
 
 ```python
 a[b] = 0
-# → 조건을 만족하는 위치에 0 대입
 
 print(a)
-→ [[0 1 2 3]
-   [4 0 0 0]
-   [0 0 0 0]]
+```
+```
+[[0 1 2 3]
+ [4 0 0 0]
+ [0 0 0 0]]
 ```
 
 ## ✅ 2. 행/열 Boolean 인덱싱
@@ -476,4 +483,5 @@ options = [
 
 
 ---
+
 
