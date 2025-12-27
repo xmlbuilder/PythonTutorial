@@ -20,5 +20,10 @@
   - [StringIO Filleing Values](./16-StringIO_Filleing_Values.md)
 - Broadcasting Rule
   - [Broadcasting Rule](./17-Broadcasting_Rule.md)
+ 
+- Random
+  - [Random Generator](./18-Random.md)
+
+ 
 
   
