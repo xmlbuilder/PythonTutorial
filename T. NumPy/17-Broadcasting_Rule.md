@@ -1,15 +1,14 @@
 # Broadcasting Rule
-NumPy의 핵심 기능 중 하나인 Broadcasting Rule을 그 원리를 단계적으로 설명.
+- NumPy의 핵심 기능 중 하나인 Broadcasting Rule을 그 원리를 단계적으로 설명.
 
 ## 📘 Broadcasting Rule이란?
-서로 다른 shape을 가진 배열끼리 연산할 때,
-NumPy가 자동으로 shape을 맞춰주는 규칙이야.
+- 서로 다른 shape을 가진 배열끼리 연산할 때, NumPy가 자동으로 shape을 맞춰주는 규칙.
 
 
 ## ✅ Broadcasting이 적용되는 조건
-두 배열의 shape을 오른쪽부터 비교하면서 다음 조건을 만족해야 해:
-- 같은 크기이거나
-- 한쪽이 1이면 확장 가능
+- 두 배열의 shape을 오른쪽부터 비교하면서 다음 조건을 만족해야 함:
+ - 같은 크기이거나
+ - 한쪽이 1 이면 확장 가능
 
 ## 🔍 예제별 설명
 ### ① 실패 예시: x + y
@@ -24,7 +23,8 @@ print(x)
 '[0 1 2 3]'
 xx = x.reshape(4, 1)
 print(xx)
-'''
+```
+```''
 [[0]
  [1]
  [2]
@@ -153,6 +153,7 @@ print(c+b)
 Broadcasting은 NumPy의 벡터화 연산을 가능하게 하는 핵심 기술.  
 덕분에 for문 없이도 다양한 shape의 배열끼리  
 빠르고 직관적으로 연산할 수 있지.  
+
 
 
 
