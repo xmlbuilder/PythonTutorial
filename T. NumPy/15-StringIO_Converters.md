@@ -96,13 +96,13 @@ np.genfromtxt(StringIO("1, , 3\n4, 5, 6"), delimiter=",")
 
 ## 3. 자동 타입 추론이 없음
 - np.genfromtxt()는 pandas.read_csv()처럼 자동으로 타입을 추론하지 않음 
-- np.genfromtxt()는 pandas.read_csv()처럼 자동으로 타입- np.genfromtxt()는 pandas.read_csv()처럼 자동으로 타입
--np.genfro- 대신 모든 필드를 동일한 타입으  처리하려고 시도함 → 기본은 float                      |-------------------------|
+- 대신 모든 필드를 동일한 타입으로 처리하려고 시도함 → 기본은 float
+
+| 원본                     | 변환 결과              |
+|-------------------------|-------------------------|
 | 기본 dtype             | 명시하지 않으면 float64로 처리됨           |
 | 결측값 처리            | nan 표현을 위해 float 타입이 필요함        |
 | 자동 타입 추론 없음    | 모든 열을 동일한 타입으로 처리하려고 함     |
-
-
 
 
 ## ✅ 2. 열 인덱스 기반 변환 — converters={1: func}
@@ -115,7 +115,6 @@ b = np.genfromtxt(StringIO(data), delimiter=",", names=names, converters={1: con
 ```
 [(1., 0.023, 45.) (6., 0.789,  0.)]
 ```
-
 - converters={1: func} → 두 번째 열(인덱스 1)에만 변환 함수 적용
 - % 제거 후 백분율 → 실수로 변환
 
@@ -131,7 +130,8 @@ c = np.genfromtxt(StringIO(data), delimiter=",", names=names, converters={"p": c
 
 - converters={"p": func} → 열 이름 "p"에 직접 적용
 - 이름 기반 접근은 구조화 배열에서 더 직관적
-s### ✅ 4. 결측값 처리 — 공백을 기본값으로 대체
+
+### ✅ 4. 결측값 처리 — 공백을 기본값으로 대체
 ```python
 data = u'1,  , 3\n 4, 5, 6'
 convert_func = lambda x: float(x.strip() or -999)
@@ -151,15 +151,12 @@ e = np.genfromtxt(StringIO(data), delimiter=",", converters={1: convert_func})
 ## 💡 실무 팁 요약 — np.genfromtxt converters 활용
 | 기법                    | 기능 설명                          | 실무 활용 예시                        |
 |-------------------------|-------------------------------------|---------------------------------------|
-| converters={i: f}       | 열 인덱스 기반 변환 함수 지정       | 1번째 열의 퍼센트 문자열 처리         |
-| converters={"name": f}  | 열 이름 기반 변환 함수 지정         | "p" 열의 문자열 → 실수 변환           |
-| lambda x: x or default  | 결측값 처리용 람다 함수             | 공백 → -999 같은 기본값으로 대체      |
-| strip()                 | 문자열 전처리 (공백/기호 제거)      | `" 78.9% "` → `"78.9"` → `0.789`      |
+| `converters={i: f}`       | 열 인덱스 기반 변환 함수 지정       | 1번째 열의 퍼센트 문자열 처리         |
+| `converters={"name": f}`  | 열 이름 기반 변환 함수 지정         | "p" 열의 문자열 → 실수 변환           |
+| `lambda x: x or default`  | 결측값 처리용 람다 함수             | 공백 → -999 같은 기본값으로 대체      |
+| `strip()`                 | 문자열 전처리 (공백/기호 제거)      | `" 78.9% "` → `"78.9"` → `0.789`      |
 
 ## 💬 한마디
-converters는 np.genfromtxt()를  
-텍스트 전처리 도구로 확장시켜주는 핵심 옵션이야.  
-특히 %, 공백, 단위 같은 비정형 데이터를  
-깔끔하게 숫자로 바꿔주는 데 정말 유용하지. 
-
-
+- converters는 np.genfromtxt()를 텍스트 전처리 도구로 확장시켜주는 핵심 옵션.  
+- 특히 %, 공백, 단위 같은 비정형 데이터를 깔끔하게 숫자로 바꿔주는 데 정말 유용. 
+---
