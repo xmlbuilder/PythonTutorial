@@ -29,35 +29,7 @@ print(id(m), id(n))  # 부동소수점도 같은 객체일 수 있음
 ```
 - 부동소수점은 캐싱되지 않지만, 같은 리터럴을 사용하면 컴파일러 최적화로 인해 같은 객체가 될 수 있음
 
-
-### 🚫 예약어 (Reserved Keywords)
-Python에는 문법적으로 특별한 의미를 가진 단어들이 있으며, 변수명으로 사용할 수 없습니다.
-❗ 사용 불가 예시
-```python
-for = 1      # ❌ SyntaxError
-class = 3    # ❌ SyntaxError
-```
-
-### ✅ 예약어 목록
-```python
-False, def, if, raise,
-None, del, import, return,
-True, elif, in, try,
-and, else, is, while,
-as, except, lambda, with,
-assert, finally, nonlocal, yield,
-break, for, not,
-class, from, or, continue, global, pass
-```
-
-### 👉 이 목록은 keyword 모듈을 통해 확인할 수 있어요:
-```python
-import keyword
-print(keyword.kwlist)
-```
-
-
-## 📌 요약
+### 📌 요약
 - id()는 객체의 고유 메모리 주소를 반환
 - 변수는 객체를 참조하는 이름일 뿐
 - Python은 일부 객체(작은 정수 등)를 캐싱하여 메모리 효율을 높임
