@@ -1,9 +1,9 @@
-# set / frozenset을
-Python의 set과 frozenset 실전 예제.  
-아래에 전체 내용을 개념 + 코드 + 설명으로 정리.
+## 📘 set / frozenset을
+- Python의 set과 frozenset 실전 예제.  
+- 아래에 전체 내용을 개념 + 코드 + 설명으로 정리.
 
-## 🧮 Python의 집합 자료형: set과 frozenset
-### ✅ 기본 개념
+### 📌 Python의 집합 자료형: set과 frozenset
+#### 🔹 기본 개념
 
 | 자료형     | 특징                     |
 |------------|--------------------------|
@@ -11,7 +11,7 @@ Python의 set과 frozenset 실전 예제.
 | `frozenset`| `set` 기반, 변경 불가능  |
 
 
-### 🔹 set 생성과 중복 제거
+#### 🔹 set 생성과 중복 제거
 ```python
 s1 = {'Apple', 'Orange', 'Mango', 'Pineapple', 'Kiwi', 'Apple'}
 print(s1)
@@ -32,7 +32,7 @@ print(s2)
 
 - 리스트를 set()으로 변환해도 동일하게 중복 제거
 
-### 🔹 단일 요소 집합과 빈 집합
+#### 🔹 단일 요소 집합과 빈 집합
 ```python
 s3 = {3}          # 하나의 요소를 가진 집합
 s4 = set()        # 빈 집합
@@ -41,7 +41,7 @@ print(type(s4))   # <class 'set'>
 
 - `{}` 는 빈 `딕셔너리로 인식` 되므로 빈 집합은 set()으로 생성해야 함
 
-### 🔹 frozenset: 불변 집합
+#### 🔹 frozenset: 불변 집합
 ```python
 s5 = frozenset(s1)
 print(type(s5))   # <class 'frozenset'>
@@ -53,7 +53,7 @@ print(type(s5))   # <class 'frozenset'>
 # s5.add('Melon')  # AttributeError
 ```
 
-### 🔹 set은 변경 가능
+#### 🔹 set은 변경 가능
 ```python
 s1.add("Melon")
 print(s1, type(s1))
@@ -65,19 +65,19 @@ print(s1, type(s1))
 ---
 
 
-### 🔍 선언 최적화: 바이트코드 비교
+### 📌 선언 최적화: 바이트코드 비교
 ```python
 from dis import dis
 
 print(dis('{10}'))
 ```
 
-### 더 간단한 바이트코드 (BUILD_SET)
+### set 바이트코드 (BUILD_SET)
 ```python
 print(dis('set([10])'))
 ```
 
-## 🔍 바이트코드 비교: 집합 선언 방식
+### 📌 바이트코드 비교: 집합 선언 방식
 
 | 표현식        | 바이트코드 요약                  | 연산 단계 수 | 성능 |
 |---------------|----------------------------------|--------------|-------|
@@ -85,17 +85,8 @@ print(dis('set([10])'))
 | `set([10])`   | `PUSH_NULL → LOAD_NAME → BUILD_LIST → CALL → RETURN` | 5단계 이상 | ❌ 느림 |
 
 
-## 🧠 지능형 집합 (Set Comprehension)
-```python
-from unicodedata import name
 
-print({ name(chr(i), '') for i in range(0, 256) })
-```
-
-- name(chr(i), '')는 유니코드 문자 이름을 반환
-- 집합으로 중복 없이 정리됨
-
-## 📌 요약
+### 📌 요약
 | 특징             | `set`                     | `frozenset`               |
 |------------------|---------------------------|----------------------------|
 | 중복 제거        | ✅                         | ✅                          |
