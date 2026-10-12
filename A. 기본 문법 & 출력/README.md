@@ -1,18 +1,18 @@
 ## A. 기본 문법 & 출력 목차
 
-- [여러 문장 한 줄에 코딩](./01-여러문장_한줄에코딩.md)
-- 타입 힌트: [Type Hint](./02-TypeHint.md)
+- 📘 [여러 문장 한 줄에 코딩](./01-여러문장_한줄에코딩.md)
+- 타입 힌트: 📘 [Type Hint](./02-TypeHint.md)
 - 출력과 포맷
-  - [print 기본](./03-Print.md)
-  - [포맷 기본](./04-PrintFormat.md) 
-  - [포맷팅 문법](./05-05-Formating.md.md)
-  - [포맷 최신 정리(2023)](./06-Print2023.md)
-  - [format 함수](./07-Format.md), 
-  - [Type](./08-type.md)
+  - 📘 [print 기본](./03-Print.md)
+  - 📘 [포맷 기본](./04-PrintFormat.md) 
+  - 📘 [포맷팅 문법](./05-05-Formating.md.md)
+  - 📘 [포맷 최신 정리(2023)](./06-Print2023.md)
+  - 📘 [format 함수](./07-Format.md), 
+  - 📘 [Type](./08-type.md)
 - 식별자/불리언: 
-  - [id & is Reference 참조](./09-id_is.md)
-  - [None/Bool](./10-None_Bool.md)
+  - 📘 [id & is Reference 참조](./09-id_is.md)
+  - 📘 [None/Bool](./10-None_Bool.md)
 - 정규 표현식:
-  - [Regular Expression.md](./11-Regular_Expression.md) 
-
+  - 📘 [Regular Expression](./11-Regular_Expression.md) 
+  - 📘 [repr](./12-repr.md)
 ---
