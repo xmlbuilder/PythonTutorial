@@ -1,9 +1,9 @@
-# 🧠 일급 함수 (First-class Function)
+## 📘 일급 함수 (First-class Function)
 - Python에서 함수는 일급 객체로 취급.  
 - 즉, 함수도 변수처럼 다룰 수 있음.
 
 
-## ✅ 일급 함수 특징 요약
+### 📌 일급 함수 특징 요약
 | 기능 항목               | 예시 코드 또는 설명                  |
 |------------------------|--------------------------------------|
 | 변수에 할당 가능       | `var_func = factorial`               |
@@ -14,7 +14,7 @@
 | 호출 가능 여부 확인    | `callable(factorial)` → `True`       |
 
 
-## 실전 예제
+#### 🔹 실전 예제
 ```python
 def factorial(n):
     if n == 1:
@@ -69,7 +69,7 @@ print(factorial.__code__)
 <code object factorial at 0x1014ee6a0, file "/Users/jeongjunghwan/PycharmProjects/Tutorial2/module_test.py", line 12>
 ```
 
-### 변수 할당 가능
+#### 🔹 변수 할당 가능
 ```python
 var_func = factorial
 print(var_func)
@@ -84,7 +84,7 @@ print(var_func(10))
 3628800
 ```
 
-## 🔍 실전 예제 요약
+#### 🔹 실전 예제 요약
 - factorial 함수는 재귀로 정의되고, 변수에 할당 가능
 - map, filter, reduce로 고위 함수 활용
 
@@ -108,12 +108,22 @@ print([var_func(i) for i in range(1, 6) if i % 2 != 0])
 ```
 [1, 6, 120]
 ```
+#### 🔹 처리 순서
+- 1. range(1, 6)       → 1, 2, 3, 4, 5
+- 2. i에 값 대입
+- 3. if i % 2 != 0     → 홀수인지 검사
+- 4. 조건이 True이면 var_func(i) 실행
+- 5. 다음 i로 이동
+
+
 ```python
 print(list(map(var_func, filter(lambda i: i % 2 != 0, range(1, 6)))))
 ```
 ```
 [1, 6, 120]
 ```
+
+
 ```python
 from functools import reduce
 print(reduce(lambda x, y: x * y, range(1, 6), 10))
@@ -122,6 +132,7 @@ print(reduce(lambda x, y: x * y, range(1, 6), 10))
 1200
 ````
 - partial로 인수 고정 → 콜백 함수처럼 사용 가능
+
 ```python
 from operator import mul
 from functools import partial
@@ -131,6 +142,7 @@ print(mul(10, 10), 10*10)
 ```
 100 100
 ```
+
 ```python
 # 인수 고정
 five_mul = partial(mul, 5)
@@ -139,6 +151,7 @@ print(five_mul(10))
 ```
 50
 ```
+
 ```python
 # 고정 추가
 six_mul = partial(five_mul, 6)
@@ -175,7 +188,7 @@ print(callable(list), callable(var_func), callable(factorial), callable(3.14))
 True True True False
 ```
 
-## 🧩 함수형 프로그래밍 vs 객체지향 프로그래밍
+### 📌 함수형 프로그래밍 vs 객체지향 프로그래밍
 
 | 항목             | 함수형 프로그래밍                            | 객체지향 프로그래밍                          |
 |------------------|----------------------------------------------|----------------------------------------------|
@@ -189,12 +202,12 @@ True True True False
 | 실전 적용 방식   | 데이터 흐름 중심, map/filter/reduce 활용     | 도메인 모델 중심, 클래스 기반 설계           |
 
 
-### 💬 극단적 강조에 대한 균형
+### 📌 극단적 강조에 대한 균형
 - 함수형만 강조하면 상태 기반 로직이나 UI 처리에 불리
 - 객체지향만 강조하면 재사용성과 조합성이 떨어질 수 있음
 - Python은 둘 다 지원하므로 상황에 따라 혼합 설계가 가장 이상적
 
-## 🦀 Rust / C++ / Java에서 함수형 스타일 살리는 기법
+### 📌 Rust / C++ / Java에서 함수형 스타일 살리는 기법
 
 | 언어   | 함수형 스타일 적용 기법                                               |
 |--------|------------------------------------------------------------------------|
@@ -202,17 +215,17 @@ True True True False
 | C++    | `std::function`, `lambda`, `std::bind`, `ranges`, `constexpr`          |
 | Java   | `Stream API`, `lambda`, `Function<T,R>`, `Optional`, `Predicate`       |
 
-### 🔧 예시: Rust에서 map/filter/reduce
-```python
+#### 🔹 예시: Rust에서 map/filter/reduce
+```rust
 let result: i32 = (1..=5).filter(|x| x % 2 != 0).map(|x| factorial(x)).sum();
 ```
 
-### 🔧 예시: C++에서 std::transform
+#### 🔹 예시: C++에서 std::transform
 ```cpp
 std::transform(v.begin(), v.end(), v.begin(), [](int x) { return x * 2; });
 ```
 
-### 🔧 예시: Java Stream
+#### 🔹 예시: Java Stream
 ```java
 List<Integer> result = list.stream()
     .filter(x -> x % 2 != 0)
@@ -220,8 +233,7 @@ List<Integer> result = list.stream()
     .collect(Collectors.toList());
 ```
 
-
-## 📘 결론
+### 📌 결론
 
 - Python은 함수형과 객체지향을 모두 지원하는 멀티 패러다임 언어
 - 함수형은 조합성과 테스트 용이성, 객체지향은 구조화와 상태 관리에 강점
