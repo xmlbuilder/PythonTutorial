@@ -1,8 +1,8 @@
-# class self
+## 📘 class self
 - Python 클래스에서 self의 역할, 클래스 변수와 인스턴스 변수의 차이, 그리고 네임스페이스의 동작.   
 - 아래에 핵심 개념을 정리하고, 예제 분석을 통해 실무적인 이해.
 
-## 🧠 핵심 개념 요약
+### 📌 핵심 개념 요약
 | 개념             | 설명                                                                 |
 |------------------|----------------------------------------------------------------------|
 | self             | 인스턴스 자신을 가리키는 예약어. 메서드 호출 시 자동으로 전달됨         |
@@ -12,7 +12,7 @@
 
 
 
-## 🧪 예제 1: self의 역할과 메서드 호출 방식
+### 📌 예제 1: self의 역할과 메서드 호출 방식
 ```python
 class SelfTest:
     def func():  # self 없음 → 클래스 메서드처럼 동작
@@ -37,7 +37,7 @@ print(dir(f))
 ```
 
 
-## 🧪 호출 방식 비교
+### 📌 호출 방식 비교
 | 호출 방식           | 설명                                                             |
 |---------------------|------------------------------------------------------------------|
 | `f.func()`          | ❌ 오류 발생: `func()`은 self 인자가 없는데 인스턴스에서 호출됨     |
@@ -48,7 +48,7 @@ print(dir(f))
 
 
 
-## 🏭 예제 2: 클래스 변수 vs 인스턴스 변수
+### 📌 예제 2: 클래스 변수 vs 인스턴스 변수
 ```python
 class Warehouse:
     stock_num = 0  # 클래스 변수
@@ -61,12 +61,12 @@ class Warehouse:
         Warehouse.stock_num -= 1
 ```
 
-### 동작 분석
+#### 🔹 동작 분석
 - Warehouse.stock_num은 클래스 전체에서 공유됨
 - self.name은 각 인스턴스마다 고유
 - __del__은 객체가 삭제될 때 자동 호출되어 stock_num 감소
 
-### 출력 예시
+#### 🔹 출력 예시
 ```python
 user1 = Warehouse('j1')
 user2 = Warehouse('j2')
@@ -81,7 +81,7 @@ print(Warehouse.__dict__)   # 클래스 변수 및 메서드 포함
 - user1.stock_num → 2 (클래스 변수 접근)
 - del user1 → __del__ 호출로 stock_num 감소
 
-## 🔚 마무리 요약
+### 📌 마무리 요약
 | 항목             | 설명                                                   |
 |------------------|--------------------------------------------------------|
 | self             | 인스턴스 메서드에서 인스턴스를 참조하는 예약어          |
@@ -92,9 +92,28 @@ print(Warehouse.__dict__)   # 클래스 변수 및 메서드 포함
 
 ---
 
+### 📌 C++의 static 함수처럼 사용
+```python
+class SelfTest:
+
+    @staticmethod
+    def func():
+        print("Func1 called")
+
+    def func2(self):
+        print("Func2 called")
 
 
+f = SelfTest()
 
+SelfTest.func()  # 정상
+f.func()         # 정상
+f.func2()        # 정상
+```
+
+- @staticmethod를 붙이면 인스턴스를 통한 호출에서도 self가 자동 전달되지 않습니다.
+
+---
 
 
 
