@@ -1,16 +1,14 @@
-# Function Chaining
-함수형 프로그래밍의 핵심 장점인 **함수 체이닝(Function Chaining)**을 Python으로 구현.
-아래에 그 개념과 동작 원리를 정리.
+## 📘 Function Chaining
+- 함수형 프로그래밍의 핵심 장점인 **함수 체이닝(Function Chaining)** 을 Python으로 구현.
+- 아래에 그 개념과 동작 원리를 정리.
 
-## 🧠 함수형 프로그래밍의 큰 장점: 체이닝
-### ✅ 정의
-함수 체이닝은 여러 함수를 순차적으로 연결해서
-데이터 흐름을 함수 중심으로 구성하는 방식.
-
+### 📌 함수형 프로그래밍의 큰 장점: 체이닝
+#### 🔹 정의
+- 함수 체이닝은 여러 함수를 순차적으로 연결해서 데이터 흐름을 함수 중심으로 구성하는 방식.
 - 각 함수는 입력을 받아 다음 함수를 반환
 - 최종 결과는 연결된 함수들을 순차적으로 실행한 결과
 
-### 🔧 Python으로 구현한 체이닝 구조
+#### 🔹 Python으로 구현한 체이닝 구조
 ```python
 import functools as ft
 
@@ -26,7 +24,7 @@ def sub(x, y):
 def div(x, y):
     return x / y
 ```
-### 예제 코드
+#### 🔹 예제 코드
 ```python
 
 
@@ -57,7 +55,7 @@ print(d)
 ```
 
 
-### 🔄 실행 흐름
+#### 🔹 실행 흐름
 ```
 add(5, 6) → mul(11)
 mul(11)(4) → sub(44)
@@ -67,7 +65,7 @@ div(39)(5) → 7.8
 - 각 함수는 ft.partial()을 통해 다음 함수를 반환
 - 인자를 하나씩 받아가며 연결된 계산 흐름을 구성
 
-## 💡 핵심 개념 요약: 함수 체이닝과 functools.partial
+### 📌 핵심 개념 요약: 함수 체이닝과 functools.partial
 
 | 개념            | 키워드 또는 구조         | 설명 |
 |-----------------|--------------------------|------|
@@ -78,15 +76,14 @@ div(39)(5) → 7.8
 | 가독성 향상      | 체이닝 구조              | 복잡한 로직을 단계별로 분리 가능 |
 
 
-## 📘 결론
-함수형 프로그래밍의 체이닝은
-복잡한 로직을 단순한 함수 조합으로 표현할 수 있게 해줌.
-Python에서도 커링 + 체이닝을 구현할 수 있다는 걸 보여주는 사례.
+### 📌 결론
+- 함수형 프로그래밍의 체이닝은 복잡한 로직을 단순한 함수 조합으로 표현할 수 있게 해줌.
+- Python에서도 커링 + 체이닝을 구현할 수 있다는 걸 보여주는 사례.
 
 ---
 
-# 🧠 1. Python 확장: map, reduce, pipe 스타일
-## ✅ map과 reduce 활용
+### 📌 1. Python 확장: map, reduce, pipe 스타일
+#### 🔹 map과 reduce 활용
 ```python
 from functools import reduce
 
@@ -102,7 +99,7 @@ total = reduce(lambda acc, x: acc + x, data)  # 10
 - map: 각 요소에 함수 적용
 - reduce: 누적 계산 흐름 구성
 - 체이닝은 pipe 스타일로 표현 가능
-## ✅ pipe 스타일 (직접 구현)
+#### 🔹 pipe 스타일 (직접 구현)
 ```python
 def pipe(value, *funcs):
 
@@ -118,10 +115,10 @@ print(result)  # 17
 ```
 
 - pipe()는 함수형 체이닝을 명시적으로 표현
-- 너의 ft.partial() 구조와 유사하게 단계별 흐름을 구성
+- ft.partial() 구조와 유사하게 단계별 흐름을 구성
 
-## 🧠 2. JavaScript: compose와 체이닝
-### ✅ compose 구현
+### 📌 2. JavaScript: compose와 체이닝
+#### 🔹 compose 구현
 ```javascript
 const compose = (...funcs) => x =>
     funcs.reduceRight((acc, f) => f(acc), x);
@@ -137,7 +134,7 @@ console.log(result);
 - compose(f, g, h)(x)는 f(g(h(x)))처럼 우측부터 적용
 - Python의 pipe()는 좌측부터 적용 → compose()와 반대 방향
 
-### ✅ 체이닝 스타일
+#### 🔹 체이닝 스타일
 ```javascript
 const result = [1, 2, 3, 4]
     .map(x => x + 1)
@@ -149,8 +146,8 @@ console.log(result); // 6
 - JavaScript는 배열 메서드 체이닝이 매우 강력함
 - map → filter → reduce는 함수형 흐름의 대표 구조
 
-##  🧠 3. Rust: Iterator.chain()과 함수형 흐름
-### ✅ 기본 체이닝
+### 📌 3. Rust: Iterator.chain()과 함수형 흐름
+#### 🔹 기본 체이닝
 ```rust
 let result: i32 = [1, 2, 3]
     .iter()
@@ -163,7 +160,7 @@ println!("{}", result); // 6
 
 - Rust는 map, filter, fold를 Iterator trait로 제공
 - 체이닝은 lazy evaluation 기반으로 최적화됨
-### ✅ chain()으로 연결
+#### 🔹 chain()으로 연결
 ```python
 let a = [1, 2];
 let b = [3, 4];
@@ -175,7 +172,7 @@ println!("{:?}", chained); // [1, 2, 3, 4]
 - chain()은 두 이터레이터를 하나로 연결
 - Python의 itertools.chain()과 유사
 
-## 📘 결론 요약: 함수형 체이닝 비교
+### 📌 결론 요약: 함수형 체이닝 비교
 
 | 언어        | 체이닝 방식                         | 특징 요약                         |
 |-------------|-------------------------------------|-----------------------------------|
@@ -186,10 +183,10 @@ println!("{:?}", chained); // [1, 2, 3, 4]
 
 ---
 
-# C++ 구현
+## 📘 C++ 구현
 
-## 🔧 Function Chaining 구현 방식
-### 1. 함수 객체(Functor) + operator() 오버로드
+### 📌 Function Chaining 구현 방식
+#### 🔹 1. 함수 객체(Functor) + operator() 오버로드
 ```cpp
 struct Add {
     int x;
@@ -208,7 +205,8 @@ int result = Mul(4)(Add(5)(100)); // (100 + 5) * 4 = 420
 ```
 
 - 함수 객체를 중첩 호출 → 체이닝처럼 동작
-### 2. 커링 스타일 람다
+  
+#### 🔹 2. 커링 스타일 람다
 ```cpp
 auto add = [](int x) {
     return [x](int y) { return x + y; };
@@ -222,7 +220,8 @@ int result = mul(4)(add(5)(100)); // 420
 ```
 
 - 람다로 커링 구조 구현 → 체이닝 가능
-### 3. 파이프 스타일 with operator overloading
+  
+#### 🔹 3. 파이프 스타일 with operator overloading
 ```cpp
 template<typename F, typename G>
 auto compose(F f, G g) {
@@ -236,11 +235,6 @@ int result = f(100); // (100 + 5) * 4 = 420
 ```
 
 - compose()로 함수 체이닝 구성
-
-## 📘 결론
-C에서는 Method Chaining은 자연스럽게 되지만,
-Function Chaining은 람다, 함수 객체, 커링, compose 구조를 활용해서
-충분히 구현 가능.
 
 ---
 
