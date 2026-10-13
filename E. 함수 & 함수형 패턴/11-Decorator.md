@@ -1,13 +1,13 @@
-# Decorator
+## 📘 Decorator
 
-데코레이터는 파이썬에서 정말 강력한 기능
+- 데코레이터는 파이썬에서 정말 강력한 기능
 
-## 🧠 데코레이터란?
-함수를 감싸서 기능을 확장하거나 수정하는 함수
-즉, 기존 함수를 변경하지 않고도 실행 전후에 원하는 동작을 추가할 수 있음.
+### 📌 데코레이터란?
+- 함수를 감싸서 기능을 확장하거나 수정하는 함수
+- 즉, 기존 함수를 변경하지 않고도 실행 전후에 원하는 동작을 추가할 수 있음.
 
 
-## 🔧 기본 구조
+### 📌 기본 구조
 ```python
 def decorator(func):         # 1. 원래 함수를 받아서
     def wrapper(*args, **kwargs):  # 2. 감싸는 함수 정의
@@ -18,7 +18,7 @@ def decorator(func):         # 1. 원래 함수를 받아서
     return wrapper           # 4. 감싼 함수 반환
 ```
 
-## ✅ 사용 방식
+#### 🔹 사용 방식
 ```python
 @decorator
 def my_func():
@@ -27,8 +27,7 @@ def my_func():
 
 - my_func = decorator(my_func) 와 동일
 
-
-## 예제
+#### 🔹 예제
 
 ```python
 import time
@@ -50,7 +49,7 @@ def sum_func(*numbers):
     return sum(numbers)
 ```
 
-### 데코레이터 미사용
+#### 🔹 데코레이터 미사용
 ```python
 func1 = perf_clock(time_func)
 func2 = perf_clock(sum_func)
