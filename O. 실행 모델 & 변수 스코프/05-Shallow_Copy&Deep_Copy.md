@@ -1,11 +1,11 @@
-# Shallow Copy & Deep Copy
+## 📘 Shallow Copy & Deep Copy
 
 - Python에서 객체 복사 시 발생하는 참조 구조의 차이를 아주 명확하게 보여줌.  
-- 특히 copy.copy()와 copy.deepcopy()의 동작 차이를 이해하면, 실무에서 예상치 못한 버그나 데이터 오염을 방지할 수 있음. 
+- 특히 `copy.copy()`와 `copy.deepcopy()`의 동작 차이를 이해하면, 실무에서 예상치 못한 버그나 데이터 오염을 방지할 수 있음. 
 - 아래에 개념, 동작 방식, 실무 활용까지 자세히 정리.
 
-## 🧠 Shallow Copy vs Deep Copy
-### 🔹 기본 복사 (= 할당)
+### 📌 Shallow Copy vs Deep Copy
+#### 🔹 기본 복사 (= 할당)
 ```python
 a_list = [1, 2, 3, [4, 5, 6], [7, 8, 9]]
 b_list = a_list
@@ -15,7 +15,7 @@ b_list = a_list
 - id(a_list) == id(b_list) → True
 - 하나를 수정하면 둘 다 바뀜
 
-### 🔹 Shallow Copy (copy.copy())
+#### 🔹 Shallow Copy (copy.copy())
 ```python
 import copy
 c_list = copy.copy(a_list)
@@ -23,23 +23,24 @@ c_list = copy.copy(a_list)
 
 - 겉의 리스트만 새로 복사하고, 내부의 중첩 객체는 같은 참조를 공유
 - id(c_list) != id(a_list) → 다른 객체
-- 하지만 c_list[3] is a_list[3] → True
-### ✅ 결과
+- 하지만 `c_list[3] is a_list[3]` → True
+  
+#### 🔹 결과
 ```python
 c_list[0] = 100  # 겉 리스트만 수정 → 원본 영향 없음
 c_list[3][0] = 200  # 내부 리스트 수정 → 원본도 같이 바뀜!
 ```
 
-### 🔹 Deep Copy (copy.deepcopy())
+#### 🔹 Deep Copy (copy.deepcopy())
 ```python
 d_list = copy.deepcopy(a_list)
 ```
 
 - 겉 리스트뿐 아니라 내부 중첩 객체까지 모두 새로 복사
 - id(d_list) != id(a_list) → 다른 객체
-- d_list[3] is a_list[3] → False
+- `d_list[3] is a_list[3]` → False
 
-## ✅ 결과
+#### 🔹 결과
 ```python
 d_list[0] = 100  # 겉 리스트 수정 → 원본 영향 없음
 d_list[3][0] = 200  # 내부 리스트 수정 → 원본 영향 없음
@@ -55,7 +56,7 @@ d_list[3][0] = 200  # 내부 리스트 수정 → 원본 영향 없음
 | 복잡한 구조의 안전한 복사   | 리스트 안에 리스트, 딕셔너리 안에 리스트 등 중첩 구조를 완전히 분리해 복사 가능     |
 | 버그 예방                   | 얕은 복사로 인해 원본이 의도치 않게 변경되는 문제를 사전에 차단할 수 있음         |
 
-## 🔍 요약 비교
+## 📌 요약 비교
 
 | 항목               | `=` (할당)                          | `copy.copy()` (얕은 복사)               | `copy.deepcopy()` (깊은 복사)             |
 |--------------------|--------------------------------------|------------------------------------------|--------------------------------------------|
@@ -66,9 +67,9 @@ d_list[3][0] = 200  # 내부 리스트 수정 → 원본 영향 없음
 | 사용 목적           | 참조 공유, 빠른 접근                  | 부분 복사, 겉만 분리                        | 완전 독립 복사, 안전한 상태 관리              |
 | 실무 활용 예시       | 단순 참조, 빠른 접근                  | UI 상태 복사, 설정값 일부 변경               | 테스트 격리, 병렬 처리, 상태 롤백, 백업 등      |
 
-## 실제 코드
+## 📌 실제 코드
 
-### Copy
+#### 🔹 Copy
 ```python
 a_list = [1, 2, 3, [4, 5, 6], [7, 8, 9]]
 b_list = a_list
@@ -78,10 +79,10 @@ print(id(a_list))  # 4387047232
 print(b_list == a_list)  # True
 ```
 
-### immutable : int, str, float, bool, unicode
-#### mutable : list, set, dictionary
+- immutable : int, str, float, bool, unicode
+- mutable : list, set, dictionary
 
-### Shallow Copy
+#### 🔹 Shallow Copy
 ```python
 import copy
 c_list = copy.copy(a_list)
@@ -96,7 +97,7 @@ print(a_list)  # [1, 2, 3, [200, 5, 6], [7, 8, 9]]
 print(c_list)  # [100, 2, 3, [200, 5, 6], [7, 8, 9]]
 ```
 
-### Deep Copy
+#### 🔹 Deep Copy
 ```python
 a_list = [1, 2, 3, [4, 5, 6], [7, 8, 9]]
 d_list = copy.deepcopy(a_list)
