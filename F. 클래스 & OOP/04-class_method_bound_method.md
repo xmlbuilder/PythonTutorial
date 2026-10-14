@@ -1,8 +1,15 @@
-# 클래스 메소드 / 바운드 메소드
-이 코드는 Python에서 클래스 메서드와 인스턴스 메서드의 차이를 보여주는 예제.  
-아래에 핵심 개념과 학습 포인트를 정리.
+## 📘 클래스 메소드 / 바운드 메소드
+- 이 코드는 Python에서 클래스 메서드와 인스턴스 메서드의 차이를 보여주는 예제.  
+- 아래에 핵심 개념과 학습 포인트를 정리.
 
-## 🧠 핵심 개념: 클래스 메서드 vs 바운드 메서드
+### 📌 코드 
+```python
+class A(object):
+    def func(self):
+        print('function')
+```
+
+### 📌 클래스 메서드 vs 바운드 메서드
 | 표현       | 객체 타입       | 설명                                               |
 |------------|------------------|----------------------------------------------------|
 | `A.func`   | `function`       | 클래스에서 직접 접근한 함수. 아직 `self`가 바인딩되지 않음 |
@@ -10,20 +17,14 @@
 | 호출 방식  | `self` 필요      | `A.func(a)`처럼 명시적으로 `self`를 넘겨야 호출 가능         |
 | 호출 방식  | `self` 자동 전달 | `a.func()`처럼 `self`가 자동으로 바인딩되어 호출됨           |
 
-## ✅ 코드 흐름 설명
-```python
-class A(object):
-    def func(self):
-        print('function')
-```
-
+### 📌 코드 흐름 설명
 - func는 인스턴스 메서드로 정의됨 (self를 첫 번째 인자로 받음)
 ```python
 print(A.func)
 # <function A.func at 0x...>
 ```
 
-- 클래스에서 직접 접근하면 func는 함수 객체로 출력됨
+- `클래스에서 직접 접근하면 func는 함수 객체로 출력됨`
 ```python
 a = A()
 print(a.func)
@@ -31,10 +32,10 @@ print(a.func)
 ```
 
 - 인스턴스에서 접근하면 func는 바운드 메서드로 출력됨
-- self가 a로 자동 바인딩됨
+- `self가 a로 자동 바인딩됨`
 
 
-## ✅ A.func() 직접 호출 예시
+#### 🔹 A.func() 직접 호출 예시
 ```python
 class A:
     def func(self):
@@ -47,7 +48,7 @@ A.func(a)  # 직접 self 인자를 넘겨 호출
 - self 인자를 명시적으로 넘겨야 정상 호출됨
 
 
-## 📘 실전 팁
+#### 🔹 실전 팁
 
 | 항목             | 설명                                                                 |
 |------------------|----------------------------------------------------------------------|
@@ -57,19 +58,18 @@ A.func(a)  # 직접 self 인자를 넘겨 호출
 | 디버깅 시 구분     | `print(a.func)` → 바운드 메서드 / `print(A.func)` → 함수 객체 출력     |
 
 
-## 🔍 확장 학습
+---
+
+### 📌 확장 학습
 - @classmethod, @staticmethod의 차이
 - 메서드 바인딩 해제 (A.func.__get__(None, A) 등)
 - 메타클래스에서 메서드 동적 생성
 
+### 📌 @classmethod, @staticmethod, __get__, __call__
+- @classmethod, @staticmethod, __get__, __call__을 활용한 고급 메서드 개념까지 정리.
 
----
-
-## @classmethod, @staticmethod, __get__, __call__
-@classmethod, @staticmethod, __get__, __call__을 활용한 고급 메서드 개념까지 정리.
-
-## 🧠 고급 메서드 개념 정리
-### 1. @classmethod
+### 📌 고급 메서드 개념 정리
+#### 🔹 1. @classmethod
 ```python
 class B:
     @classmethod
@@ -78,12 +78,11 @@ class B:
 
 B.greet()  # Hello from class <class '__main__.B'>
 ```
-
 - 첫 번째 인자가 cls (클래스 자체)
 - 클래스에서 직접 호출 가능
 - 팩토리 메서드, 클래스 설정 초기화 등에 자주 사용
 
-### 2. @staticmethod
+#### 🔹 2. @staticmethod
 ```python
 class C:
     @staticmethod
@@ -95,7 +94,7 @@ C.greet()  # Hello without self or cls
 - self, cls 없이 독립적으로 동작
 - 유틸리티 함수처럼 클래스 내부에 정의하고 싶을 때 사용
 
-### 3. __get__ (디스크립터 프로토콜)
+#### 🔹 3. __get__ (디스크립터 프로토콜)
 ```python
 class Descriptor:
     def __get__(self, instance, owner):
@@ -111,7 +110,7 @@ d.attr  # Accessed from <__main__.D object at ...> of <class '__main__.D'>
 - `__get__` 은 속성 접근 시 자동 호출됨
 - 메서드 바인딩, 속성 제어 등에 사용됨
 
-### 4. `__call__` (객체를 함수처럼 호출)
+#### 🔹 4. `__call__` (객체를 함수처럼 호출)
 ```python
 class E:
     def __call__(self, x):
@@ -124,7 +123,7 @@ e(42)  # Called with 42
 - 객체를 함수처럼 사용할 수 있게 해줌
 - 커스텀 함수 객체, 래퍼 클래스 등에 활용됨
 
-## 📘 요약 테이블
+### 📌 요약 테이블
 
 | 정의 방식           | 첫 인자 | 호출 방식     | 특징 및 용도                                      |
 |---------------------|---------|---------------|--------------------------------------------------|
@@ -136,7 +135,8 @@ e(42)  # Called with 42
 
 
 ---
-## functools.partial / operator.methodcaller / 데코레이터 패턴
+
+### 📌 functools.partial / operator.methodcaller / 데코레이터 패턴
 
 - 아래는 Python에서 자주 쓰이는 고급 함수형 프로그래밍 도구인 functools.partial, operator.methodcaller, 그리고 데코레이터 패턴에 대한 정리.  
 - 실전 예제와 함께 핵심 개념을 깔끔하게 정리.
