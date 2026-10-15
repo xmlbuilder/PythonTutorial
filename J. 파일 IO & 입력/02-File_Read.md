@@ -1,6 +1,19 @@
-# 📂 Python 파일 읽기 정리
+## 📘 Python 파일 읽기 정리
+```python
+@overload
+def open(
+    file: FileDescriptorOrPath,
+    mode: OpenTextMode = "r",
+    buffering: int = -1,
+    encoding: str | None = None,
+    errors: str | None = None,
+    newline: str | None = None,
+    closefd: bool = True,
+    opener: _Opener | None = None,
+) -> TextIOWrapper: ...
+```
 
-## 🔧 파일 열기 모드
+### 📌 파일 열기 모드
 | 모드 | 설명                                 |
 |------|--------------------------------------|
 | `r`  | 읽기 전용 (파일이 없으면 오류 발생)   |
@@ -11,24 +24,24 @@
 
 - 예: 'rt' → 텍스트 읽기, 'rb' → 바이너리 읽기
 
-### 📘 예시 조합
+#### 🔹 예시 조합
 - 'rt' : 텍스트 읽기
 - 'wb' : 바이너리 쓰기
 - 'at' : 텍스트 추가
 
 
-## 📁 경로 지정 방식
+### 📌 경로 지정 방식
 | 경로 유형   | 예시 경로                         | 설명                                 |
 |-------------|-----------------------------------|--------------------------------------|
 | 상대 경로   | `'./data/file.txt'`               | 현재 작업 디렉토리를 기준으로 접근    |
 | 절대 경로   | `'C:\\Users\\User\\file.txt'`     | 전체 경로를 지정하여 정확한 위치 접근 |
 
-### 📘 추가 설명
+#### 🔹 추가 설명
 - ./ : 현재 디렉토리
 - ../ : 상위 디렉토리
 - 절대 경로는 운영체제에 따라 형식이 다를 수 있음 (Windows는 C:\, macOS/Linux는 /Users/ 등)
 
-## 📖 파일 읽기 기본 구조
+### 📌 파일 읽기 기본 구조
 ```python
 f = open('./resource/it_news.txt', 'rt', encoding='utf-8')
 print(f.encoding)     # 파일 인코딩 확인
@@ -47,7 +60,7 @@ print(cts)
 f.close()             # 파일 닫기
 ```
 
-## 🔍 주요 읽기 함수
+### 📌 주요 읽기 함수
 | 함수           | 설명                                 |
 |----------------|--------------------------------------|
 | `read()`       | 파일 전체 내용을 문자열로 읽음        |
@@ -55,7 +68,7 @@ f.close()             # 파일 닫기
 | `readlines()`  | 모든 줄을 리스트로 반환               |
 
 
-### 📘 예시 코드
+#### 🔹 예시 코드
 ```python
 with open('example.txt', 'rt', encoding='utf-8') as f:
     print(f.read())         # 전체 내용
@@ -69,14 +82,15 @@ with open('example.txt', 'rt', encoding='utf-8') as f:
     print(f.readlines())    # 모든 줄 리스트
 ```
 
-## ✅ `with` 문을 사용한 안전한 파일 처리
+#### 🔹 `with` 문을 사용한 안전한 파일 처리
 ```python
 with open('./resource/it_news.txt', 'rt', encoding='utf-8') as f:
     for line in f:
         print(line.strip())
 ```
 - with 문을 사용하면 close()를 자동으로 처리해줘서 안전하고 깔끔합니다.
-
+- strip() : C++의 trim()과 비슷한 기능입니다.
+- for line in f: 파일 객체는 __iter__()와 __next__()를 지원하므로 이런 반복이 가능.
 ---
 
 
