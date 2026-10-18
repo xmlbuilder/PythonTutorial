@@ -1,14 +1,14 @@
-# type / types / isinstance / issubclass
+## 📘 type / types / isinstance / issubclass
 
-- 이 코드는 Python에서 모듈 객체의 타입 확인과 비교를 통해 type, types, isinstance, issubclass의 개념을 익히는 데 아주 유용.   
+- 이 코드는 Python에서 모듈 객체의 타입 확인과 비교를 통해 type, types, isinstance, issubclass의 개념을 익히는 데 유용.   
 - 아래에 전체 코드의 취지와 학습 가능한 내용을 정리.
 
-## 🎯 코드의 취지
+### 📌 코드의 취지
 - math와 같은 모듈 객체의 타입 확인
 - types.ModuleType을 활용한 모듈 타입 비교
 - type(), isinstance(), issubclass()의 차이점 이해
 
-## 🧠 학습 가능한 Python 지식
+### 📌 학습 내용
 
 | 문법/기능                  | 설명                                                                 |
 |----------------------------|----------------------------------------------------------------------|
@@ -19,7 +19,7 @@
 | `isinstance(obj, X)`       | 객체가 특정 클래스 또는 서브클래스의 인스턴스인지 확인                 |
 
 
-## ✅ 코드 흐름 설명
+#### 🔹 코드 흐름 설명
 ```python
 import types
 import math
@@ -43,7 +43,7 @@ print(isinstance(math, types.ModuleType))  # True
 ```
 - math 객체가 ModuleType의 `인스턴스` 인지 확인 → True
 
-## 📘 실전 활용 예시
+#### 🔹 실전 활용 예시
 - 동적으로 로딩된 객체가 모듈인지 확인할 때
 - 사용자 입력으로 받은 객체가 특정 타입인지 검사
 - types 모듈은 FunctionType, LambdaType, GeneratorType 등도 제공
@@ -53,15 +53,15 @@ import types
 
 def f(): pass
 print(isinstance(f, types.FunctionType))  # True
-
 ```
 
 ---
 
 
-# 🔍 inspect 모듈을 활용한 객체 분석
+### 📌 inspect 모듈을 활용한 객체 분석
 - inspect는 Python 객체의 내부 구조를 분석할 수 있는 강력한 도구입니다.
-## ✅ 주요 기능 요약
+
+### 📌 주요 기능 요약
 
 | 함수                          | 설명                                                                 |
 |-------------------------------|----------------------------------------------------------------------|
@@ -75,7 +75,7 @@ print(isinstance(f, types.FunctionType))  # True
 | `inspect.isbuiltin(obj)`      | `len`, `print`처럼 내장 함수인지 확인                                 |
 
 
-## ✅ 예시
+### 📌 예시
 ```python
 import inspect
 import math
@@ -86,9 +86,9 @@ print(inspect.getmodule(math.sin))  # <module 'math' ...>
 print(inspect.signature(len))  # TypeError: no signature found for built-in function
 ```
 
-## 🧩 사용자 정의 타입과의 비교
+### 📌 사용자 정의 타입과의 비교
 - 사용자 정의 클래스와 객체를 비교하거나 검사할 때는 다음을 활용합니다:
-### ✅ 예시: 클래스 정의 및 타입 비교
+#### 🔹 예시: 클래스 정의 및 타입 비교
 ```python
 class MyClass:
     def method(self):
@@ -101,14 +101,14 @@ print(isinstance(obj, MyClass))  # True
 print(issubclass(MyClass, object))  # True
 ```
 
-###  ✅ inspect로 분석
+#### 🔹 inspect로 분석
 ```python
 print(inspect.isclass(MyClass))  # True
 print(inspect.getmembers(obj))  # 모든 속성과 값 출력
 print(inspect.getsource(MyClass))  # 클래스 정의 소스 코드 출력
 ```
 
-## ⚠️ 실전 팁
+### 📌 실전 팁
 
 | 항목                     | 설명                                                                 |
 |--------------------------|----------------------------------------------------------------------|
