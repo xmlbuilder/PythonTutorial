@@ -1,8 +1,8 @@
-# Vector 클래스 만들기
+## 📘 Vector 클래스 만들기
 - Vector 클래스는 Python의 **Magic Method(연산자 오버로딩)** 를 활용해 벡터 연산을 직관적으로 표현한 예제.  
 - 아래에 이 클래스의 핵심 기능과 개선 포인트를 정리하고 실제 몇가지를 개선.
 
-## 전체 소스
+### 📌 전체 소스
 ```python
 class Vector(object):
     """
@@ -63,12 +63,14 @@ class Vector(object):
 
 print(Vector.__doc__)
 ```
+#### 🔹 출력 내용
 ```
     Class Vector
 ```
 ```python
 print(Vector.__init__.__doc__)
 ```
+#### 🔹 출력 내용
 ```
         Create a vector object.
         :param x:
@@ -81,18 +83,21 @@ v2 = Vector(4, 5, 6)
 
 print(v1 + v2)
 ```
+#### 🔹 출력 내용
 ```
 (5, 7, 9)
 ```
 ```python
 print(v1 - v2)
 ```
+#### 🔹 출력 내용
 ```
 (-3, -3, -3)
 ```
 ```python
 print(v1 * 5)
 ```
+#### 🔹 출력 내용
 ```
 (5, 10, 15)
 ```
@@ -100,11 +105,12 @@ print(v1 * 5)
 v3 = v1.cross(v2)
 print(v3.__dict__)
 ```
+#### 🔹 출력 내용
 ```
 {'x': -3, 'y': 6, 'z': -3}
 ```
 
-## 🧠 Vector 클래스 핵심 기능 요약
+### 📌 Vector 클래스 핵심 기능 요약
 | 기능       | 메서드               | 설명                                  |
 |------------|----------------------|---------------------------------------|
 | 생성       | `__init__`           | `x`, `y`, `z` 좌표 초기화             |
@@ -117,8 +123,8 @@ print(v3.__dict__)
 | 비교 연산  | `__eq__`, `__lt__`, `__gt__` | 좌표 또는 크기 기준 비교         |
 
 
-## 🔍 개선 포인트
-### ✅ 스칼라 곱 vs 벡터 곱 구분
+### 📌 개선 포인트
+#### 🔹 스칼라 곱 vs 벡터 곱 구분
 - 현재 `__mul__` 은 스칼라 곱만 처리합니다. 
 - 벡터 곱도 지원하려면 isinstance(other, Vector) 체크를 추가:
 
@@ -131,14 +137,14 @@ def __mul__(self, other):
     return NotImplemented
 ```
 
-### ✅ 역방향 연산자 지원
+#### 🔹 역방향 연산자 지원
 ```python
 def __rmul__(self, other):
     return self.__mul__(other)
 ```
 
 - 이렇게 하면 5 * v1도 작동합니다.
-### ✅ max() 지원
+#### 🔹 max() 지원
 - max(v1, v2)를 지원하려면 `__lt__` 또는 `__gt__` 가 있어야 하며, 비교 기준을 명확히 해야 합니다.  
 - 예를 들어 벡터 크기(norm) 기준으로 비교하려면:
 ```python
@@ -149,7 +155,7 @@ def __lt__(self, other):
     return self.norm() < other.norm()
 ```
 
-### 📘 실전 예시
+### 📌 실전 예시
 ```python
 v1 = Vector(1, 2, 3)
 v2 = Vector(4, 5, 6)
@@ -161,7 +167,7 @@ print(v1.cross(v2)) # Vector(-3, 6, -3)
 print(max(v1, v2))  # norm 기준으로 큰 벡터
 ```
 
-## 🧩 Magic Method 적용 요약
+### 📌 Magic Method 적용 요약
 | 연산자 | 메서드       | 설명                     |
 |--------|--------------|--------------------------|
 | `+`    | `__add__`     | 벡터 덧셈                |
@@ -175,15 +181,15 @@ print(max(v1, v2))  # norm 기준으로 큰 벡터
 
 ---
 
-# Vector 개선
+### 📌 Vector 개선
 - 기존 Vector 클래스를 세 가지 방향으로 확장하거나 리팩토링하는 방식입니다.  
 - 각각의 목적과 구현 예제를 함께 정리.
 
-## ✅ 1. norm() 기반 비교
+### 📌 1. norm() 기반 비교
 
-### 🔍 목적
+#### 🔹 목적
 - 벡터의 크기(길이)를 기준으로 <, >, == 등의 비교 연산을 수행
-#### 🔧 구현
+#### 🔹 구현
 ```python
 import math
 
@@ -204,18 +210,18 @@ class Vector:
         return self.norm() > other.norm()
 ```
 
-### ✅ 결과
+#### 🔹 결과
 ```python
 v1 = Vector(1, 2, 3)
 v2 = Vector(4, 5, 6)
 print(v1 < v2)  # True
 ```
 
-## ✅ 2. __getitem__으로 인덱싱 지원
-### 🔍 목적
+### 📌 2. __getitem__으로 인덱싱 지원
+#### 🔹 목적
 - v[0], v[1], v[2]처럼 배열처럼 접근 가능하게 만들기
 
-#### 🔧 구현
+#### 🔹 구현
 ```python
 class Vector:
     def __init__(self, x, y, z):
@@ -231,7 +237,7 @@ class Vector:
         return str(tuple(self._coords))
 ```
 
-#### ✅ 결과
+#### 🔹 결과
 ```python
 v = Vector(1, 2, 3)
 print(v[0])  # 1
@@ -239,10 +245,10 @@ v[2] = 10
 print(v)     # (1, 2, 10)
 ```
 
-## ✅ 3. dataclass로 리팩토링
-### 🔍 목적
+### 📌 3. dataclass로 리팩토링
+#### 🔹 목적
 - 코드 간결화, 자동 생성되는 __init__, __repr__, __eq__ 등 활용
-#### 🔧 구현
+#### 🔹 구현
 ```python
 from dataclasses import dataclass
 import math
@@ -263,7 +269,7 @@ class Vector:
         return (self.x, self.y, self.z)[index]
 ```
 
-### ✅ 결과
+#### 🔹 결과
 ```python
 v1 = Vector(1, 2, 3)
 v2 = Vector(4, 5, 6)
@@ -272,7 +278,7 @@ print(v1[1])    # 2
 ```
 
 
-## 🧩 요약 테이블
+### 📌 요약 테이블
 | 확장 방식         | 목적                         | 핵심 메서드         |
 |------------------|------------------------------|---------------------|
 | norm 기반 비교    | 벡터 크기 기준 비교 연산       | `norm()`, `__lt__`, `__gt__` |
