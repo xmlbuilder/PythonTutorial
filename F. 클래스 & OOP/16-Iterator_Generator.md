@@ -1,10 +1,10 @@
-# iterator와 genertor 결합
+## 📘 iterator와 genertor 결합
 
 - iterator와 generator 패턴을 결합한 구조로, Python의 메모리 효율성과 반복 제어를 잘 보여주는 예제입니다.
 - 아래에 핵심 개념과 동작 원리를 정리.
 
-## 🔁 Iterator + Generator 결합 구조
-### ✅ 핵심 구성
+### 📌 Iterator + Generator 결합 구조
+#### 🔹 핵심 구성
 ```python
 class WordSplitterGenerator:
     def __init__(self, words):
@@ -19,13 +19,13 @@ class WordSplitterGenerator:
 - `yield` 를 사용해 하나씩 값을 반환
 - `iter(wg)` 를 호출하면 generator 객체가 생성됨
 
-## 🧠 동작 흐름
+#### 🔹 동작 흐름
 - wg = WordSplitterGenerator(...) → 객체 생성
 - wt = iter(wg) → `__iter__()` 호출 → generator 객체 반환
 - next(wt) → generator 내부의 yield 실행 → 단어 하나 반환
 - 반복 끝나면 StopIteration 예외 발생
 
-## ✅ 이 구조의 장점
+### 📌 이 구조의 장점
 | 장점                     | 설명                                      |
 |--------------------------|-------------------------------------------|
 | 메모리 효율              | 전체 데이터를 리스트로 만들지 않고 하나씩 처리 |
@@ -35,12 +35,12 @@ class WordSplitterGenerator:
 | 확장성                   | 다른 iterable과 쉽게 결합 (`zip`, `map` 등)   |
 
 
-## 💡 확장 아이디어
+### 📌 확장 아이디어
 - `__next__()` 를 직접 구현하면 더 정교한 iterator 제어 가능
 - yield from을 사용하면 다른 generator에 위임 가능
 - enumerate, zip, map 등과 함께 사용하면 강력한 데이터 흐름 구성 가능
 
-🔍 예외 처리 팁
+#### 🔹 예외 처리 팁
 ```python
 try:
     print(next(wt))
