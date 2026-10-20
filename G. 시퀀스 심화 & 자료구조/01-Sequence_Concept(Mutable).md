@@ -1,12 +1,12 @@
-# 🧠 Sequence 개념 요약
-- Python의 시퀀스(Sequence) 관련 핵심 개념들을 튜플, 가변/불변 객체, 정렬 방식 중심으로 정리한 요약 입니다:
+## 📘 Sequence 개념 요약
+- Python의 시퀀스(Sequence) 관련 핵심 개념들을 튜플, 가변/불변 객체, 정렬 방식 중심으로 정리
 
 
-## ✅ 시퀀스란?
+### 📌 시퀀스란?
 - 순서가 있는 자료형
 - 대표적으로 list, tuple, str, range, array 등이 있음
 
-## 🧩 Tuple: 불변 시퀀스
+### 📌 Tuple: 불변 시퀀스
 
 | 기능           | 설명                                      | 예시                                      |
 |----------------|-------------------------------------------|-------------------------------------------|
@@ -17,7 +17,7 @@
 | 함수 반환값     | 여러 값 반환 시 튜플로 자동 포장           | `quot, rem = divmod(100, 9)`              |
 
 
-## 🔁 Mutable vs Immutable
+### 📌 Mutable vs Immutable
 
 | 항목           | 설명                              | list (m)                        | tuple (l)                        |
 |----------------|-----------------------------------|----------------------------------|----------------------------------|
@@ -30,11 +30,13 @@
 ```python
 m = [15, 20, 25]
 l = (15, 20, 25)
+m *= 2
+l *= 2
 print(id(m))  # 가변 → 주소 유지
 print(id(l))  # 불변 → 주소 변경
 ```
 
-## 🔃 sort vs sorted
+### 📌 sort vs sorted
 
 | 항목         | 설명                            | 반환값       | 원본 변경 | 사용 대상     |
 |--------------|----------------------------------|--------------|------------|----------------|
@@ -42,7 +44,7 @@ print(id(l))  # 불변 → 주소 변경
 | `sort()`     | 리스트를 **제자리에서 정렬**       | `None`       | ✅ 변경됨   | 리스트만 가능  |
 
 
-### 🔍 예시 비교
+#### 🔹 예시 비교
 ```python
 f_list = ['10', '4', '30']
 print(sorted(f_list))   # ['10', '30', '4']
@@ -52,12 +54,12 @@ f_list.sort()
 print(f_list)           # ['10', '30', '4'] → 원본 변경됨
 ```
 
-### ✅ 정렬 옵션
+#### 🔹 정렬 옵션
 - reverse=True → 내림차순
 - key=len → 길이 기준
 - key=lambda x: x[-1] → 마지막 문자 기준
 
-## 🧮 List vs Array 사용법
+### 📌 List vs Array 사용법
 
 | 항목           | list                                | array                           | 비고                         |
 |----------------|-------------------------------------|----------------------------------------|------------------------------|
@@ -69,7 +71,7 @@ print(f_list)           # ['10', '30', '4'] → 원본 변경됨
 
 
 
-## 📘 요약 테이블
+### 📌 요약 테이블
 | 개념           | 핵심 요약                                      |
 |----------------|------------------------------------------------|
 | Tuple          | 불변 시퀀스, 언패킹 가능, 함수 인자 전달에 유용 |
@@ -78,8 +80,8 @@ print(f_list)           # ['10', '30', '4'] → 원본 변경됨
 | List vs Array  | list는 범용적, array는 숫자 처리에 최적화       |
 
 
-## 예제 정리
-### Tuple
+### 📌 예제 정리
+#### 🔹 Tuple
 
 ```python
 a = 1
@@ -87,18 +89,21 @@ b = 2
 b, a = a, b
 print(a, b)
 ```
+#### 🔹 출력 결과
 ```
 2 1
 ```
 ```python
 print(divmod(100, 9))
 ```
+#### 🔹 출력 결과
 ```
 (11, 1)
 ```
 ```python
 print(divmod((100, 9)))
 ```
+#### 🔹 출력 결과
 ```
 Traceback (most recent call last):
   File "/Users/jeongjunghwan/PycharmProjects/Tutorial2/module_test.py", line 11, in <module>
@@ -106,22 +111,25 @@ Traceback (most recent call last):
           ^^^^^^^^^^^^^^^^
 TypeError: divmod expected 2 arguments, got 1
 ```
-### Unpacking
+#### 🔹 Unpacking
 ```python
 print(divmod(*(100, 9)))
 ```
+#### 🔹 출력 결과
 ```
 (11, 1)
 ```
 ```python
 print(*(divmod(100, 9)))
 ```
+#### 🔹 출력 결과
 ```
 11 1
 ```
 ```python
 x, y, rest = range(10)
 ```
+#### 🔹 출력 결과
 ```
 Traceback (most recent call last):
   File "/Users/jeongjunghwan/PycharmProjects/Tutorial2/module_test.py", line 25, in <module>
@@ -133,6 +141,7 @@ ValueError: too many values to unpack (expected 3)
 x, y, *rest = range(10)
 print(x, y, rest)
 ```
+#### 🔹 출력 결과
 ```
 0 1 [2, 3, 4, 5, 6, 7, 8, 9]
 ```
@@ -140,6 +149,7 @@ print(x, y, rest)
 x, y, *rest = range(2)
 print(x, y, rest)
 ```
+#### 🔹 출력 결과
 ```
 0 1 []
 ```
@@ -147,17 +157,19 @@ print(x, y, rest)
 x, y, *rest = 1, 2, 3, 4, 5
 print(x, y, rest)
 ```
+#### 🔹 출력 결과
 ```
 1 2 [3, 4, 5]
 ```
 
-### Mutable vs Immutable
+### 📌 Mutable vs Immutable
 ```python
 l = (15, 20, 25)
 m = [15, 20, 25]
 print(l, id(l))
 print(m, id(m))
 ```
+#### 🔹 출력 결과
 ```
 (15, 20, 25) 4353672896
 [15, 20, 25] 4350972544
@@ -168,6 +180,7 @@ m = m * 2
 print(l, id(l))
 print(m, id(m))
 ```
+#### 🔹 출력 결과
 ```
 (15, 20, 25, 15, 20, 25) 4394998016
 [15, 20, 25, 15, 20, 25] 4377396032
@@ -178,73 +191,98 @@ m *=  2
 print(l, id(l))
 print(m, id(m))
 ```
+#### 🔹 출력 결과
 ```
 (15, 20, 25, 15, 20, 25, 15, 20, 25, 15, 20, 25) 4314936464
 [15, 20, 25, 15, 20, 25, 15, 20, 25, 15, 20, 25] 4377396032 # id가 같다 (가변 객체이기 때문)
 ```
 
-### sort vs sorted
+### 📌 sort vs sorted
 - sorted : 정렬 후 새로운 객체 반환
 - sort : 정렬 후 객체 변경
 
 
-### sorted
+#### 🔹 sorted
 ```python
 f_list = ['10', '12', '30', '4', '15', '60', '27', '48', '29']
 print('sorted - ', sorted(f_list))
 ```
+#### 🔹 출력 결과
 ```
 sorted -  ['10', '12', '15', '27', '29', '30', '4', '48', '60']
 ```
-### sorted - f_list
+#### 🔹 sorted - f_list
 
 ```python
 print(f_list)
 ```
+#### 🔹 출력 결과
 ```
 ['10', '12', '30', '4', '15', '60', '27', '48', '29']
 ```
 
-### sorted - reverse=True
+#### 🔹 sorted - reverse=True
 
 ```python
 print('sorted - ', sorted(f_list, reverse=True))
 ```
+#### 🔹 출력 결과
 ```
 sorted -  ['60', '48', '4', '30', '29', '27', '15', '12', '10']
 ```
 
-### sorted - key=len
+#### 🔹 sorted - key=len
 
 ```python
 print('sorted - ', sorted(f_list, key=len))
 ```
+#### 🔹 출력 결과
 ```
 sorted -  ['4', '10', '12', '30', '15', '60', '27', '48', '29']
 ```
-
-### sorted - key=lambda x:x[-1]
+- 따라서 길이가 1인 '4'가 맨 앞으로 이동합니다.
+- 나머지 문자열은 모두 길이가 2이므로 원래 순서가 유지됩니다.
+- **Python의 sorted()는 Stable Sort(안정 정렬)** 이기 때문입니다.
+  
+#### 🔹 sorted - key=lambda x:x[-1]
 
 ```python
 print('sorted - ', sorted(f_list, key=lambda x:x[-1]))
 ```
+#### 🔹 출력 결과
 ```
 sorted -  ['10', '30', '60', '12', '4', '15', '27', '48', '29']
 ```
-### sorted - key=lambda x:x[-1], reverse=True
+- 각 문자열의 마지막 문자를 반환합니다.
+
+| 원본 값	| x[-1] (정렬 기준) |
+|---------|-------------------|
+| '10'	| '0' |
+| '12'	| '2' |
+| '30'	| '0' |
+| '4'	| '4' |
+| '15'	| '5' |
+| '60'	| '0' |
+| '27'	| '7' |
+| '48'	| '8' |
+| '29'	| '9' |
+
+#### 🔹 sorted - key=lambda x:x[-1], reverse=True
 
 ```python
 print('sorted - ', sorted(f_list, key=lambda x:x[-1], reverse=True))
 ```
+#### 🔹 출력 결과
 ```
 sorted -  ['29', '48', '27', '15', '4', '12', '10', '30', '60']
 ```
 
-### sort
+#### 🔹 sort
 
 ```python
 print('sort - ', f_list.sort())
 ```
+#### 🔹 출력 결과
 ```
 sort -  None
 ```
@@ -253,53 +291,20 @@ sort -  None
 ```python
 print(f_list)
 ```
+#### 🔹 출력 결과
 ```
 ['10', '12', '15', '27', '29', '30', '4', '48', '60']
 ```
 
-### sort - flist, reverse=True
+#### 🔹 sort - flist, reverse=True
 ```python
 print('sort - ', f_list.sort(reverse=True))
 print(f_list)
 ```
+#### 🔹 출력 결과
 ```
 ['60', '48', '4', '30', '29', '27', '15', '12', '10']
 ```
-
-### List vs Array 적합한 사용법 설명
-- 리스트 기반 : 융통성, 다양한 자료형, 범용적 사용
-- 숫자 기반 : 배열 (리스트와 거의 호환)
-
-```python
-def element_1(x):
-    print('input = ', x, x[-1])
-    return x[-1]
-f_list = ['10', '12', '30', '4', '15', '60', '27', '48', '29']
-print('sorted - ', sorted(f_list, key=element_1))
-```
-
-```
-input =  10 0
-input =  12 2
-input =  30 0
-input =  4 4
-input =  15 5
-input =  60 0
-input =  27 7
-input =  48 8
-input =  29 9
-```
-```
-sorted -  ['10', '30', '60', '12', '4', '15', '27', '48', '29']
-```
-
-- x[-1]는 문자열의 마지막 문자를 의미합니다.
-  - 예: '10'[-1] → '0'
-  - '12'[-1] → '2'
-  - '4'[-1]  → '4'
-- 따라서 출력에서 보이는 값들은 각 문자열의 마지막 글자입니다.
-
 ---
-
 
 
