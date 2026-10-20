@@ -1,28 +1,28 @@
-## GIL
+## 📘 GIL
 - 아래는 Python의 GIL(Global Interpreter Lock)에 대한 핵심 설명. 
 - 특히 실무에서 왜 중요한지, 어떤 영향을 주는지 중심으로 정리:
 
-### 🧠 GIL(Global Interpreter Lock)이란?
+### 📌 GIL(Global Interpreter Lock)이란?
 - **Python 인터프리터가 한 번에 하나의 스레드만 실행하도록 제한하는 락(lock)**.
 - 특히 CPython(가장 널리 쓰이는 Python 구현체)에서만 존재하는 구조적 제약.
 
 
-### 🔍 왜 생겼을까?
+### 📌 왜 생겼을까?
 - CPython은 **메모리 관리(참조 카운팅)** 를 위해 내부적으로 많은 공유 객체를 다룸.
 - 이때 동시 접근 시 충돌을 막기 위해 GIL을 도입함.
 - 즉, 스레드 안전성 확보를 위한 타협.
 
-### ⚠️ GIL의 영향 요약
+### 📌 GIL의 영향 요약
 | 항목                 | 설명                                                                 |
 |----------------------|----------------------------------------------------------------------|
 | 병렬 처리 제한         | `threading`은 GIL로 인해 한 번에 하나의 스레드만 실행됨 → 진짜 병렬 처리 불가       |
 | CPU-bound 작업 성능 저하 | 수치 계산, 이미지 처리 등에서 스레드가 GIL에 막혀 성능 저하 발생                     |
 | I/O-bound 작업에는 영향 적음 | 파일, 네트워크 등 대기 시간이 많은 작업은 GIL의 병목이 거의 없음                   |
 | 멀티코어 활용 제한      | GIL 때문에 멀티코어 CPU를 제대로 활용하지 못함 → 성능 낭비                         |
-| ✅ `multiprocessing` 사용 | GIL의 영향을 받지 않음 → 각 프로세스가 독립적으로 실행되어 진짜 병렬 처리 가능         |
+| `multiprocessing` 사용 | GIL의 영향을 받지 않음 → 각 프로세스가 독립적으로 실행되어 진짜 병렬 처리 가능         |
 
-### 🧪 실무 예시
-#### ❌ GIL의 병목
+### 📌 실무 예시
+#### 🔹 GIL의 병목
 ```python
 from threading import Thread
 
@@ -36,7 +36,7 @@ for t in threads: t.join()
 ```
 - 4개의 스레드를 만들어도 GIL 때문에 병렬 처리되지 않음
 
-#### ✅ GIL 우회: multiprocessing
+#### 🔹 GIL 우회: multiprocessing
 ```python
 from multiprocessing import Process
 
@@ -63,12 +63,12 @@ for p in processes: p.join()
 
 ---
 
-## multiprocessing
+## 📘 multiprocessing
 
 - 기본적으로 multiprocessing은 각 프로세스가 독립된 메모리 공간을 사용하기 때문에, threading처럼 직접적인 메모리 공유는 되지 않음.
 - 하지만 실무에서는 제한적으로 메모리 공유를 구현할 수 있는 방법들이 있음:
 
-### 🧠 기본 원칙
+### 📌 기본 원칙
 
 | 항목               | threading                                      | multiprocessing                                  |
 |--------------------|------------------------------------------------|--------------------------------------------------|
@@ -77,8 +77,8 @@ for p in processes: p.join()
 | GIL(Global Interpreter Lock) | 영향을 받음 → CPU-bound 작업에 비효율적         | 영향을 받지 않음 → CPU-bound 작업에 적합               |
 
 
-## 🔧 multiprocessing에서 메모리 공유하는 방법
-### 1. multiprocessing.Value / Array
+### 📌 multiprocessing에서 메모리 공유하는 방법
+#### 🔹 1. multiprocessing.Value / Array
 ```python
 from multiprocessing import Process, Value
 
@@ -95,10 +95,10 @@ if __name__ == '__main__':
     print(val.value)  # 2000 예상
 ```
 
-- ✅ 단일 값 또는 배열을 공유할 수 있음
-- ❗ 하지만 동기화가 필요할 땐 Lock과 함께 써야 안전함
+- 단일 값 또는 배열을 공유할 수 있음
+- 하지만 동기화가 필요할 땐 Lock과 함께 써야 안전함
 
-### 2. multiprocessing.Manager
+#### 🔹 2. multiprocessing.Manager
 ```python
 from multiprocessing import Process, Manager
 
@@ -114,10 +114,10 @@ if __name__ == '__main__':
         print(d['count'])  # 5 예상
 ```
 
-### ✅ 딕셔너리, 리스트, 큐 등 고급 자료구조 공유 가능
-- ❗ 내부적으로는 프록시 객체를 통해 통신하므로 성능은 다소 떨어질 수 있음
+- 딕셔너리, 리스트, 큐 등 고급 자료구조 공유 가능
+    - 내부적으로는 프록시 객체를 통해 통신하므로 성능은 다소 떨어질 수 있음
 
-### 3. Queue / Pipe (데이터 전달용)
+#### 🔹 3. Queue / Pipe (데이터 전달용)
 
 ```python
 from multiprocessing import Process, Queue
@@ -132,9 +132,9 @@ if __name__ == '__main__':
     print(q.get())  # Hello from child
 
 ```
-- ✅ 직접 공유는 아니지만 안전하게 데이터 전달 가능
+- 직접 공유는 아니지만 안전하게 데이터 전달 가능
 
-## 📌 multiprocessing 메모리 공유 요약
+### 📌 multiprocessing 메모리 공유 요약
 
 | 방식           | 공유 가능한 자료형         | 특징 및 용도                                                   |
 |----------------|----------------------------|----------------------------------------------------------------|
@@ -145,16 +145,16 @@ if __name__ == '__main__':
 ---
 
 
-## GIL 영향 총 정리
+### 📌 GIL 영향 총 정리
 
-### ✅ 결론: Python에서 threading을 쓰면 GIL의 영향을 무조건 받는다
+- 결론: Python에서 threading을 쓰면 GIL의 영향을 무조건 받는다
 
-### 🔍 왜 그런가?
+### 📌 왜 그런가?
 - Python의 대표 구현체인 CPython은 내부적으로 **GIL(Global Interpreter Lock)** 을 가지고 있음.
 - 이 GIL은 한 번에 하나의 스레드만 Python 바이트코드를 실행하도록 제한.
 - 그래서 threading.Thread()를 쓰면, 스레드가 여러 개여도 동시에 실행되지 않고 하나씩 돌아가게 됨.
 
-### ⚠️ GIL의 영향은 언제 심각해질까?
+### 📌 GIL의 영향은 언제 심각해질까?
 
 | 작업 유형         | GIL 영향도 | 설명                                                                 |
 |------------------|------------|----------------------------------------------------------------------|
@@ -164,7 +164,7 @@ if __name__ == '__main__':
 | 실시간 처리        | ⚠️ 중간     | 스레드가 많아도 GIL로 인해 응답 지연 가능성 있음 → multiprocessing이 더 적합     |
 
 
-### 🧠 GIL을 피하려면?
+### 📌 GIL을 피하려면?
 
 | 방식               | 설명                                                                 |
 |--------------------|----------------------------------------------------------------------|
