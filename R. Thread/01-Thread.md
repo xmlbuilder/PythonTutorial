@@ -1,13 +1,13 @@
-# 🧠 Thread란?
+## 📘 Thread란?
 - 하나의 프로세스 내에서 동시에 여러 작업을 수행할 수 있게 해주는 실행 단위.
 
-## ✅ 특징
+### 📌 특징
 - 경량 프로세스: 메모리 공간을 공유함
 - 병렬 처리: I/O 작업, 대기 시간이 많은 작업에 적합
 - GIL(Global Interpreter Lock): Python에서는 한 번에 하나의 스레드만 실행됨 (CPU-bound 작업엔 제약)
 
-## 📸 Thrread에서 발생하는  문제 요약
-### 💥 문제: Race Condition (경쟁 상태)
+### 📌 Thrread에서 발생하는 문제 요약
+#### 🔹 문제: Race Condition (경쟁 상태)
 ```python
 balance = 100
 def withdraw(amount):
@@ -15,13 +15,12 @@ def withdraw(amount):
     if balance >= amount:
         time.sleep(0.01)  # 의도적 지연
         balance -= amount
-
 ```
 
 - 두 스레드가 동시에 balance를 읽고 수정함
 - balance >= amount 조건을 통과했지만, 동시에 감소되어 잔고가 -25가 되는 오류 발생
 
-## 🛠 개선 방법: Lock 사용
+#### 🔹 개선 방법: Lock 사용
 ```python
 import threading
 import time
@@ -40,11 +39,11 @@ def withdraw(amount):
             print("Insufficient balance.")
 ```
 
-## ✅ 개선 효과
+#### 🔹 개선 효과
 - `with lock`:을 통해 한 번에 하나의 스레드만 balance에 접근
 - Race Condition 방지 → 잔고가 음수가 되는 문제 해결
 
-## 🔍 Thread 주요 메서드 요약
+### 📌 Thread 주요 메서드 요약
 
 | 메서드 / 속성       | 설명                                                                 |
 |---------------------|----------------------------------------------------------------------|
@@ -55,7 +54,7 @@ def withdraw(amount):
 
 
 
-## 🧪 실무에서 Thread가 유용한 경우
+### 📌 실무에서 Thread가 유용한 경우
 
 | 활용 분야             | 설명                                                                 |
 |----------------------|----------------------------------------------------------------------|
@@ -67,7 +66,7 @@ def withdraw(amount):
 
 
 
-## 🧠 추가 팁: ThreadPoolExecutor (고급 스레딩)
+### 📌 추가 팁: ThreadPoolExecutor (고급 스레딩)
 ```python
 from concurrent.futures import ThreadPoolExecutor
 
@@ -82,13 +81,15 @@ with ThreadPoolExecutor(max_workers=3) as executor:
 - 스레드 풀을 사용하면 스레드 관리가 자동화되고, 성능 최적화에 유리함
 
 
-# Thread 정리
+### 📌 Thread 정리
 
 - 실무에서 많이 사용하는 Python의 Thread 기법들을 아래에 정리, 
 - 각각에 맞는 샘플 코드를 함께 제공. 
 - 특히 병렬 처리, 백그라운드 작업, 스레드 풀, 동기화 등 실무에서 자주 쓰이는 패턴 중심으로 구성.
 
-## 🧵 1. 기본 Thread 실행
+---
+
+### 📌 1. 기본 Thread 실행
 ```python
 from threading import Thread
 
@@ -100,10 +101,9 @@ t.start()
 t.join()
 print("작업 완료")
 ```
+- 기본 구조: start()로 실행, join()으로 대기
 
-### ✅ 기본 구조: start()로 실행, join()으로 대기
-
-## 🔄 2. Daemon Thread (백그라운드 작업)
+### 📌 2. Daemon Thread (백그라운드 작업)
 ```python
 from threading import Thread
 import time
@@ -120,9 +120,9 @@ time.sleep(3)
 print("메인 종료 → 데몬 스레드도 종료됨")
 ```
 
-- ✅ 특징: 메인 스레드가 종료되면 데몬 스레드도 함께 종료됨
+- 특징: 메인 스레드가 종료되면 데몬 스레드도 함께 종료됨
 
-## 🧠 3. ThreadPoolExecutor (스레드 풀)
+### 📌 3. ThreadPoolExecutor (스레드 풀)
 ```python
 from concurrent.futures import ThreadPoolExecutor
 
@@ -134,9 +134,9 @@ with ThreadPoolExecutor(max_workers=3) as executor:
     executor.map(download, urls)
 ```
 
-- ✅ 실무 활용: 웹 크롤링, 파일 다운로드 등 병렬 작업에 최적
+- 실무 활용: 웹 크롤링, 파일 다운로드 등 병렬 작업에 최적
 
-## 🔒 4. Lock을 활용한 동기화
+### 📌 4. Lock을 활용한 동기화
 ```python
 import threading
 import time
@@ -160,9 +160,9 @@ t1.start(); t2.start()
 t1.join(); t2.join()
 ```
 
-### ✅ 문제 해결: Race Condition 방지 → 잔고가 음수가 되는 오류 해결
+- 문제 해결: Race Condition 방지 → 잔고가 음수가 되는 오류 해결
 
-## 🕒 5. Timer Thread (지연 실행)
+### 📌 5. Timer Thread (지연 실행)
 ```python
 from threading import Timer
 
@@ -173,9 +173,9 @@ t = Timer(3.0, delayed_task)
 t.start()
 ```
 
-### ✅ 활용 예시: 예약 작업, 알림, 자동 저장 기능 등
+- 활용 예시: 예약 작업, 알림, 자동 저장 기능 등
 
-## 🧪 6. 실시간 모니터링 스레드
+### 📌 6. 실시간 모니터링 스레드
 ```python
 import threading
 import time
@@ -193,9 +193,9 @@ for i in range(5):
     time.sleep(1)
 ```
 
-### ✅ 활용 예시: 서버 상태 체크, 센서 데이터 수집, 로그 모니터링
+- 활용 예시: 서버 상태 체크, 센서 데이터 수집, 로그 모니터링
 
-## 📌 실무 Thread 활용 팁 요약
+### 📌 실무 Thread 활용 팁 요약
 
 | 기법 / 패턴              | 실무 활용 예시 및 장점                                                |
 |--------------------------|-----------------------------------------------------------------------|
