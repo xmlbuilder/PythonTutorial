@@ -1,8 +1,8 @@
-# Immutable dict
+## 📘 Immutable dict
 - Python에서의 Immutable dict와 set, 그리고 해시테이블 구조에 대한 핵심 정리입니다. 
-- MappingProxyType을 활용한 불변 딕셔너리와 관련된 동작까지 깔끔하게 요약.
+- MappingProxyType을 활용한 불변 딕셔너리와 관련된 동작까지 요약.
 
-## 🧠 해시테이블 구조 이해
+### 📌 해시테이블 구조 이해
 - 해시테이블: 키를 해싱하여 메모리 주소에 직접 접근하는 자료구조
   - dict: Python의 대표적인 해시테이블 구현체
     - 키 중복 ❌
@@ -12,7 +12,7 @@
     - 값 자체가 키 역할
     - 순서 없음, 중복 ❌
 
-## 🔐 Immutable dict: MappingProxyType
+### 📌 Immutable dict: MappingProxyType
 ```python
 from types import MappingProxyType
 
@@ -20,7 +20,7 @@ d = {'key1': 'value1', 'key2': 'value2'}
 d_frozen = MappingProxyType(d)
 ```
 
-## 🔐 MappingProxyType 요약
+### 📌 MappingProxyType 요약
 | 항목               | 설명                                                  |
 |--------------------|-------------------------------------------------------|
 | `MappingProxyType` | dict를 읽기 전용으로 감싸는 proxy 객체                 |
@@ -28,14 +28,14 @@ d_frozen = MappingProxyType(d)
 | `hash(d_frozen)`   | ❌ TypeError 발생 → dict는 가변 객체라 해시 불가         |
 
 
-## 🔍 동작 예시
+### 📌 동작 예시
 ```python
 d['key3'] = 'value3'      # ✅ 원본 dict 수정 가능
 d_frozen['key3'] = 'value3'  # ❌ TypeError: 수정 불가
 ```
-→ MappingProxyType은 불변 dict처럼 동작하지만, 내부적으로는 원본 dict를 참조하므로 원본이 바뀌면 proxy도 바뀝니다.
+- MappingProxyType은 불변 dict처럼 동작하지만, 내부적으로는 원본 dict를 참조하므로 원본이 바뀌면 proxy도 바뀝니다.
 
-## 📘 요약 테이블
+### 📌 요약 테이블
 | 구조/기능         | dict                 | set                  | MappingProxyType         |
 |------------------|----------------------|----------------------|---------------------------|
 | 중복 허용         | ❌ key 중복 불가       | ❌ 값 중복 불가        | ❌ key 중복 불가           |
@@ -45,7 +45,7 @@ d_frozen['key3'] = 'value3'  # ❌ TypeError: 수정 불가
 
 ---
 
-## 전체 코드
+### 📌 전체 코드
 ```python
 # immutable dic
 from types import MappingProxyType
@@ -57,18 +57,25 @@ d_frozen = MappingProxyType(d)
 print(d_frozen)
 print(d, id(d))
 ```
+
+#### 🔹 출력 결과
+
 ```
 {'key1': 'value1', 'key2': 'value2'} 4308867712
 ```
 ```python
 print(d_frozen, id(d_frozen))
 ```
+#### 🔹 출력 결과
+
 ```
 {'key1': 'value1', 'key2': 'value2'} 4326409840
 ```
 ```python
 #print(hash(d_frozen))
 ```
+#### 🔹 출력 결과
+
 ```
 Traceback (most recent call last):
   File "/Users/jeongjunghwan/PycharmProjects/Tutorial2/module_test.py", line 21, in <module>
@@ -77,17 +84,23 @@ Traceback (most recent call last):
 TypeError: unhashable type: 'dict'
 ```
 
-### 수정 가능
+#### 🔹 수정 가능
 ```python
 d['key3'] = 'value3'
 print(d)
 ```
+
+#### 🔹 출력 결과
+
 ```
 {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}
 ```
 ```python
 d_frozen['key3'] = 'value3'
 ```
+
+#### 🔹 출력 결과
+
 ```
 Traceback (most recent call last):
   File "/Users/jeongjunghwan/PycharmProjects/Tutorial2/module_test.py", line 34, in <module>
@@ -95,5 +108,8 @@ Traceback (most recent call last):
     ~~~~~~~~^^^^^^^^
 TypeError: 'mappingproxy' object does not support item assignment
 ```
+
+---
+
 
 ---
