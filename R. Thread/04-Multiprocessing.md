@@ -1,13 +1,13 @@
-# 🧠 multiprocessing이란?
+## 📘 multiprocessing이란?
 - Python에서 여러 개의 프로세스를 생성하여 병렬로 작업을 수행할 수 있게 해주는 모듈.
 - 각 프로세스는 독립된 메모리 공간과 CPU 코어를 사용함.
 
-## ✅ 특징
+### 📌 특징
 - 진짜 병렬 처리 가능 (멀티코어 활용)
 - 각 프로세스는 독립적 → GIL의 영향을 받지 않음
 - CPU-bound 작업에 적합 (예: 수학 계산, 이미지 처리, 머신러닝)
 
-## 🔄 threading vs multiprocessing 비교
+### 📌 threading vs multiprocessing 비교
 
 | 항목               | threading                                      | multiprocessing                                  |
 |--------------------|------------------------------------------------|--------------------------------------------------|
@@ -20,7 +20,7 @@
 | 실무 활용 예시        | 웹 크롤링, 파일 다운로드, GUI 응답 유지 등              | 머신러닝 병렬 학습, 이미지 처리, 대규모 계산 작업 등       |
 
 
-## 🧪 multiprocessing 샘플 코드
+### 📌 multiprocessing 샘플 코드
 ```python
 from multiprocessing import Process
 import os
@@ -36,9 +36,9 @@ if __name__ == '__main__':
 ```
 
 
-### ✅ 결과: 두 프로세스가 동시에 실행되며, 서로 다른 PID를 가짐
+- 결과: 두 프로세스가 동시에 실행되며, 서로 다른 PID를 가짐
 
-## 📌 실무 선택 기준
+### 📌 실무 선택 기준
 
 | 작업 유형               | 추천 방식           |
 |------------------------|---------------------|
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 | 대규모 데이터 분석       | `multiprocessing`   |
 
 
-## 🔐 추가 팁
+### 📌 추가 팁
 - multiprocessing.Queue, Pipe, Manager로 프로세스 간 통신 가능
 - Pool 객체로 작업 분산 및 결과 수집 가능
 - Windows에서는 if __name__ == '__main__' 필수
