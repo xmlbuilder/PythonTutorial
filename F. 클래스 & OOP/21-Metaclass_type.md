@@ -1,14 +1,13 @@
-# Metaclass Type
+## 📘 Metaclass Type
 
-## 🧠 핵심 개념: Metaclass란?
+### 📌 핵심 개념: Metaclass란?
 - 클래스를 만드는 클래스
     - 즉, 클래스가 객체라면 그 클래스를 생성하는 "설계자"가 바로 메타 클래스 입니다.
-
 - 객체 → 클래스 → 메타 클래스
 - type은 기본 메타 클래스
 - 커스텀 메타 클래스를 만들면 클래스 생성 과정을 제어할 수 있음
 
-## 🔍 구조 이해: Class of Class
+### 📌 구조 이해: Class of Class
 | 대상           | 클래스 정보 (`__class__`)         |
 |----------------|------------------------------------|
 | `obj1`         | `SampleA`                          |
@@ -22,13 +21,13 @@ print(type(SampleA))           # <class 'type'>
 print(type(type))              # <class 'type'>
 ```
 
-### 🧠 해석
+### 📌 해석
 - obj1은 SampleA 클래스의 인스턴스
 - SampleA는 type이라는 메타 클래스에 의해 생성됨
 - type 자체도 type에 의해 생성됨 → 자기 자신을 생성하는 특별한 객체
 
 
-### ✅ 실무적 의미
+### 📌 실무적 의미
 - Python의 모든 클래스는 type에 의해 만들어짐
 - type을 커스터마이징하면 클래스 생성 로직을 제어할 수 있음
 - 이 구조 덕분에 동적 클래스 생성, 메타 클래스 기반 검증, 프레임워크 설계가 가능해짐
@@ -43,8 +42,7 @@ print(type(type))              # <class 'type'>
 | 엄격한 설계 요구 대응  | 추상 메소드 강제, 상속 구조 통제 등 → 구조적이고 안정적인 코드 설계 가능             |
 
 
-
-## 🔧 기본 예제: type()으로 클래스 생성
+### 📌 기본 예제: type()으로 클래스 생성
 ```python
 MyClass = type('MyClass', (object,), {'x': 5, 'show': lambda self: print(self.x)})
 obj = MyClass()
@@ -54,7 +52,7 @@ obj.show()  # 5
 - type(name, bases, dict) 형식으로 클래스 생성
 - 동적으로 클래스 정의 가능
 
-## 🛠 커스텀 메타 클래스 예제
+### 📌 커스텀 메타 클래스 예제
 ```python
 class MetaCheck(type):
     def __new__(cls, name, bases, dct):
