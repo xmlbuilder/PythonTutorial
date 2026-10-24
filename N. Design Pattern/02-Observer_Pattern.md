@@ -1,14 +1,14 @@
-# Observer Pattern
-**옵저버 패턴 (Observer Pattern)** 패턴의 취지, 사용법, 실무 활용, 코드 설명, Mermaid 다이어그램까지 정리.
+## 📘 Observer Pattern
+**옵저버 패턴 (Observer Pattern)** 패턴의 취지, 사용법, 실무 활용, 코드 설명, Mermaid 다이어그램 정리.
 
-## 👁️ 옵저버 패턴이란?
-옵저버 패턴은 객체의 상태 변화가 있을 때, 그 변화를 **자동으로 감지하고 반응하는 객체들(옵저버)** 에게 알림을 보내는 디자인 패턴.
-## ✅ 핵심 개념
+### 📌 옵저버 패턴이란?
+- 옵저버 패턴은 객체의 상태 변화가 있을 때, 그 변화를 **자동으로 감지하고 반응하는 객체들(옵저버)** 에게 알림을 보내는 디자인 패턴.
+### 📌 핵심 개념
 - Subject (주체): 상태를 갖고 있으며, 옵저버를 등록/해제/알림
 - Observer (관찰자): 상태 변화에 반응하는 객체
 - 의존성 역전(DIP): Subject는 Observer의 인터페이스만 알고 있음
 
-## 🧠 취지와 사용 목적
+### 📌 취지와 사용 목적
 | 목적 또는 상황             | 설명                                                                 |
 |----------------------------|----------------------------------------------------------------------|
 | 상태 변화 자동 반영         | 주체 객체의 상태가 바뀌면 등록된 옵저버들이 자동으로 반응함               |
@@ -18,8 +18,7 @@
 | 관심사 분리                 | 상태 관리와 반응 로직을 분리하여 코드의 명확성과 재사용성을 높임           |
 
 
-
-## 🧪 코드 구조 설명
+### 📌 코드 구조 설명
 ```python
 class StateMachine(ABC):  # Subject 인터페이스
     def attach(self, observer): pass
@@ -60,7 +59,7 @@ class ConcreteObserverB(Observer):  # 옵저버 B
 ```
 
 
-## 📊 Mermaid 다이어그램
+### 📌 Mermaid 다이어그램
 ```mermaid
 classDiagram
     class StateMachine {
@@ -98,7 +97,7 @@ classDiagram
     ConcreateState --> Observer
 ```
 
-## 🧠 실무에서 어떻게 쓰이나?
+### 📌 실무에서 어떻게 쓰이나?
 | 분야 또는 상황             | 활용 예시                                                              |
 |----------------------------|------------------------------------------------------------------------|
 | GUI 이벤트 처리            | 버튼 클릭, 입력 변화 등 사용자 인터랙션에 따라 UI 자동 업데이트             |
@@ -108,7 +107,7 @@ classDiagram
 | 메시지 브로커 시스템        | Kafka, RabbitMQ 등에서 이벤트 발생 시 여러 소비자에게 알림 전달             |
 
 
-## 전체 코드
+### 📌 전체 코드
 ```python
 from abc import ABC, abstractmethod
 from random import randrange
@@ -195,7 +194,6 @@ state 1
 observer notify
 Observer A : execute
 '''
-
 ```
 
 ---
