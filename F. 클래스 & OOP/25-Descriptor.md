@@ -1,12 +1,26 @@
-# 🧠 Descriptor란?
-- 클래스의 속성 접근을 제어할 수 있는 객체. `__get__`, `__set__`, `__delete__` 메소드를 구현하면 descriptor로 동작함.
+## 📘 Descriptor란?
+- 클래스의 속성 접근을 제어할 수 있는 객체.
+- Descriptor(디스크립터)는 객체의 속성(Attribute)에 접근할 때 읽기, 쓰기, 삭제 동작을 제어할 수 있도록 하는 Python의 프로토콜입니다.
+- 일반적인 속성은 값을 직접 저장하고 반환하지만, Descriptor는 속성에 접근하는 순간 특정 메서드가 자동으로 실행되도록 합니다.
+  
+### 📌 1. Descriptor의 주요 메서드
 
-## ✅ 핵심 특징
+| 메서드	| 호출 시점	| 역할 |
+|-------|-----------|----------|
+| __get__(self, obj, owner)	| 속성 읽기	| 값 반환 |
+| __set__(self, obj, value)	| 속성 변경	| 값 저장 및 검증 |
+| __delete__(self, obj)	| 속성 삭제	| 삭제 동작 제어 |
+| __set_name__(self, owner, name)	| 클래스 생성 시	| 속성 이름 확인 |
+
+- 이 중 __get__, __set__, __delete__ 중 하나 이상을 구현하면 Descriptor로 동작할 수 있습니다.
+
+
+### 📌 핵심 특징
 - 속성 접근 시 자동으로 메소드 호출 (get, set, del)
 - 속성 값을 다른 객체에 위임 가능
 - 읽기 전용, 유효성 검사, 로깅 등 다양한 기능 구현 가능
 
-## 🔍 Descriptor 종류
+### 📌 Descriptor 종류
 
 | 종류               | 구현 메소드                        | 특징 및 동작 설명                                      |
 |--------------------|------------------------------------|--------------------------------------------------------|
@@ -14,7 +28,7 @@
 | Non-Data Descriptor| `__get__`만 구현됨                   | 인스턴스 속성이 있으면 그 값을 우선 사용 → 읽기 전용 속성 구현 가능 |
 
 
-## 🔧 기본 예제: `__get__`, `__set__`, `__delete__`
+### 📌 기본 예제: `__get__`, `__set__`, `__delete__`
 ```python
 class DescriptorEx1:
     def __init__(self, name='Default'):
@@ -43,7 +57,7 @@ print(s1.name)                # Get method called → name: Descriptor Text1
 del s1.name                   # Delete method called.
 ```
 
-## 🔧 고급 예제: property()로 Descriptor 구현
+### 📌 고급 예제: property()로 Descriptor 구현
 ```python
 class DescriptorEx2:
     def __init__(self, value):
@@ -69,7 +83,7 @@ class DescriptorEx2:
 - property()는 고수준 descriptor
 - get, set, del, doc을 지정 가능
 
-### 🔍 Descriptor vs Property
+### 📌 Descriptor vs Property
 
 | 항목               | Descriptor (저수준)                          | Property (고수준)                           | self 접근 방식            |
 |--------------------|----------------------------------------------|---------------------------------------------|---------------------------|
@@ -80,7 +94,7 @@ class DescriptorEx2:
 
 
 
-## 🧪 실무 예제 1: 디렉토리 파일 개수
+### 📌 실무 예제 1: 디렉토리 파일 개수
 ```python
 class DirectoryFileCount:
     def __get__(self, obj, objType=None):
@@ -96,9 +110,14 @@ class DirectoryPath:
 s = DirectoryPath('./')
 print(s.size)  # 디렉토리 내 파일 개수 출력
 ```
+#### 🔹 출력 결과
+```
+['.idea', '.venv', 'descriptor.py', 'generator.py', 'main.py']
+5
+```
 
 
-## 🧪 실무 예제 2: 로깅 기능
+### 📌 실무 예제 2: 로깅 기능
 ```python
 import logging
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
@@ -123,8 +142,44 @@ class Student:
 
 - score 접근 시 로그 출력
 - 실무에서 감사 로그, 변경 추적에 유용
+```python
+logging.basicConfig(
+    format='%(asctime)s %(message)s',
+    level=logging.INFO
+)
+```
+- 이 코드는 Python logging 모듈의 **로그 출력 형식(format)** 과 **로그 출력 수준(level)** 을 설정합니다.
 
-## 🧪 실무 예제 3: 유효성 검사 (양수만 허용)
+| 형식	| 의미	| 출력 예시 |
+|-------|-------|-----------|
+| %(asctime)s	| 로그 발생 시간	| 2026-10-24 13:27:00,123 |
+| %(message)s	| 로그 메시지	| Access Score: 50 |
+| %(levelname)s	| 로그 수준	| INFO, WARNING |
+| %(name)s	| 로거 이름	| root |
+| %(filename)s	| 로그 발생 파일명	| main.py |
+| %(lineno)d	| 로그 발생 줄 번호	| 25 |
+| %(funcName)s	| 로그 발생 함수명	| __get__ |
+| %(process)d	| 프로세스 ID	| 12345 |
+| %(threadName)s	| 스레드 이름	| MainThread |
+
+- 여기서 s는 문자열 형식, d는 정수 형식을 의미합니다.
+```python
+s1 = Student("Kim")
+
+print(s1.score)
+s1.score = 90
+print(s1.score)
+```
+#### 🔹 출력 결과
+```
+2026-10-24 13:28:09,710 Access Score: 50
+2026-10-24 13:28:09,711 Update Score: 90
+2026-10-24 13:28:09,711 Access Score: 90
+50
+90
+```
+
+### 📌 실무 예제 3: 유효성 검사 (양수만 허용)
 ```python
 class PositiveNumber:
     def __init__(self, value):
@@ -154,7 +209,7 @@ class Rectangle:
 - 실무에서 데이터 유효성 검사에 매우 유용
 
 
-##  ✅ Descriptor의 실무 장점 요약
+### 📌  Descriptor의 실무 장점 요약
 
 | 활용 요소        | 설명                                                                 |
 |------------------|----------------------------------------------------------------------|
@@ -166,7 +221,7 @@ class Rectangle:
 | 프레임워크 설계 기반 | ORM, 설정 시스템, API 모델 등에서 핵심 구조로 활용됨 → 속성 제어와 자동화에 최적화     |
 
 
-## 실제 테스트 예제
+### 📌 실제 테스트 예제
 ```python
 import os
 
@@ -186,6 +241,7 @@ s = DirectoryPath('./')
 
 print(s.size)
 ```
+#### 🔹 출력 결과
 ```
 ['random_test.py', 'solution1.py', 'instance.py', 'list_str.py', 'test4.txt', 'list_str1.txt',
 'array_test2.py','class_test.py', 'test3.txt', 'sort.py', 'string_test.py', '__pycache__',
@@ -200,6 +256,7 @@ print(s.size)
 g = DirectoryPath('../')
 print(g.size)
 ```
+#### 🔹 출력 결과
 ```
 ['Sample2', 'Sample3', '.DS_Store', 'Tutorial2', 'pythonProject', 'OpenCVTest', 'CompVis1', '.ipynb_checkpoints',
 'Turoial1']
@@ -246,6 +303,7 @@ print(s1.score)
 print(vars(s1))
 print(vars(s2))
 ```
+#### 🔹 출력 결과
 ```
 50
 20
@@ -286,12 +344,14 @@ rect1.width = 20
 
 print(rect1.width)
 ```
+#### 🔹 출력 결과
 ```
 20
 ```
 ```python
 print(rect2.width)
 ```
+#### 🔹 출력 결과
 ```
 20
 ```
