@@ -1,38 +1,38 @@
 ## F. 클래스 & OOP
 
 - 기초:
-  - [클래스 기본](./01-class_basic.md)
-  - [self](./02-class_self.md)
-  - [메서드](./03-class_method.md)
+  - 📘 [클래스 기본](./01-class_basic.md)
+  - 📘 [self](./02-class_self.md)
+  - 📘 [메서드](./03-class_method.md)
 - 심화:
-  - [bound/unbound 메서드](./04-class_method_bound_method.md)
-  - [클래스 메서드 심화](./05-class_method_심화1md.md)
-  - [id/dict](./06-class_id_dict_.md)
-  - [type과 클래스 메서드](./07-class_method_type.md)
-  - [클래스 속성](./08-class_attr.md)
-  - [다중 상속](./09-다중_상속.md)
-  - [super](./10-super_class.md)
-  - [Mixin](./11-Mixin.md)
-  - [매직 메서드](./12-MagicMethod.md)
-  - [오버로딩](./13-MagicMethodOverloading.md)
-  - [isinstance/issubclass Type check](./17-type_types_isinstance_issubclass.md)
+  - 📘 [bound/unbound 메서드](./04-class_method_bound_method.md)
+  - 📘 [클래스 메서드 심화](./05-class_method_심화1md.md)
+  - 📘 [id/dict](./06-class_id_dict_.md)
+  - 📘 [type과 클래스 메서드](./07-class_method_type.md)
+  - 📘 [클래스 속성](./08-class_attr.md)
+  - 📘 [다중 상속](./09-다중_상속.md)
+  - 📘 [super](./10-super_class.md)
+  - 📘 [Mixin](./11-Mixin.md)
+  - 📘 [매직 메서드](./12-MagicMethod.md)
+  - 📘 [오버로딩](./13-MagicMethodOverloading.md)
+  - 📘 [isinstance/issubclass Type check](./17-type_types_isinstance_issubclass.md)
 - 실습:
-  - [Vector 클래스 만들어보기](./14-Vector클래스_만들어보기.md)
+  - 📘 [Vector 클래스 만들어보기](./14-Vector클래스_만들어보기.md)
 - 이터러블/이터레이터:
-  - [Iterable](./15-Iterable.md)
-  - [Iterator/Generator](./16-Iterator_Generator.md)
+  - 📘 [Iterable](./15-Iterable.md)
+  - 📘 [Iterator/Generator](./16-Iterator_Generator.md)
 - Getter/Setter:
-  - [Underscore를 이용한 Getter Setter 만들기](./18-Underscore를%20이용한%20Getter%20Setter.md)
+  - 📘 [Underscore를 이용한 Getter Setter 만들기](./18-Underscore를%20이용한%20Getter%20Setter.md)
 - Method Overriding 설명:
-  - [Method Overring](./19-Method_Overriding.md)
+  - 📘 [Method Overring](./19-Method_Overriding.md)
 - Method Overloading 설명:
-  - [Method Overloading](./20-Method_Overloading.md)
+  - 📘 [Method Overloading](./20-Method_Overloading.md)
 - Metaclass 설명:
-  - [Metaclass Type](./21-Metaclass_type.md) 
-  - [Metaclass Type 생성](./22-Metaclass_type_생성.md)
-  - [Metaclass Custom Class](./23-Metaclass_CustomClass.md)
+  - 📘 [Metaclass Type](./21-Metaclass_type.md) 
+  - 📘 [Metaclass Type 생성](./22-Metaclass_type_생성.md)
+  - 📘 [Metaclass Custom Class](./23-Metaclass_CustomClass.md)
 - dataclass 설명:
-  - [DataClass](./24-dataclass.md)
+  - 📘 [DataClass](./24-dataclass.md)
 - Descriptor 설명:
-  - [Descriptor](./25-Descriptor.md)
+  - 📘 [Descriptor](./25-Descriptor.md)
 ---
