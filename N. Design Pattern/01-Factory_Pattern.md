@@ -1,16 +1,15 @@
-# Factory Pattern
+## 📘 Factory Pattern
 **팩토리 패턴 (Factory Pattern)** 의 전형적인 구조를 설명.   
-아래에 팩토리 패턴의 개념, 실무 활용, 코드 분석, Mermaid 다이어그램까지 정리.
 
-## 🏭 팩토리 패턴이란?
-팩토리 패턴은 객체 생성 로직을 클라이언트 코드에서 분리하여, 객체 생성 책임을 별도의 Factory 클래스에 위임하는 디자인 패턴.
+### 📌 팩토리 패턴이란?
+- 팩토리 패턴은 객체 생성 로직을 클라이언트 코드에서 분리하여, 객체 생성 책임을 별도의 Factory 클래스에 위임하는 디자인 패턴.
 
-## ✅ 목적
+### 📌 목적
 - 객체 생성 로직을 캡슐화
 - 클라이언트는 어떤 클래스가 생성되는지 몰라도 됨
 - 코드 확장성과 유지보수성 향상
 
-### 🧠 실무에서 왜 쓰는가?
+### 📌 실무에서 왜 쓰는가?
 
 | 상황 또는 목적             | 설명                                                                 |
 |----------------------------|----------------------------------------------------------------------|
@@ -21,7 +20,7 @@
 | 의존성 역전(DIP) 적용       | 클라이언트가 구체 클래스가 아닌 추상 인터페이스에 의존하도록 유도           |
 
 
-🧪 코드 구조 분석
+### 📌 코드 구조 분석
 ```python
 import abc
 
@@ -39,24 +38,34 @@ class Dog(Animal):
 class Cat(Animal):
     def say(self):
         return "Cat"
-
+```
+```python
 # 팩토리 클래스
 class Factory:
     def __init__(self, animal_type):
         self.animal_type = animal_type
     def make(self):
         return eval(self.animal_type)()  # 문자열 기반 생성 (주의 필요)
-
+```
+```python
 # 클라이언트
 class Client:
     def __init__(self, animal_type):
         self._object = Factory(animal_type).make()
     def say(self):
         return self._object.say()
+```
+```python
+d = Client("Dog")
+print(d.say())
+'''Dog'''
 
+c = Client("Cat")
+print(c.say())
+'''Cat'''
 ```
 
-## ⚠️ 실무 개선 포인트
+### 📌 실무 개선 포인트
 - eval()은 보안상 위험 → dict 기반 매핑으로 개선 추천:
 ```python
 class Factory:
@@ -71,7 +80,7 @@ class Factory:
 ```
 
 
-📊 Mermaid 다이어그램
+### 📌 Mermaid 다이어그램
 ```mermaid
 classDiagram
     class Animal {
@@ -104,44 +113,4 @@ classDiagram
     Client --> Animal
 ```
 
-
-
-## 실제 코드
-```python
-import abc
-
-class Animal(abc.ABC):
-    @abc.abstractmethod
-    def say(self):
-        pass
-
-class Dog(Animal):
-    def say(self):
-        return "Dog"
-
-class Cat(Animal):
-    def say(self):
-        return "Cat"
-
-class Factory:
-    def __init__(self, animal_type):
-        self.animal_type = animal_type
-    def make(self):
-        return eval(self.animal_type)()
-
-class Client:
-    def __init__(self, animal_type):
-        self._object = Factory(animal_type).make()
-    def say(self):
-        return self._object.say()
-
-d = Client("Dog")
-print(d.say())
-'''Dog'''
-
-c = Client("Cat")
-print(c.say())
-'''Cat'''
-
-
-```
+---
