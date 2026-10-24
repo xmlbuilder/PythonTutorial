@@ -7,5 +7,5 @@
 - Shallow Copy & Deep Copy:  
   - 📘 [Shallow Copy & Deep Copy](./05-Shallow_Copy%26Deep_Copy.md)
 - Context Manger:
-  - 📘 [Context Manaer(with)](./06-ContextManger_with.md)
-  - 📘 [Context Manaer Contextlib](./07-Context_Manager_Contextlib.md)
+  - 📘 [Context Manager(with)](./06-ContextManager_with.md)
+  - 📘 [Context Manager Contextlib](./07-Context_Manager_Contextlib.md)
