@@ -1,14 +1,14 @@
-# Meta Class (Custom Class)
-type()을 통한 동적 클래스 생성부터 type을 상속한 커스텀 메타클래스 설계.
+## 📘 Meta Class (Custom Class)
+- type()을 통한 동적 클래스 생성부터 type을 상속한 커스텀 메타클래스 설계.
 
 
-## 핵심 개념: 메타클래스 상속과 동적 클래스 생성
-type(name, bases, dict)
-- name: 클래스 이름
-- bases: 상속할 부모 클래스 튜플
-- dict: 속성과 메소드 정의
+### 📌 핵심 개념: 메타클래스 상속과 동적 클래스 생성
+- type(name, bases, dict)
+    - name: 클래스 이름
+    - bases: 상속할 부모 클래스 튜플
+    - dict: 속성과 메소드 정의
 
-## 🔍 구조 요약: 메타클래스 상속의 목적
+### 📌 구조 요약: 메타클래스 상속의 목적
 | 구성 요소       | 설명                                                                 |
 |------------------|----------------------------------------------------------------------|
 | `type`           | 모든 클래스의 기본 메타클래스. 커스텀 메타클래스는 이를 상속하여 생성됨             |
@@ -18,7 +18,7 @@ type(name, bases, dict)
 | `__call__`       | 클래스 인스턴스 생성 시 호출됨. 인스턴스 생성 로직을 제어할 수 있음                 |
 
 
-## 🔧 예제 1: type()으로 동적 클래스 생성 (상속 X)
+### 📌 예제 1: type()으로 동적 클래스 생성 (상속 X)
 ```python
 CustomList1 = type('CustomList1', (list,), {
     'desc': 'Custom List1',
@@ -31,7 +31,7 @@ CustomList1 = type('CustomList1', (list,), {
 - cus_mul, cus_replace 메소드 추가
 - 인스턴스 생성 후 커스텀 기능 사용 가능
 
-## 🔧 예제 2: 커스텀 메타클래스 생성 (상속 O)
+### 📌 예제 2: 커스텀 메타클래스 생성 (상속 O)
 ```python
 class CustomListMeta(type):
     def __new__(cls, name, bases, namespace):
@@ -60,7 +60,7 @@ c2 = CustomList2([1, 2, 3, ...])
 - 인스턴스 생성 시 __call__이 실행됨
 - desc, cus_mul, cus_replace 자동 삽입됨
 
-### ✅ 실무에서 왜 중요한가?
+### 📌 실무에서 왜 중요한가?
 
 | 목적               | 설명                                                                 |
 |--------------------|----------------------------------------------------------------------|
@@ -72,7 +72,7 @@ c2 = CustomList2([1, 2, 3, ...])
 | 유지보수 효율        | 구조 검증과 기능 주입을 통해 코드 변경 시 전체 시스템에 일관되게 반영 가능             |
 
 
-## 🔍 MRO 확인
+### 📌 MRO 확인
 ```python
 print(CustomList2.__mro__)
 ```
@@ -85,8 +85,8 @@ print(CustomList2.__mro__)
 - 실무에서는 구조 검증, 자동 속성 삽입, 프레임워크 설계에 핵심 도구로 활용.
 
 
-## Custom class 생성 예제
-### 1. 커스텀 메타 클래스 생성 예제 (Type 상속 X)
+### 📌 Custom class 생성 예제
+#### 🔹 1. 커스텀 메타 클래스 생성 예제 (Type 상속 X)
 ```python
 def cus_mul(self, d):
     for i in range(len(self)):
@@ -107,6 +107,7 @@ c1 = CustomList1([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 c1.cus_mul(100)
 print(c1)
 ```
+#### 🔹 출력 결과
 ```
 [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
 ```
@@ -114,6 +115,8 @@ print(c1)
 c1.cus_replace(200, 120)
 print(c1)
 ```
+#### 🔹 출력 결과
+
 ```
 [120, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
 ```
@@ -121,7 +124,7 @@ print(c1)
 print(c1.desc)  # Custom List1
 ```
 
-### 2. 커스텀 메타클래스 생성 예제 (Type 상속 O)
+#### 🔹 2. 커스텀 메타클래스 생성 예제 (Type 상속 O)
 
 ```python
 # class MetaClassName(type):
@@ -147,7 +150,9 @@ class CustomListMeta(type):
         return type.__new__(cls, name, bases, namespace)
 
 CustomList2 = CustomListMeta('CustomList2', (list,), {})
+c2 = CustomList2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
+#### 🔹 출력 결과
 ```
 __new__ ->  <class '__main__.CustomListMeta'> CustomList2 (<class 'list'>,) {}
 __init__ ->  <class '__main__.CustomList2'> CustomList2 (<class 'list'>,) {'desc': 'Custom List2', 'cus_mul':
@@ -155,10 +160,10 @@ __init__ ->  <class '__main__.CustomList2'> CustomList2 (<class 'list'>,) {'desc
 __call__ ->  <class '__main__.CustomList2'> [1,2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 ```python
-c2 = CustomList2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 c2.cus_mul(100)
 print(c2)
 ```
+#### 🔹 출력 결과
 ```
 [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
 ```
@@ -166,6 +171,7 @@ print(c2)
 c2.cus_replace(200, 120)
 print(c2)
 ```
+#### 🔹 출력 결과
 ```
 [100, 120, 300, 400, 500, 600, 700, 800, 900, 1000]
 ```
@@ -173,14 +179,13 @@ print(c2)
 print(c2.desc)  # Custom List1
 print(CustomList2.__mro__)  # (<class '__main__.CustomList2'>, <class 'list'>, <class 'object'>)
 ```
-
 ---
-# metaclass & _prepare_
+## 📘 metaclass & _prepare_
 
-## 🔧 1. metaclass 키워드를 활용한 클래스 정의 방식
+### 📌 1. metaclass 키워드를 활용한 클래스 정의 방식
 - Python에서는 클래스 정의 시 metaclass 키워드를 사용해 어떤 메타클래스를 적용할지 지정할 수 있음.
 
-### ✅ 기본 구조
+#### 🔹 기본 구조
 ```python
 class MyMeta(type):
     def __new__(cls, name, bases, namespace):
@@ -195,14 +200,14 @@ class MyClass(metaclass=MyMeta):
 - MyClass는 MyMeta에 의해 생성됨
 - 클래스 생성 시점에 `__new__`, `__init__`, `__call__` 등을 통해 구조 제어 가능
 
-## 🧠 2. `__prepare__` 를 통한 네임스페이스 제어
-`__prepare__` 는 클래스 정의 시 사용되는 네임스페이스 딕셔너리를 커스터마이징할 수 있는 메타클래스의 특별한 메소드.
+### 📌 2. `__prepare__` 를 통한 네임스페이스 제어
+- `__prepare__` 는 클래스 정의 시 사용되는 네임스페이스 딕셔너리를 커스터마이징할 수 있는 메타클래스의 특별한 메소드.
 
-### ✅ 목적
+#### 🔹 목적
 - 클래스 정의 시점에 속성 순서 유지
 - 속성 자동 삽입
 - 속성 이름 필터링 또는 변형
-### ✅ 기본 구조
+#### 🔹 기본 구조
 ```python
 class OrderedMeta(type):
     @classmethod
@@ -223,7 +228,7 @@ class MyClass(metaclass=OrderedMeta):
 - 반환된 딕셔너리가 클래스 정의에 사용됨
 - OrderedDict를 반환하면 속성 정의 순서를 유지할 수 있음
 
-### 🔍 구조 요약: metaclass와 `__prepare__`
+#### 🔹 구조 요약: metaclass와 `__prepare__`
 | 구성 요소       | 역할 및 설명                                                                 |
 |------------------|------------------------------------------------------------------------------|
 | `metaclass`      | 클래스 정의 시 어떤 메타클래스를 사용할지 지정하는 키워드                         |
@@ -233,7 +238,7 @@ class MyClass(metaclass=OrderedMeta):
 | `__call__`       | 클래스 인스턴스 생성 시 호출됨 → 인스턴스 생성 로직 제어, 인자 검사 등 가능             |
 
 
-### ✅ 실무 활용 예시
+#### 🔹 실무 활용 예시
 | 활용 방식                  | 설명                                                                 |
 |----------------------------|----------------------------------------------------------------------|
 | `__prepare__` + `OrderedDict` | 속성 정의 순서 유지 → 자동 문서화, API 명세 생성, 코드 생성기 등에 활용 가능     |
@@ -243,12 +248,12 @@ class MyClass(metaclass=OrderedMeta):
 | `metaclass` + DSL 설계        | 도메인 특화 언어(DSL)에서 사용자 정의 문법을 클래스 수준에서 구현 가능              |
 
 
-metaclass 키워드는 클래스 생성의 제어권을 넘겨주는 도구, 
-__prepare__는 클래스 정의의 시작점을 커스터마이징할 수 있는 고급 기능. 
-이 둘을 활용하면 Python 클래스 설계를 정적 언어 수준의 구조적 안정성으로 끌어올릴 수 있음.
+- metaclass 키워드는 클래스 생성의 제어권을 넘겨주는 도구, 
+- __prepare__는 클래스 정의의 시작점을 커스터마이징할 수 있는 고급 기능. 
+- 이 둘을 활용하면 Python 클래스 설계를 정적 언어 수준의 구조적 안정성으로 끌어올릴 수 있음.
 
 
-## 🧪 샘플 1: __prepare__ + OrderedDict → 속성 순서 유지
+### 📌 샘플 1: __prepare__ + OrderedDict → 속성 순서 유지
 ```python
 from collections import OrderedDict
 
@@ -269,7 +274,7 @@ class MyClass(metaclass=OrderedMeta):
     c = 3
 ```
 
-### ✅ 출력 결과
+#### 🔹 출력 결과
 ```
 __prepare__ → MyClass
 __new__ → MyClass
@@ -277,7 +282,7 @@ __new__ → MyClass
 ```
 
 
-## 🧪 샘플 2: __prepare__ + __new__ → 속성 자동 삽입
+### 📌 샘플 2: __prepare__ + __new__ → 속성 자동 삽입
 ```python
 class AutoMeta(type):
     @classmethod
@@ -296,14 +301,14 @@ print(AutoClass.created_by)  # AutoMeta
 print(AutoClass.version)     # 1.0
 ```
 
-### ✅ 출력 결과
+#### 🔹 출력 결과
 ```
 AutoMeta
 1.0
 ```
 
 
-### 🧪 샘플 3: __call__ → 인스턴스 생성 제어
+### 📌 샘플 3: __call__ → 인스턴스 생성 제어
 ```python
 class LoggingMeta(type):
     def __call__(cls, *args, **kwargs):
@@ -319,14 +324,14 @@ print(u.name)
 ```
 
 
-### ✅ 출력 결과
+#### 🔹 출력 결과
 ```
 Creating instance of User with args=('JungHwan',), kwargs={}
 JungHwan
 ```
 
 
-## 🧪 샘플 4: 속성 네이밍 규칙 검사
+### 📌 샘플 4: 속성 네이밍 규칙 검사
 ```python
 class NamingMeta(type):
     def __new__(cls, name, bases, namespace):
@@ -342,22 +347,23 @@ class ValidClass(metaclass=NamingMeta):
 print(ValidClass.valid_name)
 ```
 
-### ✅ 출력 결과
+#### 🔹 출력 결과
 ```
 1
 ```
 
-## InvalidClass
+#### 🔹 InvalidClass
 ```python
 class InvalidClass(metaclass=NamingMeta):
     InvalidName = 3  # 대문자로 시작 → 예외 발생
 ```
 
-### ❌ 출력 결과
+#### 🔹 출력 결과
 ```
 ValueError: 속성 "InvalidName"은 소문자로 시작해야 합니다.
 ```
 - 이런 샘플들은 실무에서 프레임워크 설계, 코드 자동화, 구조 검증, 인스턴스 생성 제어 등에 매우 유용
 
 
+---
 
