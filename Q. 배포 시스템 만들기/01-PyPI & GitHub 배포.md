@@ -1,12 +1,12 @@
-# PyPI / GitHub 배포
+## 📘 PyPI / GitHub 배포
 - PyPI 및 GitHub 배포를 위한 샘플 프로젝트 구조와 배포 절차를 깔끔하게 정리. 
 - GIFConverter 클래스를 중심으로 패키지화하고, PyPI와 GitHub에 배포하는 흐름을 실무 기준으로 구성.
 
-## 📦 1. PyPI 배포 절차 요약
-### ✅ PyPI 배포 순서
+### 📌 1. PyPI 배포 절차 요약
+#### 🔹 PyPI 배포 순서
 
-#### 1. PyPI 회원 가입 → https://pypi.org
-#### 2. 프로젝트 구조 준비
+#### 🔹 1. PyPI 회원 가입 → https://pypi.org
+#### 🔹 2. 프로젝트 구조 준비
 ```
    ├── img_converter/
    │   ├── __init__.py
@@ -17,29 +17,29 @@
    ├── MANIFEST.in
    └── setup.cfg (선택)
 ```
-#### 3. 필수 패키지 설치
+#### 🔹 3. 필수 패키지 설치
 ```
    pip install setuptools wheel
 ```
 
-#### 4. 배포용 파일 생성
+#### 🔹 4. 배포용 파일 생성
 ```
    python setup.py sdist bdist_wheel
 ```
 
-#### 5. Twine 설치 및 업로드
+#### 🔹 5. Twine 설치 및 업로드
 ```
    pip install twine
    python -m twine upload dist/*
 ```
 
-#### 6. 설치 확인
+#### 🔹 6. 설치 확인
 ```
    pip install pygifconv-thj
 ```
 
 
-#### 🧪 PyPI 설치 후 사용 예시
+#### 🔹 🧪 PyPI 설치 후 사용 예시
 ```python
 from pygifconv_thj.converter import GIFConverter as gfc
 
@@ -47,11 +47,11 @@ c = gfc("./project/images/*.png", "./project/image_out/test.gif", resize=(320, 2
 c.convert()
 ```
 
-## 🐙 2. GitHub 배포 절차 요약
-### ✅ GitHub 배포 순서
+### 📌 2. GitHub 배포 절차 요약
+#### 🔹 GitHub 배포 순서
 
-####  1. GitHub 회원 가입 → https://github.com
-#### 2. 로컬 프로젝트 초기화
+#### 🔹  1. GitHub 회원 가입 → https://github.com
+#### 🔹 2. 로컬 프로젝트 초기화
 ```
    git init
    git add .
@@ -60,15 +60,15 @@ c.convert()
    git push origin master
 ```
 
-#### 3. GitHub에 PyPI 구조 그대로 push
+### 📌 3. GitHub에 PyPI 구조 그대로 push
 
-#### 4. 설치 확인
+#### 🔹 4. 설치 확인
 ```
    pip install git+https://github.com/yourname/pygifconv-thj.git
 ```
 
 
-#### 📁 샘플 프로젝트 구조
+#### 🔹 샘플 프로젝트 구조
 ```
 pygifconv-thj/
 ├── img_converter/
@@ -81,7 +81,7 @@ pygifconv-thj/
 ```
 
 
-##### 🧠 setup.py 예시
+#### 🔹 setup.py 예시
 ```python
 from setuptools import setup, find_packages
 
@@ -99,14 +99,14 @@ setup(
 
 ---
 
-# 기능 확장
+### 📌기능 확장
 
 - 아래는 pygifconv-thj 프로젝트에 다음 기능을 확장한 예제:
-   - ✅ setup.cfg를 통한 정적 설정 분리
-   - ✅ README.md에 예제 코드 추가
-   - ✅ tests/ 디렉토리로 유닛 테스트 연동
+   - setup.cfg를 통한 정적 설정 분리
+   - README.md에 예제 코드 추가
+   - tests/ 디렉토리로 유닛 테스트 연동
 
-## 🧩 1. setup.cfg 정적 설정 분리
+#### 🔹 1. setup.cfg 정적 설정 분리
 - setup.cfg는 setup.py의 일부 설정을 분리해서 관리할 수 있음. 
 - 유지보수와 자동화에 유리.
 ```
@@ -126,7 +126,6 @@ install_requires =
     Pillow
 python_requires = >=3.6
 ```
-
 - setup.py는 최소한의 실행 코드만 남겨도 됨:
 ```
 # setup.py
@@ -135,7 +134,7 @@ setup()
 ```
 
 
-## 📘 2. README.md에 예제 코드 추가
+#### 🔹 2. README.md에 예제 코드 추가
 ```
 # pygifconv-thj
 
@@ -160,7 +159,7 @@ c.convert()
 ```
 
 
-## 🧪 3. `tests/` 디렉토리로 유닛 테스트 연동
+#### 🔹 3. `tests/` 디렉토리로 유닛 테스트 연동
 
 ```python
 # tests/test_converter.py
@@ -179,13 +178,13 @@ if __name__ == '__main__':
     unittest.main()
 
 ```
-## ✅ 실행 방법
+#### 🔹 실행 방법
 ```
 python -m unittest discover tests
 ```
 
 
-## 📁 프로젝트 구조 예시
+#### 🔹 프로젝트 구조 예시
 ```
 pygifconv-thj/
 ├── img_converter/
@@ -202,7 +201,7 @@ pygifconv-thj/
 ```
 
 
-## 📦 MANIFEST.in에 들어가는 것들
+#### 🔹 MANIFEST.in에 들어가는 것들
 ```
 include README.md
 include LICENSE
@@ -226,10 +225,14 @@ recursive-include tests/images *.png *.jpg
 | `global-exclude pattern`      | 전체 프로젝트에서 특정 패턴의 파일 제외 → 예: `global-exclude *.log`           |
 
 
-### ✅ 실무 팁
-- README.md, LICENSE, setup.cfg는 꼭 포함시켜야 PyPI에서 문서와 라이선스가 제대로 표시돼.
-- 이미지, 테스트 파일, 설정 파일 등도 recursive-include로 명시하면 배포 패키지에 포함돼.
-- python setup.py sdist로 생성된 .tar.gz 파일을 열어보면 실제 포함된 파일을 확인할 수 있어.
+### 📌 실무 팁
+- README.md, LICENSE, setup.cfg는 꼭 포함시켜야 PyPI에서 문서와 라이선스가 제대로 표시됨.
+- 이미지, 테스트 파일, 설정 파일 등도 recursive-include로 명시하면 배포 패키지에 포함.
+- python setup.py sdist로 생성된 .tar.gz 파일을 열어보면 실제 포함된 파일을 확인할 수 있음.
+
+
+---
+
 
 ---
 
