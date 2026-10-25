@@ -68,8 +68,6 @@ classDiagram
     MultiAdapter --> JsonPrinter : adapts
 
 ```
----
-
 
 ## 📘 hasattr
 
