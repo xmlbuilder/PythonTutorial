@@ -1,5 +1,5 @@
-# 🧪 Basic (Array Creation)
-## 📌 기본 배열 생성 및 속성 확인
+## 📘 Basic (Array Creation)
+### 📌 기본 배열 생성 및 속성 확인
 
 ```python
 import numpy as np
@@ -7,14 +7,14 @@ import numpy as np
 a = np.arange(15).reshape(3, 5)
 print(a)
 ```
-
+#### 🔹 결과 출력
 ```
 [[ 0  1  2  3  4]
  [ 5  6  7  8  9]
  [10 11 12 13 14]]
 ```
 
-## ✅ 배열 속성 확인
+### 📌 배열 속성 확인
 ```python
 print(a.shape)        # (3, 5) → 3행 5열
 print(a.ndim)         # 2 → 2차원 배열
@@ -24,21 +24,21 @@ print(type(a))        # <class 'numpy.ndarray'>
 ```
 
 
-## 📌 다양한 방식의 배열 생성
-### 1. 정수 배열
+### 📌 다양한 방식의 배열 생성
+#### 🔹 1. 정수 배열
 ```python
 b = np.array([1, 2, 3, 4, 5])
 print(b)              # [1 2 3 4 5]
 print(type(b))        # <class 'numpy.ndarray'>
 ```
 
-### 2. 실수 배열
+#### 🔹 2. 실수 배열
 ```python
 c = np.array([1.2, 3.5, 5.1])
 print(c.dtype)        # float64
 ```
 
-### 3. 잘못된 배열 생성 (오류 예시)
+#### 🔹 3. 잘못된 배열 생성 (오류 예시)
 ```python
 d = np.array(1.2, 3.5, 5.1)
 ```
