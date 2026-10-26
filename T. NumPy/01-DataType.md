@@ -1,6 +1,6 @@
-# 데이터 타입
+## 📘 데이터 타입
 
-## 🧮 NumPy 기본 데이터 타입 매핑
+### 📌 NumPy 기본 데이터 타입 매핑
 ```
 ┌────────────────────────────┬────────────────────────────┬────────────────────────────────────────────────────────────┐
 │ NumPy Type                 │ C Type                     │ Description                                                │
@@ -40,41 +40,41 @@
 └────────────────────────────┴────────────────────────────┴────────────────────────────────────────────────────────────┘
 ```
 
-## 🧠 추가 설명 및 실무 활용 팁
+### 📌 추가 설명 및 실무 활용 팁
 
-### 🔢 정수형 (int8, int16, int32, int64)
+#### 🔹 정수형 (int8, int16, int32, int64)
 - 메모리 최적화가 중요할 때 유용 (예: 이미지 처리에서 uint8)
 - intp는 배열 인덱싱에 사용됨 → 플랫폼에 따라 32비트 또는 64비트
 
-## 🔣 부동소수점형 (float16, float32, float64, longdouble)
+#### 🔹 부동소수점형 (float16, float32, float64, longdouble)
 - float16: 메모리 절약용, 정확도 낮음 → 딥러닝에서 사용됨
 - float64: 기본 float → 대부분의 수치 계산에 사용
 - longdouble: 고정밀 계산용 → 플랫폼마다 다르게 동작할 수 있음
 
-## 🧮 복소수형 (complex64, complex128)
+#### 🔹 복소수형 (complex64, complex128)
 - 과학 계산, 신호 처리, 푸리에 변환 등에 사용
 - complex128은 Python의 기본 complex와 동일한 정밀도
 
-## 🧪 논리형 (bool_)
+#### 🔹 논리형 (bool_)
 - 마스크 연산, 조건 필터링 등에 사용됨 → array > 0 같은 표현에서 자주 등장
 
-## 한마디
+### 📌 한마디
 - NumPy의 데이터 타입은 단순한 숫자 저장 그 이상.
 - 메모리 효율, 계산 속도, 정확도까지 모두 좌우하는 핵심 요소.
 
 ----
 
-# NumPy의 데이터 타입을 구체적으로 검증
+### 📌 NumPy의 데이터 타입을 구체적으로 검증
 
-## NumPy의 데이터 타입을 구체적으로 검증하는 목적:
+### 📌 NumPy의 데이터 타입을 구체적으로 검증하는 목적:
 - 배열의 dtype을 확인하거나 비교
 - 특정 타입으로 변환 (astype)
 - 타입별 범위나 메모리 크기 확인
 - C 타입과의 호환성 체크
 
 
-## ✅ NumPy 데이터 타입 검증 샘플
-### 1. 배열의 dtype 확인
+### 📌 NumPy 데이터 타입 검증 샘플
+#### 🔹 1. 배열의 dtype 확인
 ```python
 import numpy as np
 
@@ -82,24 +82,24 @@ arr = np.array([1, 2, 3], dtype=np.int32)
 print(arr.dtype)  # 출력: int32
 ```
 
-### 2. dtype 비교
+#### 🔹 2. dtype 비교
 ```python
 if arr.dtype == np.int32:
     print("정수형 32비트 배열입니다.")
 ```
 
-### 3. dtype 변환 (astype)
+#### 🔹 3. dtype 변환 (astype)
 ```python
 float_arr = arr.astype(np.float64)
 print(float_arr.dtype)  # 출력: float64
 ```
 
-### 4. dtype의 메모리 크기 확인
+#### 🔹 4. dtype의 메모리 크기 확인
 ```python
 print(arr.itemsize)  # 출력: 4 (int32는 4바이트)
 ```
 
-### 5. dtype의 최대/최소값 확인
+#### 🔹 5. dtype의 최대/최소값 확인
 ```python
 print(np.iinfo(np.int32).min)  # -2147483648
 print(np.iinfo(np.int32).max)  # 2147483647
@@ -107,13 +107,13 @@ print(np.iinfo(np.int32).max)  # 2147483647
 print(np.finfo(np.float64).eps)  # float64의 최소 유효값
 ```
 
-### 6. dtype 종류 나열
+#### 🔹 6. dtype 종류 나열
 ```python
 print(np.sctypeDict.keys())  # NumPy에서 지원하는 모든 dtype 키워드
 ```
 
 
-### 🧠 실무 팁
+### 📌 실무 팁
 
 | 목적 또는 상황             | 활용 방법 또는 함수 설명                                         |
 |----------------------------|------------------------------------------------------------------|
@@ -124,8 +124,7 @@ print(np.sctypeDict.keys())  # NumPy에서 지원하는 모든 dtype 키워드
 | C 코드와 연동              | `arr.ctypes.data_as()` → C 포인터로 NumPy 배열 전달 가능             |
 
 
-
-## 🧠 NumPy dtype 선택 기준
+### 📌 NumPy dtype 선택 기준
 
 | 상황 또는 목적             | 추천 dtype                        | 설명 또는 선택 이유                                           |
 |----------------------------|------------------------------------|---------------------------------------------------------------|
@@ -141,31 +140,31 @@ print(np.sctypeDict.keys())  # NumPy에서 지원하는 모든 dtype 키워드
 
 
 
-## ✅ 실무 팁
+### 📌 실무 팁
 - 정수 vs 부동소수점: 정수는 정확한 값이 필요할 때, 부동소수점은 연산이 많은 경우에 사용
 - 메모리 절약: float64 대신 float32 또는 float16을 쓰면 메모리 사용량이 절반 이하로 줄어듦
 - 정밀도 요구: 금융, 과학 계산에서는 float64 이상을 권장
 - 호환성 고려: 외부 라이브러리(C, GPU 등)와 연동 시 해당 환경의 타입과 맞춰야 함
 
-## 🔍 예시 비교
+### 📌 예시 비교
 ```python
 import numpy as np
 ```
-### 메모리 비교
+#### 🔹 메모리 비교
 ```python
 a = np.ones((1000, 1000), dtype=np.float64)  # 약 8MB
 b = np.ones((1000, 1000), dtype=np.float32)  # 약 4MB
 c = np.ones((1000, 1000), dtype=np.float16)  # 약 2MB
 ```
 
-### 정밀도 비교
+#### 🔹 정밀도 비교
 ```python
 print(np.finfo(np.float64).eps)  # 2.22e-16
 print(np.finfo(np.float32).eps)  # 1.19e-07
 print(np.finfo(np.float16).eps)  # 9.77e-04
 ```
 
-### 실제 예제 및 결과 출력
+#### 🔹 실제 예제 및 결과 출력
 
 ```python
 import numpy as np
@@ -173,6 +172,8 @@ import numpy as np
 x = np.float32(1.0)
 print(x)
 ```
+#### 🔹 결과 출력
+
 ```
 1.0
 ```
@@ -180,12 +181,14 @@ print(x)
 y = np.int_([1, 2, 4])
 print(y)
 ```
+#### 🔹 결과 출력
 ```
 [1 2 4]
 ```
 ```python
 print(y.dtype)
 ```
+#### 🔹 결과 출력
 ```
 int64
 ```
@@ -193,6 +196,7 @@ int64
 z = np.arange(3, dtype=np.uint8)
 print(z, z.dtype)
 ```
+#### 🔹 결과 출력
 ```
 [0 1 2] uint8
 ```
@@ -200,12 +204,14 @@ print(z, z.dtype)
 x1 = np.array([1, 2, 4], dtype='f')
 print(x1, x1.dtype)
 ```
+#### 🔹 결과 출력
 ```
 [1. 2. 4.] float32
 ```
 ```python
 x2 = z.astype('f')
 print(x2, x2.dtype)
+#### 🔹 결과 출력
 ```
 [0. 1. 2.] float32
 ```
@@ -214,32 +220,37 @@ print(x2, x2.dtype)
 d = np.dtype(int)
 print(d)
 ```
+#### 🔹 결과 출력
 ```
 int64
 ```
 ```python
 print(type(d))
 ```
+#### 🔹 결과 출력
 ```
 <class 'numpy.dtypes.Int64DType'>
 ```
 ```python
 print(np.issubdtype(d, np.integer))
 ```
+#### 🔹 결과 출력
 ```
 True
 ```
 ```python
 print(np.issubdtype(d, np.floating))
 ```
+#### 🔹 결과 출력
 ```
 False
 ```
 
-### overflow
+#### 🔹 overflow
 ```python
 print(np.power(100, 8, dtype=np.int64))
 ```
+#### 🔹 결과 출력
 ```
 10000000000000000
 ```
@@ -247,12 +258,14 @@ print(np.power(100, 8, dtype=np.int64))
 ```python
 print(np.power(100, 8, dtype=np.int32))
 ```
+#### 🔹 결과 출력
 ```
 1874919424
 ```
 ```python
 print(np.iinfo(int))
 ```
+#### 🔹 결과 출력
 ```
 Machine parameters for int64
 ---------------------------------------------------------------
@@ -263,6 +276,7 @@ max = 9223372036854775807
 ```python
 print(np.iinfo(np.int32))
 ```
+#### 🔹 결과 출력
 ```
 Machine parameters for int32
 ---------------------------------------------------------------
@@ -273,6 +287,7 @@ max = 2147483647
 ```python
 print(np.finfo(np.float64))
 ```
+#### 🔹 결과 출력
 ```
 ---------------------------------------------------------------
 precision =  15   resolution = 1.0000000000000001e-15
@@ -288,6 +303,7 @@ smallest_normal = 2.2250738585072014e-308   smallest_subnormal = 4.9406564584124
 x = np.array([[1, 2.0], [0, 0], (1+1j, 3.0)])
 print(x)
 ```
+#### 🔹 결과 출력
 ```
 [[1.+0.j 2.+0.j]
  [0.+0.j 0.+0.j]
@@ -299,6 +315,7 @@ d = np.indices((3, 3))
 
 print(d, d.shape)
 ```
+#### 🔹 결과 출력
 ```
 [[[0 0 0]
   [1 1 1]
@@ -312,18 +329,18 @@ print(d, d.shape)
 
 ---
 
-## np.indices((3, 3))
+#### 🔹 np.indices((3, 3))
 - np.indices((3, 3))를 사용해서 2차원 인덱스 배열을 생성. 
 - 아래에 구조와 의미를 단계별로 분석.
 
-### 🧠 코드 분석
+#### 🔹 코드 분석
 ```python
 import numpy as np
 d = np.indices((3, 3))
 print(d, d.shape)
 ```
 
-### 🔍 결과
+#### 🔹 결과
 ```
 array([[[0, 0, 0],
         [1, 1, 1],
@@ -337,30 +354,30 @@ d.shape → (2, 3, 3)
 ```
 
 
-## 📐 구조 설명
+#### 🔹 구조 설명
 - np.indices((3, 3))는 (3, 3) 크기의 배열에 대한 인덱스 좌표를 생성.
     - 결과는 2개의 배열로 구성됨:
     - 첫 번째 배열: 행 인덱스
     - 두 번째 배열: 열 인덱스
 
-## 🔢 시각적으로 보면:
+#### 🔹 시각적으로 보면:
 - 이 함수는 2차원 배열의 각 위치에 대해 행 인덱스와 열 인덱스를 생성해주는 도구.
 
-### 🟦 행 인덱스 배열 (d[0])
+#### 🔹 행 인덱스 배열 (d[0])
 | 행\열 | 0 | 1 | 2 |
 |-------|---|---|---|
 | 0     | 0 | 0 | 0 |
 | 1     | 1 | 1 | 1 |
 | 2     | 2 | 2 | 2 |
 
-### 🟥 열 인덱스 배열 (d[1])
+#### 🔹 열 인덱스 배열 (d[1])
 | 행\열 | 0 | 1 | 2 |
 |-------|---|---|---|
 | 0     | 0 | 1 | 2 |
 | 1     | 0 | 1 | 2 |
 | 2     | 0 | 1 | 2 |
 
-### 📦 결과 배열 의미
+#### 🔹 결과 배열 의미
 - d[0]: 행 인덱스 배열 → 각 위치의 행 번호
 ```
 [[0 0 0]
@@ -376,7 +393,7 @@ d.shape → (2, 3, 3)
 ```
 
 
-## 🧪 실무 활용 예시
+#### 🔹 실무 활용 예시
 - 마스크 연산, 좌표 기반 계산, 그리드 생성 등에 자주 사용됨
 - 예: 이미지 처리에서 각 픽셀의 위치를 기준으로 연산할 때
 
@@ -385,11 +402,4 @@ rows, cols = np.indices((3, 3))
 mask = (rows + cols) % 2 == 0  # 체스판 패턴처럼 만들기
 ```
 ---
-
-
-
-
-
-
-
 
