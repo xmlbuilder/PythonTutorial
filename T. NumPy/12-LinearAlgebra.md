@@ -94,7 +94,7 @@ eigenvectors =
 | np.linalg.inv(a)        | 역행렬                           | [[-2, 1], [1.5, -0.5]]                      |
 | np.eye(n)               | 단위 행렬                        | [[1, 0], [0, 1]]                            |
 | A @ B                   | 행렬 곱                          | j @ j → [[-1, 0], [0, -1]]                  |
-| np.trace(a)             | 대각합                           | 2                                          |
+| np.trace(u)             | 대각합                           | 2                                          |
 | np.linalg.solve(a, y)   | 선형 방정식 풀이                 | x = [[-3], [4]]                             |
 | np.linalg.eig(j)        | 고유값과 고유벡터                | λ = [0+1j, 0−1j], V = 복소수 회전 벡터들     |
 
