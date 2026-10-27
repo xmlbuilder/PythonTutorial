@@ -1,17 +1,17 @@
-# Broadcasting Rule
+## 📘 Broadcasting Rule
 - NumPy의 핵심 기능 중 하나인 Broadcasting Rule을 그 원리를 단계적으로 설명.
 
-## 📘 Broadcasting Rule이란?
+### 📌 Broadcasting Rule이란?
 - 서로 다른 shape을 가진 배열끼리 연산할 때, NumPy가 자동으로 shape을 맞춰주는 규칙.
 
 
-## ✅ Broadcasting이 적용되는 조건
+### 📌 Broadcasting이 적용되는 조건
 - 두 배열의 shape을 오른쪽부터 비교하면서 다음 조건을 만족해야 함:
  - 같은 크기이거나
  - 한쪽이 1 이면 확장 가능
 
-## 🔍 예제별 설명
-### ① 실패 예시: x + y
+### 📌 예제별 설명
+#### ① 실패 예시: x + y
 x.shape → (4,)
 y.shape → (5,)
 
@@ -21,15 +21,8 @@ import numpy as np
 x = np.arange(4)
 print(x)
 '[0 1 2 3]'
-xx = x.reshape(4, 1)
-print(xx)
 ```
-```
-[[0]
- [1]
- [2]
- [3]]
-```
+
 ```python
 y = np.ones(5)
 print(y)
@@ -51,15 +44,26 @@ ValueError: operands could not be broadcast together with shapes (4,) (5,)
 - 오른쪽부터 비교: 4 vs 5 → ❌ 불일치
 - 둘 다 1 이 아니므로 broadcasting 불가 → ValueError
 
+#### ② 성공 예시: xx + y
+```
+xx = x.reshape(4, 1)
+print(xx)
+```
+#### 🔹 출력 결과
+```
+[[0]
+ [1]
+ [2]
+ [3]]
+```
 
-## ② 성공 예시: xx + y
 - xx.shape → (4, 1)
 - y.shape  → (5,)
  - y → (1, 5)로 자동 확장됨
  - 결과 shape: (4, 5)
 
 
-### ② 성공 예시: xx + y → Broadcasting 결과
+#### ② 성공 예시: xx + y → Broadcasting 결과
 
 | xx (4×1)  | y (1×5)        | 결과 (4×5) 행렬             |
 |-----------|----------------|------------------------------|
@@ -71,6 +75,7 @@ ValueError: operands could not be broadcast together with shapes (4,) (5,)
 ```python
 print(xx + y)
 ```
+#### 🔹 출력 결과
 ```
 [[1. 1. 1. 1. 1.]
  [2. 2. 2. 2. 2.]
@@ -80,18 +85,19 @@ print(xx + y)
 ```python
 print((xx+y).shape)
 ```
+#### 🔹 출력 결과
 ```
 (4, 5)
 ```
 
-#### 🔍 Broadcasting 처리 흐름
+#### 🔹 Broadcasting 처리 흐름
 - xx.shape = (4, 1) → 세로 벡터
 - y.shape = (5,) → 가로 벡터
 - NumPy는 y를 (1, 5)로 확장하고, xx를 (4, 1)로 유지
 - 두 배열을 더하면 → (4, 5) 결과 생성
 
 
-### ③ 성공 예시: x + z → Broadcasting 결과
+#### ③ 성공 예시: x + z → Broadcasting 결과
 | x (1×4)     | z (3×4)                     | 결과 (3×4) 행렬             |
 |-------------|-----------------------------|------------------------------|
 | [0 1 2 3]   | [[1. 1. 1. 1.]              | [1. 2. 3. 4.]                |
@@ -101,12 +107,14 @@ print((xx+y).shape)
 ```python
 print(x)
 ```
+#### 🔹 출력 결과
 ```
 [0 1 2 3]
 ```
 ```python
 print(z)
 ```
+#### 🔹 출력 결과
 ```
 [[1. 1. 1. 1.]
  [1. 1. 1. 1.]
@@ -115,6 +123,7 @@ print(z)
 ```python
 print(x+z)
 ```
+#### 🔹 출력 결과
 ```
 [[1. 2. 3. 4.]
  [1. 2. 3. 4.]
@@ -122,7 +131,7 @@ print(x+z)
 ```
 
 
-### ④ 성공 예시: c + b → Broadcasting 결과
+#### ④ 성공 예시: c + b → Broadcasting 결과
 
 | c (4×1)         | b (1×3)        | 결과 (4×3) 행렬             |
 |------------------|----------------|------------------------------|
@@ -136,6 +145,7 @@ a = np.array([0.0, 10.0, 20.0, 30.0])
 c = a[:, np.newaxis]
 print(c)
 ```
+#### 🔹 출력 결과
 ```
 [[ 0.]
  [10.]
@@ -146,7 +156,7 @@ print(c)
 b = np.array([1.0, 2.0, 3.0])
 print(c+b)
 ```
-
+#### 🔹 출력 결과
 ```
 [[ 1.  2.  3.]
  [11. 12. 13.]
@@ -154,7 +164,7 @@ print(c+b)
  [31. 32. 33.]]
 ```
 
-#### 📘 Broadcasting 시각화 요약
+### 📌 Broadcasting 시각화 요약
 | A.shape   | B.shape   | Result.shape | 설명                         |
 |-----------|-----------|--------------|------------------------------|
 | (4,)      | (5,)      | ❌ 오류       | 4 ≠ 5 → 둘 다 1이 아님       |
@@ -164,10 +174,9 @@ print(c+b)
 
 
 
-## 💬 한마디
+### 📌 한마디
 - Broadcasting은 NumPy의 벡터화 연산을 가능하게 하는 핵심 기술.  
 - 덕분에 for문 없이도 다양한 shape의 배열끼리 빠르고 직관적으로 연산할 수 있음.
-
 
 ---
 
