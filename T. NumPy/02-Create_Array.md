@@ -45,7 +45,7 @@ d = np.array(1.2, 3.5, 5.1)
 ```
 TypeError: array() takes from 1 to 2 positional arguments but 3 were given
 ```
-- ✅ 올바른 방식: `np.array([1.2, 3.5, 5.1])` 처럼 리스트나 튜플로 감싸야 함
+- 올바른 방식: `np.array([1.2, 3.5, 5.1])` 처럼 리스트나 튜플로 감싸야 함
 
 
 ### 📌 튜플을 이용한 2차원 배열
@@ -53,6 +53,7 @@ TypeError: array() takes from 1 to 2 positional arguments but 3 were given
 e = np.array([(1.5, 2, 3), (4, 5, 6)])
 print(e)
 ```
+#### 🔹 출력 결과 
 ```
 [[1.5 2.  3. ]
  [4.  5.  6. ]]
@@ -72,9 +73,9 @@ print(f)
  [3.+0.j 4.+0.j]]
 ```
 
-## 🧠 보강 포인트
+### 📌 보강 포인트
 
-### 🔹 배열 생성 함수 요약
+#### 🔹 배열 생성 함수 요약
 | 함수              | 설명                                                             |
 |-------------------|------------------------------------------------------------------|
 | `np.array()`      | 리스트나 튜플을 배열로 변환 → 가장 기본적인 배열 생성 방법           |
@@ -87,13 +88,13 @@ print(f)
 | `np.linspace()`   | 시작~끝 사이의 값을 일정 간격으로 나눈 배열 생성 → 그래프, 시뮬레이션 등 |
 
 
-## 💬 한마디
+### 📌 한마디
 - 배열 생성은 NumPy의 시작이자 끝.
 - 다양한 방식으로 배열을 만들 수 있다는 건, 데이터를 자유롭게 다룰 수 있다는 뜻.
 
 ---
 
-## 실전 소소들
+### 📌 실전 소소들
 
 ```python
 import numpy as np
@@ -101,6 +102,7 @@ import numpy as np
 a = np.arange(15).reshape(3, 5)
 print(a)
 ```
+#### 🔹 출력 결과 
 ```
 [[ 0  1  2  3  4]
  [ 5  6  7  8  9]
@@ -109,42 +111,53 @@ print(a)
 ```python
 print(a.shape)
 ```
+#### 🔹 출력 결과 
 ```
 (3, 5)
 ```
 ```python
 print(a.ndim)
 ```
+#### 🔹 출력 결과 
 ```
 2
 ```
 ```python
 print(a.dtype.name)
 ```
+#### 🔹 출력 결과 
 ```
 int64
 ```
 ```python
 print(a.itemsize)
 ```
+#### 🔹 출력 결과 
 ```
 8
 ```
+
 ```python
 print(type(a))
 ```
+
+#### 🔹 출력 결과 
 ```
 <class 'numpy.ndarray'>
 ```
+
 ```python
 b = np.array([1, 2, 3, 4, 5])
 print(b)
 ```
+#### 🔹 출력 결과 
 ```
 [1 2 3 4 5]
 ```
 ```python
 print(type(b))
+```
+#### 🔹 출력 결과 
 ```
 <class 'numpy.ndarray'>
 ```
@@ -152,12 +165,14 @@ print(type(b))
 c = np.array([1.2, 3.5, 5.1])
 print(c.dtype)
 ```
+#### 🔹 출력 결과 
 ```
 float64
 ```
 ```python
 d = np.array(1.2, 3.5, 5.1)
 ```
+#### 🔹 출력 결과 
 ```
 Traceback (most recent call last):
   File "/Users/jeongjunghwan/PycharmProjects/Tutorial2/numpy_test.py", line 35, in <module>
@@ -169,6 +184,7 @@ TypeError: array() takes from 1 to 2 positional arguments but 3 were given
 e = np.array([(1.5, 2, 3), (4, 5, 6)])
 print(e)
 ```
+#### 🔹 출력 결과 
 ```
 [[1.5 2.  3. ]
  [4.  5.  6. ]]
@@ -176,6 +192,7 @@ print(e)
 ```python
 print(e.shape)
 ```
+#### 🔹 출력 결과 
 ```
 (2, 3)
 ```
@@ -184,6 +201,7 @@ f = np.array([[1, 2], [3, 4]],dtype=complex)
 
 print(f)
 ```
+#### 🔹 출력 결과 
 ```
 [[1.+0.j 2.+0.j]
  [3.+0.j 4.+0.j]]
