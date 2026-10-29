@@ -1,6 +1,6 @@
-# 🧠 Linear Algebra 핵심 정리 — NumPy 기반
+## 📘 Linear Algebra 핵심 정리 — NumPy 기반
 
-## ✅ 1. 행렬 생성
+### 📌 1. 행렬 생성
 ```python
 a = np.array([[1.0, 2.0], [3.0, 4.0]])
 ```
@@ -10,7 +10,7 @@ a = np.array([[1.0, 2.0], [3.0, 4.0]])
  [3. 4.]]
 ```
 
-## ✅ 2. 전치 행렬 (Transpose)
+### 📌 2. 전치 행렬 (Transpose)
 ```python
 a.transpose()
 ```
@@ -20,17 +20,17 @@ a.transpose()
  [2. 4.]]
 ```
 
-## ✅ 3. 역행렬 (Inverse)
+### 📌 3. 역행렬 (Inverse)
 ```python
 np.linalg.inv(a)
 ```
-### - 행렬의 역행렬
+#### 🔹 행렬의 역행렬
 ```
 [[-2.   1. ]
  [ 1.5 -0.5]]
 ```
 
-## ✅ 4. 단위 행렬 (Identity Matrix)
+### 📌 4. 단위 행렬 (Identity Matrix)
 ```python
 u = np.eye(2)
 ```
@@ -41,7 +41,7 @@ u = np.eye(2)
 
 ```
 
-## ✅ 5. 행렬 곱 (Matrix Multiplication)
+### 📌 5. 행렬 곱 (Matrix Multiplication)
 ```python
 j = np.array([[0.0, -1.0], [1.0, 0.0]])
 j @ j
@@ -54,7 +54,11 @@ j @ j
 
 ```
 
-## ✅ 6. 대각합 (Trace)
+### 📌 6. 대각합 (Trace)
+```
+u = [[1. 0.]
+ [0. 1.]]
+```
 ```python
 np.trace(u)
 ```
@@ -62,7 +66,13 @@ np.trace(u)
 ```
 1 + 1 = 2
 ```
-## ✅ 7. 선형 방정식 풀이 (Solve Ax = y)
+### 📌 7. 선형 방정식 풀이 (Solve Ax = y)
+```
+```
+[[1. 2.]
+ [3. 4.]]
+```
+```
 ```python
 y = np.array([[5.], [7.0]])
 np.linalg.solve(a, y)
@@ -73,7 +83,7 @@ np.linalg.solve(a, y)
  [ 4.]]
 ```
 
-## ✅ 8. 고유값과 고유벡터 (Eigenvalues & Eigenvectors)
+### 📌 8. 고유값과 고유벡터 (Eigenvalues & Eigenvectors)
 ```python
 np.linalg.eig(j)
 ```
@@ -87,7 +97,7 @@ eigenvectors =
 
 - 복소수 고유값 → 회전 성질을 나타냄
 
-## 📘 요약표 — NumPy Linear Algebra 핵심 함수
+### 📌 요약표 — NumPy Linear Algebra 핵심 함수
 | 함수                    | 기능 설명                         | 결과 예시                                 |
 |-------------------------|----------------------------------|--------------------------------------------|
 | np.transpose(a)         | 전치 행렬                        | [[1, 3], [2, 4]]                            |
@@ -100,7 +110,7 @@ eigenvectors =
 
 ----
 
-## 🧠 고급 선형대수 함수 요약 — np.dot, np.outer, np.inner, np.linalg.svd
+### 📌 고급 선형대수 함수 요약 — np.dot, np.outer, np.inner, np.linalg.svd
 
 | 함수              | 기능 설명                            | 결과 형태 및 특징                     |
 |-------------------|---------------------------------------|----------------------------------------|
@@ -110,7 +120,7 @@ eigenvectors =
 | np.linalg.svd(a)  | 특이값 분해 (Singular Value Decomposition) | U, S, Vᵗ 반환 → 차원 축소, PCA 등 활용 |
 
 
-## ✅ 1. np.dot() — 행렬 곱 또는 벡터 내적
+#### 🔹 1. np.dot() — 행렬 곱 또는 벡터 내적
 ```python
 a = np.array([[1, 2], [3, 4]])
 b = np.array([[5, 6], [7, 8]])
@@ -126,7 +136,7 @@ np.dot(a, b)
 - 1D: 벡터 내적 (np.dot([1,2], [3,4]) → 11)
 - 실무: 회귀, 신경망, 선형 변환
 
-## ✅ 2. np.outer() — 외적
+#### 🔹 2. np.outer() — 외적
 ```python
 
 a = np.array([1, 2])
@@ -144,7 +154,7 @@ np.outer(a, b)
 - 모든 조합의 곱 → 2D 행렬
 - 실무: 텐서 생성, 상호작용 피처 구성
 
-### 🔍 계산 절차 — np.outer(a, b)
+#### 🔹 계산 절차 — np.outer(a, b)
 - 입력:
 ```python
 a = [1, 2]
@@ -159,7 +169,7 @@ b = [3, 4]
 - 각 행은 a[i] * b[:]의 결과
 - 즉, i번째 행은 a[i]와 b의 모든 요소 곱
 
-## ✅ 3. np.inner() — 내적
+#### 🔹 3. np.inner() — 내적
 ```python
 a = np.array([1, 2])
 b = np.array([3, 4])
@@ -175,7 +185,7 @@ np.inner(a, b)
 - 다차원일 경우 축 기준 내적
 - 실무: 유사도 계산, 거리 측정
 
-###  ✅ 3. np.inner() — 내적
+#### 🔹 3. np.inner() — 내적
 - 입력:
 ```python
 a = [1, 2]  
@@ -183,7 +193,7 @@ b = [3, 4]
 np.inner(a, b) # → 11
 ```
 
-### 🔍 계산 절차 표
+#### 🔹 계산 절차 표
 
 | a[i] | b[i] | 곱셈 결과 |
 |------|------|------------|
@@ -192,7 +202,7 @@ np.inner(a, b) # → 11
 
 총합: 3 + 8 = **11**
 
-## ✅ 4. np.linalg.svd() 
+#### 🔹 4. np.linalg.svd() 
 - 특이값 분해
 ```python
 a = np.array([[1, 2], [3, 4]])
@@ -206,7 +216,7 @@ U, S, Vt = np.linalg.svd(a)
 - np.linalg.svd()를 사용한 특이값 분해(SVD)의 전체 과정과 결과값을 절차적으로 정리. 
 - 실제 계산 결과까지 포함해서 완전한 분해 과정.
 
-## ✅ 4. np.linalg.svd() — 특이값 분해
+#### 🔹 4. np.linalg.svd() — 특이값 분해
 ```python
 import numpy as np
 
@@ -216,7 +226,7 @@ a = np.array([[1, 2],
 U, S, Vt = np.linalg.svd(a)
 ```
 
-- 🔍 결과값
+#### 🔹 결과값
 
 ```
 U =
@@ -232,7 +242,7 @@ Vt =
 ```
 
 
-## 🔧 재구성 확인
+#### 🔹 재구성 확인
 ```python
 np.allclose(a, U @ np.diag(S) @ Vt)
 ```
@@ -246,7 +256,7 @@ a = U \cdot \text{diag}(S) \cdot V^T
 ```
 - 이 성립함
 
-## 📘 구성 요소 설명 — np.linalg.svd(a)
+#### 🔹 구성 요소 설명 — np.linalg.svd(a)
 | 구성 요소 | 의미                         | 형태       | 특징 요약                          |
 |-----------|------------------------------|------------|------------------------------------|
 | U         | 좌측 특이벡터 (column basis) | (m × m)    | 입력 행렬의 열 방향 구조 표현       |
@@ -254,7 +264,7 @@ a = U \cdot \text{diag}(S) \cdot V^T
 | Vt        | 우측 특이벡터의 전치         | (n × n)    | 입력 행렬의 행 방향 구조 표현       |
 
 
-## 💡 실무 팁 요약 — np.dot, np.outer, np.inner, np.linalg.svd
+### 📌 실무 팁 요약 — np.dot, np.outer, np.inner, np.linalg.svd
 
 | 함수             | 실무 활용 예시                                | 특징 요약                          |
 |------------------|------------------------------------------------|------------------------------------|
