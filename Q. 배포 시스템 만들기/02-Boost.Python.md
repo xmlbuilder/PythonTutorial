@@ -6,7 +6,6 @@
 - Windows x64, MSVC, Python 3.12 환경에서 Boost.Python·Boost.NumPy를 `b2`로 빌드하고 C++ 실행 파일에 연결하는 과정을 정리한다.
 - `b2`는 Boost의 빌드 도구이며, CMake의 Ninja와는 별개다.
 - Apple M2를 의미한 경우를 위해 macOS ARM64 절차도 마지막에 포함한다.
-
 - 현재 프로젝트에서 확인한 파일은 다음과 같다.
 
 ```text
