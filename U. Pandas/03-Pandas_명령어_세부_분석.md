@@ -1,6 +1,6 @@
-#  명령어 정리
+##  📘 명령어 정리
 
-## source
+### 📌 source
 ```python
 
 from collections import OrderedDict
@@ -11,47 +11,49 @@ df = pd.DataFrame.from_dict(friend_ordered_dict)
 df.head()
 ```
 
-##  1️⃣ import pandas as pd
+####  1️⃣ import pandas as pd
 - 무엇을 하는가?
-Python의 외부 라이브러리인 Pandas를 불러옵니다.
+  - Python의 외부 라이브러리인 Pandas를 불러옵니다.
 
 - 왜 필요한가?
-Pandas는 데이터 분석과 조작에 특화된 라이브러리예요. 테이블 형태의 데이터를 다루기 쉽게 해줍니다.
+  - Pandas는 데이터 분석과 조작에 특화된 라이브러리.
+  - 테이블 형태의 데이터를 다루기 쉽게 해줍니다.
 
 - as pd는 뭐지?
-Pandas를 pd라는 짧은 이름으로 사용하겠다는 뜻이에요. 이후 코드에서 pd.read_csv()처럼 간결하게 쓸 수 있어요.
+  - Pandas를 pd라는 짧은 이름으로 사용하겠다는 뜻.
+  - 이후 코드에서 pd.read_csv()처럼 간결하게 쓸 수 있음.
 
-## Source
+### 📌 Source
 ```python
 df.to_csv('friend_list_from_df.csv')
 ```
 
-
-## 2️⃣ data_frame = pd.read_csv('data/friend_list.csv')
+#### 2️⃣ data_frame = pd.read_csv('data/friend_list.csv')
 - 무엇을 하는가?
-'data/friend_list.csv'라는 CSV 파일을 읽어서 data_frame이라는 변수에 저장합니다.
+  - 'data/friend_list.csv'라는 CSV 파일을 읽어서 data_frame이라는 변수에 저장.
 
 - read_csv()는 뭐지?
-Pandas의 함수로, CSV 파일을 읽어서 DataFrame이라는 구조로 변환해 줍니다.
+  - Pandas의 함수로, CSV 파일을 읽어서 DataFrame이라는 구조로 변환해 줍니다.
 
 - DataFrame이란?
-엑셀처럼 **행(row)과 열(column)**로 구성된 2차원 테이블입니다. Pandas의 핵심 데이터 구조예요.
+  - 엑셀처럼 **행(row)과 열(column)** 로 구성된 2차원 테이블입니다. Pandas의 핵심 데이터 구조.
 
 - 파일 경로 'data/friend_list.csv'는?
-현재 작업 디렉토리 기준으로 data 폴더 안에 있는 friend_list.csv 파일을 가리킵니다.
+  - 현재 작업 디렉토리 기준으로 data 폴더 안에 있는 friend_list.csv 파일을 가리킵니다.
 
-## 3️⃣ data_frame.head()
+#### 3️⃣ data_frame.head()
 - 무엇을 하는가?
-data_frame의 **상위 5개 행(row)**을 출력합니다.
+  - data_frame의 **상위 5개 행(row)** 을 출력합니다.
 
 - 왜 쓰는가?
-데이터를 처음 확인할 때, 전체를 보기엔 너무 많으니까 샘플만 미리 확인하는 용도로 사용합니다.
+  - 데이터를 처음 확인할 때, 전체를 보기엔 너무 많으니까 샘플만 미리 확인하는 용도로 사용합니다.
 
-- 변형도 가능해요!
+- 변형도 가능
+```python
 data_frame.head(10)  # 처음 10개 행 보기
 data_frame.head(3)   # 처음 3개 행 보기
-
-## 💡 전체 흐름 요약
+```
+### 📌 전체 흐름 요약
 | 단계 | 명령어                              | 역할               | 설명                                                                 |
 |------|-------------------------------------|--------------------|----------------------------------------------------------------------|
 | 1️⃣   | import pandas as pd                | 라이브러리 불러오기 | Pandas를 pd라는 이름으로 불러와서 데이터 분석 기능을 사용할 준비를 함 |
@@ -60,17 +62,14 @@ data_frame.head(3)   # 처음 3개 행 보기
 
 ---
 
-# type(data_frame.job)
+### 📌 type(data_frame.job)
+- 이 명령어 type(data_frame.job)은 data_frame이라는 DataFrame에서 "job" 열의 데이터 타입을 확인하는 코드.
 
-이 명령어 type(data_frame.job)은 data_frame이라는 DataFrame에서 "job" 열의 데이터 타입을 확인하는 코드입니다.
-
-## 🔍 결과는 무엇인가요?
+#### 🔹 결과는 무엇인가요?
 <class 'pandas.core.series.Series'>
+- 즉, data_frame.job은 Pandas의 Series 객체입니다.
 
-
-### 즉, data_frame.job은 Pandas의 Series 객체입니다.
-
-## ✅ 요약 설명
+### 📌 요약 설명
 | 객체             | 설명                          |
 |------------------|-------------------------------|
 | data_frame       | 전체 테이블 (DataFrame 객체)   |
@@ -79,21 +78,23 @@ data_frame.head(3)   # 처음 3개 행 보기
 | 결과             | pandas.Series                 |
 
 
-## 💡 추가 팁
-- 열 전체를 다룰 때는 Series로 처리되고,
-- 여러 열을 동시에 다루면 DataFrame이 됩니다:
+### 📌 추가 팁
+- 열 전체를 다룰 때는 Series로 처리되고, 여러 열을 동시에 다루면 DataFrame이 됩니다:
+```python
 type(data_frame[['name', 'job']])  # 결과: <class 'pandas.core.frame.DataFrame'>
+```
 
 ---
 
-# 소스
+### 📌 소스
 ```python
 data_frame.job = data_frame.job.str.upper()
 ```
-## data_frame.job = data_frame.job.str.upper()
-이 명령어는 data_frame의 "job" 열에 있는 모든 문자열을 **대문자(UPPERCASE)**로 변환하는 작업입니다. 하나씩 분석해볼게요:
+#### 🔹 data_frame.job = data_frame.job.str.upper()
+- 이 명령어는 data_frame의 "job" 열에 있는 모든 문자열을 **대문자(UPPERCASE)** 로 변환하는 작업입니다.
+- 하나씩 분석:
 
-## ✅ 요약 설명
+#### 🔹 요약 설명
 | 구성 요소         | 설명                                      |
 |------------------|-------------------------------------------|
 | data_frame.job   | "job" 열을 선택한 Series 객체              |
@@ -101,34 +102,34 @@ data_frame.job = data_frame.job.str.upper()
 | .upper()         | 각 문자열을 대문자로 변환 ("teacher" → "TEACHER") |
 | =                | 변환된 결과를 다시 "job" 열에 저장          |
 
-이 표는 data_frame.job = data_frame.job.str.upper() 명령어의 구조를 한눈에 보여줍니다. 
-.lower(), .title(), .replace() 같은 다른 문자열 처리 함수도 같은 방식 정리
+- 이 표는 data_frame.job = data_frame.job.str.upper() 명령어의 구조를 한눈에 보여줍니다. 
+- .lower(), .title(), .replace() 같은 다른 문자열 처리 함수도 같은 방식 정리
 
 
-## ✅ 예시 전후 비교
-### 원래 데이터:  
+### 📌 예시 전후 비교
+#### 🔹 원래 데이터:  
 ```
 0    student
 1  developer
 2    teacher
 ```
 
-### 변환 후:
+#### 🔹 변환 후:
 ```
 0    STUDENT
 1  DEVELOPER
 2    TEACHER
 ```
 
-## 💡 왜 이렇게 하는가?
+### 📌 왜 이렇게 하는가?
 - 데이터 정규화: "Teacher", "teacher", "TEACHER"처럼 표기 방식이 다르면 분석 시 혼란이 생깁니다.  
-대문자로 통일하면 그룹화나 필터링이 쉬워져요.
-- 비교 용이성: 특정 값을 찾거나 조건을 걸 때 대소문자 구분 없이 처리할 수 있어요.
-- 시각적 일관성: 보고서나 시각화 시 깔끔하게 보이도록 정리하는 목적도 있습니다.
+  - 대문자로 통일하면 그룹화나 필터링이 쉬워짐.
+  - 비교 용이성: 특정 값을 찾거나 조건을 걸 때 대소문자 구분 없이 처리할 수 있음.
+  - 시각적 일관성: 보고서나 시각화 시 깔끔하게 보이도록 정리하는 목적도 있습니다.
 
 ---
 
-# 소스
+### 📌 소스
 ```python
 s1 = pd.core.series.Series(['one', 'two', 'three'])
 s2 = pd.core.series.Series([1, 2, 3])
@@ -136,7 +137,7 @@ pd.DataFrame(data=dict(word=s1, num=s2))
 ```
 
 
-## ✅ 1. pd.core.series.Series(...)는 왜 쓰는가?
+#### 🔹 1. pd.core.series.Series(...)는 왜 쓰는가?
 - 이건 Pandas 내부 경로를 통해 Series 객체를 생성하는 방식인데, 권장되지 않는 방식입니다.
 - 보통은 이렇게 간단하게 씁니다:
 ```python
@@ -145,11 +146,11 @@ s2 = pd.Series([1, 2, 3])
 ```
 
 
-## ✅ 2. dict(word=s1, num=s2)
+#### 🔹 2. dict(word=s1, num=s2)
 - 두 개의 Series를 딕셔너리 형태로 묶습니다.
 - 키 'word'와 'num'이 각각 열 이름이 되고, 값은 Series 객체입니다.
 
-## ✅ 3. pd.DataFrame(...)
+#### 🔹 3. pd.DataFrame(...)
 - 딕셔너리를 기반으로 DataFrame을 생성합니다.
 - 결과는 다음과 같은 테이블이 됩니다:
 
@@ -159,26 +160,26 @@ s2 = pd.Series([1, 2, 3])
 1   two    2
 2 three    3
 ```
-## 💡 전체 흐름 요약 (ASCII 표)
+### 📌 전체 흐름 요약 (ASCII 표)
 | 단계            | 설명                                       |
 |-----------------|--------------------------------------------|
 | pd.Series(...)   | 1차원 데이터(열)를 생성                    |
 | dict(...)        | 열 이름과 데이터를 딕셔너리로 묶음         |
 | pd.DataFrame(...)| 딕셔너리를 기반으로 테이블(DataFrame) 생성 |
 
-## 🎯 결론
+### 📌 결론
 - pd.core.series.Series(...)는 동작은 하지만 비표준 방식이므로   
 pd.Series(...)를 사용하는 것이 더 안전하고 가독성이 좋습니다.
-- 이 코드는 두 개의 열을 가진 DataFrame을 만드는 아주 기본적인 예제예요.
+- 이 코드는 두 개의 열을 가진 DataFrame을 만드는 아주 기본적인 예제.
 
 ---
 
-# 소스
+### 📌 소스
 ```python
 df = pd.read_csv('data/friend_list.csv')
 ```
 
-## 🔍 코드 분석: df = pd.read_csv('data/friend_list.csv')
+#### 🔹 코드 분석: df = pd.read_csv('data/friend_list.csv')
 | 구성 요소              | 설명                                               |
 |------------------------|----------------------------------------------------|
 | pd                     | `import pandas as pd`로 불러온 Pandas 라이브러리  |
@@ -187,37 +188,28 @@ df = pd.read_csv('data/friend_list.csv')
 | df = ...               | 읽어온 데이터를 df라는 변수에 저장                |
 
 
-## ✅ 결론
+#### 🔹 결론
 - df는 이제 friend_list.csv의 내용을 담고 있는 Pandas DataFrame입니다.
 - 이후에는 df.head(), df.info(), df.describe() 같은 명령어로 데이터를 탐색하거나 분석할 수 있음.
-
-
-## 💡 예시 흐름
-| 단계             | 설명                                               |
-|------------------|----------------------------------------------------|
-| pd.read_csv(...) | CSV 파일을 읽어와서 DataFrame으로 변환             |
-| '파일 경로'       | 불러올 파일의 위치 지정 ('data/friend_list.csv')   |
-| df = ...         | 읽어온 데이터를 df라는 변수에 저장                 |
 
 ----
 
 
-# 소스
+### 📌 소스
 ```python
 df
 ```
+- 명령어 df는 단순히 DataFrame 객체를 출력하라는 뜻.  
+- 이걸 실행하면 df에 저장된 테이블 형태의 데이터가 화면에 표시됩니다.
 
-명령어 df는 단순히 DataFrame 객체를 출력하라는 뜻.  
-이걸 실행하면 df에 저장된 테이블 형태의 데이터가 화면에 표시됩니다.
-
-## 🔍 코드 분석: df
+#### 🔹 코드 분석: df
 | 구성 요소 | 설명                                               |
 |------------|----------------------------------------------------|
 | df         | pd.read_csv('data/friend_list.csv')로 불러온 데이터 |
 | 출력       | CSV 파일의 내용을 담은 DataFrame 객체               |
 
 
-## ✅ 예시 출력 (가상의 friend_list.csv 내용)
+#### 🔹 예시 출력 (가상의 friend_list.csv 내용)
 ```
      name     age       job
 0    John    25.0   student
@@ -229,17 +221,16 @@ df
 ```
 
 - NaN은 결측값(missing value)을 의미합니다.
-- 각 열은 "name", "age", "job"로 구성되어 있고,  
-각 행은 친구 한 명의 정보입니다.
+- 각 열은 "name", "age", "job"로 구성되어 있고, 각 행은 친구 한 명의 정보입니다.
 
 ---
 
-## 소스
+### 📌 소스
 ```python
 df = pd.read_csv('data/friend_list_no_head.csv', header = None)
 ```
 
-## 🔍 코드 분석: df = pd.read_csv('data/friend_list_no_head.csv', header = None)
+#### 🔹 코드 분석: df = pd.read_csv('data/friend_list_no_head.csv', header = None)
 | 구성 요소                  | 설명                                                       |
 |----------------------------|------------------------------------------------------------|
 | pd.read_csv(...)           | Pandas 함수로 CSV 또는 텍스트 파일을 읽어옴               |
@@ -248,15 +239,14 @@ df = pd.read_csv('data/friend_list_no_head.csv', header = None)
 | df = ...                   | 읽어온 데이터를 df라는 변수에 저장                        |
 
 
-## ✅ 결과
-파일 내용이 다음과 같다고 가정하면:
+#### 🔹 결과
+- 파일 내용이 다음과 같다고 가정하면:
 ```
 John,25,student
 Jenny,30,developer
 Nate,,teacher
 ```
-
-header=None을 지정했기 때문에 Pandas는 열 이름을 자동으로 0, 1, 2로 설정합니다:
+- header=None을 지정했기 때문에 Pandas는 열 이름을 자동으로 0, 1, 2로 설정합니다:
 ```
        0     1          2
 0   John  25.0     student
@@ -265,27 +255,26 @@ header=None을 지정했기 때문에 Pandas는 열 이름을 자동으로 0, 1,
 ```
 
 
-## 💡 왜 header=None을 쓰는가?
+#### 🔹 왜 header=None을 쓰는가?
 - CSV 파일에 열 이름이 포함되어 있지 않을 때 사용합니다.
 - 그렇지 않으면 첫 번째 행이 열 이름으로 잘못 처리될 수 있음.
 
-## 📌 다음 단계
+#### 🔹 다음 단계
 - 열 이름을 직접 지정하고 싶다면 names 옵션을 함께 사용:
 ```python
 df = pd.read_csv('data/friend_list_no_head.csv', header=None, names=['name', 'age', 'job'])
 ```
-이렇게 하면 더 보기 좋은 구조로 데이터를 다룰 수 있음.
-
+- 이렇게 하면 더 보기 좋은 구조로 데이터를 다룰 수 있음.
 
 ---
 
-# 소스
+### 📌 소스
 ```python
 df.columns = ['name', 'age', 'job']
 
 ```
 
-## 🔍 코드 분석: df.columns = ['name', 'age', 'job']
+#### 🔹 코드 분석: df.columns = ['name', 'age', 'job']
 | 구성 요소         | 설명                                           |
 |------------------|------------------------------------------------|
 | df.columns        | df의 열 이름을 나타내는 속성                   |
@@ -293,52 +282,53 @@ df.columns = ['name', 'age', 'job']
 | ['name', 'age', 'job'] | 열 이름을 직접 지정함 ("name", "age", "job") |
 
 
-## ✅ 언제 사용하는가?
+#### 🔹 언제 사용하는가?
 - CSV 파일에 헤더가 없거나, 열 이름이 자동으로 숫자(0, 1, 2)로 지정된 경우
 - 열 이름을 더 의미 있게 바꾸고 싶을 때
 - 데이터 정제 과정에서 열 이름을 통일하거나 수정할 때
 
-## 💡 예시 전후 비교
-### 전:
+#### 🔹 예시 전후 비교
+#### 전:
 ```
    0     1         2
 0  John  25   student
 1 Jenny  30 developer
 ```
 
-###  후:
+####  후:
 ```
    name  age       job
 0  John   25   student
 1 Jenny   30 developer
 ```
 
-## 📌 주의할 점
-- 열 개수와 리스트 길이가 정확히 일치해야 합니다. 예를 들어 열이 3개인데 이름을 2개만 주면 오류가 발생.
+#### 🔹 주의할 점
+- 열 개수와 리스트 길이가 정확히 일치해야 합니다.
+- 예를 들어 열이 3개인데 이름을 2개만 주면 오류가 발생.
 - 열 이름은 문자열 리스트로 지정해야 합니다.
 
-## 🔁 열 순서 바꾸기
+#### 🔹 열 순서 바꾸기
 예를 들어 df에 "name", "age", "job"이라는 열이 있을 때, "job"을 맨 앞으로 옮기고 싶다면:
 
 ```python
 df = df[['job', 'name', 'age']]
 ```
 
-### 💡 설명
+#### 🔹 설명
 - df[...]는 원하는 열 순서를 리스트로 지정하는 방식입니다.
 - 이 코드는 기존 df를 덮어씌우므로, df 자체가 바뀝니다.
 
-## 🎯 특정 열만 선택하기
-예를 들어 "name"과 "job" 열만 보고 싶다면:
+#### 🔹 특정 열만 선택하기
+- 예를 들어 "name"과 "job" 열만 보고 싶다면:
 ```python
 df_subset = df[['name', 'job']]
 ```
 
-## 💡 설명
+#### 🔹 설명
 - df_subset은 df에서 "name"과 "job" 열만 추출한 새로운 DataFrame입니다.
 - 원본 df는 그대로 유지됩니다.
 
-## ✅ ASCII 표 요약
+#### 🔹 요약
 | 작업 유형         | 코드 예시                        | 설명                                 |
 |------------------|----------------------------------|--------------------------------------|
 | 열 순서 바꾸기    | df = df[['job', 'name', 'age']]  | 원하는 순서대로 열을 재배치          |
@@ -346,7 +336,7 @@ df_subset = df[['name', 'job']]
 
 ---
 
-# 소스 
+### 📌 소스 
 ```python
 friend_dict_list = [{'name': 'Jone', 'age': 20, 'job': 'student'},
          {'name': 'Jenny', 'age': 30, 'job': 'developer'},
@@ -355,7 +345,8 @@ df = pd.DataFrame(friend_dict_list)
 
 ```
 
-## 🔍 코드 분석
+#### 🔹 코드 분석
+```python
 friend_dict_list = [
     {'name': 'Jone', 'age': 20, 'job': 'student'},
     {'name': 'Jenny', 'age': 30, 'job': 'developer'},
@@ -363,8 +354,9 @@ friend_dict_list = [
 ]
 
 df = pd.DataFrame(friend_dict_list)
+```
 
-## ✅ 설명 요약
+#### 🔹 설명 요약
 | 구성 요소           | 설명                                           |
 |--------------------|------------------------------------------------|
 | friend_dict_list    | 친구 정보를 담은 딕셔너리들의 리스트           |
@@ -373,7 +365,7 @@ df = pd.DataFrame(friend_dict_list)
 | df                  | 최종적으로 생성된 DataFrame 객체                |
 
 
-## 📋 결과 예시 (df 출력)
+#### 🔹 결과 예시 (df 출력)
 ```
     name  age        job
 0   Jone   20    student
@@ -382,51 +374,19 @@ df = pd.DataFrame(friend_dict_list)
 ```
 
 
-## 💡 활용 팁
+#### 🔹 활용 팁
 - df["job"] → 직업 열만 추출
 - df[df["age"] > 25] → 25세 이상 친구만 필터링
 - df.to_csv("friends.csv", index=False) → CSV로 저장
 
 ---
 
-## 소스 
-```
-df = df[['name', 'age', 'job']]
-```
-
-## 🔍 코드 분석: df = df[['name', 'age', 'job']]
-| 구성 요소               | 설명                                               |
-|------------------------|----------------------------------------------------|
-| df[['name', 'age', 'job']] | 원하는 열 순서를 리스트로 지정해서 추출               |
-| df = ...               | 추출한 결과를 다시 df에 저장 (덮어쓰기)             |
-
-
-## ✅ 왜 이렇게 쓰는가?
-- 열 순서를 명확하게 지정하고 싶을 때
-- 특정 열만 선택적으로 유지하고 나머지는 제거하고 싶을 때
-- 시각화나 출력 시 보기 좋은 순서로 정리하고 싶을 때
-
-## 📋 예시 전후 비교
-### 원래 순서:
-```
-   job     name  age
-0  student  Jone   20
-```
-
-### 바꾼 후:
-```
-   name  age     job
-0  Jone   20  student
-```
-
----
-
-## 소스
+### 📌 소스
 ```python
 from collections import OrderedDict
 ```
 
-## 🔍 코드 분석: from collections import OrderedDict
+#### 🔹 코드 분석: from collections import OrderedDict
 | 구성 요소             | 설명                                                       |
 |----------------------|------------------------------------------------------------|
 | collections           | Python의 표준 라이브러리로, 다양한 컨테이너 자료형을 제공 |
@@ -434,7 +394,7 @@ from collections import OrderedDict
 | from ... import ...   | 특정 모듈에서 원하는 클래스나 함수를 불러오는 구문         |
 
 
-## ✅ OrderedDict의 특징
+#### 🔹 OrderedDict의 특징
 - 입력한 순서대로 항목을 기억합니다.
 - 일반 dict와 거의 동일하게 작동하지만, 순서가 중요한 경우에 유용합니다.
 - 예시:
@@ -451,24 +411,21 @@ print(data)
 # 출력: OrderedDict([('banana', 3), ('apple', 5), ('orange', 2)])
 ```
 
-
-
-## 📌 언제 쓰면 좋을까?
+#### 🔹 언제 쓰면 좋을까?
 - CSV나 JSON을 만들 때 열 순서가 중요할 때
 - 반복문에서 입력 순서대로 처리하고 싶을 때
 - 딕셔너리의 순서를 보존하면서 정렬하거나 필터링할 때
 
 ---
 
-
-# 소스
+### 📌 소스
 ```python
 friend_ordered_dict = OrderedDict([ ('name', ['John', 'Jenny', 'Nate']), ('age', [20, 30, 30]), ('job', ['student', 'developer', 'teacher']) ] ) 
 df = pd.DataFrame.from_dict(friend_ordered_dict)
 
 ```
 
-## 🔍 코드 분석
+#### 🔹 코드 분석
 ```python
 from collections import OrderedDict
 friend_ordered_dict = OrderedDict([
@@ -480,7 +437,7 @@ friend_ordered_dict = OrderedDict([
 df = pd.DataFrame.from_dict(friend_ordered_dict)
 ```
 
-## ✅ 설명 요약
+#### 🔹 설명 요약
 | 구성 요소                 | 설명                                               |
 |--------------------------|----------------------------------------------------|
 | OrderedDict([...])       | 열 순서를 유지하며 name, age, job 데이터를 정의     |
@@ -488,33 +445,26 @@ df = pd.DataFrame.from_dict(friend_ordered_dict)
 | df                       | 최종적으로 생성된 테이블 형태의 데이터             |
 
 
-## 📋 결과 예시 (df 출력)
+#### 🔹 결과 예시 (df 출력)
 ```
     name  age        job
 0   John   20    student
 1  Jenny   30  developer
 2   Nate   30    teacher
 ```
-
-열 순서가 OrderedDict에 지정한 그대로 유지된다는 점이 핵심!
-
-## 💡 언제 유용한가?
-- 열 순서가 중요한 보고서나 시각화를 만들 때
-- 딕셔너리 기반으로 데이터를 만들면서 구조를 명확히 제어하고 싶을 때
-- JSON → DataFrame 변환 시 정렬된 구조를 유지하고 싶을 때
+- 열 순서가 OrderedDict에 지정한 그대로 유지된다는 점이 핵심!
 
 
 ---
 
-# 소스
+### 📌 소스
 ```python
 friend_list = [ ['John', 20, 'student'],['Jenny', 30, 'developer'],['Nate', 30, 'teacher'] ]
 column_name = ['name', 'age', 'job']
 df = pd.DataFrame.from_records(friend_list, columns=column_name)
-
 ```
 
-## 🔍 코드 분석
+#### 🔹 코드 분석
 ```python
 friend_list = [
     ['John', 20, 'student'],
@@ -527,7 +477,7 @@ column_name = ['name', 'age', 'job']
 df = pd.DataFrame.from_records(friend_list, columns=column_name)
 ```
 
-## ✅ 설명 요약
+#### 🔹 설명 요약
 | 구성 요소                    | 설명                                                  |
 |-----------------------------|-------------------------------------------------------|
 | friend_list                 | 각 친구 정보를 담은 리스트 (행 단위로 구성됨)         |
@@ -536,7 +486,7 @@ df = pd.DataFrame.from_records(friend_list, columns=column_name)
 | df                          | 최종적으로 생성된 테이블 형태의 데이터                |
 
 
-## 📋 결과 예시 (df 출력)
+#### 🔹 결과 예시 (df 출력)
 ```
     name  age        job
 0   John   20    student
@@ -544,14 +494,14 @@ df = pd.DataFrame.from_records(friend_list, columns=column_name)
 2   Nate   30    teacher
 ```
 
-## 💡 언제 유용한가?
+#### 🔹 언제 유용한가?
 - 데이터가 행 중심으로 정리되어 있을 때
 - 열 이름을 따로 지정해서 구조를 명확히 하고 싶을 때
 - 외부 데이터(예: JSON, 리스트)에서 빠르게 테이블화할 때
 
 --- 
 
-# 소스
+### 📌 소스
 
 ```python
 friend_dict = {
@@ -563,21 +513,7 @@ friend_dict = {
 df = pd.DataFrame(friend_dict)
 print(df)
 ```
-
-## 🔍 코드 분석
-```python
-friend_dict = {
-    'name': ['John', 'Jenny', 'Nate'],
-    'age': [20, 30, 30],
-    'job': ['student', 'developer', 'teacher']
-}
-
-df = pd.DataFrame(friend_dict)
-print(df)
-```
-
-
-## ✅ 설명 요약
+#### 🔹 설명 요약
 | 구성 요소            | 설명                                                  |
 |---------------------|-------------------------------------------------------|
 | friend_dict         | 각 열 이름을 키로 하고, 값은 리스트로 구성된 딕셔너리 |
@@ -585,7 +521,7 @@ print(df)
 | print(df)           | 생성된 DataFrame을 콘솔에 출력                        |
 
 
-## 📋 출력 결과
+#### 🔹 출력 결과
 ```
     name  age        job
 0   John   20    student
@@ -594,30 +530,31 @@ print(df)
 ```
 
 
-## 💡 활용 팁
+#### 🔹 활용 팁
 - df["age"].mean() → 평균 나이 계산
 - df[df["job"] == "developer"] → 개발자만 필터링
 - df.to_csv("friends.csv", index=False) → CSV 파일로 저장
 
 ---
-# 소스
+
+### 📌 소스
 
 ```python
 df.to_csv('friend_list_from_df.csv')
 ```
 
-## 🔍 코드 분석: df.to_csv('friend_list_from_df.csv')
+#### 🔹 코드 분석: df.to_csv('friend_list_from_df.csv')
 | 구성 요소               | 설명                                                  |
 |------------------------|-------------------------------------------------------|
 | df                     | 저장할 데이터가 담긴 Pandas DataFrame                 |
 | .to_csv(...)           | DataFrame을 CSV 파일로 저장하는 메서드                |
 | 'friend_list_from_df.csv' | 저장될 파일 이름 (현재 작업 디렉토리에 생성됨)       |
 
-## ✅ 기본 동작
+#### 🔹 기본 동작
 - CSV 파일이 생성되며, 첫 번째 행은 열 이름, 이후는 각 행의 데이터가 들어갑니다.
-- 기본적으로 **행 번호(index)**도 함께 저장됩니다.
+- 기본적으로 **행 번호(index)** 도 함께 저장됩니다.
 
-### 예시 결과 (friend_list_from_df.csv):
+#### 🔹 예시 결과 (friend_list_from_df.csv):
 ```
 ,index,name,age,job
 0,John,20,student
@@ -625,7 +562,7 @@ df.to_csv('friend_list_from_df.csv')
 2,Nate,30,teacher
 ```
 
-## 💡 옵션 팁
+#### 🔹 옵션 팁
 - 행 번호 제외하고 저장하려면:
 ```python
 df.to_csv('friend_list_from_df.csv', index=False)
@@ -638,13 +575,13 @@ df.to_csv('friend_list_from_df.csv', index=False, encoding='utf-8-sig')
 
 ---
 
-# 소소
+### 📌 소소
 ```python
 friend_list = [ ['John', 20, 'student'],['Jenny', 30, 'developer'],['Nate', 30, 'teacher'] ]
 df = pd.DataFrame.from_records(friend_list)
 ```
 
-## ✅ 설명 요약
+#### 🔹 설명 요약
 | 구성 요소                    | 설명                                                  |
 |-----------------------------|-------------------------------------------------------|
 | friend_list                 | 각 친구 정보를 담은 리스트 (행 단위로 구성됨)         |
@@ -652,7 +589,7 @@ df = pd.DataFrame.from_records(friend_list)
 | df                          | 최종적으로 생성된 테이블 형태의 데이터                |
 
 
-## 📋 출력 결과 (df)
+#### 🔹 출력 결과 (df)
 ```
        0   1          2
 0   John  20    student
@@ -660,14 +597,14 @@ df = pd.DataFrame.from_records(friend_list)
 2   Nate  30    teacher
 ```
 
-열 이름이 지정되지 않았기 때문에 기본적으로 0, 1, 2라는 숫자 인덱스가 열 이름으로 사용돼요.
+- 열 이름이 지정되지 않았기 때문에 기본적으로 0, 1, 2라는 숫자 인덱스가 열 이름으로 사용.
 
-## 💡 열 이름 지정하고 싶다면?
+#### 🔹 열 이름 지정하고 싶다면?
 ```python
 df = pd.DataFrame.from_records(friend_list, columns=['name', 'age', 'job'])
 ```
 
-이렇게 하면 더 보기 좋은 구조로 바뀝니다:
+- 이렇게 하면 더 보기 좋은 구조로 바뀝니다:
 ```
     name  age        job
 0   John   20    student
@@ -677,12 +614,12 @@ df = pd.DataFrame.from_records(friend_list, columns=['name', 'age', 'job'])
 
 ---
 
-# 소스 분석
+### 📌 소스 분석
 ```python
 df.to_csv('friend_list_from_df.csv', header = False, index = False)
 ```
 
-## 🔍 코드 분석: df.to_csv('friend_list_from_df.csv', header=False, index=False)
+#### 🔹 코드 분석: df.to_csv('friend_list_from_df.csv', header=False, index=False)
 | 구성 요소               | 설명                                                       |
 |------------------------|------------------------------------------------------------|
 | df                     | 저장할 데이터가 담긴 Pandas DataFrame                      |
@@ -692,21 +629,21 @@ df.to_csv('friend_list_from_df.csv', header = False, index = False)
 | index=False            | 행 번호(index)를 저장하지 않음                             |
 
 
-## 📋 저장 결과 예시 (CSV 파일 내용)
+#### 🔹 저장 결과 예시 (CSV 파일 내용)
 ```
 John,20,student
 Jenny,30,developer
 Nate,30,teacher
 ```
 
-
-## 💡 언제 유용한가?
+#### 🔹 언제 유용한가?
 - CSV 파일을 다른 시스템에 전달할 때, 열 이름이 필요 없는 경우
 - 간단한 데이터 저장이나 테스트용 파일 생성 시
 - 데이터가 이미 구조화되어 있고, 메타 정보 없이 순수 데이터만 저장하고 싶을 때
 
 ---
-## 소스 코드
+
+### 📌 소스 코드
 ```python
 import pandas as pd
 
@@ -721,7 +658,7 @@ print(df)
 
 ```
 
-## 📋 출력 결과
+#### 🔹 출력 결과
 ```
     name   age        job
 0   John  20.0    student
@@ -729,22 +666,22 @@ print(df)
 2   None  30.0       None
 ```
 
-## 💡 활용 팁
-- df.isnull() → 결측값 위치 확인
-- df.dropna() → 결측값이 있는 행 제거
-- df.fillna('unknown') → 결측값을 특정 값으로 대체
+#### 🔹 활용 팁
+- `df.isnull()` → 결측값 위치 확인
+- `df.dropna()` → 결측값이 있는 행 제거
+- `df.fillna('unknown')` → 결측값을 특정 값으로 대체
 
 ---
 
 
-## 소스 코드
+### 📌 소스 코드
 
 ```python
 df.to_csv('friend_list_from_df.csv', na_rep = '-')
 ```
 
 
-## 🔍 코드 분석: df.to_csv('friend_list_from_df.csv', na_rep='-')
+#### 🔹 코드 분석: df.to_csv('friend_list_from_df.csv', na_rep='-')
 | 구성 요소               | 설명                                                  |
 |------------------------|-------------------------------------------------------|
 | df                     | 저장할 데이터가 담긴 Pandas DataFrame                 |
@@ -753,8 +690,8 @@ df.to_csv('friend_list_from_df.csv', na_rep = '-')
 | na_rep='-'             | 결측값(NaN)을 '-'로 대체해서 저장                     |
 
 
-## 📋 예시 결과 (CSV 내용)
-만약 df에 아래와 같은 결측값이 있다면:
+#### 🔹 예시 결과 (CSV 내용)
+- 만약 df에 아래와 같은 결측값이 있다면:
 ```
     name   age        job
 0   John  20.0    student
@@ -762,7 +699,7 @@ df.to_csv('friend_list_from_df.csv', na_rep = '-')
 2   None  30.0       None
 ```
 
-저장된 CSV는 이렇게 됩니다:
+- 저장된 CSV는 이렇게 됩니다:
 ```
 ,name,age,job
 0,John,20.0,student
@@ -771,14 +708,14 @@ df.to_csv('friend_list_from_df.csv', na_rep = '-')
 ```
 
 
-## 💡 활용 팁
+#### 🔹 활용 팁
 - na_rep='N/A', na_rep='missing' 등 원하는 문자열로 자유롭게 지정 가능
 - 결측값을 시각적으로 구분하기 쉽게 만들 수 있음
 - 다른 시스템에서 CSV를 읽을 때 오류를 줄일 수 있음
 
-
 ---
-# 소스
+
+### 📌 소스
 ```python
 friend_dict = {
     'name': ['John', 'Jenny', 'Nate'],
@@ -789,65 +726,62 @@ df = pd.DataFrame(friend_dict)
 df[1:3]
 ```
 
-## 🔍 코드 분석: df[1:3]
+#### 🔹 코드 분석: df[1:3]
 | 구성 요소 | 설명                                      |
 |-----------|-------------------------------------------|
 | df        | 전체 Pandas DataFrame 객체                |
 | [1:3]     | 두 번째(index=1)부터 세 번째(index=2) 행까지 슬라이싱 |
 
-## ✅ 예시 출력
+#### 🔹 예시 출력
 ```
     name  age        job
 1  Jenny   30  developer
 2   Nate   30    teacher
 ```
 
-
-## 💡 슬라이싱 팁
+#### 🔹 슬라이싱 팁
 - df[0:2] → 첫 번째부터 두 번째 행
 - df[:2] → 처음부터 두 번째 행까지
 - df[::2] → 한 행씩 건너뛰며 선택
 
 --- 
 
-#   소스 코드
+### 📌  소스 코드
 ```python
 df.loc[[0,2]]
 ```
 
-## 🔍 코드 분석: df.loc[[0, 2]]
+#### 🔹 코드 분석: df.loc[[0, 2]]
 | 구성 요소     | 설명                                                  |
 |--------------|-------------------------------------------------------|
 | df           | 전체 Pandas DataFrame 객체                            |
 | .loc[[0,2]]  | 0번과 2번 행을 명시적으로 선택                        |
 
 
-## ✅ 예시 출력
+#### 🔹 예시 출력
 ```
     name  age      job
 0   John   20  student
 2   Nate   30  teacher
 ```
 
-## 💡 차이점 vs 슬라이싱
+#### 🔹 차이점 vs 슬라이싱
 | 코드             | 설명                                                             |
 |------------------|------------------------------------------------------------------|
 | df[1:3]          | 1번부터 2번까지 연속된 행을 슬라이싱 (마지막 index=3은 제외됨)   |
 | df.loc[[0,2]]    | 0번과 2번 행을 명시적으로 선택 (비연속 행도 선택 가능)           |
 
-.loc은 정확한 행 번호나 조건을 지정할 때 아주 유용. 
-다음으로 df.loc[df["age"] == 30] 같은 조건 필터링도 함께 해볼 수 있음.
+- .loc은 정확한 행 번호나 조건을 지정할 때 아주 유용. 
 
 -- 
 
-# 소스
+### 📌 소스
 
 ```python
 df.loc[df["age"] == 30] 
 ```
 
-
-## 🔍 코드 분석: df.loc[df["age"] == 30]
+#### 🔹 코드 분석: df.loc[df["age"] == 30]
 | 구성 요소         | 설명                                                  |
 |------------------|-------------------------------------------------------|
 | df               | 전체 Pandas DataFrame 객체                            |
@@ -855,7 +789,7 @@ df.loc[df["age"] == 30]
 | df.loc[...]      | 조건을 만족하는 행만 선택                             |
 
 
-## ✅ 예시 출력
+#### 🔹 예시 출력
 ```
     name  age        job
 1  Jenny   30  developer
@@ -863,21 +797,22 @@ df.loc[df["age"] == 30]
 ```
 
 
-## 💡 확장 팁
+#### 🔹 확장 팁
 - df.loc[df["job"] == "teacher"] → 직업이 teacher인 행 선택
 - df.loc[(df["age"] == 30) & (df["job"] == "teacher")] → 나이 30이고 직업이 teacher인 행 선택
 - df.loc[df["age"] >= 25] → 나이가 25 이상인 행 선택
 
 ---
 
-# 소스
+### 📌 소스
 
 ```python
 df_filtered = df[df.age > 25]
 df_filtered
 ```
 
- 코드 분석: df_filtered = df[df.age > 25]
+#### 🔹 코드 분석: df_filtered = df[df.age > 25]
+
 | 구성 요소       | 설명                                                  |
 |----------------|-------------------------------------------------------|
 | df             | 전체 Pandas DataFrame 객체                            |
@@ -886,27 +821,28 @@ df_filtered
 | df_filtered     | 필터링된 결과를 담은 새로운 DataFrame                |
 
 
-## ✅ 예시 출력
+#### 🔹 예시 출력
 ```
     name  age        job
 1  Jenny   30  developer
 2   Nate   30    teacher
 ```
 
-## 💡 확장 팁
+#### 🔹 확장 팁
 - df[df.age >= 30] → 나이가 30 이상인 행
 - df[df["job"] == "teacher"] → 직업이 teacher인 행
 - df[(df.age > 25) & (df.job == "developer")] → 조건 조합도 가능
 
 ---
-# 소스
+
+### 📌 소스
 
 ```python
 df_filtered = df.query('age>25')
 df_filtered
 ```
 
-## 🔍 코드 분석: df_filtered = df.query('age > 25')
+#### 🔹 코드 분석: df_filtered = df.query('age > 25')
 | 구성 요소           | 설명                                                  |
 |--------------------|-------------------------------------------------------|
 | df                 | 전체 Pandas DataFrame 객체                            |
@@ -914,7 +850,7 @@ df_filtered
 | df_filtered        | 필터링된 결과를 담은 새로운 DataFrame                 |
 
 
-## ✅ 예시 출력
+#### 🔹 예시 출력
 ```
     name  age        job
 1  Jenny   30  developer
@@ -922,27 +858,27 @@ df_filtered
 ```
 
 
-## 💡 .query() vs Boolean 인덱싱
+#### 🔹 .query() vs Boolean 인덱싱
 | 코드                  | 설명                                                             |
 |-----------------------|------------------------------------------------------------------|
 | df[df.age > 25]       | 일반적인 Boolean 조건 필터링 방식                                |
 | df.query('age > 25')  | 문자열 기반 조건식으로 필터링 (가독성 높고 복잡한 조건에 유리함) |
 
-## 두 방식 모두 결과는 동일하지만 .query()는 특히 다음 상황에서 유리해요:
+#### 🔹 두 방식 모두 결과는 동일하지만 .query()는 특히 다음 상황에서 유리:
 - 열 이름에 공백이나 특수문자가 있을 때
 - 조건이 길거나 여러 개일 때
 - 외부 변수와 함께 사용할 때 (df.query('age > @min_age'))
 
 ---
 
-#  소스
+### 📌  소스
 
 ```python
 df_filtered = df[(df.age >25) & (df.name == 'Nate')]
 df_filtered
 ```
 
-## 🔍 코드 분석: df_filtered = df[(df.age > 25) & (df.name == 'Nate')]
+#### 🔹 코드 분석: df_filtered = df[(df.age > 25) & (df.name == 'Nate')]
 | 구성 요소           | 설명                                                             |
 |--------------------|------------------------------------------------------------------|
 | df.age > 25        | age 열에서 값이 25보다 큰 행을 조건으로 생성                     |
@@ -951,30 +887,29 @@ df_filtered
 | df[...]            | 결합된 조건을 만족하는 행만 추출                                  |
 | df_filtered        | 필터링된 결과를 담은 새로운 DataFrame                            |
 
-## ✅ 예시 출력
+#### 🔹 예시 출력
 ```
    name  age     job
 2  Nate   30  teacher
 ```
 
-## 💡 확장 팁
+#### 🔹 확장 팁
 - | → OR 조건: df[(df.age > 25) | (df.name == 'Nate')]
 - ~ → NOT 조건: df[~(df.name == 'Nate')]
-- 괄호는 꼭 써야 해요! 조건마다 괄호로 감싸지 않으면 오류가 날 수 있음.
-
+- 괄호는 꼭 써야 함! 조건마다 괄호로 감싸지 않으면 오류가 날 수 있음.
 
 ---
 
-## 소스
+### 📌 소스
 
 ```python
 df.iloc[:, 0:2]
 ```
 
-이 코드는 Pandas DataFrame에서 모든 행과 0번부터 1번까지의 열을 선택하는 방식. 
-아래처럼 간단하게 분석:
+- 이 코드는 Pandas DataFrame에서 모든 행과 0번부터 1번까지의 열을 선택하는 방식. 
+- 아래처럼 간단하게 분석:
 
-## 🔍 코드 분석: df.iloc[:, 0:2]
+#### 🔹 코드 분석: df.iloc[:, 0:2]
 | 구성 요소 | 설명                                                             |
 |-----------|------------------------------------------------------------------|
 | df        | 전체 Pandas DataFrame 객체                                       |
