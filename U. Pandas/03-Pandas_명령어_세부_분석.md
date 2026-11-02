@@ -1503,8 +1503,8 @@ df.grade = df.grade.apply(pass_or_fail)
 df
 ```
 
-## ✅ 코드 흐름 설명
-### 1️⃣ 등급 계산 (grade 열 생성)
+### 📌 코드 흐름 설명
+#### 1️⃣ 등급 계산 (grade 열 생성)
 ```python
 grades = []
 
@@ -1526,7 +1526,7 @@ df['grade'] = grades
 | 평균 >= 70 | C | 
 | 그 외 | F | 
 
-## 2️⃣ 합격 여부 판단 (grade 기준)
+#### 2️⃣ 합격 여부 판단 (grade 기준)
 ```python
 def pass_or_fail(row):
     print(row)
@@ -1537,95 +1537,34 @@ def pass_or_fail(row):
 
 df.grade = df.grade.apply(pass_or_fail)
 ```
-# 참고
+#### 🔹 참고
+
 | 구성 요소               | 설명                                                             |
 |------------------------|------------------------------------------------------------------|
 | df.grade               | 'grade' 열의 각 값을 대상으로 처리                               |
 | .apply(pass_or_fail)   | 각 값에 대해 pass_or_fail 함수를 적용하여 결과 반환              |
 | df.grade = ...         | 처리된 결과를 다시 'grade' 열에 저장                             |
 
+#### 🔹 최종 결과 예시
 
-### ※ print(row)는 각 등급을 출력하며 디버깅용으로 사용됩니다.
+| name  | average | grade |
+|-------|---------|-------|
+| John  | 90.0    | Pass     |
+| Jenny | 82.5    | Pass     |
+| Nate  | 20.0    | Fail     |
 
-## 📋 최종 결과 예시
-| name  | average | grade | result |
-|-------|---------|-------|--------|
-| John  | 90.0    | A     | Pass   |
-| Jenny | 82.5    | B     | Pass   |
-| Nate  | 20.0    | F     | Fail   |
+--- 
 
----
-# DataFrame을 생성하는 방식
+### 📌 문자열로 된 날짜에서 연도만 추출해서 새로운 열 'year'에 저장하는 방식
 
-## 소스 코드
-```python
-date_list = [{'yyyy-mm-dd': '2000-06-27'},
-         {'yyyy-mm-dd': '2002-09-24'},
-         {'yyyy-mm-dd': '2005-12-20'}]
-df = pd.DataFrame(date_list, columns = ['yyyy-mm-dd'])
-df
-```
-
-## ✅ 코드 설명
-```python
-import pandas as pd
-
-date_list = [
-    {'yyyy-mm-dd': '2000-06-27'},
-    {'yyyy-mm-dd': '2002-09-24'},
-    {'yyyy-mm-dd': '2005-12-20'}
-]
-
-df = pd.DataFrame(date_list, columns=['yyyy-mm-dd'])
-print(df)
-```
-
-
-## 📋 출력 결과
-```
-  yyyy-mm-dd
-0  2000-06-27
-1  2002-09-24
-2  2005-12-20
-```
-
-## 핵심 구성 요소
-| 구성 요소               | 설명                                                             |
-|------------------------|------------------------------------------------------------------|
-| date_list              | 날짜 정보를 담은 딕셔너리 리스트                                 |
-| columns=['yyyy-mm-dd']| DataFrame 생성 시 열 이름을 명시적으로 지정                      |
-| pd.DataFrame(...)      | 리스트를 테이블 형태로 변환하는 Pandas 함수                       |
-
-## 💡 확장 팁
-- 날짜 형식 변환: df['yyyy-mm-dd'] = pd.to_datetime(df['yyyy-mm-dd'])
-- 연도 추출: df['year'] = df['yyyy-mm-dd'].dt.year
-- 월 추출: df['month'] = df['yyyy-mm-dd'].dt.month
-- 요일 추출: df['weekday'] = df['yyyy-mm-dd'].dt.day_name()
-
-
----
-
-# 문자열로 된 날짜에서 연도만 추출해서 새로운 열 'year'에 저장하는 방식
-
-
-## 소스 
 ```python
 def extract_year(row):
     return row.split('-')[0]
 df['year'] = df['yyyy-mm-dd'].apply(extract_year)
-
 df
-
-```
-## ✅ 코드 설명
-```python
-def extract_year(row):
-    return row.split('-')[0]
-
-df['year'] = df['yyyy-mm-dd'].apply(extract_year)
 ```
 
-## 📋 출력 결과 예시
+#### 🔹 출력 결과 예시
 ```
   yyyy-mm-dd  year
 0  2000-06-27  2000
@@ -1634,7 +1573,7 @@ df['year'] = df['yyyy-mm-dd'].apply(extract_year)
 ```
 
 
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소             | 설명                                                             |
 |----------------------|------------------------------------------------------------------|
 | row.split('-')[0]    | 문자열을 '-' 기준으로 나눈 뒤 첫 번째 요소(연도) 추출             |
@@ -1644,7 +1583,7 @@ df['year'] = df['yyyy-mm-dd'].apply(extract_year)
 | 'year'               | 연도 정보가 담긴 새 열 이름                                      |
 
 
-## 💡 팁
+#### 🔹 팁
 - 날짜 형식으로 변환 후 연도 추출:
 df['yyyy-mm-dd'] = pd.to_datetime(df['yyyy-mm-dd'])
 df['year'] = df['yyyy-mm-dd'].dt.year
@@ -1654,9 +1593,41 @@ df['weekday'] = df['yyyy-mm-dd'].dt.day_name()
 
 ---
 
-# 연도 정보를 활용해 나이(age)를 계산하는 방식
+### 📌 날짜 추출
 
-## 소스 코드
+```python
+date_list = [{'yyyy-mm-dd': '2000-06-27'},
+         {'yyyy-mm-dd': '2002-09-24'},
+         {'yyyy-mm-dd': '2005-12-20'}]
+df = pd.DataFrame(date_list, columns = ['yyyy-mm-dd'])
+df
+```
+
+#### 🔹 출력 결과
+```
+  yyyy-mm-dd
+0  2000-06-27
+1  2002-09-24
+2  2005-12-20
+```
+
+#### 🔹 핵심 구성 요소
+| 구성 요소               | 설명                                                             |
+|------------------------|------------------------------------------------------------------|
+| date_list              | 날짜 정보를 담은 딕셔너리 리스트                                 |
+| columns=['yyyy-mm-dd']| DataFrame 생성 시 열 이름을 명시적으로 지정                      |
+| pd.DataFrame(...)      | 리스트를 테이블 형태로 변환하는 Pandas 함수                       |
+
+#### 🔹 확장 팁
+- 날짜 형식 변환: df['yyyy-mm-dd'] = pd.to_datetime(df['yyyy-mm-dd'])
+- 연도 추출: df['year'] = df['yyyy-mm-dd'].dt.year
+- 월 추출: df['month'] = df['yyyy-mm-dd'].dt.month
+- 요일 추출: df['weekday'] = df['yyyy-mm-dd'].dt.day_name()
+---
+
+
+### 📌 연도 정보를 활용해 나이(age)를 계산하는 방식
+
 ```python
 def extract_year(year, current_year):
     return current_year - int(year)
@@ -1665,15 +1636,7 @@ df['age'] = df['year'].apply(extract_year, current_year=2018)
 df
 ```
 
-## ✅ 코드 설명
-```python
-def extract_year(year, current_year):
-    return current_year - int(year)
-
-df['age'] = df['year'].apply(extract_year, current_year=2018)
-```
-
-## 📋 출력 결과 예시
+#### 🔹 출력 결과 예시
 ```
   yyyy-mm-dd  year  age
 0  2000-06-27  2000   18
@@ -1681,8 +1644,7 @@ df['age'] = df['year'].apply(extract_year, current_year=2018)
 2  2005-12-20  2005   13
 ```
 
-
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소                      | 설명                                                             |
 |-------------------------------|------------------------------------------------------------------|
 | extract_year(year, current_year) | 현재 연도에서 출생 연도를 빼서 나이를 계산하는 사용자 정의 함수 |
@@ -1692,21 +1654,22 @@ df['age'] = df['year'].apply(extract_year, current_year=2018)
 | 'age'                         | 나이 정보가 담긴 새 열 이름                                     |
 
 
-## 💡 팁
+#### 🔹 팁
 - 현재 연도를 자동으로 계산하려면:
+```python
 from datetime import datetime
 current_year = datetime.now().year
 df['age'] = df['year'].apply(lambda y: current_year - int(y))
-- 생일 기준으로 정확한 나이 계산도 가능해요:
+```
+- 생일 기준으로 정확한 나이 계산도 가능:
+```python
 df['yyyy-mm-dd'] = pd.to_datetime(df['yyyy-mm-dd'])
 df['age'] = datetime.now().year - df['yyyy-mm-dd'].dt.year
-
-
+```
 
 ---
 
-# 여러개의 인자 전달
-## 소스
+### 📌 여러개의 인자 전달
 
 ```python
 def get_introduce(age, prefix, suffix):
@@ -1716,15 +1679,7 @@ df['introduce'] = df['age'].apply(get_introduce, prefix="I am ", suffix=" years 
 df
 ```
 
-## ✅ 코드 설명
-```python
-def get_introduce(age, prefix, suffix):
-    return prefix + str(age) + suffix
-
-df['introduce'] = df['age'].apply(get_introduce, prefix="I am ", suffix=" years old")
-```
-
-## 📋 출력 결과 예시
+#### 🔹 출력 결과 예시
 ```
   yyyy-mm-dd  year  age           introduce
 0  2000-06-27  2000   18  I am 18 years old
@@ -1733,7 +1688,7 @@ df['introduce'] = df['age'].apply(get_introduce, prefix="I am ", suffix=" years 
 ```
 
 
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소                          | 설명                                                             |
 |-----------------------------------|------------------------------------------------------------------|
 | get_introduce(age, prefix, suffix)| 나이를 받아 소개 문장을 생성하는 사용자 정의 함수               |
@@ -1743,7 +1698,7 @@ df['introduce'] = df['age'].apply(get_introduce, prefix="I am ", suffix=" years 
 | 'introduce'                       | 소개 문장이 담긴 새 열 이름                                      |
 
 
-## 💡 확장 팁
+#### 🔹 확장 팁
 - 이름 포함:
 def full_intro(row):
     return f"My name is {row['name']} and I am {row['age']} years old"
@@ -1751,10 +1706,9 @@ df['introduce'] = df.apply(full_intro, axis=1)
 - 다국어 지원도 가능: "저는 XX살입니다" 또는 "Ich bin XX Jahre alt" 등
 
 ---
-# 각 행(row)을 받아서 'year'와 'age' 정보를 활용해 자기소개 문장을 생성하는 방식
 
+### 📌 각 행(row)을 받아서 'year'와 'age' 정보를 활용해 자기소개 문장을 생성하는 방식
 
-## 소스
 ```python
 def get_introduce2(row):
     return "I was born in "+str(row.year)+" my age is "+str(row.age)
@@ -1762,17 +1716,7 @@ df.introduce = df.apply(get_introduce2, axis=1)
 df
 ```
 
-## ✅ 코드 설명
-
-```python
-def get_introduce2(row):
-    return "I was born in " + str(row.year) + " my age is " + str(row.age)
-
-df.introduce = df.apply(get_introduce2, axis=1)
-```
-
-
-## 📋 출력 결과 예시
+#### 🔹 출력 결과 예시
 ```
   yyyy-mm-dd  year  age           introduce
 0  2000-06-27  2000   18  I was born in 2000 my age is 18
@@ -1780,7 +1724,7 @@ df.introduce = df.apply(get_introduce2, axis=1)
 2  2005-12-20  2005   13  I was born in 2005 my age is 13
 ```
 
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소               | 설명                                                             |
 |------------------------|------------------------------------------------------------------|
 | get_introduce2(row)    | 한 행(row)의 정보를 받아 소개 문장을 생성하는 사용자 정의 함수     |
@@ -1790,14 +1734,14 @@ df.introduce = df.apply(get_introduce2, axis=1)
 | 'introduce'            | 소개 문장이 담긴 새 열 이름                                      |
 
 
-## 💡 확장 팁
+#### 🔹 확장 팁
 - 이름 포함:
 def get_intro(row):
     return f"My name is {row['name']}, born in {row['year']}, and I am {row['age']} years old."
 
 ---
 
-## 소스
+### 📌 소스
 
 ``` python
 def extract_year(row):
@@ -1807,22 +1751,10 @@ date_list = [{'yyyy-mm-dd': '2000-06-27'},
          {'yyyy-mm-dd': '2002-09-24'},
          {'yyyy-mm-dd': '2005-12-20'}]
 df = pd.DataFrame(date_list, columns = ['yyyy-mm-dd'])
-df
-df['year'] = df['yyyy-mm-dd'].map(extract_year)
-df
-```
-
-
-## ✅ 코드 설명
-```python
-def extract_year(row):
-    return row.split('-')[0]
-
 df['year'] = df['yyyy-mm-dd'].map(extract_year)
 ```
 
-
-## 📋 출력 결과 예시
+#### 🔹 출력 결과 예시
 ```
   yyyy-mm-dd  year
 0  2000-06-27  2000
@@ -1831,7 +1763,7 @@ df['year'] = df['yyyy-mm-dd'].map(extract_year)
 ```
 
 
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소               | 설명                                                             |
 |------------------------|------------------------------------------------------------------|
 | row.split('-')[0]      | 문자열을 '-' 기준으로 나눈 뒤 첫 번째 요소(연도) 추출             |
@@ -1842,17 +1774,17 @@ df['year'] = df['yyyy-mm-dd'].map(extract_year)
 
 
 
-## 💡 .map() vs .apply() 차이
+#### 🔹 .map() vs .apply() 차이
 | 메서드     | 대상     | 사용 예시                  |
 |------------|----------|----------------------------|
 | .map()     | Series   | df['col'].map(func)        |
 | .apply()   | Series/행/열 | df.apply(func, axis=1)     |
 
 
-## 🔍 차이점 요약
-- .map()은 Series 전용으로, 한 열의 각 값에 함수를 적용할 때 사용해요.
-- .apply()는 DataFrame 전체 또는 행/열 단위로 처리할 수 있어서 더 유연해요.
-예를 들어:
+#### 🔹 차이점 요약
+- .map()은 Series 전용으로, 한 열의 각 값에 함수를 적용할 때 사용.
+- .apply()는 DataFrame 전체 또는 행/열 단위로 처리할 수 있어서 더 유연.
+- 예를 들어:
 ```python
 # .map() → 단일 열 처리
 df['year'] = df['yyyy-mm-dd'].map(lambda x: x.split('-')[0])
@@ -1862,34 +1794,17 @@ df['intro'] = df.apply(lambda row: f"I was born in {row['year']} and I am {row['
 ```
 ---
 
-# 이 코드는 'job' 열의 문자열 값을 숫자로 매핑(mapping) 하는 방식
+### 📌 이 코드는 'job' 열의 문자열 값을 숫자로 매핑(mapping) 하는 방식
 
-##  소스
 ```python
 job_list = [{'age': 20, 'job': 'student'},
          {'age': 30, 'job': 'developer'},
          {'age': 30, 'job': 'teacher'}]
 df = pd.DataFrame(job_list)
-df
-
 df.job = df.job.map({"student":1,"developer":2,"teacher":3})
-df
-```
-## ✅ 코드 설명
-```python
-job_list = [
-    {'age': 20, 'job': 'student'},
-    {'age': 30, 'job': 'developer'},
-    {'age': 30, 'job': 'teacher'}
-]
-
-df = pd.DataFrame(job_list)
-df.job = df.job.map({"student": 1, "developer": 2, "teacher": 3})
-print(df)
 ```
 
-
-## 📋 출력 결과 예시
+#### 🔹 출력 결과 예시
 ```
    age  job
 0   20     1
@@ -1898,7 +1813,7 @@ print(df)
 ```
 
 
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소         | 설명                                                             |
 |------------------|------------------------------------------------------------------|
 | df.job           | 'job' 열의 Series 객체                                           |
@@ -1908,54 +1823,32 @@ print(df)
 | 'job'            | 직업 정보를 담고 있는 열 이름                                     |
 
 
-## 💡 확장 팁
-- 매핑 딕셔너리는 외부에서 불러올 수도 있어요 (예: JSON, DB)
-- .replace()도 유사하게 작동하지만, 일부 값만 바꿀 때 더 유용해요
+#### 🔹 확장 팁
+- 매핑 딕셔너리는 외부에서 불러올 수도 있음 (예: JSON, DB)
+- .replace()도 유사하게 작동하지만, 일부 값만 바꿀 때 더 유용
 - 역매핑도 가능: {1: "student", 2: "developer", 3: "teacher"}
 ----
 
-## 소스
+### 📌 소스
 ```python
 x_y = [{'x': 5.5, 'y': -5.6},
          {'x': -5.2, 'y': 5.5},
          {'x': -1.6, 'y': -4.5}]
 df = pd.DataFrame(x_y)
-df
-
 df = df.apply(np.around)
-df
 
 ```
+- 이 코드는 x와 y 값들을 반올림해서 새로운 DataFrame으로 만드는 방식.   
 
 
-이 코드는 x와 y 값들을 반올림해서 새로운 DataFrame으로 만드는 방식.   
-아래에 전체 흐름을 깔끔하게 정리:
-
-## ✅ 코드 설명
-```python
-import pandas as pd
-import numpy as np
-
-x_y = [
-    {'x': 5.5, 'y': -5.6},
-    {'x': -5.2, 'y': 5.5},
-    {'x': -1.6, 'y': -4.5}
-]
-
-df = pd.DataFrame(x_y)
-df = df.apply(np.around)
-print(df)
-```
-
-
-## 📋 출력 결과 예시
+#### 🔹 출력 결과 예시
 ```
      x    y
 0  6.0 -6.0
 1 -5.0  6.0
 2 -2.0 -4.0
 ```
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소        | 설명                                                             |
 |-----------------|------------------------------------------------------------------|
 | np.around       | NumPy의 반올림 함수 (소수점 첫째 자리 기준으로 반올림)            |
@@ -1965,60 +1858,37 @@ print(df)
 | df              | 반올림된 값을 담고 있는 최종 DataFrame 객체                      |
 
 
-## 💡 확장 팁
+#### 🔹 확장 팁
 - 소수점 자릿수 지정: np.around(df, decimals=1)
 - 절댓값 처리: df.apply(np.abs)
 - 사용자 정의 반올림: df.applymap(lambda x: round(x, 1))
 
 ----
 
-# 두 개의 DataFrame을 하나로 합치는 방식이에요. 
-
-## 소스
+### 📌 두 개의 DataFrame을 하나로 합치는 방식. 
 
 ```python
 friend_dict_list = [{'name': 'John', 'midterm': 95, 'final': 85},
          {'name': 'Jenny', 'midterm': 85, 'final': 80},
          {'name': 'Nate', 'midterm': 10, 'final': 30}]
 df = pd.DataFrame(friend_dict_list, columns = ['name', 'midterm', 'final'])
-df
-df2 = pd.DataFrame([['Ben', 50,50]], columns = ['name', 'midterm', 'final'])
-
-
+df2 = pd.DataFrame([['Ben', 50, 50]], columns = ['name', 'midterm', 'final'])
 df2.head()
-
 
 df_combined = pd.concat([df, df2], ignore_index=True)
 print(df_combined)
 
 ```
 
+- 두 개의 DataFrame을 하나로 합치는 방식. 
 
-이 코드는 두 개의 DataFrame을 하나로 합치는 방식. 
-아래에 전체 흐름을 깔끔하게 정리:
-
-## ✅ 코드 설명
+#### 🔹 코드 설명
 ```python
-import pandas as pd
-
-# 첫 번째 친구 목록
-friend_dict_list = [
-    {'name': 'John', 'midterm': 95, 'final': 85},
-    {'name': 'Jenny', 'midterm': 85, 'final': 80},
-    {'name': 'Nate', 'midterm': 10, 'final': 30}
-]
-df = pd.DataFrame(friend_dict_list, columns=['name', 'midterm', 'final'])
-
-# 두 번째 친구 Ben 추가
-df2 = pd.DataFrame([['Ben', 50, 50]], columns=['name', 'midterm', 'final'])
-
 # 두 DataFrame 병합
 df_combined = pd.concat([df, df2], ignore_index=True)
 print(df_combined)
 ```
-
-
-## 📋 출력 결과 예시
+#### 🔹 출력 결과 예시
 ```
     name  midterm  final
 0   John       95     85
@@ -2027,8 +1897,7 @@ print(df_combined)
 3    Ben       50     50
 ```
 
-
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소           | 설명                                                             |
 |--------------------|------------------------------------------------------------------|
 | pd.DataFrame(...)  | 리스트 또는 딕셔너리를 기반으로 DataFrame 생성                    |
@@ -2036,19 +1905,19 @@ print(df_combined)
 | pd.concat([...])   | 여러 DataFrame을 하나로 병합                                     |
 | ignore_index=True  | 기존 인덱스를 무시하고 새 인덱스를 자동 생성                     |
 | df_combined        | 병합된 결과를 담은 최종 DataFrame                                |
-이 구조는 여러 데이터셋을 하나로 합칠 때 아주 유용해요. 이후 정렬, 그룹화, 또는 통계 분석까지 확장하기도 좋아요!
 
-## 💡 확장 팁
+- 이 구조는 여러 데이터셋을 하나로 합칠 때 아주 유용.
+- 이후 정렬, 그룹화, 또는 통계 분석까지 확장하기도 좋음
+
+#### 🔹 확장 팁
 - 열 순서 맞추기: df2 = df2[df.columns]
 - 새로운 열 추가: df_combined['average'] = (df_combined['midterm'] + df_combined['final']) / 2
 
-
 -----
+### 📌 그룹화
 
-이 코드는 학생 데이터를 전공()과 성별() 기준으로 그룹화하고, 각 그룹의 인원 수를 계산하는 방식. 
-아래에 전체 흐름을 깔끔하게 정리
+- 학생 데이터를 전공()과 성별() 기준으로 그룹화하고, 각 그룹의 인원 수를 계산하는 방식. 
 
-## 소스
 ```python
 student_list = [{'name': 'John', 'major': "Computer Science", 'sex': "male"},
                 {'name': 'Nate', 'major': "Computer Science", 'sex': "male"},
@@ -2063,19 +1932,15 @@ student_list = [{'name': 'John', 'major': "Computer Science", 'sex': "male"},
                 {'name': 'Sera', 'major': "Psychology", 'sex': "female"}
          ]
 df = pd.DataFrame(student_list, columns = ['name', 'major', 'sex'])
-df
 
 groupby_major = df.groupby('major')
 
-
 groupby_major.groups
-
 
 for name, group in groupby_major:
     print(name + ": " + str(len(group)))
     print(group)
     print()
-
 
 df_major_cnt = pd.DataFrame({'count' : groupby_major.size()}).reset_index()
 df_major_cnt
