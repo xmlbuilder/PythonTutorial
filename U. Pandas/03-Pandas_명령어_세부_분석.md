@@ -1016,13 +1016,13 @@ df = pd.DataFrame.from_records(friend_list, columns=['name', 'age', 'job'])
 
 ---
 
-# 소스 데이터
+### 📌 소스 데이터
 ```python
 # select columns containing 'a'
 df.filter(like='a',axis=1)
 ```
 
-## 🔍 코드 분석: df.filter(like='a', axis=1)
+#### 🔹 코드 분석: df.filter(like='a', axis=1)
 | 구성 요소     | 설명                                                             |
 |--------------|------------------------------------------------------------------|
 | df           | 전체 Pandas DataFrame 객체                                       |
@@ -1031,17 +1031,17 @@ df.filter(like='a',axis=1)
 | axis=1       | 열 기준으로 필터링                                               |
 | axis=0       | 행 기준으로 필터링                                               |
 
-예를 들어 열 이름이 ['name', 'age', 'job']일 경우 like='a', axis=1은 'name'과 'age' 열을 선택하게 됨. 
-반대로 axis=0을 쓰면 행 인덱스에 'a'가 포함된 행을 선택.
+- 예를 들어 열 이름이 ['name', 'age', 'job']일 경우 like='a', axis=1은 'name'과 'age' 열을 선택하게 됨. 
+- 반대로 axis=0을 쓰면 행 인덱스에 'a'가 포함된 행을 선택.
 
 
-## ✅ 예시 (열 이름이 있는 경우)
+#### 🔹 예시 (열 이름이 있는 경우)
 ```python
 df = pd.DataFrame(friend_list, columns=['name', 'age', 'job'])
 df.filter(like='a', axis=1)
 ```
 
-📋 출력 결과:
+#### 🔹 출력 결과:
 ```
     name  age
 0   John   20
@@ -1049,7 +1049,7 @@ df.filter(like='a', axis=1)
 2   Nate   30
 ```
 
-## 💡 활용 팁
+#### 🔹 활용 팁
 - like='e' → 열 이름에 'e'가 포함된 열 선택
 - df.filter(regex='^j', axis=1) → 열 이름이 'j'로 시작하는 열 선택
 - df.filter(items=['name', 'job']) → 특정 열 이름 직접 지정
@@ -1057,13 +1057,14 @@ df.filter(like='a', axis=1)
 
 --- 
 
-# 소스
+### 📌 소스
 ```python
 # select columns using regex
 df.filter(regex='b$',axis=1)
 ```
 
-## 🔍 코드 분석: df.filter(regex='b$', axis=1)
+#### 🔹 코드 분석: df.filter(regex='b$', axis=1)
+
 | 구성 요소     | 설명                                                                 |
 |--------------|----------------------------------------------------------------------|
 | df           | 전체 Pandas DataFrame 객체                                           |
@@ -1072,16 +1073,17 @@ df.filter(regex='b$',axis=1)
 | axis=1       | 열 기준으로 필터링                                                   |
 | axis=0       | 행 기준으로 필터링                                                   |
 
- 방식은 열 이름이 'job', 'club' 처럼 'b'로 끝나는 경우에만 선택. 
- 반대로 axis=0을 쓰면 행 인덱스 이름이 'b'로 끝나는 경우를 선택하.
+- 방식은 열 이름이 'job', 'club' 처럼 'b'로 끝나는 경우에만 선택. 
+- 반대로 axis=0을 쓰면 행 인덱스 이름이 'b'로 끝나는 경우를 선택하.
 
 
-## ✅ 예시
+#### 🔹 예시
+```python
 df = pd.DataFrame(friend_list, columns=['name', 'age', 'job'])
 df.filter(regex='b$', axis=1)
+```                    
 
-
-## 📋 출력 결과:
+#### 🔹 출력 결과:
 ```
          job
 0    student
@@ -1089,7 +1091,7 @@ df.filter(regex='b$', axis=1)
 2    teacher
 ```
 
-## 💡 정규표현식 팁
+#### 🔹 정규표현식 팁
 | 정규표현식     | 의미                                      |
 |----------------|-------------------------------------------|
 | 'a'            | 열 이름에 'a'가 포함된 경우               |
@@ -1100,7 +1102,7 @@ df.filter(regex='b$', axis=1)
 
 ---
 
-# 소스
+### 📌 소스
 
 ```python
 friend_dict_list = [{'age': 20, 'job': 'student'},
@@ -1109,56 +1111,11 @@ friend_dict_list = [{'age': 20, 'job': 'student'},
 df = pd.DataFrame(friend_dict_list, index = ['John', 'Jenny', 'Nate'])
 ```
 
-이 코드는 딕셔너리 리스트를 기반으로 인덱스를 지정하여 DataFrame을 생성하는 방식. 
-아래에 구조와 설명을 깔끔하게 정리:
-
-## ✅ 코드 설명
-```python
-import pandas as pd
-
-friend_dict_list = [
-    {'age': 20, 'job': 'student'},
-    {'age': 30, 'job': 'developer'},
-    {'age': 30, 'job': 'teacher'}
-]
-
-df = pd.DataFrame(friend_dict_list, index=['John', 'Jenny', 'Nate'])
-print(df)
-```
-
-
-## 📋 출력 결과
-```
-       age       job
-John    20    student
-Jenny   30  developer
-Nate    30    teacher
-```
-
-
-## 🔍 구성 요소 분석
-| 구성 요소           | 설명                                                             |
-|--------------------|------------------------------------------------------------------|
-| friend_dict_list   | 친구 정보를 담은 딕셔너리 리스트 (각 항목은 한 사람의 정보)       |
-| pd.DataFrame(...)  | 리스트를 테이블 형태로 변환하는 Pandas 함수                       |
-| index=[...]        | 각 행에 이름(인덱스) 지정 → 'John', 'Jenny', 'Nate'               |
-| df                 | 최종적으로 생성된 DataFrame 객체                                 |
-
-
-## 💡 활용 팁
-- df.loc['Jenny'] → Jenny의 정보 추출
-- df['age'] → 전체 친구들의 나이만 추출
-- df[df['age'] > 25] → 25세 이상 친구 필터링
-
-
----
-
-# 소스
 ```
 df.drop(['John', 'Nate'])
 ```
 
-## 🔍 코드 분석: df.drop(['John', 'Nate'])
+#### 🔹 코드 분석: df.drop(['John', 'Nate'])
 | 구성 요소         | 설명                                                             |
 |------------------|------------------------------------------------------------------|
 | df               | 인덱스가 'John', 'Jenny', 'Nate'인 DataFrame 객체                 |
@@ -1167,24 +1124,24 @@ df.drop(['John', 'Nate'])
 
 
 
-## ✅ 예시 출력
+#### 🔹 예시 출력
 ```python
        age       job
 Jenny   30  developer
 ```
 
-### ※ drop()은 기본적으로 행(row) 기준으로 작동합니다 (axis=0이 기본값)
+#### 🔹 drop()은 기본적으로 행(row) 기준으로 작동합니다 (axis=0이 기본값)
 
-## 💡 확장 팁
+#### 🔹 확장 팁
 - df.drop(['job'], axis=1) → 'job' 열 삭제
 - df.drop(index=['John', 'Nate']) → 인덱스 명시적으로 삭제
-- df.drop(['John', 'Nate'], inplace=True) → 원본 df에서 바로 삭제
+- df.drop(['John', 'Nate'], inplace=True) → 원본 df에서 바로 삭제 (`inplace=True`)
 
-## .drop 설명 
-.drop() 메서드를 활용한 열 삭제, 조건 기반 삭제, 그리고 inplace 옵션의 차이를 깔끔하게 정리한 내용:
+### 📌 .drop 설명 
+- .drop() 메서드를 활용한 열 삭제, 조건 기반 삭제, 그리고 inplace 옵션의 차이를 깔끔하게 정리한 내용:
 
-## 🧹 .drop()을 활용한 삭제 방식 정리
-### 1️⃣ 열 삭제 (Column Drop)
+### 📌 .drop()을 활용한 삭제 방식 정리
+#### 1️⃣ 열 삭제 (Column Drop)
 ```python
 df.drop(['job'], axis=1)
 ```
@@ -1193,11 +1150,12 @@ df.drop(['job'], axis=1)
 | ['job']    | 삭제할 열 이름 리스트                                            |
 | axis=1     | 열 기준으로 삭제 (행 기준은 axis=0)                              |
 |            | 결과는 'job' 열이 제거된 새로운 DataFrame 반환                   |
-이 코드는 'job' 열을 제거하고 나머지 열만 남긴 새로운 DataFrame을 반환.  
-원본 df는 그대로 유지되며, inplace=True를 추가하면 원본에서도 삭제됩니다.
+
+- 이 코드는 'job' 열을 제거하고 나머지 열만 남긴 새로운 DataFrame을 반환.  
+- 원본 df는 그대로 유지되며, inplace=True를 추가하면 원본에서도 삭제됩니다.
 
 
-### 2️⃣ 행 삭제 (Row Drop)]
+#### 2️⃣ 행 삭제 (Row Drop)]
 ```python
 df.drop(['John', 'Nate'])
 df.drop(['job'], axis=1)
@@ -1207,10 +1165,10 @@ df.drop(['job'], axis=1)
 | ['John', 'Nate'] | 삭제할 행 인덱스 리스트                                          |
 | axis=0           | 행 기준으로 삭제 (기본값이므로 생략 가능)                        |
 |                  | 결과는 'John'과 'Nate' 행이 제거된 새로운 DataFrame 반환         |
-이 코드는 'John'과 'Nate'에 해당하는 행을 제거하고 'Jenny'만 남긴 새로운 DataFrame을 반환.  
-원본 df는 그대로 유지되며, inplace=True를 추가하면 원본에서도 삭제됩니다.
+- 이 코드는 'John'과 'Nate'에 해당하는 행을 제거하고 'Jenny'만 남긴 새로운 DataFrame을 반환.  
+- 원본 df는 그대로 유지되며, inplace=True를 추가하면 원본에서도 삭제됩니다.
 
-### 3️⃣ 조건 기반 삭제
+#### 3️⃣ 조건 기반 삭제
 ```python
 df[df['age'] != 30]
 ```
@@ -1218,22 +1176,23 @@ df[df['age'] != 30]
 |------------------|------------------------------------------------------------------|
 | df['age'] != 30  | age 열의 값이 30이 아닌 행에 대해 Boolean 조건 생성              |
 |                  | 결과는 True/False로 구성된 시리즈 (Boolean Series) 반환           |
-이 조건은 30세가 아닌 친구들만 선택할 때 사용되며, 전체 DataFrame에서 조건을 만족하는 행만 필터링할 수 있음:
+- 이 조건은 30세가 아닌 친구들만 선택할 때 사용되며, 전체 DataFrame에서 조건을 만족하는 행만 필터링할 수 있음:
 
-### ※ .drop()은 직접 조건을 지정할 수 없기 때문에, 조건 기반 삭제는 Boolean indexing을 활용합니다.
+#### 🔹 .drop()은 직접 조건을 지정할 수 없기 때문에, 조건 기반 삭제는 Boolean indexing을 활용합니다.
 
-### 4️⃣ inplace=True 옵션의 차이
-df.drop(['job'], axis=1, inplace=True)
+#### 4️⃣ `inplace=True` 옵션의 차이
+- df.drop(['job'], axis=1, inplace=True)
+
 | 옵션           | 설명                                                             |
 |----------------|------------------------------------------------------------------|
-| inplace=False  | 원본 df는 유지되고, 삭제된 결과를 **새로운 DataFrame**으로 반환     |
-| inplace=True   | 원본 df 자체가 **즉시 변경**되며, 반환값은 `None`     
+| inplace=False  | 원본 df는 유지되고, 삭제된 결과를 **새로운 DataFrame** 으로 반환     |
+| inplace=True   | 원본 df 자체가 **즉시 변경** 되며, 반환값은 `None`     
 
 
-## ✅ 예시 비교
-# inplace=False (기본값)
+#### 🔹 예시 비교
 
 ```python
+# inplace=False (기본값)
 new_df = df.drop(['job'], axis=1)
 print(df)       # 원본 유지
 print(new_df)   # 'job' 열이 제거된 결과
@@ -1243,12 +1202,12 @@ df.drop(['job'], axis=1, inplace=True)
 print(df)       # 'job' 열이 제거된 상태
 ```
 
-## 💡 팁
+#### 🔹 팁
 - inplace=True는 되돌릴 수 없기 때문에 주의해서 사용함.
 - 원본을 유지하면서 결과만 보고 싶다면 inplace=False가 안전.
 
 
-## 🧠 정리 요약표
+#### 🔹 정리 요약표
 | 목적         | 코드 예시                          | 결과             |
 |--------------|-------------------------------------|------------------|
 | 열 삭제      | df.drop(['job'], axis=1)            | 열 제거된 새 df  |
@@ -1259,7 +1218,7 @@ print(df)       # 'job' 열이 제거된 상태
 
 ---
 
-# 소스
+### 📌 소스
 
 ```python
 friend_dict_list = [{'name': 'Jone', 'age': 20, 'job': 'student'},
@@ -1269,28 +1228,15 @@ df = pd.DataFrame(friend_dict_list)
 df = df.drop(df.index[[0,2]])
 ```
 
-## ✅ 코드 설명
-```python
-import pandas as pd
-
-friend_dict_list = [
-    {'name': 'Jone', 'age': 20, 'job': 'student'},
-    {'name': 'Jenny', 'age': 30, 'job': 'developer'},
-    {'name': 'Nate', 'age': 30, 'job': 'teacher'}
-]
-
-df = pd.DataFrame(friend_dict_list)
-df = df.drop(df.index[[0, 2]])
-```
 
 
-## 📋 출력 결과
+#### 🔹 출력 결과
 ```python
     name  age        job
 1  Jenny   30  developer
 ```
 
-## 🔍 구성 요소 분석
+#### 🔹 구성 요소 분석
 | 구성 요소         | 설명                                                             |
 |------------------|------------------------------------------------------------------|
 | friend_dict_list | 친구 정보를 담은 딕셔너리 리스트                                 |
@@ -1298,21 +1244,20 @@ df = df.drop(df.index[[0, 2]])
 | df.index[[0, 2]] | 삭제할 행의 인덱스 선택 (0번째와 2번째 행)                        |
 | df.drop(...)     | 해당 인덱스의 행을 제거한 새로운 DataFrame 반환                   |
 
-이 코드는 'Jone'과 'Nate'에 해당하는 행을 제거하고 'Jenny'만 남긴 DataFrame을 생성.   
-인덱스를 직접 지정해서 삭제하는 방식은 특히 위치 기반으로 행을 제거할 때 유용.
+- 이 코드는 'Jone'과 'Nate'에 해당하는 행을 제거하고 'Jenny'만 남긴 DataFrame을 생성.   
+- 인덱스를 직접 지정해서 삭제하는 방식은 특히 위치 기반으로 행을 제거할 때 유용.
 
 
-## 💡 팁
+#### 🔹 팁
 - df.drop([0, 2])도 가능하지만, df.index[[...]]는 더 명시적인 방식.
 - inplace=True를 쓰면 원본 df가 직접 수정됩니다.
-- 삭제 후 인덱스를 리셋하려면 df.reset_index(drop=True)를 사용하세요.
+- 삭제 후 인덱스를 리셋하려면 `df.reset_index(drop=True)`를 사용.
 
 
 ----
 
-# 조건 기반 필터링을 통해 특정 행을 제거하는 방식
+### 📌 조건 기반 필터링을 통해 특정 행을 제거하는 방식
 
-## 소스
 ```python
 friend_dict_list = [{'name': 'Jone', 'age': 20, 'job': 'student'},
          {'name': 'Jenny', 'age': 30, 'job': 'developer'},
@@ -1323,11 +1268,9 @@ df = df[df.age != 30]
 df
 ```
 
- 이 코드는 조건 기반 필터링을 통해 특정 행을 제거하는 방식. 
- 아래에 전체 흐름을 깔끔하게 정리해:
+- 이 코드는 조건 기반 필터링을 통해 특정 행을 제거하는 방식. 
 
-
-## ✅ 코드 설명
+#### 🔹 코드 설명
 ```python
 import pandas as pd
 
@@ -1345,7 +1288,7 @@ print(df)
 ```
 
 
-## 📋 출력 결과
+#### 🔹 출력 결과
 ```
 원본 df
     name  age        job
@@ -1354,14 +1297,14 @@ print(df)
 2   Nate   30     teacher
 ```
 
-### 필터링 후 df
+#### 🔹 필터링 후 df
 ```
    name  age      job
 0  Jone   20  student
 
 ```
 
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소       | 설명                                                             |
 |----------------|------------------------------------------------------------------|
 | df.age != 30   | age 값이 30이 아닌 행에 대해 Boolean 조건 생성                   |
@@ -1369,7 +1312,7 @@ print(df)
 | df = ...       | 필터링된 결과를 다시 df에 저장하여 기존 df를 덮어씀              |
 
 
-## 💡 팁
+#### 🔹 팁
 - df[df['job'] != 'teacher'] → 특정 직업 제외
 - df[df['name'].str.startswith('J')] → 이름이 'J'로 시작하는 친구만 선택
 - df.reset_index(drop=True) → 인덱스 재정렬
@@ -1377,44 +1320,13 @@ print(df)
 
 ---
 
-# DataFrame에서 특정 열을 삭제하는 방식
-## 소스
+### 📌 DataFrame에서 특정 열을 삭제하는 방식
+
 ```python
-friend_dict_list = [{'name': 'Jone', 'age': 20, 'job': 'student'},
-         {'name': 'Jenny', 'age': 30, 'job': 'developer'},
-         {'name': 'Nate', 'age': 30, 'job': 'teacher'}]
-df = pd.DataFrame(friend_dict_list)
-df 
 df = df.drop('age', axis=1)
-df
 ```
 
-## ✅ 코드 설명
-```python
-import pandas as pd
-
-friend_dict_list = [
-    {'name': 'Jone', 'age': 20, 'job': 'student'},
-    {'name': 'Jenny', 'age': 30, 'job': 'developer'},
-    {'name': 'Nate', 'age': 30, 'job': 'teacher'}
-]
-df = pd.DataFrame(friend_dict_list)
-print(df)
-df = df.drop('age', axis=1)
-print(df)
-```
-
-
-## 📋 출력 결과
-```
-원본 df
-    name  age        job
-0   Jone   20     student
-1  Jenny   30   developer
-2   Nate   30     teacher
-```
-
-### 열 삭제 후 df
+#### 🔹 열 삭제 후 df
 ```
     name        job
 0   Jone     student
@@ -1423,24 +1335,24 @@ print(df)
 ```
 
 
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소   | 설명                                                             |
 |------------|------------------------------------------------------------------|
 | 'age'      | 삭제할 열 이름                                                   |
 | axis=1     | 열 기준으로 삭제 (행 기준은 axis=0)                              |
 | df = ...   | 삭제된 결과를 다시 df에 저장하여 기존 df를 덮어씀               |
 | df         | 'age' 열이 제거된 새로운 DataFrame                              |
-열 삭제의 핵심 흐름을 간결하게 보여줘요. axis=0은 행 삭제를 의미하니, 열을 삭제할 때는 꼭 axis=1을 지정해야 합니다.
 
-## 💡 팁
+- axis=0은 행 삭제를 의미하니, 열을 삭제할 때는 꼭 axis=1을 지정해야 합니다.
+
+#### 🔹 팁
 - 여러 열 삭제: df.drop(['age', 'job'], axis=1)
 - 원본 수정: df.drop('age', axis=1, inplace=True)
 - 열 이름 확인: df.columns
 
 ---
 
-# 기존 DataFrame에 새로운 열을 추가하는 방식
-## 소스
+### 📌 기존 DataFrame에 새로운 열을 추가하는 방식
 
 ```python
 
@@ -1453,8 +1365,8 @@ df['salary'] = 0
 df
 ```
 
-## 📋 출력 결과
-### 원본 df
+#### 🔹 출력 결과
+#### 🔹 원본 df
 ```
     name  age        job
 0   Jone   15     student
@@ -1462,7 +1374,7 @@ df
 2   Nate   30     teacher
 ```
 
-### salary 열 추가 후 df
+#### 🔹 salary 열 추가 후 df
 ```
     name  age        job  salary
 0   Jone   15     student       0
@@ -1470,43 +1382,37 @@ df
 2   Nate   30     teacher       0
 ```
 
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소         | 설명                                                             |
 |------------------|------------------------------------------------------------------|
 | df['salary'] = 0 | 'salary'라는 새 열을 추가하고 모든 값에 0을 할당                  |
 | columns=[...]    | DataFrame 생성 시 열 순서를 명시적으로 지정                      |
 | df               | 'salary' 열이 포함된 최종 DataFrame                              |
 
-이 방식은 모든 친구에게 기본 급여를 설정하는 예시로, 
-이후 조건에 따라 값을 바꾸거나 계산할 수 있음:
+- 이 방식은 모든 친구에게 기본 급여를 설정하는 예시로, 이후 조건에 따라 값을 바꾸거나 계산할 수 있음:
 
 ```python
 df.loc[df['job'] == 'developer', 'salary'] = 5000
 ```
 
-## 💡 팁
+#### 🔹 팁
 - 특정 값으로 초기화: df['salary'] = 3000
 - 조건에 따라 값 설정: df.loc[df['job'] == 'developer', 'salary'] = 5000
 - 리스트로 설정: df['salary'] = [1000, 5000, 4000]
 
 
 ---
-# 조건에 따라 새로운 열을 생성하는 방식
-##  소스
+
+### 📌 조건에 따라 새로운 열을 생성하는 방식
+
 ```python
 import numpy as np 
 df['salary'] = np.where(df['job'] != 'student' , 'yes', 'no') 
 df
 ```
 
-## ✅ 코드 설명
-```python
-import numpy as np
-df['salary'] = np.where(df['job'] != 'student', 'yes', 'no')
-```
 
-
-## 📋 출력 결과
+#### 🔹 출력 결과
 ```
     name  age        job salary
 0   Jone   15     student    no
@@ -1515,7 +1421,7 @@ df['salary'] = np.where(df['job'] != 'student', 'yes', 'no')
 ```
 
 
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소                    | 설명                                                             |
 |-----------------------------|------------------------------------------------------------------|
 | df['job'] != 'student'      | 'student'이 아닌 직업에 대해 조건 생성 (Boolean Series 반환)     |
@@ -1524,16 +1430,15 @@ df['salary'] = np.where(df['job'] != 'student', 'yes', 'no')
 | 'salary'                    | 조건 결과가 담긴 새 열 이름                                     |
 
 
-## 💡 팁
+#### 🔹 팁
 - 숫자 조건도 가능: np.where(df['age'] >= 30, 5000, 0)
 - 여러 조건 조합: np.where((df['age'] > 20) & (df['job'] == 'teacher'), 'yes', 'no')
 - 문자열 조건은 .str.contains()와 함께 쓰면 유용
 
 --- 
 
-# 중간고사와 기말고사 점수를 합산해서 총점(total)을 계산
+### 📌 중간고사와 기말고사 점수를 합산해서 총점(total)을 계산
 
-## 소스
 ```python
 friend_dict_list = [{'name': 'John', 'midterm': 95, 'final': 85},
          {'name': 'Jenny', 'midterm': 85, 'final': 80},
@@ -1544,23 +1449,7 @@ df['total'] = df['midterm'] + df['final']
 df
 ```
 
-## ✅ 코드 설명
-```python
-import pandas as pd
-
-friend_dict_list = [
-    {'name': 'John', 'midterm': 95, 'final': 85},
-    {'name': 'Jenny', 'midterm': 85, 'final': 80},
-    {'name': 'Nate', 'midterm': 10, 'final': 30}
-]
-
-df = pd.DataFrame(friend_dict_list, columns=['name', 'midterm', 'final'])
-df['total'] = df['midterm'] + df['final']
-print(df)
-```
-
-
-## 📋 출력 결과
+#### 🔹 출력 결과
 ```
     name  midterm  final  total
 0   John       95     85    180
@@ -1569,7 +1458,7 @@ print(df)
 ```
 
 
-## 🔍 핵심 구성 요소
+#### 🔹 핵심 구성 요소
 | 구성 요소               | 설명                                                             |
 |------------------------|------------------------------------------------------------------|
 | df['midterm'] + df['final'] | 각 행의 중간고사와 기말고사 점수를 합산                         |
@@ -1578,18 +1467,15 @@ print(df)
 
 df['average'] = (df['midterm'] + df['final']) / 2
 
-## 💡 팁
+#### 🔹 팁
 - 평균 점수: df['average'] = (df['midterm'] + df['final']) / 2
 - 조건 필터링: df[df['total'] >= 100]
 - 정렬: df.sort_values(by='total', ascending=False)
 
-
 ---
 
-# 학생들의 평균 점수를 기반으로 등급을 부여하고, 그 등급을 바탕으로 합격 여부(Pass/Fail)를 판단하는 로직
+### 📌 학생들의 평균 점수를 기반으로 등급을 부여하고, 그 등급을 바탕으로 합격 여부(Pass/Fail)를 판단하는 로직
 
-
-## 소스
 ```python
 grades = []
 
