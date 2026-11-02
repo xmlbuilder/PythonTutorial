@@ -1935,15 +1935,40 @@ df = pd.DataFrame(student_list, columns = ['name', 'major', 'sex'])
 
 groupby_major = df.groupby('major')
 
-groupby_major.groups
-
 for name, group in groupby_major:
     print(name + ": " + str(len(group)))
     print(group)
     print()
 
+
+"""
+Economics: 3
+    name      major     sex
+4  Janny  Economics  female
+5   Yuna  Economics  female
+9  Wendy  Economics  female
+
+Physics: 1
+      name    major   sex
+2  Abraham  Physics  male
+
+Psychology: 3
+     name       major     sex
+3   Brian  Psychology    male
+8    Zara  Psychology  female
+10   Sera  Psychology  female
+"""
+
+
 df_major_cnt = pd.DataFrame({'count' : groupby_major.size()}).reset_index()
-df_major_cnt
+print(df_major_cnt)
+"""
+              major  count
+0  Computer Science      4
+1         Economics      3
+2           Physics      1
+3        Psychology      3
+"""
 
 groupby_sex = df.groupby('sex')
 
@@ -1952,21 +1977,43 @@ for name, group in groupby_sex:
     print(group)
     print()
 
+"""
+female: 6
+        name             major     sex
+4      Janny         Economics  female
+5       Yuna         Economics  female
+6   Jeniffer  Computer Science  female
+8       Zara        Psychology  female
+9      Wendy         Economics  female
+10      Sera        Psychology  female
+
+male: 5
+      name             major   sex
+0     John  Computer Science  male
+1     Nate  Computer Science  male
+2  Abraham           Physics  male
+3    Brian        Psychology  male
+7   Edward  Computer Science  male
+"""
 
 df_sex_cnt = pd.DataFrame({'count' : groupby_sex.size()}).reset_index()
-df_sex_cnt
+print(df_sex_cnt)
+"""
+      sex  count
+0  female      6
+1    male      5
+"""
 ```
 
-## ✅ 전체 코드 흐름 요약
+#### 🔹 전체 코드 흐름 요약
 
-### 1. 📋 데이터프레임 생성
+#### 1. 🔹 데이터프레임 생성
 ```python
 df = pd.DataFrame(student_list, columns=['name', 'major', 'sex'])
 ```
-
 - 학생 이름, 전공, 성별 정보를 담은 테이블 생성
 
-### 2. 🎓 전공별 그룹화 및 출력
+#### 2. 🔹 전공별 그룹화 및 출력
 ```python
 groupby_major = df.groupby('major')
 groupby_major.groups
@@ -1983,7 +2030,7 @@ for name, group in groupby_major:
 
 - 각 전공별 인원 수와 해당 학생 목록 출력
 
-### 3. 📊 전공별 인원 수 집계
+#### 3. 🔹 전공별 인원 수 집계
 ```python
 df_major_cnt = pd.DataFrame({'count': groupby_major.size()}).reset_index()
 ```
@@ -1991,7 +2038,7 @@ df_major_cnt = pd.DataFrame({'count': groupby_major.size()}).reset_index()
 - groupby.size()로 각 전공별 인원 수 계산
 - reset_index()로 깔끔한 테이블 형태로 변환
 
-#### 📌 출력 예시:
+#### 🔹 출력 예시:
 ```
            major  count
 0  Computer Science      4
@@ -2001,12 +2048,12 @@ df_major_cnt = pd.DataFrame({'count': groupby_major.size()}).reset_index()
 ```
 
 
-### 4. 🚻 성별 그룹화 및 출력
+#### 4. 🔹 성별 그룹화 및 출력
 ```python
 groupby_sex = df.groupby('sex')
-
-
+```
 - groupby('sex')로 성별 기준 그룹화
+```python
 for name, group in groupby_sex:
     print(name + ": " + str(len(group)))
     print(group)
@@ -2014,12 +2061,12 @@ for name, group in groupby_sex:
 
 - 남성과 여성 그룹별 인원 수 및 목록 출력
 
-### 5. 📊 성별 인원 수 집계
+#### 5. 🔹 성별 인원 수 집계
 ```python
 df_sex_cnt = pd.DataFrame({'count': groupby_sex.size()}).reset_index()
 ```
 
-#### 📌 출력 예시:
+#### 🔹 출력 예시:
 ```
      sex  count
 0  female      5
@@ -2027,7 +2074,7 @@ df_sex_cnt = pd.DataFrame({'count': groupby_sex.size()}).reset_index()
 ```
 
 
-## 🔍 핵심 구성 요소 요약
+#### 🔹 핵심 구성 요소 요약
 | 구성 요소               | 설명                                                             |
 |------------------------|------------------------------------------------------------------|
 | groupby('major')       | 'major' 열 기준으로 그룹화                                       |
@@ -2035,110 +2082,14 @@ df_sex_cnt = pd.DataFrame({'count': groupby_sex.size()}).reset_index()
 | .size()                | 각 그룹의 원소 수(행 개수)를 계산                                |
 | .reset_index()         | 그룹화 결과를 일반 DataFrame 형태로 변환                         |
 | for name, group in ... | 각 그룹의 이름과 해당 데이터 그룹을 순회하며 출력               |
-이 구조는 데이터 분석에서 그룹별 통계나 분포를 파악할 때 아주 유용해요. 이후 mean(), sum(), count() 같은 집계 함수와 함께 쓰면 더 강력한 분석도 가능하죠!
 
-
+- 이 구조는 데이터 분석에서 그룹별 통계나 분포를 파악할 때 아주 유용.
+- 이후 mean(), sum(), count() 같은 집계 함수와 함께 쓰면 더 강력한 분석도 가능
 
 --- 
 
-학생 데이터를 전공과 성별 기준으로 그룹화하고 집계하는 과정을 단계별로 체계적으로 정리. 
-아래는 각 단계의 설명과 핵심 코드 흐름:
+### 📌 중복 데이터 삭제하기
 
-### 🧩 1단계: 데이터프레임 생성
-```python
-student_list = [
-    {'name': 'John', 'major': "Computer Science", 'sex': "male"},
-    {'name': 'Nate', 'major': "Computer Science", 'sex': "male"},
-    ...
-]
-df = pd.DataFrame(student_list, columns=['name', 'major', 'sex'])
-```
-
-- 학생 이름, 전공, 성별 정보를 담은 테이블 생성
-
-### 🧩 2단계: 전공 기준 그룹화
-```python
-groupby_major = df.groupby('major')
-```
-
-- 'major' 열을 기준으로 그룹화
-- groupby_major.groups로 각 전공에 속한 인덱스 확인 가능
-
-### 🧩 3단계: 전공별 그룹 출력
-```python
-for name, group in groupby_major:
-    print(name + ": " + str(len(group)))
-    print(group)
-    print()
-```
-
-- 각 전공별 인원 수와 해당 학생 목록 출력
-
-### 🧩 4단계: 전공별 인원 수 집계
-```python
-df_major_cnt = pd.DataFrame({'count': groupby_major.size()}).reset_index()
-```
-
-- .size()로 각 그룹의 행 개수 계산
-- .reset_index()로 결과를 일반 테이블 형태로 변환
-#### 📌 예시 출력:
-```
-           major  count
-0  Computer Science      4
-1        Economics      3
-2          Physics      1
-3       Psychology      3
-```
-
-
-### 🧩 5단계: 성별 기준 그룹화
-```python
-groupby_sex = df.groupby('sex')
-```
-
-- 'sex' 열을 기준으로 그룹화
-
-### 🧩 6단계: 성별 그룹 출력
-```python
-for name, group in groupby_sex:
-    print(name + ": " + str(len(group)))
-    print(group)
-    print()
-```
-
-- 남성과 여성 그룹별 인원 수 및 목록 출력
-
-### 🧩 7단계: 성별 인원 수 집계
-```python
-df_sex_cnt = pd.DataFrame({'count': groupby_sex.size()}).reset_index()
-```
-
-####📌 예시 출력:
-```
-     sex  count
-0  female      5
-1    male      6
-
-```
-
-## 🧠 요약: 핵심 메서드 정리
-| 메서드/구문               | 역할 및 설명                                                  |
-|--------------------------|---------------------------------------------------------------|
-| groupby('major')         | 'major' 열 기준으로 학생들을 전공별로 그룹화                  |
-| groupby('sex')           | 'sex' 열 기준으로 학생들을 성별로 그룹화                      |
-| .size()                  | 각 그룹의 행 개수(학생 수)를 계산                             |
-| .reset_index()           | 그룹화 결과를 일반 DataFrame 형태로 변환                      |
-| for name, group in ...   | 각 그룹의 이름(name)과 해당 데이터(group)를 순회하며 출력     |
-
-
-이 표는 그룹화 → 집계 → 출력까지의 흐름을 한눈에 보여줌.   
-이후 .mean(), .sum(), .count() 같은 집계 함수나 pivot_table로 교차 분석도 쉽게 확장
-
-----
-
-# 중복 데이터 삭제하기
-
-## 소스
 ```python
 student_list = [{'name': 'John', 'major': "Computer Science", 'sex': "male"},
                 {'name': 'Nate', 'major': "Computer Science", 'sex': "male"},
@@ -2154,20 +2105,16 @@ student_list = [{'name': 'John', 'major': "Computer Science", 'sex': "male"},
                 {'name': 'John', 'major': "Computer Science", 'sex': "male"},
          ]
 df = pd.DataFrame(student_list, columns = ['name', 'major', 'sex'])
-df
 df.duplicated()
 df = df.drop_duplicates()
-df 
-
 ```
 
-## 🧩 2단계: 중복 여부 확인
+#### 🔹 중복 여부 확인
 ```python
 df.duplicated()
 ```
-
 - 각 행이 이전 행과 완전히 동일한지를 Boolean 값으로 반환
-### - 예시 결과:
+#### 🔹 예시 결과:
 ```
 0    False
 1    False
@@ -2177,7 +2124,7 @@ df.duplicated()
 ```
 
 
-## 🧩 3단계: 중복 제거
+#### 🔹 중복 제거
 
 ```python
 df = df.drop_duplicates()
@@ -2186,7 +2133,7 @@ df = df.drop_duplicates()
 - 중복된 행을 제거하고 고유한 학생 정보만 유지
 - 기본적으로 전체 열 기준으로 중복 판단
 
-### 📋 최종 결과 예시
+#### 🔹 최종 결과 예시
 ```
        name             major     sex
 0      John  Computer Science    male
@@ -2202,19 +2149,18 @@ df = df.drop_duplicates()
 10     Sera        Psychology  female
 ```
 
-
-## 🔍 핵심 메서드 요약
+#### 🔹 핵심 메서드 요약
 | 메서드                  | 설명                                                             |
 |-------------------------|------------------------------------------------------------------|
 | df.duplicated()         | 각 행이 이전 행과 완전히 동일한지 여부를 Boolean 값으로 반환     |
 | df.drop_duplicates()    | 중복된 행을 제거하고 고유한 데이터만 유지                        |
 
-
 ---
 
-이 코드는 'name' 기준으로 중복된 학생 데이터를 식별하고, 마지막 항목을 남기고 나머지를 제거하는 흐름
+### 📌 중복 데이터 삭제하기 (name 기준)
 
-#  소스 
+- 이 코드는 'name' 기준으로 중복된 학생 데이터를 식별하고, 마지막 항목을 남기고 나머지를 제거하는 흐름
+
 ```python
 student_list = [{'name': 'John', 'major': "Computer Science", 'sex': "male"},
                 {'name': 'Nate', 'major': "Computer Science", 'sex': "male"},
@@ -2230,15 +2176,11 @@ student_list = [{'name': 'John', 'major': "Computer Science", 'sex': "male"},
                 {'name': 'John', 'major': "Computer Science", 'sex': None},
          ]
 df = pd.DataFrame(student_list, columns = ['name', 'major', 'sex'])
-df
-
 df.duplicated(['name'])
-
-
 df.drop_duplicates(['name'], keep='last')
 ```
 
-## 🧩 1단계: 데이터프레임 생성
+#### 🔹 데이터프레임 생성
 ```python
 df = pd.DataFrame(student_list, columns=['name', 'major', 'sex'])
 ```
@@ -2246,24 +2188,21 @@ df = pd.DataFrame(student_list, columns=['name', 'major', 'sex'])
 - 학생 이름, 전공, 성별 정보를 담은 테이블 생성
 - 'John', 'Nate' 이름이 중복으로 등장함
 
-##🧩 2단계: 특정 열 기준 중복 여부 확인
+#### 🔹 특정 열 기준 중복 여부 확인
 ```python
 df.duplicated(['name'])
 ```
-
 - 'name' 열 기준으로 중복 여부를 Boolean 값으로 반환
-### - 예시 결과:
+#### 🔹 예시 결과:
 ```
 0    False
 1    False
 ...
-
-
 10    True   ← Nate 중복 11    True   ← John 중복
 ```
 
 
-## 🧩 3단계: 중복 제거 (`keep='last'`)
+#### 🔹 중복 제거 (`keep='last'`)
 
 ```python
 df.drop_duplicates(['name'], keep='last')
@@ -2272,7 +2211,7 @@ df.drop_duplicates(['name'], keep='last')
 - 'name' 기준으로 중복된 행 제거
 - 마지막 등장한 항목만 유지, 앞선 중복은 제거됨
 
-### 📌 결과 예시:
+#### 🔹 결과 예시:
 ```
        name             major     sex
 2   Abraham           Physics    male
@@ -2286,8 +2225,7 @@ df.drop_duplicates(['name'], keep='last')
 11     John  Computer Science    None
 ```
 
-
-## 🔍 핵심 메서드 요약
+#### 🔹 핵심 메서드 요약
 | 구성 요소                      | 설명                                                             |
 |-------------------------------|------------------------------------------------------------------|
 | df.duplicated(['name'])       | 'name' 열 기준으로 중복 여부를 Boolean 값으로 반환               |
@@ -2296,8 +2234,7 @@ df.drop_duplicates(['name'], keep='last')
 
 ---
 
-
-## 소스
+### 📌 소스
 ```python
 school_id_list = [{'name': 'John', 'job': "teacher", 'age': 40},
                 {'name': 'Nate', 'job': "teacher", 'age': 35},
@@ -2309,30 +2246,82 @@ school_id_list = [{'name': 'John', 'job': "teacher", 'age': 40},
                 {'name': 'John', 'job': "student", 'age': None}
          ]
 df = pd.DataFrame(school_id_list, columns = ['name', 'job', 'age'])
-df
 
 df.info()
-df.isna()
+"""
+<class 'pandas.DataFrame'>
+RangeIndex: 8 entries, 0 to 7
+Data columns (total 3 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   name    8 non-null      str    
+ 1   job     8 non-null      str    
+ 2   age     6 non-null      float64
+dtypes: float64(1), str(2)
+memory usage: 324.0 bytes
+"""
 
+df.isna()
+"""
+    name    job    age
+0  False  False  False
+1  False  False  False
+2  False  False  False
+3  False  False  False
+4  False  False  False
+5  False  False  False
+6  False  False   True
+7  False  False   True
+"""
 df.isnull()
+"""
+    name    job    age
+0  False  False  False
+1  False  False  False
+2  False  False  False
+3  False  False  False
+4  False  False  False
+5  False  False  False
+6  False  False   True
+7  False  False   True
+"""
 
 tmp = df
 tmp["age"] = tmp["age"].fillna(0)
-tmp
+print(tmp)
+"""
+     name      job   age
+0     John  teacher  40.0
+1     Nate  teacher  35.0
+2     Yuna  teacher  37.0
+3  Abraham  student  10.0
+4    Brian  student  12.0
+5    Janny  student  11.0
+6     Nate  teacher   0.0
+7     John  student   0.0
+"""
 
 # fill missing age with median age for each group (teacher, student)
 df["age"] = df["age"].fillna(df.groupby("job")["age"].transform("median"))
 
 print(df.columns)
 
-df
-
+print(df)
+"""
+      name      job   age
+0     John  teacher  40.0
+1     Nate  teacher  35.0
+2     Yuna  teacher  37.0
+3  Abraham  student  10.0
+4    Brian  student  12.0
+5    Janny  student  11.0
+6     Nate  teacher  37.0
+7     John  student  11.0
+"""
 ```
+- 결측값 처리와 그룹별 통계 기반 보정까지 구성. 
 
-결측값 처리와 그룹별 통계 기반 보정까지 구성. 
-아래에 전체 흐름을 단계별로 체계적으로 정리해:
-
-## 🧩 1단계: 데이터프레임 생성
+#### 🔹 데이터프레임 생성
 ```python
 df = pd.DataFrame(school_id_list, columns=['name', 'job', 'age'])
 ```
@@ -2340,17 +2329,18 @@ df = pd.DataFrame(school_id_list, columns=['name', 'job', 'age'])
 - 이름, 직업(teacher/student), 나이 정보를 담은 테이블 생성
 - 일부 age 값이 None으로 결측됨
 
-## 🧩 2단계: 결측값 확인
+#### 🔹 결측값 확인
 ```python
 df.info()
+
 df.isna()
 df.isnull()
 ```
 
 - info()로 전체 열의 타입과 결측 개수 확인
 - isna() / isnull()은 결측값 위치를 Boolean으로 반환
-
-## 🧩 3단계: 임시 대체 (0으로 채우기)
+  
+#### 🔹 임시 대체 (0으로 채우기)
 ```python
 tmp = df
 tmp["age"] = tmp["age"].fillna(0)
@@ -2359,45 +2349,67 @@ tmp["age"] = tmp["age"].fillna(0)
 - fillna(0)으로 결측값을 0으로 채움
 - 단순 대체이므로 분석용으로는 부적절할 수 있음
 
-## 🧩 4단계: 그룹별 중앙값으로 결측값 보정
+#### 🔹 그룹별 중앙값으로 결측값 보정
 ```python
 df["age"] = df["age"].fillna(df.groupby("job")["age"].transform("median"))
 ```
 
 - groupby("job")으로 직업별 그룹화
 - 각 그룹의 age 중앙값(median)을 계산
-- transform("median")은 원래 인덱스에 맞춰 반환
+- `transform("median")`은 원래 인덱스에 맞춰 반환
 - 결측값을 해당 그룹의 중앙값으로 채움
-### 📌 예시:
+
+#### 🔹 예시:
 - teacher 그룹: [40, 35, 37] → median = 37
 - student 그룹: [10, 12, 11] → median = 11
 
-##🧩 5단계: 결과 확인
+#### 🔹 5단계: 결과 확인
 ```python
-print(df.columns)
-df
+print(df)
 ```
-
 - age 열의 결측값이 모두 채워진 상태로 출력됨
 
-## 🔍 핵심 메서드 요약
+#### 🔹 핵심 메서드 요약
 | 구성 요소                                 | 설명                                                             |
 |------------------------------------------|------------------------------------------------------------------|
 | df.isna() / df.isnull()                  | 결측값 여부를 Boolean 값으로 반환 (True: 결측, False: 정상)     |
 | fillna(0)                                 | 결측값을 0으로 채움 (단순 대체 방식)                             |
 | groupby("job")["age"].transform("median")| 직업별로 age의 중앙값을 계산하고 각 행에 맞춰 반환               |
 | fillna(...)                               | 결측값을 지정된 값 또는 계산된 값으로 채움                       |
-이 흐름은 데이터 정제에서 아주 중요. 특히 groupby + transform 조합은 그룹별 통계 기반 보정에 매우 강력!
 
+- 이 흐름은 데이터 정제에서 아주 중요.
+- 특히 groupby + transform 조합은 그룹별 통계 기반 보정에 강력
+
+```python
+df.groupby("job")["age"].median()
+```
+- 직업별 중앙값을 계산합니다.
+
+| job	| age (중앙값) |
+|----------|-------------|
+| 개발자	| 35 |
+| 교사	| 35 |
+| 의사	| 50 |
+
+```python
+df.groupby("job")["age"].transform("median")
+```
+- 계산한 그룹별 중앙값을 원래 데이터의 각 행에 배치해서 반환한다
+
+| Index	| job	| age |
+|---------|---------|-----|
+| 0	| 개발자	| 25 |
+| 1	| 교사	| 30 |
+| 2	| 개발자	| 35 |
+| 3	| 교사	| 40 |
+| 4	| 개발자	| 45 |
+| 5	| 의사	| 50 |
 
 ---- 
 
-# 'job' 열의 고유 직업 목록과 직업별 빈도수를 확인하는 흐름
+### 📌 'job' 열의 고유 직업 목록과 직업별 빈도수를 확인하는 흐름
 
-
-## 소스
 ```python
-
 job_list = [{'name': 'John', 'job': "teacher"},
                 {'name': 'Nate', 'job': "teacher"},
                 {'name': 'Fred', 'job': "teacher"},
@@ -2420,45 +2432,57 @@ job_list = [{'name': 'John', 'job': "teacher"},
                 {'name': 'Jessy', 'job': "student"}
          ]
 df = pd.DataFrame(job_list, columns = ['name', 'job'])
-
-
 print( df.job.unique() )
-
+"""
+<StringArray>
+[          'teacher',           'student',         'developer',
+           'dentist',            'lawyer',            'banker',
+ 'basketball player']
+Length: 7, dtype: str
+"""
 
 df.job.value_counts()
-
+"""
+job
+teacher              8
+student              5
+lawyer               2
+banker               2
+developer            1
+dentist              1
+basketball player    1
+Name: count, dtype: int64
+"""
 ```
 
-## 🧩 1단계: 데이터프레임 생성
+#### 🔹 1단계: 데이터프레임 생성
 ```python
 df = pd.DataFrame(job_list, columns=['name', 'job'])
 ```
-
 - 이름과 직업 정보를 담은 테이블 생성
 
-## 🧩 2단계: 고유 직업 목록 확인
+#### 🔹 2단계: 고유 직업 목록 확인
 ```python
 df.job.unique()
 ```
-
 - 'job' 열에 등장한 중복 없는 직업 리스트를 반환
 
-### - 예시 결과:
-```python
-array(['teacher', 'student', 'developer', 'dentist', 'lawyer',
-       'banker', 'basketball player'], dtype=object)
-
+#### 🔹 예시 결과:
+```
+<StringArray>
+[          'teacher',           'student',         'developer',
+           'dentist',            'lawyer',            'banker',
+ 'basketball player']
 ```
 
-### 🧩 3단계: 직업별 빈도수 계산
+#### 🔹 3단계: 직업별 빈도수 계산
 ```python
 df.job.value_counts()
 ```
-
 - 각 직업이 몇 번 등장했는지 세어줌
-### - 예시 결과:
+#### 🔹 예시 결과:
 ```
-teacher              7
+teacher              8
 student              5
 banker               2
 lawyer               2
@@ -2469,45 +2493,71 @@ Name: job, dtype: int64
 ```
 
 
-## 🔍 핵심 메서드 요약
+#### 🔹 핵심 메서드 요약
 | 구성 요소                 | 설명                                                             |
 |--------------------------|------------------------------------------------------------------|
 | df.job.unique()          | 'job' 열에서 중복 없이 고유한 직업 목록을 배열 형태로 반환        |
 | df.job.value_counts()    | 'job' 열에서 각 직업이 몇 번 등장했는지 빈도수로 계산             |
 
-이 두 메서드는 범주형 데이터의 분포를 파악할 때 아주 유용.  
-이후 상위 직업 필터링, 비율 계산, 또는 시각화(barplot, pie chart)로 확장
+- 이 두 메서드는 범주형 데이터의 분포를 파악할 때 아주 유용.  
+- 이후 상위 직업 필터링, 비율 계산, 또는 시각화(barplot, pie chart)로 확장
+
+
+#### 🔹 활용 예제
+```python
+teacher_count = counts["teacher"]
+print(teacher_count)  # 8
+
+counts = df["job"].value_counts()
+
+result = counts[counts >= 2]
+print(result)
+"""
+teacher    8
+student    5
+banker     2
+lawyer     2
+"""
+
+most_common_job = counts.idxmax()
+most_common_count = counts.max()
+
+print(most_common_job, most_common_count)
+# teacher 8
+
+df["job_count"] = df["job"].map(counts)
+print(df)
+
+result = df[df["job"].map(counts) >= 3]
+print(result)
+```
 
 ---
 
+### 📌 value_counts(normalize=True)
+- normalize=True 옵션은 value_counts() 메서드에서 빈도수를 비율(%)로 변환할 때 사용.
 
-normalize=True 옵션은 value_counts() 메서드에서 빈도수를 비율(%)로 변환할 때 사용. \
-아래에 단계별로 체계적으로 정리:
-
-## 🧩 1단계: 기본 빈도수 계산
+#### 🔹 1단계: 기본 빈도수 계산
 ```python
 df['job'].value_counts()
-
 ```
-
 - 각 직업이 몇 번 등장했는지 정수형 빈도수로 반환
-### - 예시:
+#### 🔹 예시:
 ```
-teacher              7
+teacher              8
 student              5
 banker               2
 ...
-
 ```
 
-## 🧩 2단계: 비율 분석 (normalize=True)
+#### 🔹 2단계: 비율 분석 (normalize=True)
 ```python
 df['job'].value_counts(normalize=True)
 ```
 
 - 각 직업의 전체 대비 비율을 계산
 - 반환값은 소수점 형태의 비율 (합계는 1.0)
-### - 예시:
+#### 🔹 예시:
 ```
 teacher              0.35
 student              0.25
@@ -2515,14 +2565,13 @@ banker               0.10
 ...
 ```
 
-
-### 🧩 3단계: 퍼센트로 보기 (선택적 변환)
+#### 🔹 3단계: 퍼센트로 보기 (선택적 변환)
 ```
 df['job'].value_counts(normalize=True) * 100
 
 ```
-- 비율을 **퍼센트(%)**로 변환
-### - 예시:
+- 비율을 **퍼센트(%)** 로 변환
+#### 🔹 예시:
 ```
 teacher              35.0
 student              25.0
@@ -2530,8 +2579,7 @@ banker               10.0
 ...
 ```
 
-
-## 🔍 핵심 옵션 요약
+#### 🔹 핵심 옵션 요약
 | 구성 요소                             | 설명                                                             |
 |--------------------------------------|------------------------------------------------------------------|
 | value_counts()                       | 각 값의 빈도수(정수)를 반환                                      |
@@ -2539,17 +2587,14 @@ banker               10.0
 | value_counts(normalize=True) * 100   | 비율을 퍼센트(%)로 변환하여 가독성 향상                         |
 
 
-## 📊 활용 팁
+#### 🔹 활용 팁
 - 시각화 전에 비율로 정리하면 pie chart, barplot에 바로 적용 가능
 - 특정 범주가 전체에서 얼마나 차지하는지 빠르게 파악 가능
 - groupby와 함께 쓰면 다중 조건 비율 분석도 가능
 
 ---
 
-# 프레임 합치기
-
-
-## 소스
+### 📌 프레임 합치기
 
 ```python
 l1 = [{'name': 'John', 'job': "teacher"},
@@ -2567,28 +2612,23 @@ frames = [df1, df2]
 result = pd.concat(frames, ignore_index=True)
 result
 ```
+- 두 개의 리스트를 각각 DataFrame으로 만든 뒤, 하나로 병합하는 흐름.  
 
-
-이 코드는 두 개의 리스트를 각각 DataFrame으로 만든 뒤, 하나로 병합하는 흐름.  
-아래에 단계별로 정리:
-
-## 🧩 1단계: 리스트 → DataFrame 변환
+#### 🔹 1단계: 리스트 → DataFrame 변환
 ```python
 df1 = pd.DataFrame(l1, columns=['name', 'job'])
 df2 = pd.DataFrame(l2, columns=['name', 'job'])
 ```
-
 - l1, l2 리스트를 각각 테이블 형태로 변환
 - 열 이름은 'name', 'job'
 
-## 🧩 2단계: 병합 준비
+#### 🔹 2단계: 병합 준비
 ```python
 frames = [df1, df2]
 ```
-
 - 두 DataFrame을 리스트로 묶어 병합 준비
 
-## 🧩 3단계: concat으로 병합
+#### 🔹 3단계: concat으로 병합
 ```python
 result = pd.concat(frames, ignore_index=True)
 ```
@@ -2596,7 +2636,7 @@ result = pd.concat(frames, ignore_index=True)
 - pd.concat()으로 수직 병합 (행 추가 방식)
 - ignore_index=True로 인덱스를 새로 부여
 
-### 📋 최종 결과 예시
+#### 🔹 최종 결과 예시
 ```
     name       job
 0   John    teacher
@@ -2608,21 +2648,29 @@ result = pd.concat(frames, ignore_index=True)
 ```
 
 
-## 🔍 핵심 메서드 요약
+#### 🔹 핵심 메서드 요약
 | 구성 요소           | 설명                                                             |
 |--------------------|------------------------------------------------------------------|
 | pd.DataFrame(...)  | 리스트 또는 딕셔너리를 기반으로 테이블(DataFrame) 생성            |
 | pd.concat([...])   | 여러 DataFrame을 수직 방향으로 병합 (행 추가 방식)               |
 | ignore_index=True  | 기존 인덱스를 무시하고 병합 후 새로운 인덱스를 자동 생성         |
 
+---
 
-열 기준 병합(merge), 중복 제거, 그리고 병합 후 정렬까지의 흐름을 단계별로 체계적으로 정리한:
+### 📌 merge
 
-## 🧩 1단계: 열 기준 병합 (merge)
+- 열 기준 병합(merge)
+
+#### 🔹 1단계: 열 기준 병합 (merge)
 ```python
 pd.merge(df1, df2, on='name', how='inner')
+"""
+Empty DataFrame
+Columns: [name, job_x, job_y]
+Index: []
+"""
 ```
-## 🔍 핵심 메서드 요약
+#### 🔹 핵심 메서드 요약
 | 구성 요소           | 설명                                                             |
 |--------------------|------------------------------------------------------------------|
 | pd.merge()         | 공통 열을 기준으로 두 DataFrame을 병합하는 함수                   |
@@ -2631,17 +2679,17 @@ pd.merge(df1, df2, on='name', how='inner')
 | how='outer'        | 양쪽 전체 값을 병합, 없는 값은 NaN으로 채움 (합집합)             |
 | how='left' / 'right'| 왼쪽 또는 오른쪽 기준으로 병합 (부분집합 + NaN 보완)            |
 
-## 📌 예시:
+#### 🔹 예시:
 ```python
 pd.merge(df1, df2, on='name', how='outer')
 ```
 
 
-## 🧩 2단계: 중복 제거
+#### 🔹 2단계: 중복 제거
 ```python
 df.drop_duplicates(subset=['name'], keep='first')
 ```
-## 🔍 핵심 메서드 요약
+#### 🔹 핵심 메서드 요약
 | 구성 요소                  | 설명                                                             |
 |---------------------------|------------------------------------------------------------------|
 | drop_duplicates()         | 중복된 행을 제거하는 함수                                        |
@@ -2649,13 +2697,13 @@ df.drop_duplicates(subset=['name'], keep='first')
 | keep='first'              | 중복 중 첫 번째 항목을 유지하고 나머지는 제거                    |
 | keep='last'               | 중복 중 마지막 항목을 유지하고 앞선 항목은 제거                  |
 
-## 📌 중복 행만 추출하고 싶다면:
+#### 🔹 중복 행만 추출하고 싶다면:
 ```python
 df[df.duplicated('name', keep=False)]
 ```
 
 
-## 🧩 3단계: 병합 후 정렬
+#### 🔹 3단계: 병합 후 정렬
 ```python
 df.sort_values(by='name', ascending=True)
 ```
@@ -2665,85 +2713,23 @@ df.sort_values(by='name', ascending=True)
 | by='name'          | 'name' 열을 기준으로 정렬                                         |
 | ascending=True     | 오름차순 정렬 (False로 설정하면 내림차순 정렬)                    |
 
-## 📌 여러 열 기준 정렬도 가능:
+#### 🔹 여러 열 기준 정렬도 가능:
 ```python
 df.sort_values(by=['job', 'name'], ascending=[True, False])
 ```
 
-
-## 🧠 전체 흐름 요약
+#### 🔹 전체 흐름 요약
 | 단계       | 메서드               | 설명                                                             |
 |------------|----------------------|------------------------------------------------------------------|
 | 병합       | pd.merge()           | 공통 열 기준으로 두 DataFrame을 열 방향으로 병합                 |
 | 중복 제거  | drop_duplicates()    | 중복된 행을 제거하여 고유한 데이터만 유지                        |
 | 정렬       | sort_values()        | 특정 열 기준으로 행을 오름차순 또는 내림차순 정렬                |
 
-
 ---
 
-# 이 코드는 두 개의 리스트 l1, l2를 각각 DataFrame으로 만든 뒤, 하나로 병합하는 흐름:
 
-# Source
-```python
-l1 = [{'name': 'John', 'job': "teacher"},
-      {'name': 'Nate', 'job': "student"},
-      {'name': 'Fred', 'job': "developer"}]
+### 📌 두 개의 DataFrame을 열 방향(axis=1) 으로 병합하면서 인덱스를 무시하고 새로운 열 인덱스를 부여하는 흐름
 
-l2 = [{'name': 'Ed', 'job': "dentist"},
-      {'name': 'Jack', 'job': "farmer"},
-      {'name': 'Ted', 'job': "designer"}]
-         
-df1 = pd.DataFrame(l1, columns = ['name', 'job'])
-df2 = pd.DataFrame(l2, columns = ['name', 'job'])
-result = pd.concat([df1, df2], ignore_index=True)
-
-result
-
-```
-
-## 🧩 단계별 설명
-### 1️⃣ 리스트 → DataFrame 변환
-```python
-df1 = pd.DataFrame(l1, columns=['name', 'job'])
-df2 = pd.DataFrame(l2, columns=['name', 'job'])
-```
-
-- l1, l2 리스트를 각각 테이블 형태로 변환
-- 열 이름은 'name', 'job'
-
-###  2️⃣ 병합 준비 및 실행
-```python
-result = pd.concat([df1, df2], ignore_index=True)
-```
-
-
-- pd.concat()으로 수직 병합 (행 추가 방식)
-- ignore_index=True로 인덱스를 새로 부여하여 깔끔하게 정렬
-
-### 📋 병합 결과 예시
-```
-    name       job
-0   John    teacher
-1   Nate    student
-2   Fred  developer
-3     Ed    dentist
-4   Jack     farmer
-5    Ted   designer
-```
-
-
-## 🔍 핵심 메서드 요약
-| 구성 요소           | 설명                                                             |
-|--------------------|------------------------------------------------------------------|
-| pd.DataFrame(...)  | 리스트 또는 딕셔너리를 기반으로 테이블(DataFrame) 생성            |
-| pd.concat([...])   | 여러 DataFrame을 수직 방향으로 병합 (행 추가 방식)               |
-| ignore_index=True  | 기존 인덱스를 무시하고 병합 후 새로운 인덱스를 자동 생성         |
-
-
-
-# 이 코드는 두 개의 DataFrame을 열 방향(axis=1) 으로 병합하면서 인덱스를 무시하고 새로운 열 인덱스를 부여하는 흐름
-
-# 소스
 ```python
 l1 = [{'name': 'John', 'job': "teacher"},
       {'name': 'Nate', 'job': "student"},
@@ -2756,18 +2742,16 @@ l2 = [{'age': 25, 'country': "U.S"},
 df1 = pd.DataFrame(l1, columns = ['name', 'job'])
 df2 = pd.DataFrame(l2, columns = ['age', 'country'])
 result = pd.concat([df1, df2], axis=1, ignore_index=True)
-result
 ```
-## 🧩 1단계: 리스트 → DataFrame 변환
+#### 🔹 1단계: 리스트 → DataFrame 변환
 ```python
 df1 = pd.DataFrame(l1, columns=['name', 'job'])
 df2 = pd.DataFrame(l2, columns=['age', 'country'])
 ```
-
 - df1: 이름과 직업 정보
 - df2: 나이와 국가 정보
 
-## 🧩 2단계: 열 방향 병합
+#### 🔹 2단계: 열 방향 병합
 ```python
 result = pd.concat([df1, df2], axis=1, ignore_index=True)
 ```
@@ -2778,24 +2762,23 @@ result = pd.concat([df1, df2], axis=1, ignore_index=True)
 | ignore_index=True  | 기존 열 이름을 무시하고 숫자 인덱스로 새로 부여                  |
 
 
-## 📌 결과 예시:
+#### 🔹 결과 예시:
 ```
        0          1     2        3
 0   John    teacher    25      U.S
 1   Nate    student    30      U.K
 2   Jack  developer    45    Korea
 ```
+- 열 이름이 사라지고 숫자 인덱스(0, 1, 2, 3)로 바뀌는 이유는 ignore_index=True 때문.
 
-열 이름이 사라지고 숫자 인덱스(0, 1, 2, 3)로 바뀌는 이유는 ignore_index=True 때문.
 
-
-## ✅ 열 이름 유지하려면?
+#### 🔹 열 이름 유지하려면?
 ```python
 result = pd.concat([df1, df2], axis=1)
 ```
-
 - ignore_index=False가 기본값이므로 열 이름이 유지됨
-### 📌 결과 예시:
+
+#### 🔹 결과 예시:
 ```
    name       job  age country
 0  John   teacher   25     U.S
@@ -2803,8 +2786,7 @@ result = pd.concat([df1, df2], axis=1)
 2  Jack developer   45   Korea
 ```
 
-
-## 🔍 핵심 메서드 요약
+#### 🔹 핵심 메서드 요약
 | 구성 요소           | 설명                                                             |
 |--------------------|------------------------------------------------------------------|
 | pd.concat([...])   | 여러 DataFrame을 병합하는 함수                                    |
@@ -2812,7 +2794,8 @@ result = pd.concat([df1, df2], axis=1)
 | ignore_index=True  | 기존 열 이름을 무시하고 숫자 인덱스로 새로 부여                  |
 
 ----
-## 샘플
+
+### 📌 샘플
 ```python
 label = [1,2,3,4,5]
 prediction = [1,2,2,5,5]
@@ -2822,21 +2805,27 @@ comparison = pd.DataFrame(
      'prediction': prediction
     })
 
-comparison
+print(comparison)
+
+"""
+   label  prediction
+0      1           1
+1      2           2
+2      3           2
+3      4           5
+4      5           5
+"""
 ```
 
-
-
-## 🧩 1단계: 리스트 정의
+#### 🔹 1단계: 리스트 정의
 ```python
 label = [1, 2, 3, 4, 5]
 prediction = [1, 2, 2, 5, 5]
 ```
-
 - label: 실제 정답
 - prediction: 모델 또는 알고리즘의 예측 결과
 
-## 🧩 2단계: 비교용 DataFrame 생성
+#### 🔹 2단계: 비교용 DataFrame 생성
 ```python
 comparison = pd.DataFrame({
     'label': label,
@@ -2846,7 +2835,7 @@ comparison = pd.DataFrame({
 
 - 두 리스트를 열로 구성한 테이블 생성
 
-## 📋 결과 예시
+#### 🔹 결과 예시
 ```
    label  prediction
 0      1           1
@@ -2857,106 +2846,24 @@ comparison = pd.DataFrame({
 ```
 
 
-## ✅ 확장 아이디어
-정확도 계산, 오차 분석, 또는 시각화로 이어질 수 있음:
+#### 🔹 확장 아이디어
+- 정확도 계산, 오차 분석, 또는 시각화로 이어질 수 있음:
 ```python
 comparison['correct'] = comparison['label'] == comparison['prediction']
 accuracy = comparison['correct'].mean()
 ```
-
-### 📌 정확도 출력:
+#### 🔹 정확도 출력:
 ```python
 accuracy = 3 / 5 = 0.6 (60%)
 ```
 
+---
 
+### 📌 matplotlib 와 연동
+- pandas와 matplotlib를 함께 사용해서 데이터프레임을 시각화하는 기본 샘플 코드.  
+- 막대그래프(bar chart)를 그리는 예제.
 
-
-모델 예측 결과를 분석할 때 사용하는 confusion matrix, precision/recall 계산, 그리고 시각화(heatmap, barplot) 흐름을 단계별로 정리
-
-## 🧩 1단계: Confusion Matrix 생성
-```python
-from sklearn.metrics import confusion_matrix
-
-cm = confusion_matrix(label, prediction)
-print(cm)
-```
-
-- label: 실제 값
-- prediction: 예측 값
-- 결과는 클래스별로 얼마나 맞췄는지 보여주는 행렬
-### 📌 예시 출력:
-```
-[[1 0 0 0 0]
- [0 1 1 0 0]
- [0 0 0 0 0]
- [0 0 0 0 1]
- [0 0 0 0 2]]
-```
-
-
-## 🧩 2단계: Precision, Recall 계산
-```python
-from sklearn.metrics import precision_score, recall_score
-
-precision = precision_score(label, prediction, average='macro')
-recall = recall_score(label, prediction, average='macro')
-
-print("Precision:", precision)
-print("Recall:", recall)
-```
-
-| average 옵션       | 설명                                                             |
-|--------------------|------------------------------------------------------------------|
-| average='macro'    | 클래스별로 개별 계산 후 단순 평균 (클래스 균형이 중요할 때 사용) |
-| average='weighted' | 클래스별 개별 계산 후 샘플 수 기준 가중 평균                     |
-| average='micro'    | 전체 TP, FP, FN을 합산하여 계산 (전체 정확도 중심)              |
-
-
-## 🧩 3단계: Confusion Matrix 시각화 (Heatmap)
-```python
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-plt.xlabel('Predicted')
-plt.ylabel('Actual')
-plt.title('Confusion Matrix')
-plt.show()
-```
-
-- annot=True: 숫자 표시
-- fmt='d': 정수 형식
-- cmap='Blues': 색상 스타일
-
-## 🧩 4단계: Barplot으로 클래스별 정확도 시각화
-```python
-import pandas as pd
-
-comparison['correct'] = comparison['label'] == comparison['prediction']
-class_accuracy = comparison.groupby('label')['correct'].mean().reset_index()
-
-sns.barplot(x='label', y='correct', data=class_accuracy)
-plt.title('Accuracy per Class')
-plt.ylabel('Accuracy')
-plt.show()
-```
-
-- 각 클래스별로 얼마나 정확하게 예측했는지 시각화
-
-## 🧠 핵심 요약
-| 단계       | 메서드                          | 설명                                                             |
-|------------|----------------------------------|------------------------------------------------------------------|
-| 평가       | confusion_matrix()               | 실제 값과 예측 값의 혼동 행렬 생성                              |
-| 평가       | precision_score(), recall_score()| 정밀도(Precision)와 재현율(Recall) 계산                          |
-| 시각화     | sns.heatmap()                    | 혼동 행렬을 색상으로 시각화 (정확도 시각적 분석에 유용)         |
-| 시각화     | sns.barplot()                    | 클래스별 정확도 또는 비율을 막대그래프로 시각화                 |
-
-
-pandas와 matplotlib를 함께 사용해서 데이터프레임을 시각화하는 기본 샘플 코드.  
-막대그래프(bar chart)를 그리는 예제.
-
-## 📊 샘플: 직업별 인원 수 시각화 (Bar Chart)
+#### 🔹 샘플: 직업별 인원 수 시각화 (Bar Chart)
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -2986,8 +2893,9 @@ plt.tight_layout()
 plt.show()
 ```
 
+![Pandas matplot](../Image/pandas_matplot.png)
 
-## 🔍 설명
+#### 🔹 설명
 | 구성 요소           | 설명                                                             |
 |--------------------|------------------------------------------------------------------|
 | value_counts()     | 범주형 데이터의 빈도수를 계산                                     |
@@ -2997,20 +2905,17 @@ plt.show()
 | plt.tight_layout() | 그래프 요소 간 간격 자동 조정                                     |
 | plt.show()         | 그래프를 화면에 출력                                              |
 
+- NumPy는 수치 계산을 위한 라이브러리이고, matplotlib는 시각화를 위한 라이브러리
 
-
-# NumPy는 수치 계산을 위한 라이브러리이고, matplotlib는 시각화를 위한 라이브러리
-
-## ✅ 기본 호출 방식
+#### 🔹 기본 호출 방식
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 ```
-
 - np: NumPy의 약어
 - plt: matplotlib의 시각화 모듈인 pyplot의 약어
 
-## 📊 예시: NumPy 배열을 시각화
+#### 🔹 예시: NumPy 배열을 시각화
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -3027,7 +2932,7 @@ plt.ylabel('sin(x)')
 plt.grid(True)
 plt.show()
 ```
-## 🔍 설명
+#### 🔹 설명
 | 구성 요소               | 설명                                                             |
 |------------------------|------------------------------------------------------------------|
 | NumPy np               | 수치 계산 및 배열 생성을 위한 라이브러리                         |
