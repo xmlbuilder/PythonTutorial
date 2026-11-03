@@ -1,8 +1,8 @@
-# CPP 연동
+## 📘 CPP 연동
 - 아주 작은 C++ 클래스를 만들고, pybind11로 파이썬 모듈로 노출하는 “최소완성” 예제.
 - Clion을 사용하는 기반으로 제작
 
-## 구성
+### 📌 구성
 - 클래스: MyThing
 - 멤버 변수: value_ (int)
 - 멤버 메소드: increment(int delta)
