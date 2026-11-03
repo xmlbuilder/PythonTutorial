@@ -1,12 +1,12 @@
-# Head Excursion Chart
+## 📘 axvspan 익히기
 
-## 🎯 목표: Head Excursion Chart 구성 요소
+### 📌 목표: axvspan 구성 요소
 - 배경 색 영역: x축 기준으로 red/yellow/green 영역 나누기
 - 데이터 라인: head excursion trajectory (x, y 좌표)
 - 축 방향: x축은 수평 이동, y축은 수직 이동
 
 ```python
-# Head Excursion trajectory (예시 데이터)
+# axvspan (예시 데이터)
 x = [0, 50, 100, 150, 200, 250, 300]
 y = [0, -20, -60, -100, -150, -180, -160]
 
@@ -34,7 +34,7 @@ plt.show()
 - 참조 이미지
 ![Head Exursion](/Image/HeadExursion.png)
 
-## 🔍 핵심 함수 설명
+### 📌 핵심 함수 설명
 
 | 함수 또는 인자                          | 설명                                                                 |
 |----------------------------------------|----------------------------------------------------------------------|
@@ -45,13 +45,14 @@ plt.show()
 
 
 
-✅ 팁
+### 📌 팁
 - 색 영역은 기준선이나 안전 한계를 시각적으로 표현할 때 매우 유용.
-- ax.axvline()이나 ax.axhline()으로 기준선도 추가할 수 있어요.
+- ax.axvline()이나 ax.axhline()으로 기준선도 추가할 수 있음.
 - ax.text()로 영역에 라벨을 직접 넣는 것도 가능합니다.
 
 ---
-# 샘플 2
+
+### 📌 샘플 2
 ```python
 import matplotlib.pyplot as plt
 
@@ -91,7 +92,7 @@ plt.show()
 - 참조 이미지
 ![Head Exursion 2](/Image/HeadExursion2.png)
 
-## 🔍 핵심 요소 설명
+### 📌 핵심 요소 설명
 
 | 함수 또는 기능         | 설명                                                                 |
 |------------------------|----------------------------------------------------------------------|
