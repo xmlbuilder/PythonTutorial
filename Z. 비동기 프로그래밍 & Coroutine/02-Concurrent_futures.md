@@ -1,21 +1,21 @@
-# 🧵 Python 동시성 프로그래밍 
-concurrent.futures 활용 예제
+## 📘 Python 동시성 프로그래밍 
+- concurrent.futures 활용 예제
 
-## 🚀 개요
-Python에서 비동기 작업을 효율적으로 처리하기 위해 concurrent.futures 모듈을 활용한 동시성 프로그래밍을 소개합니다.  
-특히 파일 I/O, 네트워크 작업처럼 지연 시간이 큰 작업에서 CPU 리소스를 낭비하지 않고 성능을 극대화할 수 있습니다.
-## 🔧 기존 방식의 한계
+### 📌 개요
+- Python에서 비동기 작업을 효율적으로 처리하기 위해 concurrent.futures 모듈을 활용한 동시성 프로그래밍을 소개.  
+- 특히 파일 I/O, 네트워크 작업처럼 지연 시간이 큰 작업에서 CPU 리소스를 낭비하지 않고 성능을 극대화할 수 있습니다.
+### 📌 기존 방식의 한계
 - threading, multiprocessing 모듈은 설정이 복잡하고 관리가 어렵습니다.
 - GIL(Global Interpreter Lock)로 인해 멀티스레딩의 성능이 제한될 수 있습니다.
 - 두 개 이상의 스레드가 하나의 자원을 동시에 접근할 경우 GIL이 전체 리소스를 잠금 → 문맥 교환(Context Switch) 발생
 - 이 경우 multiprocessing을 통해 병렬 처리로 우회 가능
 
-## ✅ concurrent.futures 장점
+### 📌 concurrent.futures 장점
 - 고수준 API 제공으로 사용이 간편함
 - 멀티스레딩과 멀티프로세싱 API 통일
 - 작업 취소, 완료 여부 체크, 타임아웃, 콜백 등 Promise 개념을 쉽게 구현 가능
 
-## 🧪 실습 코드
+### 📌 실습 코드
 ```python
 import time
 from concurrent import futures
