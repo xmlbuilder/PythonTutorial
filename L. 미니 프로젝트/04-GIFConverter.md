@@ -1,13 +1,12 @@
-# GIF Converter
-이 코드는 이미지들을 하나의 GIF 애니메이션으로 변환하는 Image Converter Sample Project. 
-아래에 핵심 구조와 실행 흐름을 정리해볼게:
+## 📘 GIF Converter
+- 이 코드는 이미지들을 하나의 GIF 애니메이션으로 변환하는 Image Converter Sample Project. 
 
-## 🧠 프로젝트 개요
+### 📌 프로젝트 개요
 - 목적: 여러 PNG 이미지를 하나의 GIF로 변환
 - 사용 라이브러리: glob (파일 탐색), PIL.Image (이미지 처리)
 - 클래스: GIFConverter
 
-## 전체 코드
+### 📌 전체 코드
 ```python
 import glob
 from PIL import Image
@@ -54,8 +53,8 @@ if __name__ == '__main__':
 
 ```
 
-## 🔧 주요 기능 설명
-### 1. __init__ 생성자
+### 📌 주요 기능 설명
+#### 🔹 1. __init__ 생성자
 ```python
 def __init__(self, path_in=None, path_out=None, resize=(320, 240))
 ```
@@ -63,7 +62,7 @@ def __init__(self, path_in=None, path_out=None, resize=(320, 240))
 - path_in: 원본 이미지 경로 (예: './images/*.png')
 - path_out: 결과 GIF 경로 (예: './output/filename.gif')
 - resize: 이미지 크기 조정 (기본값: 320×240)
-### 2. convert() 메소드
+#### 🔹 2. convert() 메소드
 ```python
 img, *images = [Image.open(f).resize(self.resize) for f in sorted(glob.glob(self.path_in))]
 ```
@@ -71,14 +70,14 @@ img, *images = [Image.open(f).resize(self.resize) for f in sorted(glob.glob(self
 - glob.glob(self.path_in): 경로에 맞는 이미지 파일 리스트
 - Image.open(f).resize(...): 이미지 열고 리사이즈
 - img.save(...): 첫 이미지 기준으로 GIF 저장, 나머지는 append_images로 추가
-### 3. 예외 처리
+#### 🔹 3. 예외 처리
+```python
 except IOError as e:
     print("Converter Error: ", e)
-
-
+```
 - 파일 입출력 오류 및 기타 예외 처리
 
-## ✅ 실행 예시
+#### 🔹 실행 예시
 ```python
 if __name__ == '__main__':
     c = GIFConverter('./project/images/*.png', './project/image_out/filename.gif', resize=(320, 240))
@@ -86,7 +85,7 @@ if __name__ == '__main__':
     print(GIFConverter.__doc__)
 ```
 
-###  출력 결과 예시
+#### 🔹  출력 결과 예시
 ```
 ./project/images/*.png ./project/image_out/filename.gif (320, 240)
 filename.gif created successfully
@@ -94,7 +93,7 @@ Image to GIF converter
 ```
 
 
-### 📌 실무 활용 포인트
+#### 🔹 실무 활용 포인트
 
 | 기능 요소                  | 설명                                                                 |
 |----------------------------|----------------------------------------------------------------------|
@@ -106,13 +105,14 @@ Image to GIF converter
 
 
 ---
-# GUI 추가
 
-- ✅ GUI 추가 (Tkinter 기반)
-- ✅ 이미지 포맷 자동 감지
-- ✅ 프레임 간 시간 조절 기능
+### 📌 GUI 추가
 
-## 🧩 전체 구조 요약
+- GUI 추가 (Tkinter 기반)
+- 이미지 포맷 자동 감지
+- 프레임 간 시간 조절 기능
+
+#### 🔹 전체 구조 요약
 ```python
 import glob
 import os
@@ -151,8 +151,9 @@ class GIFConverter:
             print(f'{self.path_out} created successfully')
         except Exception as e:
             print("Conversion Error:", e)
-
-# 🎨 GUI 추가
+```
+#### 🔹 GUI 추가
+```python
 class ConverterGUI:
     def __init__(self):
         self.root = tk.Tk()
@@ -202,7 +203,10 @@ if __name__ == '__main__':
 
 ```
 
-### ✅ 기능 확장 요약
+![GIF Converter Image](../Image/tk_gif_browser.png)
+
+
+#### 🔹 기능 확장 요약
 
 | 기능 요소         | 설명                                                                 |
 |------------------|----------------------------------------------------------------------|
@@ -211,5 +215,7 @@ if __name__ == '__main__':
 | GUI (Tkinter)    | 폴더 선택, 저장 경로 지정, 시간 입력 등 사용자 친화적 인터페이스 제공              |
 | 포맷 자동 감지     | 확장자 필터링으로 이미지 포맷 자동 인식 → 사용자가 별도 지정하지 않아도 처리 가능     |
 | 예외 처리         | 경로 오류, 파일 누락 등 발생 시 안정적인 메시지 출력 → 유지보수 및 사용자 경험 향상     |
+
+---
 
 
