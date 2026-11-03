@@ -1,4 +1,4 @@
-## ✅ Python WebClient 패키지 구조
+## 📘 Python WebClient 패키지 구조
 ```
 python_webclient/
 │
@@ -17,7 +17,7 @@ python_webclient/
 ```
 
 
-## ✅ Python WebClient 기능 요약
+### 📌 Python WebClient 기능 요약
 | 기능                         | 지원 |
 |------------------------------|------|
 | GET 요청                     | ✅   |
@@ -36,15 +36,14 @@ python_webclient/
 | Timeout 설정                 | ✅   |
 
 
-## ✅ Python WebClient 구현
+### 📌 Python WebClient 구현
 
-### 📌 webclient/client.py
+#### 🔹 webclient/client.py
 ```python
 import aiohttp
 import asyncio
 from bs4 import BeautifulSoup
 from .json_path import json_path_query
-
 
 class WebClient:
     def __init__(self, url, timeout=30, headers=None):
@@ -72,25 +71,25 @@ class WebClient:
         else:
             self.html = BeautifulSoup(text, "html.parser")
 
-    # ✅ GET
+    # GET
     async def get(self):
         async with self.session.get(self.url) as resp:
             await self._parse_response(resp)
         return self
 
-    # ✅ POST JSON
+    #  POST JSON
     async def post_json(self, data):
         async with self.session.post(self.url, json=data) as resp:
             await self._parse_response(resp)
         return self
 
-    # ✅ POST Form
+    # POST Form
     async def post_form(self, form):
         async with self.session.post(self.url, data=form) as resp:
             await self._parse_response(resp)
         return self
 
-    # ✅ Multipart 파일 업로드
+    # Multipart 파일 업로드
     async def upload_files(self, files):
         form = aiohttp.FormData()
         for field, path, mime in files:
@@ -105,7 +104,7 @@ class WebClient:
             await self._parse_response(resp)
         return self
 
-    # ✅ Form + 파일 업로드
+    # Form + 파일 업로드
     async def upload_form_and_files(self, form_fields, files):
         form = aiohttp.FormData()
 
@@ -124,7 +123,7 @@ class WebClient:
             await self._parse_response(resp)
         return self
 
-    # ✅ 스트리밍 업로드
+    # 스트리밍 업로드
     async def upload_stream(self, field, path, mime):
         form = aiohttp.FormData()
         form.add_field(
@@ -138,25 +137,25 @@ class WebClient:
             await self._parse_response(resp)
         return self
 
-    # ✅ HTML selector
+    # HTML selector
     def select(self, selector):
         if not self.html:
             return []
         return [el.get_text(strip=True) for el in self.html.select(selector)]
 
-    # ✅ HTML attribute
+    # HTML attribute
     def attr(self, selector, attr):
         if not self.html:
             return []
         return [el.get(attr) for el in self.html.select(selector) if el.get(attr)]
 
-    # ✅ JSON key
+    # JSON key
     def json_key(self, key):
         if not self.json:
             return None
         return self.json.get(key)
 
-    # ✅ JSONPath
+    # JSONPath
     def json_path(self, path):
         if not self.json:
             return None
@@ -165,8 +164,9 @@ class WebClient:
     async def close(self):
         await self.session.close()
 ```
-## ✅ JSONPath 구현 (Rust 버전과 동일)
-### 📌 webclient/json_path.py
+
+### 📌 JSONPath 구현 (Rust 버전과 동일)
+#### 🔹 webclient/json_path.py
 ```python
 def json_path_query(data, path):
     current = data
@@ -182,11 +182,11 @@ def json_path_query(data, path):
 ```
 
 
-## ✅ HTML 파싱은 BeautifulSoup 사용
+#### 🔹 HTML 파싱은 BeautifulSoup 사용
 - Rust의 scraper와 거의 동일한 기능 제공.
 
-## ✅ Python 테스트 코드 (Rust 테스트와 동일)
-### 📌 tests/test_client.py
+### 📌 Python 테스트 코드 (Rust 테스트와 동일)
+#### 🔹 tests/test_client.py
 ```python
 import pytest
 import asyncio
@@ -200,7 +200,7 @@ async def test_get():
     await client.close()
 ```
 
-## ✅ Python 패키지 설정 (pyproject.toml)
+### 📌 Python 패키지 설정 (pyproject.toml)
 ```
 [project]
 name = "python-webclient"
@@ -217,6 +217,7 @@ dependencies = [
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 ```
+---
 
 
 
