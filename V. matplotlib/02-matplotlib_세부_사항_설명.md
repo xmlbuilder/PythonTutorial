@@ -1,6 +1,6 @@
-# matplotlib
+## 📘 matplotlib
 
-## 🎯 1. Sine & Cosine 그래프 (Matplotlib)
+### 📌 1. Sine & Cosine 그래프 (Matplotlib)
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -26,8 +26,8 @@ plt.show()
 - plt.plot()으로 선 그래프
 - legend()로 라벨 표시
 
-## 📊 2. 시간에 따른 통계량 (Bar Chart & Polar Chart)
-### 🟦 Bar Chart 예제
+### 📌 2. 시간에 따른 통계량 (Bar Chart & Polar Chart)
+#### 🔹 Bar Chart 예제
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -45,7 +45,7 @@ plt.ylabel('건수')
 plt.show()
 ```
 
-## 🧭 Polar Chart 예제
+#### 🔹 Polar Chart 예제
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -68,7 +68,7 @@ plt.show()
 - polar=True로 극좌표 그래프 생성
 - angles는 라디안 단위로 변환 필요
 
-## 🌈 3. Seaborn 활용 예제
+### 📌 3. Seaborn 활용 예제
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -89,10 +89,11 @@ plt.show()
 
 ### 📌 핵심 포인트:
 - sns.load_dataset()으로 내장 데이터 불러오기
+- day를 기준으로 데이터를 그룹화하고, 각 그룹의 tip 평균을 계산합니다.
 - estimator=np.mean으로 평균값 시각화
 - palette로 색상 테마 설정
 
-## 🧠 요약 정리
+### 📌 요약 정리
 | 시각화 유형       | 라이브러리         | 주요 함수 및 옵션                          |
 |------------------|--------------------|--------------------------------------------|
 | 선 그래프         | matplotlib         | plot(), legend(), grid()                   |
@@ -100,10 +101,9 @@ plt.show()
 | 극좌표 그래프     | matplotlib         | subplot(polar=True), fill()                |
 | 고급 막대 그래프  | seaborn            | barplot(), palette, estimator   
 
-
 ----
 
-## Legend
+### 📌 Legend
 
 ```python
 import numpy as np
@@ -125,8 +125,10 @@ plt.grid(True)
 plt.show()
 ```
 
-### 🎨 커스터마이징 옵션
+#### 🔹 커스터마이징 옵션
+```python
 plt.legend(loc='upper right', fontsize=12, frameon=True)
+```
 
 | 옵션 이름   | 주요 값 또는 설명                                 |
 |-------------|--------------------------------------------------|
@@ -135,18 +137,17 @@ plt.legend(loc='upper right', fontsize=12, frameon=True)
 | frameon     | True / False → 범례 테두리 표시 여부               |
 
 
-### 🔧 예시 코드
+#### 🔹 예시 코드
 ```python
 plt.legend(loc='upper right', fontsize='medium', frameon=True)
 ```
-
 - loc='upper right': 그래프 오른쪽 위에 범례 배치
 - fontsize='medium': 중간 크기 글꼴
 - frameon=True: 테두리 표시
 
 
 
-## ✅ 마커 추가 예제
+### 📌 마커 추가 예제
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -166,9 +167,10 @@ plt.ylabel('y')
 plt.legend()
 plt.grid(True)
 plt.show()
-
 ```
-## 대표적인 마커 종류를 정리한 표
+
+#### 🔹 대표적인 마커 종류를 정리한 표
+
 | 마커 코드 | 모양 설명       |
 |-----------|----------------|
 | 'o'       | 둥근 점         |
@@ -178,19 +180,19 @@ plt.show()
 | 'x'       | X자             |
 | '+'       | 십자            |
 
-## 🧪 예시 사용법
+#### 🔹 예시 사용법
+```python
 plt.plot(x, y, marker='*')  # 별표 마커로 데이터 포인트 표시
-
-📌 마커는 plot() 함수 안에서 marker='...' 옵션으로 지정하며, markersize=10 같은 추가 옵션으로 크기도 조절할 수 있음.
+```
+- 마커는 plot() 함수 안에서 marker='...' 옵션으로 지정하며, markersize=10 같은 추가 옵션으로 크기도 조절할 수 있음.
 
 ---
 
-## subplot
+### 📌 subplot
 
-subplot() 또는 subplots()를 사용해서 여러 개의 그래프를 한 화면에 나란히 배치할 수 있음. 
-아래에 대표적인 예제를 정리.
+- subplot() 또는 subplots()를 사용해서 여러 개의 그래프를 한 화면에 나란히 배치할 수 있음. 
 
-### ✅ 기본 구조: plt.subplot()
+### 📌 기본 구조: plt.subplot()
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
@@ -213,9 +215,9 @@ plt.tight_layout()
 plt.show()
 ```
 
-### 📌 subplot(행, 열, 위치) 형식으로 지정해요.
+### 📌 subplot(행, 열, 위치) 형식으로 지정.
 
-### 🧩 더 유연한 방식: fig, ax = plt.subplots()
+#### 🔹 더 유연한 방식: fig, ax = plt.subplots()
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -249,17 +251,25 @@ plt.show()
 
 ### 📌 ax는 배열처럼 접근 가능해서 코드가 더 깔끔해져요.
 
-## 🎨 확장 아이디어
-- figsize=(width, height)로 전체 크기 조절
+#### 🔹 확장 아이디어
+- figsize=(width, height)로 전체 크기 조절, inch를 의미함
+  - dpi로 지정하면:
+```python
+fig, ax = plt.subplots(
+    2, 1,
+    figsize=(8, 6),
+    dpi=100
+)
+```
 - sharex=True, sharey=True로 축 공유
 - subplot(2, 2, i)로 4개까지 배치 가능
 
 
 ---
 
-## 수식 적용
+### 📌 수식 적용
 
-### ✅ 기본 문법: $수식$
+#### 🔹 기본 문법: $수식$
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -276,29 +286,24 @@ plt.grid(True)
 plt.show()
 ```
 
-### 📌 r'...'는 raw string으로 백슬래시 \가 제대로 인식되도록 해줘요.
+- r'...'는 raw string으로 백슬래시 \가 제대로 인식되도록 해줌.
+
 | 수식 코드                  | 표현 설명                         |
 |---------------------------|------------------------------------|
-| $x^2$                     | x의 제곱                           |
-| $x_1$                     | x의 아래 첨자 1                    |
-| $\frac{a}{b}$             | a 나누기 b (분수 형태)             |
-| $\sqrt{x}$                | x의 제곱근                         |
-| $\int_a^b f(x)\,dx$       | a부터 b까지 f(x)의 정적분          |
-| $\sum_{i=1}^n i$          | i=1부터 n까지의 합                 |
+| `$x^2$`                   | x의 제곱                           |
+| `$x_1$`                     | x의 아래 첨자 1                    |
+| `$\frac{a}{b}$`             | a 나누기 b (분수 형태)             |
+| `$\sqrt{x}$`                | x의 제곱근                         |
+| `$\int_a^b f(x)\,dx$`       | a부터 b까지 f(x)의 정적분          |
+| `$\sum_{i=1}^n i$`          | i=1부터 n까지의 합                 |
 
-### ✍️ 사용 예시
+#### 🔹 사용 예시
 ```python
 plt.title(r'$\int_a^b f(x)\,dx$')  # 그래프 제목에 수식
 plt.xlabel(r'$x$')                 # x축 라벨
 plt.text(1, 0.5, r'$\sqrt{x}$', fontsize=14)  # 그래프 안에 수식 주석
 ```
-
-📌 r'...'는 raw string으로 수식 안의 \ 기호를 제대로 인식하게 해줘요.
-
-필요하시면 수식과 한글을 함께 넣는 방법, 여러 수식을 subplot에 나눠서 표현하는 예제도 정리해드릴게요 😄
-
-
-### ✍️ 그래프 안에 수식 주석 넣기
+#### 🔹 그래프 안에 수식 주석 넣기
 ```python
 plt.text(np.pi, 0, r'$\sin(\pi) = 0$', fontsize=12, color='red')
 ```
@@ -308,9 +313,9 @@ plt.text(np.pi, 0, r'$\sin(\pi) = 0$', fontsize=12, color='red')
 
 ---
 
-## 수식 넣기
+### 📌 수식 넣기
 
-### ✅ 예시: 수식을 y값에 직접 넣기
+#### 🔹 예시: 수식을 y값에 직접 넣기
 ```pythoin
 import numpy as np
 import matplotlib.pyplot as plt
@@ -325,37 +330,16 @@ plt.ylabel(r'$y$')
 plt.grid(True)
 plt.show()
 ```
-
-### 📌 여기서 y = np.exp(-x) * np.sin(2 * np.pi * x)는 수식을 그대로 코드로 표현한 거예요.
-
-### 🧠 핵심 요약
-| 수식 표현       | NumPy 함수 코드     |
-|----------------|---------------------|
-| \( \sin(x) \)   | np.sin(x)           |
-| \( \cos(x) \)   | np.cos(x)           |
-| \( e^x \)       | np.exp(x)           |
-| \( \log(x) \)   | np.log(x)           |
-| \( \sqrt{x} \)  | np.sqrt(x)          |
-
-### ✨ 활용 예시
-```python
-import numpy as np
-x = np.linspace(0, 10, 100)
-
-y1 = np.sin(x)
-y2 = np.exp(x)
-y3 = np.sqrt(x)
-```
-이렇게 계산된 y값들을 matplotlib로 시각화하면 수식 기반 그래프를 쉽게 만들 수 있음.
+- y = np.exp(-x) * np.sin(2 * np.pi * x)는 수식을 그대로 코드로 표현.
 
 ---
 
-## ✨ 수식 시각화 + 수식 표시
+### 📌 수식 시각화 + 수식 표시
 - 계산은 NumPy
 - 표시는 matplotlib의 LaTeX 수식
-이렇게 조합하면 수학적 모델이나 물리 공식도 아주 깔끔하게 시각화할 수 있음.
+  - 이렇게 조합하면 수학적 모델이나 물리 공식도 아주 깔끔하게 시각화할 수 있음.
 
-## 1.🎨 시각적 스타일링 보강
+#### 🔹 1.시각적 스타일링 보강
 ```python
 - plt.style.use('ggplot'), 'seaborn-darkgrid', 'fivethirtyeight' 등 다양한 스타일 적용
 - figsize, linewidth, alpha, color map 등으로 시각적 완성도 향상
@@ -363,7 +347,7 @@ plt.style.use('seaborn-darkgrid')
 plt.plot(x, y, color='teal', linewidth=2, alpha=0.8)
 ```
 
-### 샘플 코드
+#### 🔹 샘플 코드
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -409,7 +393,7 @@ plt.show()
 
 ```
 
-### 📊 2. 다양한 그래프 유형
+### 📌 2. 다양한 그래프 유형
 | 그래프 유형         | 주요 함수                          |
 |--------------------|------------------------------------|
 | 선 그래프           | plot()                             |
@@ -422,12 +406,11 @@ plt.show()
 
 ---
 
-## 파일로 저장
+### 📌 파일로 저장
 
-matplotlib에서 생성한 그래프를 이미지 파일로 저장하려면 plt.savefig() 함수를 사용하면 됩니다.  
-아래에 간단한 예제와 함께 설명:
+- matplotlib에서 생성한 그래프를 이미지 파일로 저장하려면 plt.savefig() 함수를 사용하면 됩니다.  
 
-### ✅ 기본 저장 방법
+#### 🔹 기본 저장 방법
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
@@ -445,7 +428,7 @@ plt.show()
 
 
 
-### 🧩 저장 옵션
+#### 🔹 저장 옵션
 ```python
 plt.savefig('sine_plot.png', dpi=300, bbox_inches='tight')
 ```
@@ -456,23 +439,21 @@ plt.savefig('sine_plot.png', dpi=300, bbox_inches='tight')
 | bbox_inches='tight'| 그래프 주변 여백 제거하고 깔끔하게 저장     |
 
 
-### 📁 저장 경로 지정
+#### 🔹 저장 경로 지정
 ```python
 plt.savefig('C:/Users/JungHwan/Desktop/sine_plot.png')
 ```
-
 - 절대 경로 또는 상대 경로 모두 사용 가능
 - 경로에 한글이 포함되어도 대부분 문제 없지만, 폰트 설정은 따로 해주는 게 좋음.
 
 
 ---
 
-## PDF로 저장
+### 📌 PDF로 저장
 
-matplotlib에서는 그래프를 이미지뿐 아니라 PDF 파일로도 저장.  
-아래는 Sine 그래프를 PDF로 저장하는 예제입니다:
+- matplotlib에서는 그래프를 이미지뿐 아니라 PDF 파일로도 저장.  
 
-### ✅ PDF로 저장하는 예제
+#### 🔹 PDF로 저장하는 예제
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -497,7 +478,7 @@ plt.show()
 
 ```
 
-### 📦 저장 옵션 요약
+#### 🔹 저장 옵션 요약
 | 저장 옵션           | 설명 또는 사용 예시                     |
 |--------------------|------------------------------------------|
 | 'sine_plot.pdf'    | 저장할 PDF 파일 이름                     |
@@ -506,6 +487,9 @@ plt.show()
 | bbox_inches='tight'| 여백 없이 그래프만 깔끔하게 저장           |
 
 
-### 🧠 팁
-- PDF는 벡터 그래픽이라 확대해도 깨지지 않아서 인쇄나 문서 삽입에 아주 좋아요.
-- plt.savefig()는 .svg, .eps, .ps 같은 다른 벡터 포맷도 지원해요.
+#### 🔹 팁
+- PDF는 벡터 그래픽이라 확대해도 깨지지 않아서 인쇄나 문서 삽입 좋음.
+- plt.savefig()는 .svg, .eps, .ps 같은 다른 벡터 포맷도 지원.
+
+---
+
