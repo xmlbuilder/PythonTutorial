@@ -1,10 +1,10 @@
-# 🔄 Futures 두 번째 단계
-wait() vs as_completed()
+## 📘 Futures 두 번째 단계
+- wait() vs as_completed()
 
-## 🎯 목적
-submit()으로 스케줄링한 비동기 작업들을 효율적으로 관리하고 결과를 수집하기 위한 고급 API.
+### 📌 목적
+- submit()으로 스케줄링한 비동기 작업들을 효율적으로 관리하고 결과를 수집하기 위한 고급 API.
 
-## 🧩 핵심 함수 비교
+### 📌 핵심 함수 비교
 | 함수              | 설명                                                                 |
 |-------------------|----------------------------------------------------------------------|
 | `wait()`          | 모든 작업이 완료되거나 타임아웃이 발생할 때까지 기다림               |
@@ -13,9 +13,9 @@ submit()으로 스케줄링한 비동기 작업들을 효율적으로 관리하�
 |                   | 작업이 완료되는 즉시 결과를 가져올 수 있어 스트리밍 처리에 유리       |
 
 
-## 🧪 실습 코드 요약
+### 📌 실습 코드 요약
 
-### 공통 코드
+#### 🔹 공통 코드
 ```python
 import os
 import time
@@ -26,7 +26,7 @@ def sum_generator(n):
     return sum(n for n in range(1, n+1))
 ```
 
-### 1. wait() 사용 예시
+#### 🔹 1. wait() 사용 예시
 
 ```python
 result = futures.wait(futures_list, timeout=1.0)
@@ -34,7 +34,7 @@ print("Completed Tasks:", result.done)
 print("Pending Tasks:", result.not_done)
 print([future.result() for future in result.done])
 ```
-#### 출력 결과
+#### 🔹 출력 결과
 ```
 Result -> [{<Future at 0x106ab5ca0 state=finished returned int>, 
 <Future at 0x106ab5730 state=finished returned int>, 
@@ -47,7 +47,7 @@ Result -> [{<Future at 0x106ab5ca0 state=finished returned int>,
 - result.done과 result.not_done으로 작업 상태를 분리해서 확인 가능
 - 타임아웃이 작동하지 않는 경우는 OS나 작업 크기, 프로세스 스케줄링에 따라 발생할 수 있음
 
-### 2. as_completed() 사용 예시
+#### 🔹 2. as_completed() 사용 예시
 ```python
 for future in futures.as_completed(futures_list, timeout=0.1):
     result = future.result()
@@ -58,14 +58,14 @@ for future in futures.as_completed(futures_list, timeout=0.1):
 - 빠르게 끝나는 작업부터 처리 가능 → 실시간 처리에 적합
 - 타임아웃이 작동하지 않는 경우는 내부적으로 next() 호출 시 예외가 발생하지 않기 때문
 
-⚠️ 타임아웃이 작동하지 않는 이유?
+#### 🔹 타임아웃이 작동하지 않는 이유?
 - ProcessPoolExecutor는 작업이 완료되기 전까지 result()를 반환하지 않음
 - 타임아웃은 작업 자체가 너무 빨리 끝나거나 너무 오래 걸릴 경우 무시될 수 있음
 - 해결 방법:
-- future.result(timeout=...)로 개별 Future에 타임아웃 설정
-- ThreadPoolExecutor로 바꿔서 테스트해보기
+    - future.result(timeout=...)로 개별 Future에 타임아웃 설정
+    - ThreadPoolExecutor로 바꿔서 테스트해보기
 
-### ✅ 정리
+### 📌 정리
 
 | 기능               | 설명                                                                 |
 |--------------------|----------------------------------------------------------------------|
@@ -78,7 +78,7 @@ for future in futures.as_completed(futures_list, timeout=0.1):
 
 
 
-## 전체 코드
+### 📌 전체 코드
 ```python
 import os
 import time
@@ -89,8 +89,10 @@ WORK_LIST = [10000000, 1000000, 1000000, 1000000, 1000000,]
 # 누적 햡계 함수
 def sum_generator(n):
     return sum(n for n in range(1, n+1))
+```
 
-# submit
+#### 🔹 submit
+```python
 def main():
     cntWorker = min(10, len(WORK_LIST))
     start = time.time()
@@ -110,10 +112,9 @@ def main():
     msg = '\n Result -> {} Time : {:.2f}s'
 if __name__ == '__main__':
     main()
-
-
-
-# 2. wait  
+```
+#### 🔹 2. wait  
+```python
 import os
 import time
 from concurrent import futures
@@ -145,10 +146,11 @@ def main():
 
 if __name__ == '__main__':
     main()
+```
 
 
-
-# 3. as_completed
+#### 🔹 3. as_completed
+```python
 import os
 import time
 from concurrent import futures
@@ -179,6 +181,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
 ```
