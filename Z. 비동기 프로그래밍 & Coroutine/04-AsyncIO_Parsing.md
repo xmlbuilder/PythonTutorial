@@ -1,10 +1,9 @@
-# 🌐 AsyncIO 멀티 웹 스크래핑 + HTML 파싱 실습
-## 🎯 목적
+## 📘 AsyncIO 멀티 웹 스크래핑 + HTML 파싱 실습
+### 📌 목적
 - 여러 웹사이트를 동시에 요청하고 HTML을 파싱하여 원하는 정보를 추출
 - asyncio + ThreadPoolExecutor + BeautifulSoup 조합으로 비동기 웹 스크래핑 구현
 
-
-## 🧠 핵심 개념
+### 📌 핵심 개념
 
 | 개념               | 설명                                                                 |
 |--------------------|----------------------------------------------------------------------|
@@ -15,7 +14,7 @@
 | `asyncio.gather()` | 여러 코루틴을 동시에 실행하고 결과를 리스트로 반환                      |
 
 
-## 🧪 통합 실습 코드
+### 📌 통합 실습 코드
 ```python
 import asyncio
 import timeit
@@ -75,8 +74,8 @@ if __name__ == '__main__':
 ```
 
 
-## 🧭 AsyncIO 웹 스크래핑 + 파싱 절차 흐름 요약
-### ① 준비 단계: 모듈 임포트 및 초기 설정
+### 📌 AsyncIO 웹 스크래핑 + 파싱 절차 흐름 요약
+#### ① 준비 단계: 모듈 임포트 및 초기 설정
 - 필요한 모듈을 불러온다:
 - asyncio: 비동기 코루틴 실행
 - timeit: 실행 시간 측정
@@ -92,14 +91,14 @@ from bs4 import BeautifulSoup
 ```
 
 
-### ② 타겟 URL 목록 정의
+#### ② 타겟 URL 목록 정의
 - 동시에 요청할 웹사이트 주소들을 리스트로 정의
 ```python
 urls = ['http://daum.net', 'https://naver.com', ...]
 
 ```
 
-### ③ 비동기 작업 함수 정의 (fetch)
+#### ③ 비동기 작업 함수 정의 (fetch)
 - 각 URL에 대해 다음 작업을 수행:
 - 현재 쓰레드 이름 출력 (디버깅용)
 - urlopen()을 run_in_executor()로 비동기 실행
@@ -113,7 +112,7 @@ async def fetch(url, executor):
 ```
 
 
-### ④ 메인 코루틴 정의 (main)
+#### ④ 메인 코루틴 정의 (main)
 - 전체 작업을 관리하는 코루틴:
 - ThreadPoolExecutor 생성
 - 각 URL에 대해 fetch() 코루틴을 ensure_future()로 스케줄링
@@ -127,7 +126,7 @@ async def main():
 ```
 
 
-### ⑤ 이벤트 루프 실행 및 시간 측정
+#### ⑤ 이벤트 루프 실행 및 시간 측정
 - loop.run_until_complete(main())으로 코루틴 실행
 - timeit으로 전체 실행 시간 측정
 ```python
@@ -138,7 +137,7 @@ duration = timeit.default_timer() - start
 ```
 
 
-### ✅ 전체 흐름 요약
+### 📌 전체 흐름 요약
 
 | 단계            | 설명                                                                 |
 |-----------------|----------------------------------------------------------------------|
@@ -151,14 +150,14 @@ duration = timeit.default_timer() - start
 
 
 
-## 📌 참고 사항
+### 📌 참고 사항
 - urlopen()은 동기 함수이므로 aiohttp로 전환하면 더 효율적
 - BeautifulSoup은 HTML 구조가 복잡한 사이트에서도 안정적으로 파싱 가능
 - run_in_executor()는 기존 동기 함수를 비동기처럼 실행할 때 유용
 - asyncio.gather()는 모든 작업이 완료될 때까지 기다림
 
 
-## 전체 코드
+### 📌 전체 코드
 ```python
 import asyncio
 import timeit
@@ -212,13 +211,9 @@ if __name__ == '__main__':
     print('Total Running Time : ', duration)
 
 ```
-# loop.run_in_executor /asyncio.ensure_future/asyncio.gather/asyncio.get_event_loop
 
-asyncio를 활용한 비동기 프로그래밍에서 자주 쓰이는 핵심 함수들—loop.run_in_executor, asyncio.ensure_future,  
-asyncio.gather, asyncio.get_event_loop—이 각각 어떤 역할을 하는지 절차적으로 정리해볼게.
-
-## 🧠 AsyncIO 핵심 함수 설명
-### ① asyncio.get_event_loop()
+### 📌 AsyncIO 핵심 함수 설명
+#### ① asyncio.get_event_loop()
 - 역할: 현재 스레드에서 사용할 이벤트 루프를 가져옴
 - 설명: 모든 코루틴은 이벤트 루프에서 실행되어야 하므로, 루프를 먼저 가져와야 함
 - 사용 예시:
@@ -229,39 +224,39 @@ loop.run_until_complete(main())
 ```
 
 
-### ② loop.run_in_executor(executor, func, *args)
+#### ② loop.run_in_executor(executor, func, *args)
 - 역할: 동기 함수를 별도의 쓰레드나 프로세스에서 실행하여 비동기처럼 처리
 - 설명:
-- urlopen() 같은 블로킹 함수는 직접 await할 수 없음
-- 대신 run_in_executor()로 쓰레드 풀에 넘겨서 병렬 처리
+    - urlopen() 같은 블로킹 함수는 직접 await할 수 없음
+    - 대신 run_in_executor()로 쓰레드 풀에 넘겨서 병렬 처리
 - 사용 예시:
 ```python
 res = await loop.run_in_executor(executor, urlopen, url)
 ```
 
 
-### ③ asyncio.ensure_future(coroutine)
+#### ③ asyncio.ensure_future(coroutine)
 - 역할: 코루틴을 Future 객체로 감싸서 스케줄링
 - 설명:
-- 코루틴을 실행 대기열에 등록
-- gather()나 wait() 같은 함수에서 사용할 수 있도록 준비
+    - 코루틴을 실행 대기열에 등록
+    - gather()나 wait() 같은 함수에서 사용할 수 있도록 준비
 - 사용 예시:
 ```python
 futures = [asyncio.ensure_future(fetch(url, executor)) for url in urls]
 ```
 
-###  ④ asyncio.gather(*futures)
+####  ④ asyncio.gather(*futures)
 - 역할: 여러 코루틴을 동시에 실행하고 결과를 리스트로 반환
 - 설명:
-- 모든 작업이 완료될 때까지 기다림
-- 결과는 순서대로 정렬되어 반환됨
+    - 모든 작업이 완료될 때까지 기다림
+    - 결과는 순서대로 정렬되어 반환됨
 - 사용 예시:
 ```python
 results = await asyncio.gather(*futures)
 ```
 
 
-### ✅ 전체 흐름 요약
+### 📌 전체 흐름 요약
 | 단계               | 함수                   | 역할 설명                                                                 |
 |--------------------|------------------------|---------------------------------------------------------------------------|
 | 이벤트 루프 준비   | `get_event_loop()`     | 현재 스레드에서 사용할 이벤트 루프를 가져옴                               |
@@ -271,17 +266,19 @@ results = await asyncio.gather(*futures)
 
 ---
 
-## 🎁 Blackbox화 전략: 사용자 친화적 구조 만들기
-### ✅ 1. 핵심 로직을 함수로 감싸기
+### 📌  Blackbox화 전략: 사용자 친화적 구조 만들기
 
-복잡한 흐름을 하나의 함수로 추상화하면, 사용자는 내부 구조를 몰라도 쉽게 사용할 수 있음.
+#### 🔹 1. 핵심 로직을 함수로 감싸기
+
+- 복잡한 흐름을 하나의 함수로 추상화하면, 사용자는 내부 구조를 몰라도 쉽게 사용할 수 있음.
+```python
 def scrape_titles(urls):
     loop = asyncio.get_event_loop()
     return loop.run_until_complete(_run_scraper(urls))
+```
 
-
-### ✅ 2. 내부 코루틴은 숨기기
-실제 fetch, main, executor 등은 내부에서만 동작하게 하고, 외부에는 단순한 인터페이스만 제공.
+#### 🔹 2. 내부 코루틴은 숨기기
+- 실제 fetch, main, executor 등은 내부에서만 동작하게 하고, 외부에는 단순한 인터페이스만 제공.
 ```python
 async def _run_scraper(urls):
     executor = ThreadPoolExecutor(max_workers=10)
@@ -294,7 +291,7 @@ async def _fetch(url, executor):
     return soup.title.string if soup.title else 'No Title Found'
 ```            
 
-### ✅ 3. 사용자는 이렇게만 쓰면 됨
+#### 🔹 3. 사용자는 이렇게만 쓰면 됨
 ```
 urls = ['https://naver.com', 'https://daum.net']
 titles = scrape_titles(urls)
@@ -302,7 +299,7 @@ print(titles)
 ```
 
 
-### 🧠 장점
+### 📌 장점
 
 | 항목             | 설명                                                                 |
 |------------------|----------------------------------------------------------------------|
